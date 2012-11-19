@@ -1,0 +1,49 @@
+# [Created by task 1.9.4 11/15/2011 19:59:49]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-faq',
+# 'man task-tutorial', 'man task-color', 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=/home/pfsmorigo/.task
+
+# Color theme (uncomment one to use)
+#include /usr/local/share/doc/task/rc/dark-16.theme
+include /usr/local/share/doc/task/rc/dark-256.theme
+#include /usr/local/share/doc/task/rc/dark-blue-256.theme
+#include /usr/local/share/doc/task/rc/dark-gray-256.theme
+#include /usr/local/share/doc/task/rc/dark-green-256.theme
+#include /usr/local/share/doc/task/rc/dark-red-256.theme
+#include /usr/local/share/doc/task/rc/dark-violets-256.theme
+#include /usr/local/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/local/share/doc/task/rc/light-16.theme
+#include /usr/local/share/doc/task/rc/light-256.theme
+#include /usr/local/share/doc/task/rc/solarized-dark-256.theme
+#include /usr/local/share/doc/task/rc/solarized-light-256.theme
+
+include /usr/local/share/doc/task/rc/holidays.en-US.rc
+
+regex=on
+search.case.sensitive=no
+
+dateformat.annotation=Y-M-D H:N
+dateformat.report=a, b d
+dateformat=Y-M-D
+
+
+report.mine.description=Work Stuff
+report.mine.columns=id,project,priority,description
+report.mine.sort=priority-,grub+
+report.mine.labels=ID,Project,Priority,Description of task
+
+report.pri.description=My own report
+report.pri.columns=id,entry,description
+report.pri.labels=ID,Entered,Description
+report.pri.sort=entry+,description+
+report.pri.filter=status:pending
