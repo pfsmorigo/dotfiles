@@ -1,0 +1,41 @@
+startup_message off
+
+term screen-256color
+
+#backtick 1 3 3 screencaps.sh
+#hardstatus alwayslastline "%{bw}%1` %= %D %Y-%m-%d %c:%s "
+#hardstatus alwayslastline "%{= RW}%s%{-}%{.Wk} %= %-w%{= BW} %t %{= .W9}%+w"
+
+caption string "%?%{kw}%-Lw%?%{wb} %n*%f %t %?(%u)%?%?%{kw}%+Lw %= %h "
+
+shelltitle "$ |---"
+
+termcapinfo xterm*|rxvt*|kterm*|Eterm*|gnome-terminal* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+
+#enable 256 colors
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+#clean screen when exit a program
+altscreen on
+
+#hardstatus string "^E (^Et) | $USER@^EH"
+#hardstatus string "screen %n (%t) %w %? [%h]%?"
+hardstatus string "%w"
+hardstatus off
+
+deflog on
+logtstamp on
+logtstamp after 5
+logfile $HOME/.screen/screenlog.%n-%Y_%m_%d_%c_%s
+
+defscrollback 100000
+
+hardcopy_append on
+hardcopydir $HOME/.screen
+
+
+#screen -t weechat -L 9 weechat-curses
+screen 0
+
+bind b eval "writebuf" "exec sh -c 'cat /tmp/screen-exchange | xclip'"
+
