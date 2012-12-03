@@ -92,6 +92,8 @@ Bundle 'gmarik/vundle'
 Bundle 'ctags.vim'
 
 Bundle 'cscope_macros.vim'
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 Bundle 'scrooloose/nerdtree'
 map <F2> :NERDTreeToggle<CR>
