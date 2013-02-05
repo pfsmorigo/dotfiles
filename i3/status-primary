@@ -15,10 +15,11 @@ order += "wireless wlan0"
 order += "ethernet em1"
 order += "ethernet tun0"
 order += "ethernet ppp0"
+order += "ethernet usb0"
 #order += "ipv6"
 #order += "command pomodoro"
 order += "disk /"
-order += "disk /data"
+order += "disk /home"
 order += "battery 0"
 order += "cpu_temperature 0"
 #order += "command fanspeed"
@@ -54,6 +55,12 @@ ethernet ppp0 {
 	color_bad = "#555555"
 }
 
+ethernet usb0 {
+	# if you use %speed, i3status requires root privileges
+	format_up = "%ip"
+	format_down = ""
+	color_bad = "#555555"
+}
 
 ipv6 {
 	format_down = ""
@@ -89,7 +96,7 @@ disk "/" {
 	format = "%free"
 }
 
-disk "/data" {
+disk "/home" {
 	format = "%free"
 }
 
@@ -110,7 +117,7 @@ volume master {
 #    commandline = "export TZ=Europe/Zurich;date +'%H:%M %z'"
 #}
 
-command fanspeed {
-	format = "%result"
-    commandline = "cat /proc/acpi/ibm/fan | grep speed: | cut -f 3"
-}
+#command fanspeed {
+#	format = "%result"
+#    commandline = "cat /proc/acpi/ibm/fan | grep speed: | cut -f 3"
+#}

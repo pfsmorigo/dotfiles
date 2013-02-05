@@ -19,12 +19,13 @@ set $alt Mod1
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:DejaVu Sans Mono 8 
+#font pango:DejaVu Sans Mono 8
 
-#font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
+#font pango:Cantarell 8
+#font pango:Nanum Gothic 8
+#font pango:PT Sans 8
+font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
 
-
-set $resize_value 2
 
 # colors
 set $background  background         #000000
@@ -44,13 +45,12 @@ client.urgent            #900000 #900000 #ffffff
 client.background        #342826
 
 
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return       exec urxvt256c-ml -e sh -c "/usr/bin/screen -OxR main"
-bindsym $mod+Shift+Return exec urxvt256c-ml -e sh -c "~/bin/screen_remote z8"
+bindsym $mod+Return       exec urxvt -e sh -c "/usr/bin/screen -OxR main"
+bindsym $mod+Shift+Return exec urxvt -name URxvtRemote -e sh -c "~/bin/screen_remote z8"
 
 # kill focused window
 bindsym $mod+Shift+q kill
