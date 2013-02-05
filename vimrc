@@ -103,7 +103,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'c.vim'
 
 Bundle 'vim-scripts/vimwiki'
-let g:vimwiki_list = [{}, {'path': '~/ibm/wiki/'}]
+let g:vimwiki_list = [{'path': '~/Wiki/'}, {'path': '~/IBM/wiki/'}]
 
 Bundle 'AutoComplPop'
 
@@ -119,7 +119,7 @@ map <F4> :MRU<CR>
 Bundle 'fugitive.vim'
 
 Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 Bundle 'powerman/vim-plugin-viewdoc'
 

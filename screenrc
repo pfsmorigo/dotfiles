@@ -33,6 +33,7 @@ defscrollback 100000
 hardcopy_append on
 hardcopydir $HOME/.screen
 
+vbell 0
 
 #screen -t weechat -L 9 weechat-curses
 screen 0
