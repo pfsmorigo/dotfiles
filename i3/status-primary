@@ -26,7 +26,10 @@ order += "cpu_temperature 0"
 order += "load"
 order += "volume master"
 #order += "command date_zurich"
-order += "time"
+order += "tztime us_central"
+order += "tztime pouk"
+order += "tztime zurich"
+order += "tztime local"
 
 wireless wlan0 {
 	format_up = "%ip (%quality of %essid)"
@@ -80,10 +83,6 @@ run_watch VPN {
 	pidfile = "/var/run/vpnagentd.pid"
 }
 
-time {
-	format = "%a, %b %d %H:%M:%S"
-}
-
 load {
 	format = "%1min %5min %15min"
 }
@@ -93,11 +92,11 @@ cpu_temperature 0 {
 }
 
 disk "/" {
-	format = "%free"
+	format = "/ %free"
 }
 
 disk "/home" {
-	format = "%free"
+	format = "~ %free"
 }
 
 volume master {
@@ -107,14 +106,28 @@ volume master {
     mixer_idx = 0
 }
 
+tztime zurich {
+	format = "%Z %H"
+	timezone = "Europe/Zurich"
+}
+
+tztime us_central {
+	format = "%Z %H"
+	timezone = "US/Central"
+}
+
+tztime pouk {
+	format = "%Z %H"
+	timezone = "America/New_York"
+}
+
+tztime local {
+	format = "%a, %b %d %H:%M:%S"
+}
+
 #command pomodoro {
 #	format = "%result"
 #    commandline = "pomodoro status"
-#}
-
-#command date_zurich {
-#	format = "CEST %result"
-#    commandline = "export TZ=Europe/Zurich;date +'%H:%M %z'"
 #}
 
 #command fanspeed {

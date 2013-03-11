@@ -191,7 +191,7 @@ workspace 5 output LVDS1
 # functions control
 # key definition at /usr/share/X11/XKeysymDB
 
-bindsym XF86ScreenSaver            exec xscreensaver-command -lock
+bindsym XF86ScreenSaver            exec xautolock -locknow
 #bindsym XF86Sleep                  exec
 bindsym XF86TouchpadToggle         exec toggle_touchpad
 
@@ -217,7 +217,7 @@ bindsym Print                      exec gnome-screenshot
 bindsym $alt+Print                 exec gnome-screenshot --window
 
 bindsym $mod+period                exec ~/bin/automatic
-bindsym $mod+Shift+greater         exec killall automatic
+bindsym $mod+comma                 exec killall automatic
 
 # Notify history
 bindsym $mod+n                     exec notify
@@ -320,10 +320,16 @@ assign [title="NotesLogo"] work
 assign [class="Agnclient"] work
 
 
+# dia
+assign [class="Dia"] dia
+for_window [window_role="toolbox_window"] floating disable; layout stacking; move left; resize shrink right 25px
+#for_window [window_role="gimp-dock"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
+
+
 # gimp
 assign [class="Gimp"] gimp
-for_window [title="GIMP Startup"] move workspace gimp
-for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move left; resize shrink right 31px or 31 ppt
+#for_window [title="GIMP Startup"] move workspace gimp
+#for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move left; resize shrink right 31px or 31 ppt
 #for_window [window_role="gimp-dock"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
 
 
@@ -359,23 +365,18 @@ for_window [instance="file_progress" class="Nautilus"] floating enable
 
 
 # Start some util apps
-exec --no-startup-id /usr/bin/xscreensaver                  # XScreensaver
-exec --no-startup-id /usr/bin/screen -AOxRR main            # Screen
-exec --no-startup-id /usr/bin/xfce4-power-manager           # Power Manager
-exec --no-startup-id /home/pfsmorigo/bin/dropbox_monitor    # Dropbox
-#exec --no-startup-id /usr/bin/blueman-applet                # Bluetooth Manager
-#exec --no-startup-id /usr/bin/dropbox                       # Dropbox
-#exec --no-startup-id /usr/bin/nm-applet --sm-disable        # Network Manager
-#exec --no-startup-id /usr/bin/screen -dmR                   # Screen
-#exec --no-startup-id /usr/bin/gnome-power-manager           # Power Manager
-#exec --no-startup-id /usr/libexec/gnome-settings-daemon     # GNOME Settings Daemon
-#exec --no-startup-id /usr/bin/gnome-volume-control-applet   # Volume Control
-#exec --no-startup-id /usr/bin/nautilus                      # Nautilus
-#exec --no-startup-id /usr/bin/system-config-printer-applet  # Print Queue Applet
-#exec --no-startup-id /usr/bin/savtray                       # Symantec AntiVirus
-#exec --no-startup-id /usr/bin/thunar --daemon               # Thunar
-#exec --no-startup-id /usr/local/bin/clipit                  # ClipIt
-
+exec --no-startup-id /usr/bin/screen -AOxRR main
+exec --no-startup-id /usr/bin/xfce4-power-manager
+exec --no-startup-id /usr/bin/feh --bg-scale ~/Downloads/backgrounds/1440-900-76344.jpg
+exec --no-startup-id /usr/bin/xautolock
+exec --no-startup-id /home/pfsmorigo/bin/dropbox_monitor
+#exec --no-startup-id /usr/bin/blueman-applet
+#exec --no-startup-id /usr/bin/dropbox
+#exec --no-startup-id /usr/bin/nm-applet --sm-disable
+#exec --no-startup-id /usr/bin/screen -dmR
+#exec --no-startup-id /usr/bin/gnome-volume-control-applet
+#exec --no-startup-id /usr/bin/system-config-printer-applet
+#exec --no-startup-id /usr/bin/xscreensaver
 
 
 
