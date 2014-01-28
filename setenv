@@ -15,6 +15,10 @@ dotinstall() {
 	ln -sf $DIR/$1 ~/$2
 }
 
+setup_vim() {
+	cd $DIR && git submodule init && git submodule update
+}
+
 case $1 in
 	deps|dependencies)
 		if [ -f /usr/bin/apt-get ]; then
@@ -47,6 +51,7 @@ case $1 in
 		dotinstall XCompose          .XCompose
 		dotinstall Xresources        .Xresources
 		dotinstall bin/__bash_prompt bin/__bash_prompt
+		setup_vim
 		;;
 esac
 
