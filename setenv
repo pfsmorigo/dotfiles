@@ -3,10 +3,10 @@
 DIR=$(dirname $(realpath $0))
 
 dotinstall() {
-	if [ -f ~/$2 ]; then
+	if [ -e ~/$2 ]; then
 		NEWFILE=$2.$(date +%F_%T)
 		echo "Renaming $2 to $NEWFILE..."
-		mv ~/$2 ~/$2.$(date +%F_%T)
+		mv ~/$2 ~/$NEWFILE
 	fi
 
 	mkdir -p $(dirname ~/$2)
