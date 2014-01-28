@@ -9,7 +9,7 @@ dotinstall() {
 		mv ~/$2 ~/$2.$(date +%F_%T)
 	fi
 
-	mkdir -p $(dirname $1)
+	mkdir -p $(dirname ~/$2)
 
 	echo "Linking $1 to $2...."
 	ln -sf $DIR/$1 ~/$2
