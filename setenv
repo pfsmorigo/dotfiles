@@ -15,6 +15,14 @@ dotinstall() {
 	ln -sf $DIR/$1 ~/$2
 }
 
+if [ "$1" = "deps" ]; then
+	if [ -f /usr/bin/apt-get ]; then
+		sudo /usr/bin/apt-get install coreutils
+	elif [ -f /usr/bin/yum ]; then
+		sudo /usr/bin/yum install coreutils
+	fi
+fi
+
 if [ "$1" = "clean" ]; then
 	rm -f ~/.bash_profile.*
 	rm -f ~/.bashrc.*
