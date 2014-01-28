@@ -59,11 +59,13 @@ __bash_prompt() {
 					;;
 			esac
 
-			if [ -z "$(env | grep 'SSH_CLIENT')" ]; then
+			if [ -n "$(env | grep 'SSH_CLIENT')" ]; then
+				TYPE=${EG}
+			elif [ -n "$(cat /proc/cpuinfo | grep 'emulated by qemu')" ]; then
+				TYPE=${EM}
+			else
 				TYPE=${EY}
 				WHERE=
-			else
-				TYPE=${EG}
 			fi
 
 			DIRECTORY+="${FY}$(__symlink_dir)${NN}"
