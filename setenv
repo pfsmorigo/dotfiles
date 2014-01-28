@@ -21,7 +21,7 @@ if [ "$1" = "clean" ]; then
 	rm -f ~/.gtkrc-2.0.*
 	rm -f ~/.screenrc.*
 	rm -f ~/.vimrc.*
-	rm -f ~/bin/__bash_primpt.*
+	rm -f ~/bin/__bash_prompt.*
 	rm -f ~/.taskrc.*
 	rm -f ~/.XCompose.*
 	rm -f ~/.Xresources.*
@@ -34,7 +34,7 @@ dotinstall gtkrc-2.0         .gtkrc-2.0
 dotinstall screenrc          .screenrc
 dotinstall vimrc             .vimrc
 dotinstall vim               .vim
-dotinstall bin/__bash_prompt bin/__bash_primpt
+dotinstall bin/__bash_prompt bin/__bash_prompt
 
 if [ "$1" = "local" ]; then
 	dotinstall taskrc     .taskrc
