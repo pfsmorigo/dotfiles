@@ -2,17 +2,42 @@
 
 DIR=$(dirname $(realpath $0))
 
-set -x
+dotinstall() {
+	if [ -f ~/$2 ]; then
+		NEWFILE=$2.$(date +%F_%T)
+		echo "Renaming $2 to $NEWFILE..."
+		mv ~/$2 ~/$2.$(date +%F_%T)
+	fi
 
-ln -sf $DIR/bash_profile ~/.bash_profile
-ln -sf $DIR/bashrc       ~/.bashrc
-ln -sf $DIR/gtkrc-2.0    ~/.gtkrc-2.0
-ln -sf $DIR/screenrc     ~/.screenrc
-ln -sf $DIR/taskrc       ~/.taskrc
-ln -sf $DIR/vimrc        ~/.vimrc
-ln -sf $DIR/XCompose     ~/.XCompose
-ln -sf $DIR/Xresources   ~/.Xresources
+	mkdir -p $(dirname $1)
 
-mkdir -p ~/bin
-ln -sf $DIR/bin/__bash_prompt ~/bin
+	echo "Linking $1 to $2...."
+	ln -sf $DIR/$1 ~/$2
+}
+
+if [ "$1" = "clean" ]; then
+	rm -f ~/.bash_profile.*
+	rm -f ~/.bashrc.*
+	rm -f ~/.gtkrc-2.0.*
+	rm -f ~/.screenrc.*
+	rm -f ~/.vimrc.*
+	rm -f ~/bin/__bash_primpt.*
+	rm -f ~/.taskrc.*
+	rm -f ~/.XCompose.*
+	rm -f ~/.Xresources.*
+	exit
+fi
+
+dotinstall bash_profile      .bash_profile
+dotinstall bashrc            .bashrc
+dotinstall gtkrc-2.0         .gtkrc-2.0
+dotinstall screenrc          .screenrc
+dotinstall vimrc             .vimrc
+dotinstall bin/__bash_prompt bin/__bash_primpt
+
+if [ "$1" = "local" ]; then
+	dotinstall taskrc     .taskrc
+	dotinstall XCompose   .XCompose
+	dotinstall Xresources .Xresources
+fi
 
