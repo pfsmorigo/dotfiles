@@ -25,6 +25,9 @@ __bash_prompt() {
 	local HISTORYNUM="\!"
 	local COMMANDNUM="\#"
 
+	# clear variable
+	PS1=
+
 	case "$TERM" in
 		screen*) PS1='\[\033k\033\\\]'
 	esac
