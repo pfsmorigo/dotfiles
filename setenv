@@ -33,6 +33,7 @@ case $1 in
 		rm -f ~/.bashrc.*
 		rm -f ~/.gtkrc-2.0.*
 		rm -f ~/.screenrc.*
+		rm -f ~/.vim.*
 		rm -f ~/.vimrc.*
 		rm -f ~/bin/__bash_prompt.*
 		rm -f ~/.taskrc.*
