@@ -12,6 +12,22 @@
 set $mod Mod4
 set $alt Mod1
 
+
+set $resize_value 5
+
+set $w1 1
+set $w2 2
+set $w3 3
+set $w4 4
+set $w5 5
+set $w6 6
+set $w7 7
+set $w8 8
+set $w9 9
+set $w10 10
+set $www  www
+set $work work
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -37,6 +53,7 @@ set $barcolor2   active_workspace   #ffffff #333333
 set $barcolor3   inactive_workspace #888888 #222222
 set $barcolor4   urgent_workspace   #ffffff #900000
 
+
 ## class                 border  backgr. text
 client.focused           #2B6473 #2B6473 #ffffff
 client.focused_inactive  #004050 #004050 #ffffff
@@ -49,8 +66,11 @@ client.background        #342826
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return       exec urxvt -e sh -c "/usr/bin/screen -OxR main"
-bindsym $mod+Shift+Return exec urxvt -name URxvtRemote -e sh -c "~/bin/screen_remote z8"
+bindsym $mod+Return       exec smowterm
+bindsym $mod+Shift+Return exec smowterm gui
+#bindsym $mod+Return       exec urxvtc -e sh -c "/usr/bin/screen -OxR main"
+#bindsym $mod+Shift+Return exec urxvtc -name URxvtRemote -e sh -c "~/bin/screen_remote z8"
+#bindsym $mod+Return       exec dbus-launch --exit-with-session urxvtc -e sh -c "/usr/bin/screen -OxR main"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -116,32 +136,35 @@ bindsym $mod+a focus parent
 bindsym $mod+Escape [urgent="last"] focus
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-
+bindsym $mod+1   workspace $w1
+bindsym $mod+2   workspace $w2
+bindsym $mod+3   workspace $w3
+bindsym $mod+4   workspace $w4
+bindsym $mod+5   workspace $w5
+bindsym $mod+6   workspace $w6
+bindsym $mod+7   workspace $w7
+bindsym $mod+8   workspace $w8
+bindsym $mod+9   workspace $w9
+bindsym $mod+0   workspace $w10
+bindsym $mod+F11 workspace $www
+bindsym $mod+F12 workspace $work
 
 # switch between the current and the previously focused one
 bindsym $mod+b workspace back_and_forth
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1   move container to workspace $w1
+bindsym $mod+Shift+2   move container to workspace $w2
+bindsym $mod+Shift+3   move container to workspace $w3
+bindsym $mod+Shift+4   move container to workspace $w4
+bindsym $mod+Shift+5   move container to workspace $w5
+bindsym $mod+Shift+6   move container to workspace $w6
+bindsym $mod+Shift+7   move container to workspace $w7
+bindsym $mod+Shift+8   move container to workspace $w8
+bindsym $mod+Shift+9   move container to workspace $w9
+bindsym $mod+Shift+0   move container to workspace $w10
+bindsym $mod+Shift+F11 move container to workspace $www
+bindsym $mod+Shift+F12 move container to workspace $work
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -158,16 +181,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width $resize_value px or $resize_value ppt
+        bindsym j resize grow height $resize_value px or $resize_value ppt
+        bindsym k resize shrink height $resize_value px or $resize_value ppt
+        bindsym l resize grow width $resize_value px or $resize_value ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width $resize_value px or $resize_value ppt
+        bindsym Down resize grow height $resize_value px or $resize_value ppt
+        bindsym Up resize shrink height $resize_value px or $resize_value ppt
+        bindsym Right resize grow width $resize_value px or $resize_value ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -182,29 +205,35 @@ bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
 # Workspace settings
-workspace 1 output LVDS1
-workspace 2 output LVDS1
-workspace 3 output LVDS1
-workspace 4 output LVDS1
-workspace 5 output LVDS1
+workspace $w1 output LVDS1
+workspace $w2 output LVDS1
+workspace $w3 output LVDS1
+workspace $w4 output LVDS1
+workspace $w5 output LVDS1
 
 # functions control
 # key definition at /usr/share/X11/XKeysymDB
 
 bindsym XF86ScreenSaver            exec xautolock -locknow
-#bindsym XF86Sleep                  exec
+bindsym XF86Sleep                  exec computer suspend
+bindsym XF86Hibernate              exec computer hibernate
 bindsym XF86TouchpadToggle         exec toggle_touchpad
 
-bindsym XF86AudioMute              exec amixer set Master toggle
-bindsym XF86AudioLowerVolume       exec amixer -q set Master 4000- unmute
-bindsym XF86AudioRaiseVolume       exec amixer -q set Master 4000+ unmute
-bindsym $mod+XF86AudioLowerVolume  exec amixer -q set PCM 4000- unmute
-bindsym $mod+XF86AudioRaiseVolume  exec amixer -q set PCM 4000+ unmute
+# Section to control the Master output
+bindSym XF86AudioRaiseVolume       exec --no-startup-id "amixer -qM set Master 5%+"
+bindSym XF86AudioLowerVolume       exec --no-startup-id "amixer -qM set Master 5%-"
+bindSym XF86AudioMute              exec --no-startup-id "amixer -q  set Master toggle"
 
-#bindsym XF86MonBrightnessUp        exec xbacklight -inc 20
-#bindsym XF86MonBrightnessDown      exec xbacklight -dec 20
-#bindsym $mod+XF86MonBrightnessUp   exec xbacklight -set 100
-#bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 0
+## #Section to control the Capture (mic)
+#bindSym Shift+XF86AudioRaiseVolume exec --no-startup-id "amixer -qM set Capture 5%+"
+#bindSym Shift+XF86AudioLowerVolume exec --no-startup-id "amixer -qM set Capture 5%-"
+#bindSym Shift+XF86AudioMute        exec --no-startup-id "amixer -q  set Capture toggle"
+
+
+bindsym XF86MonBrightnessUp        exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown      exec xbacklight -dec 20
+bindsym $mod+XF86MonBrightnessUp   exec xbacklight -set 100
+bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 0
 
 #bindsym XF86AudioPlay              exec zenity --info --text "Define Play"
 #bindsym XF86AudioStop              exec zenity --info --text "Define Stop"
@@ -216,21 +245,29 @@ bindsym $mod+XF86AudioRaiseVolume  exec amixer -q set PCM 4000+ unmute
 bindsym Print                      exec gnome-screenshot
 bindsym $alt+Print                 exec gnome-screenshot --window
 
-bindsym $mod+period                exec ~/bin/automatic
+bindsym $mod+period                exec ~/bin/automatic gui
 bindsym $mod+comma                 exec killall automatic
 
 # Notify history
 bindsym $mod+n                     exec notify
+
+# xpad
+bindsym $mod+p                     exec xpad -t
+bindsym $mod+Shift+p               exec xpad -n
+
+
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 	output LVDS1
 	position top
-	status_command i3status --config ~/.i3/status-primary
+	#status_command i3status --config ~/.i3/status-primary
+	status_command py3status -c ~/.i3/status-primary
 	#status_command i3status --config ~/.i3/status-primary.conf | while read C; do echo "$(complement.sh austin zurich pomodoro) $C"; done
-#	status_command conky -t 'CPU: ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% ${cpu cpu5}% ${cpu cpu6}% ${cpu cpu7}% ${cpu cpu8}% - ${cpu cpu0}% | MEM: $mem/$memmax - $memperc% | SWAP: $swap/$swapmax $swapperc% | ${time %a %b %d %T %Z %Y}'
-#	status_command conky | dzen2 -h ’17’ -w ’1500’ -x ’2340’ -ta ’rm’ -fn ’-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso8859-1’
+	#status_command conky -t 'CPU: ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% ${cpu cpu5}% ${cpu cpu6}% ${cpu cpu7}% ${cpu cpu8}% - ${cpu cpu0}% | MEM: $mem/$memmax - $memperc% | SWAP: $swap/$swapmax $swapperc% | ${time %a %b %d %T %Z %Y}'
+	#status_command conky | dzen2 -h ’17’ -w ’1500’ -x ’2340’ -ta ’rm’ -fn ’-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso8859-1’
 
 	tray_output LVDS1
 
@@ -245,7 +282,7 @@ bar {
 }
 
 bar {
-	output HDMI1
+	output HDMI2
 	position top
 	status_command i3status --config ~/.i3/status-primary
 #	status_command i3status --config ~/.i3/status-secundary
@@ -295,8 +332,6 @@ bindsym $mod+F10 [class="URxvt" title="0\*"] focus
 
 
 # www
-bindsym $mod+F11 workspace www
-bindsym $mod+Shift+F11 move workspace www
 #bindsym $mod+F2 [class="Google-chrome"] focus
 assign [class="Opera"] www
 assign [class="Firefox"] www
@@ -309,20 +344,33 @@ for_window [class="Chromium-browser"] border none
 for_window [class="Firefox"] border none
 
 # work
-bindsym $mod+F12 workspace work
-bindsym $mod+Shift+F12 move workspace work
 workspace "work" output LVDS1
-#for_window [title="NotesLogo"] floating enable; border none; layout tabbed
-#for_window [title="Alarm"] floating enable
-assign [class="Lotus Notes"] work
-assign [title="Lotus Notes$"] work
 assign [title="NotesLogo"] work
-assign [class="Agnclient"] work
-
+assign [title="(IBM|Lotus) Notes*"] work
+assign [class="Notes"] work
+for_window [title="NotesLogo"] floating enable
+for_window [title="NotesLogo"] border none
+#for_window [class="(IBM|Lotus) Notes"] floating disable
+for_window [class="(IBM|Lotus) Notes" title="* is In a Meeting "] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Add Sametime Contact*"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Add Sametime Group*"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Alarm"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Alert Me When "] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Call*"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Change Group*"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Contact Added*"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Edit Nickname*"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Group Added*"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Preferences"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Remove Groups/Contacts*"] floating enable
+for_window [class="(IBM|Lotus) Notes" title="Sametime "] floating enable
 
 # dia
 assign [class="Dia"] dia
-for_window [window_role="toolbox_window"] floating disable; layout stacking; move left; resize shrink right 25px
+for_window [window_role="toolbox_window"] floating disable
+for_window [window_role="toolbox_window"] layout toggle split
+for_window [window_role="toolbox_window"] move left
+for_window [window_role="toolbox_window"] resize shrink left 325px
 #for_window [window_role="gimp-dock"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
 
 
@@ -334,8 +382,11 @@ assign [class="Gimp"] gimp
 
 
 # minecraft
-#assign [title="Minecraft"] 5
-#for_window [title="Minecraft"] border none
+assign [title="Magic Launcher"] mc
+assign [title="Minecraft*"] mc
+assign [title="MCEdit *"] mcedit
+for_window [title="Minecraft*"] border none
+for_window [class="magic-launcher-MagicLauncher"] floating disable; layout tabbed
 
 
 # im
@@ -349,30 +400,48 @@ assign [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] i
 
 
 # others
-for_window [class="grub-emu"] floating enable
-for_window [title="Event Tester"] floating enable
-for_window [title="xfce4-notifyd"] floating enable
-for_window [title="xfce4-notifyd"] border none
-for_window [class="Key-mon"] floating enable
-for_window [class="Key-mon"] border none
-for_window [title="VNC authentication [VncAuth]"] floating enable
-for_window [title="VNC Viewer: Information"] floating enable
-for_window [class="Ibmsaml"] floating enable
-for_window [class="Shotwell"] floating enable
-for_window [class="XFontSel"] floating enable
 for_window [class="Blueman-manager"] floating enable
-for_window [instance="file_progress" class="Nautilus"] floating enable
-
+for_window [class="Conky"] floating disable; move right
+for_window [class="Devede"] floating enable
+for_window [class="Eog"] floating enable
+for_window [class="Gtk-recordMyDesktop"] floating enable
+for_window [class="Ibmsaml"] floating enable
+for_window [class="Istanbul"] floating enable
+for_window [class="Key-mon"] border none
+for_window [class="Key-mon"] floating enable
+for_window [class="Nautilus" instance="file_progress"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Setroubleshoot"] floating enable
+for_window [class="Shotwell"] floating enable
+for_window [class="Skype"] floating enable move right 520px, move down 15px
+for_window [class="X3270"] floating enable
+for_window [class="XFontSel"] floating enable
+for_window [class="grub-emu"] floating enable
+for_window [class="xpad"] border none
+for_window [class="xpad"] floating enable
+for_window [title="Event Tester"] floating enable
+for_window [title="VNC Viewer: Information"] floating enable
+for_window [title="VNC authentication [VncAuth]"] floating enable
+for_window [title="xfce4-notifyd"] border none
+for_window [title="xfce4-notifyd"] floating enable
+for_window [class="Gnucash"] floating enable
+for_window [title="* - GnuCash"] floating disable
+for_window [class="Agnclient"] floating enable
 
 # Start some util apps
+#exec --no-startup-id /usr/libexec/gnome-settings-daemon
+exec --no-startup-id /usr/local/bin/urxvtd -q -f -o
 exec --no-startup-id /usr/bin/screen -AOxRR main
 exec --no-startup-id /usr/bin/xfce4-power-manager
-exec --no-startup-id /usr/bin/feh --bg-scale ~/Downloads/backgrounds/1440-900-76344.jpg
+exec --no-startup-id /usr/bin/feh --bg-scale ~/Backgrounds/circuit_board-Abstract_design_wallpaper_2560x1600.jpg
 exec --no-startup-id /usr/bin/xautolock
+exec --no-startup-id /usr/bin/parcellite
 exec --no-startup-id /home/pfsmorigo/bin/dropbox_monitor
-#exec --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id /usr/bin/nm-applet --sm-disable
+exec --no-startup-id /usr/bin/xpad
+
 #exec --no-startup-id /usr/bin/dropbox
-#exec --no-startup-id /usr/bin/nm-applet --sm-disable
 #exec --no-startup-id /usr/bin/screen -dmR
 #exec --no-startup-id /usr/bin/gnome-volume-control-applet
 #exec --no-startup-id /usr/bin/system-config-printer-applet

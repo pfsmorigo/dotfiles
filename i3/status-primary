@@ -4,8 +4,8 @@ general {
 	color_degraded = "#FFFF99"
 	color_bad = "#FF9999"
 	color_separator = "#333333"
-	interval = 1
-	output_format = i3bar
+	interval = 10
+	output_format = "i3bar"
 }
 
 #order += "run_watch DHCP"
@@ -25,10 +25,12 @@ order += "cpu_temperature 0"
 #order += "command fanspeed"
 order += "load"
 order += "volume master"
+order += "volume capture"
 #order += "command date_zurich"
 order += "tztime us_central"
 order += "tztime pouk"
 order += "tztime zurich"
+order += "tztime gmt"
 order += "tztime local"
 
 wireless wlan0 {
@@ -106,6 +108,13 @@ volume master {
     mixer_idx = 0
 }
 
+volume capture {
+    format = "%volume"
+    device = "default"
+    mixer = "Capture"
+    mixer_idx = 0
+}
+
 tztime zurich {
 	format = "%Z %H"
 	timezone = "Europe/Zurich"
@@ -121,6 +130,11 @@ tztime pouk {
 	timezone = "America/New_York"
 }
 
+tztime gmt {
+	format = "%Z %H"
+	timezone = "GMT"
+}
+
 tztime local {
 	format = "%a, %b %d %H:%M:%S"
 }
@@ -134,3 +148,4 @@ tztime local {
 #	format = "%result"
 #    commandline = "cat /proc/acpi/ibm/fan | grep speed: | cut -f 3"
 #}
+

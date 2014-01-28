@@ -3,11 +3,16 @@
 DIR=$(dirname $(realpath $0))
 
 set -x
-ln -sf $DIR/bashrc     ~/.bashrc
-ln -sf $DIR/gtkrc-2.0  ~/.gtkrc-2.0
-ln -sf $DIR/screenrc   ~/.screenrc
-ln -sf $DIR/taskrc     ~/.taskrc
-ln -sf $DIR/vimrc      ~/.vimrc
-ln -sf $DIR/XCompose   ~/.XCompose
-ln -sf $DIR/Xresources ~/.Xresources
+
+ln -sf $DIR/bash_profile ~/.bash_profile
+ln -sf $DIR/bashrc       ~/.bashrc
+ln -sf $DIR/gtkrc-2.0    ~/.gtkrc-2.0
+ln -sf $DIR/screenrc     ~/.screenrc
+ln -sf $DIR/taskrc       ~/.taskrc
+ln -sf $DIR/vimrc        ~/.vimrc
+ln -sf $DIR/XCompose     ~/.XCompose
+ln -sf $DIR/Xresources   ~/.Xresources
+
+mkdir -p ~/bin
+ln -sf $DIR/bin/__bash_prompt ~/bin
 

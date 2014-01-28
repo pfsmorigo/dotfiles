@@ -1,5 +1,5 @@
 set t_Co=256        " 256 colors enabled
-set ls=2            " allways show status line
+set ls=2            " allways show status line #powerline plugin
 set tabstop=4       " numbers of spaces of tab character
 set shiftwidth=4    " numbers of spaces to (auto)indent
 set scrolloff=3     " keep 3 lines when scrolling
@@ -32,13 +32,18 @@ if &t_Co == 256
 endif
 
 
-" Show “invisible” characters
-function! ShowInvisible()
-	set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-	set list
+" Toggle “invisible” characters
+function! ToggleInvisible()
+	if &list
+		set lcs=
+		set nolist
+	else
+		set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+		set list
+	endif
 endfunction
 
-map <F7> call ShowInvisible()
+map <F7> :call ToggleInvisible()<CR>
 
 syntax on
 
@@ -54,12 +59,19 @@ inoremap jk <esc>
 match WARN /\s\+$/
 autocmd FileType c,cpp match WARN /\s\+$\|\%>80v.\+/
 
+" for python
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 " call gcc directly if a Makefile is not found
-if !filereadable(expand("%:p:h")."/Makefile")
-	setlocal makeprg=gcc\ –Wall\ –Wextra\ –o\ %<\ %
+if !filereadable("Makefile")
+	setlocal makeprg=gcc\ -Wall\ -Wextra\ -o\ %<\ %
 endif
 
+if filereadable(".make")
+	setlocal makeprg=.\ .make
+endif
+
+map <F5> :make<CR><CR>
 
 """" GNU Coding Standards
 
@@ -74,9 +86,25 @@ function! GnuIndent()
 	setlocal fo-=ro fo+=cql
 endfunction
 
-"au FileType c,cpp call GnuIndent()
-au BufEnter */grub*/* call GnuIndent()
+"autocmd FileType c,cpp call GnuIndent()
+"autocmd BufEnter */grub*/* call GnuIndent()
+autocmd BufEnter */grub*/**/*.{c,h} call GnuIndent()
 
+
+"""" 80 Columns
+
+set colorcolumn=80
+"let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
+
+"""" Templates
+
+augroup templates
+  au!
+  " read in templates files
+  autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
+augroup END
 
 
 """" Vundle
@@ -96,14 +124,12 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 Bundle 'scrooloose/nerdtree'
-map <F2> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR>
 
 Bundle 'scrooloose/nerdcommenter'
 
-Bundle 'c.vim'
-
 Bundle 'vim-scripts/vimwiki'
-let g:vimwiki_list = [{'path': '~/Wiki/'}, {'path': '~/IBM/wiki/'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/'}, {'path': '~/IBM/wiki/'}]
 
 Bundle 'AutoComplPop'
 
@@ -129,4 +155,11 @@ nmap <F8> :TagbarToggle<CR>
 Bundle 'kien/ctrlp.vim'
 
 Bundle 'gnupg.vim'
+
+Bundle 'vcscommand.vim'
+
+Bundle 'Shougo/unite.vim'
+nnoremap <space>/ :Unite grep:.<CR>
+nnoremap <space>y :Unite history/yanks<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
 

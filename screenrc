@@ -26,14 +26,17 @@ hardstatus off
 deflog on
 logtstamp on
 logtstamp after 5
-logfile $HOME/.screen/screenlog.%n-%Y_%m_%d_%c_%s
+logfile $HOME/Logs/screen/screenlog-%S-%n
 
 defscrollback 100000
 
 hardcopy_append on
 hardcopydir $HOME/.screen
 
-vbell 0
+activity "%c activity -> %n%f %t^G"
+silencewait 10
+
+vbell off
 
 #screen -t weechat -L 9 weechat-curses
 screen 0
