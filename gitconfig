@@ -1,0 +1,32 @@
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+
+[color "diff"]
+	whitespace = red reverse
+
+[core]
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	dc = diff --cached
+	lg = log -p
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ls = ls-files
+	gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+	vanish = clean -fdx
+	ignored = ls-files --others -i --exclude-standard
+
+	# Show files ignored by git:
+	ign = ls-files -o -i --exclude-standard
+
+[include]
+	path = .gitconfig-userinfo

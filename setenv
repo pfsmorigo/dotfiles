@@ -39,6 +39,7 @@ case $1 in
 		rm -f ~/.taskrc.*
 		rm -f ~/.XCompose.*
 		rm -f ~/.Xresources.*
+		rm -f ~/.gitconfig.*
 		;;
 
 	*)
@@ -52,6 +53,7 @@ case $1 in
 		dotinstall XCompose          .XCompose
 		dotinstall Xresources        .Xresources
 		dotinstall bin/__bash_prompt bin/__bash_prompt
+		dotinstall gitconfig         .gitconfig
 		setup_vim
 		;;
 esac
