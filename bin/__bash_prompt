@@ -35,8 +35,13 @@ __bash_prompt() {
 			local GITBRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
 			local GITSTATUS=$(git status -s 2> /dev/null | wc -l)
 			local CURLOAD=$(cat /proc/loadavg | awk '{ print $1 }')
-			local TEMPERATURE=$(cat /proc/acpi/ibm/thermal | awk '{ print $2 }')
 			local PROCESSOR=$(grep -c ^processor /proc/cpuinfo)
+
+			if [ -f /proc/acpi/ibm/thermal ]; then
+				local TEMPERATURE=$(cat /proc/acpi/ibm/thermal | awk '{ print $2 }')
+			else
+				local TEMPERATURE=0
+			fi
 
 			case $USER in
 				root)
