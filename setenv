@@ -33,6 +33,7 @@ dotinstall bashrc            .bashrc
 dotinstall gtkrc-2.0         .gtkrc-2.0
 dotinstall screenrc          .screenrc
 dotinstall vimrc             .vimrc
+dotinstall vim               .vim
 dotinstall bin/__bash_prompt bin/__bash_primpt
 
 if [ "$1" = "local" ]; then
