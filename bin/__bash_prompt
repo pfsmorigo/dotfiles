@@ -76,11 +76,11 @@ __bash_prompt() {
 				PS1+="${BR}${EW} ${EXITSTATUS} ${NN} "
 			fi
 
-			if which bc 2>&1 > /dev/null; then
-				if [ $(echo " $CURLOAD > $PROCESSOR" | bc) -eq 1 ]; then
-					PS1+="${BM}${EW} ${CURLOAD} ${NN} "
-				fi
+			if $(echo | awk 'END { exit ( !( '"$CURLOAD > $PROCESSOR"')); }'); then
+				PS1+="${BM}${EW} ${CURLOAD} ${NN} "
 			fi
+
+			#if [ $CURLOAD > $PROCESSOR ]; then
 
 			if [ $TEMPERATURE -gt 70 ]; then
 				PS1+="${BM}${EW} ${TEMPERATURE}°C ${NN} "
