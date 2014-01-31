@@ -89,7 +89,7 @@ __bash_prompt() {
 			if [ "$GITBRANCH" != "" ]; then
 				PS1+="${BB}"
 				[[ $GITSTATUS -eq 0 ]] && PS1+=${EW} || PS1+=${EY}
-				PS1+=" ${GITBRANCH} ${NN} "
+				PS1+=" ${GITBRANCH}$(__git_ps1) ${NN} "
 			fi
 
 			#PS1+="${HISTORYNUM} ${COMMANDNUM} "
@@ -104,39 +104,49 @@ __bash_prompt() {
 }
 
 __git_ps1 () {
-	local g="$(git rev-parse --git-dir 2>/dev/null)"
-	if [ -n "$g" ]; then
-		local r
-		local b
-		if [ -d "$g/../.dotest" ]
-		then
-			local b="$(git symbolic-ref HEAD 2>/dev/null)"
-			r="|REBASING"
-		elif [ -d "$g/.dotest-merge" ]
-		then
-			r="|REBASING"
-			b="$(cat $g/.dotest-merge/head-name)"
-		elif [ -f "$g/MERGE_HEAD" ]
-		then
-			r="|MERGING"
-			b="$(git symbolic-ref HEAD 2>/dev/null)"
-		else
-			if [ -f $g/BISECT_LOG ]
-			then
-				r="|BISECTING"
-			fi
-			if ! b="$(git symbolic-ref HEAD 2>/dev/null)"
-			then
-				b="$(cut -c1-7 $g/HEAD)..."
-			fi
-		fi
-		if [ -n "$1" ]; then
-			printf "$1" "${b##refs/heads/}$r"
-		else
-			printf " (%s)" "${b##refs/heads/}$r"
-		fi
-	fi
+	local LINE
+
+	LINE=$(git branch -v | grep '^*' | awk 'NR>1{print $1}' RS=[ FS=])
+	LINE=${LINE/behind /-}
+	LINE=${LINE/ahead /+}
+
+	[[ -n "$LINE" ]] &&	echo " $LINE"
 }
+
+#__git_ps1 () {
+	#local g="$(git rev-parse --git-dir 2>/dev/null)"
+	#if [ -n "$g" ]; then
+		#local r
+		#local b
+		#if [ -d "$g/../.dotest" ]
+		#then
+			#local b="$(git symbolic-ref HEAD 2>/dev/null)"
+			#r="|REBASING"
+		#elif [ -d "$g/.dotest-merge" ]
+		#then
+			#r="|REBASING"
+			#b="$(cat $g/.dotest-merge/head-name)"
+		#elif [ -f "$g/MERGE_HEAD" ]
+		#then
+			#r="|MERGING"
+			#b="$(git symbolic-ref HEAD 2>/dev/null)"
+		#else
+			#if [ -f $g/BISECT_LOG ]
+			#then
+				#r="|BISECTING"
+			#fi
+			#if ! b="$(git symbolic-ref HEAD 2>/dev/null)"
+			#then
+				#b="$(cut -c1-7 $g/HEAD)..."
+			#fi
+		#fi
+		#if [ -n "$1" ]; then
+			#printf "$1" "${b##refs/heads/}$r"
+		#else
+			#printf " (%s)" "${b##refs/heads/}$r"
+		#fi
+	#fi
+#}
 
 __symlink_dir () {
 	[[ $(pwd) != $(pwd -P) ]] && echo " ($(__home_dir $(pwd -P)))"
