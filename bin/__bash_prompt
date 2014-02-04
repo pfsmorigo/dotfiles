@@ -59,10 +59,10 @@ __bash_prompt() {
 					;;
 			esac
 
-			if [ -n "$(env | grep 'SSH_CLIENT')" ]; then
-				TYPE=${EG}
-			elif [ -n "$(cat /proc/cpuinfo | grep 'emulated by qemu')" ]; then
+			if [ -n "$(cat /proc/cpuinfo | grep 'emulated by qemu')" ]; then
 				TYPE=${EM}
+			elif [ -n "$(env | grep 'SSH_CLIENT')" ]; then
+				TYPE=${EG}
 			else
 				TYPE=${EY}
 				WHERE=
