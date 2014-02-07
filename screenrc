@@ -20,15 +20,14 @@ altscreen on
 
 #hardstatus string "^E (^Et) | $USER@^EH"
 #hardstatus string "screen %n (%t) %w %? [%h]%?"
-hardstatus string "%w"
+hardstatus string "%H) %w"
 hardstatus off
 
-deflog on
-logtstamp on
-logtstamp after 5
-logfile $HOME/Logs/screen/screenlog-%S-%n
-
-defscrollback 100000
+#deflog on
+#logtstamp on
+#logtstamp after 5
+#logfile $HOME/Logs/screen/screenlog-%S-%n
+#defscrollback 100000
 
 hardcopy_append on
 hardcopydir $HOME/.screen
@@ -38,7 +37,6 @@ silencewait 10
 
 vbell off
 
-#screen -t weechat -L 9 weechat-curses
 screen 0
 
 bind b eval "writebuf" "exec sh -c 'cat /tmp/screen-exchange | xclip'"
