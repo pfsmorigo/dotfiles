@@ -52,6 +52,7 @@ case $1 in
 		dotinstall taskrc            .taskrc
 		dotinstall XCompose          .XCompose
 		dotinstall Xresources        .Xresources
+		dotinstall initrc            .initrc
 		dotinstall bin/__bash_prompt bin/__bash_prompt
 		dotinstall gitconfig         .gitconfig
 		setup_vim

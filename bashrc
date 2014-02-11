@@ -18,6 +18,20 @@ alias bzl-grub="bzl-search --product=GRUB2 --format=\"%s | Bug %i: %S\" | column
 alias t='todo.sh -d ~/.todo-txt'
 alias enable_alert='PS1="$PS1\a"'
 
+alias gs='git status'
+alias ga='git add'
+alias gm='git rm'
+alias gb='git branch'
+alias gc='git commit'
+alias gd='git diff'
+alias gl='git log'
+alias gi='git init'
+alias gp='git pull'
+alias gf='git fetch'
+alias go='git checkout'
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
 . ~/bin/__bash_prompt
 
 #Save and reload the history after each command finishes
