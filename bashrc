@@ -18,7 +18,8 @@ alias bzl-grub="bzl-search --product=GRUB2 --format=\"%s | Bug %i: %S\" | column
 alias t='todo.sh -d ~/.todo-txt'
 alias enable_alert='PS1="$PS1\a"'
 
-alias gs='git status'
+alias g='git status'
+alias gs='git show'
 alias ga='git add'
 alias gm='git rm'
 alias gb='git branch'

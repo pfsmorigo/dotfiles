@@ -26,6 +26,7 @@
 	vanish = clean -fdx
 	ignored = ls-files --others -i --exclude-standard
 	start = !git init && git add . && git commit -m "baseline"
+	zero = !git clean -fd && git clean -fdX && git co .
 
 [include]
 	path = .gitconfig-userinfo
