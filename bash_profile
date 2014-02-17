@@ -2,7 +2,7 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/IBM/bin
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/IBM/bin:$HOME/code/scripts:$HOME/code/pfsmorigo-scripts
 export PATH
 
 export GDK_USE_XFT=1
