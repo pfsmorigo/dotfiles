@@ -8,7 +8,6 @@ fi
 # User specific aliases and functions
 
 alias grep='grep --color'
-alias diff='colordiff'
 alias ls="ls --color"
 alias ll="ls -lh"
 alias la="ls -lah"
@@ -17,6 +16,10 @@ alias lvim="vim -c \"normal '0\""
 alias bzl-grub="bzl-search --product=GRUB2 --format=\"%s | Bug %i: %S\" | column -t -s \"|\" | sort"
 alias t='todo.sh -d ~/.todo-txt'
 alias enable_alert='PS1="$PS1\a"'
+
+if type -t colordiff; then
+	alias diff='colordiff'
+fi
 
 alias g='git status'
 alias gs='git show'

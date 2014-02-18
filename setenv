@@ -3,16 +3,22 @@
 DIR=$(dirname $(realpath $0))
 
 dotinstall() {
-	if [ -e ~/$2 ]; then
-		NEWFILE=$2.$(date +%F_%T)
-		echo "Renaming $2 to $NEWFILE..."
-		mv ~/$2 ~/$NEWFILE
+	if [ -e ~/.$1 ]; then
+
+		if diff ~/.$1 $DIR/$1; then
+			echo "Skipping $1..."
+			return
+		fi
+
+		NEWFILE=$1.$(date +%F_%T)
+		echo "Renaming $1 to $NEWFILE..."
+		mv ~/$1 ~/$NEWFILE
 	fi
 
-	mkdir -p $(dirname ~/$2)
+	mkdir -p $(dirname ~/$1)
 
-	echo "Linking $1 to $2...."
-	ln -sf $DIR/$1 ~/$2
+	echo "Linking $1...."
+	ln -sf $DIR/$1 ~/.$1
 }
 
 setup_vim() {
@@ -35,7 +41,6 @@ case $1 in
 		rm -f ~/.screenrc.*
 		rm -f ~/.vim.*
 		rm -f ~/.vimrc.*
-		rm -f ~/bin/__bash_prompt.*
 		rm -f ~/.taskrc.*
 		rm -f ~/.XCompose.*
 		rm -f ~/.Xresources.*
@@ -43,18 +48,17 @@ case $1 in
 		;;
 
 	*)
-		dotinstall bash_profile      .bash_profile
-		dotinstall bashrc            .bashrc
-		dotinstall gtkrc-2.0         .gtkrc-2.0
-		dotinstall screenrc          .screenrc
-		dotinstall vimrc             .vimrc
-		dotinstall vim               .vim
-		dotinstall taskrc            .taskrc
-		dotinstall XCompose          .XCompose
-		dotinstall Xresources        .Xresources
-		dotinstall inputrc           .inputrc
-		dotinstall bin/__bash_prompt bin/__bash_prompt
-		dotinstall gitconfig         .gitconfig
+		dotinstall bash_profile
+		dotinstall bashrc
+		dotinstall gtkrc-2.0
+		dotinstall screenrc
+		dotinstall vimrc
+		dotinstall vim
+		dotinstall taskrc
+		dotinstall XCompose
+		dotinstall Xresources
+		dotinstall inputrc
+		dotinstall gitconfig
 		setup_vim
 		;;
 esac
