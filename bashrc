@@ -1,5 +1,7 @@
 # .bashrc
 
+echo "[ini] .bashrc"
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -17,7 +19,7 @@ alias bzl-grub="bzl-search --product=GRUB2 --format=\"%s | Bug %i: %S\" | column
 alias t='todo.sh -d ~/.todo-txt'
 alias enable_alert='PS1="$PS1\a"'
 
-if type -t colordiff; then
+if type -t colordiff 2>&1 > /dev/null; then
 	alias diff='colordiff'
 fi
 
@@ -59,3 +61,5 @@ if [ "$PRODUCT_ID" = "ThinkPad T410" ]; then
 	# IBM TP horizontal scrolling
 	xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
 fi
+
+echo "[end] .bashrc"

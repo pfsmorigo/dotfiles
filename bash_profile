@@ -1,6 +1,6 @@
 # .bash_profile
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+echo "[ini] .bash_profile"
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/IBM/bin:$HOME/code/scripts:$HOME/code/pfsmorigo-scripts
 export PATH
@@ -16,3 +16,6 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+echo "[end] .bash_profile"
