@@ -1,7 +1,5 @@
 # .bashrc
 
-echo "[ini] .bashrc"
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -61,5 +59,3 @@ if [ "$PRODUCT_ID" = "ThinkPad T410" ]; then
 	# IBM TP horizontal scrolling
 	xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
 fi
-
-echo "[end] .bashrc"
