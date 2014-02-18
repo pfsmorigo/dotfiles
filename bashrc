@@ -33,7 +33,7 @@ alias go='git checkout'
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
-. ~/bin/__bash_prompt
+. smowprompt 2> /dev/null
 
 #Save and reload the history after each command finishes
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
