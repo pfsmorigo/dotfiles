@@ -23,11 +23,12 @@ altscreen on
 hardstatus string "%H) %w"
 hardstatus off
 
-#deflog on
-#logtstamp on
-#logtstamp after 5
-#logfile $HOME/Logs/screen/screenlog-%S-%n
-#defscrollback 100000
+deflog on
+logtstamp on
+logtstamp after 5
+logfile $HOME/log/screen/screenlog_%Y-%m-%d_%S-%n
+
+defscrollback 10000
 
 hardcopy_append on
 hardcopydir $HOME/.screen
