@@ -36,7 +36,9 @@ alias go='git checkout'
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
-. code/{pfsmorigo-,}scripts/smowprompt 2> /dev/null
+for FILE in "code/pfsmorigo-scripts/smowprompt" "code/scripts/smowprompt"; do
+	[[ -f $FILE ]] && . $FILE 2> /dev/null
+done
 
 #Save and reload the history after each command finishes
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
