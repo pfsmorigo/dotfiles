@@ -8,7 +8,8 @@ term screen-256color
 
 caption string "%?%{kw}%-Lw%?%{wb} %n*%f %t %?(%u)%?%?%{kw}%+Lw %= %h "
 
-shelltitle "$ |---"
+#shelltitle "$ | ---"
+shelltitle "$|"
 
 termcapinfo xterm*|rxvt*|kterm*|Eterm*|gnome-terminal* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 
@@ -26,7 +27,7 @@ hardstatus off
 deflog on
 logtstamp on
 logtstamp after 5
-logfile $HOME/log/screen/screenlog_%Y-%m-%d_%S-%n
+logfile $HOME/log/screen/screenlog_%Y-%m-%d_%S-%t
 
 defscrollback 10000
 
