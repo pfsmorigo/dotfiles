@@ -21,6 +21,8 @@ if type -t colordiff 2>&1 > /dev/null; then
 	alias diff='colordiff'
 fi
 
+alias s="cd ~ && screen -t"
+
 alias g='git status'
 alias gs='git show'
 alias ga='git add'

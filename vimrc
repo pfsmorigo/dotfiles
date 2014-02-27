@@ -163,3 +163,4 @@ nnoremap <space>/ :Unite grep:.<CR>
 nnoremap <space>y :Unite history/yanks<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
 
+Bundle 'tpope/vim-fugitive'

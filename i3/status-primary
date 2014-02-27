@@ -4,10 +4,11 @@ general {
 	color_degraded = "#FFFF99"
 	color_bad = "#FF9999"
 	color_separator = "#333333"
-	interval = 10
+	interval = 1
 	output_format = "i3bar"
 }
 
+order += "command pomodoro"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
 order += "wireless wlan0"
@@ -34,21 +35,21 @@ order += "tztime gmt"
 order += "tztime local"
 
 wireless wlan0 {
-	format_up = "%ip (%quality of %essid)"
+	format_up = "%ip (%essid)"
 	format_down = ""
 	color_bad = "#555555"
 }
 
 ethernet em1 {
 	# if you use %speed, i3status requires root privileges
-	format_up = "%ip (%speed)"
+	format_up = "%ip"
 	format_down = ""
 	color_bad = "#555555"
 }
 
 ethernet tun0 {
 	# if you use %speed, i3status requires root privileges
-	format_up = "%ip (%speed)"
+	format_up = "%ip"
 	format_down = ""
 	color_bad = "#555555"
 }
@@ -139,10 +140,10 @@ tztime local {
 	format = "%a, %b %d %H:%M:%S"
 }
 
-#command pomodoro {
-#	format = "%result"
-#    commandline = "pomodoro status"
-#}
+command pomodoro {
+	format = "%result"
+    commandline = "pomodoro status"
+}
 
 #command fanspeed {
 #	format = "%result"

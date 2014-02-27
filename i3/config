@@ -205,11 +205,11 @@ bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
 # Workspace settings
-workspace $w1 output LVDS1
-workspace $w2 output LVDS1
-workspace $w3 output LVDS1
-workspace $w4 output LVDS1
-workspace $w5 output LVDS1
+#workspace $w1 output LVDS1
+#workspace $w2 output LVDS1
+#workspace $w3 output LVDS1
+#workspace $w4 output LVDS1
+#workspace $w5 output LVDS1
 
 # functions control
 # key definition at /usr/share/X11/XKeysymDB
@@ -263,8 +263,8 @@ bindsym $mod+Shift+p               exec xpad -n
 bar {
 	output LVDS1
 	position top
-	#status_command i3status --config ~/.i3/status-primary
-	status_command py3status -c ~/.i3/status-primary
+	status_command i3status --config ~/.i3/status-primary
+	#status_command py3status -c ~/.i3/status-primary
 	#status_command i3status --config ~/.i3/status-primary.conf | while read C; do echo "$(complement.sh austin zurich pomodoro) $C"; done
 	#status_command conky -t 'CPU: ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% ${cpu cpu5}% ${cpu cpu6}% ${cpu cpu7}% ${cpu cpu8}% - ${cpu cpu0}% | MEM: $mem/$memmax - $memperc% | SWAP: $swap/$swapmax $swapperc% | ${time %a %b %d %T %Z %Y}'
 	#status_command conky | dzen2 -h ’17’ -w ’1500’ -x ’2340’ -ta ’rm’ -fn ’-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso8859-1’
@@ -284,7 +284,7 @@ bar {
 bar {
 	output HDMI2
 	position top
-	status_command i3status --config ~/.i3/status-primary
+	#status_command i3status --config ~/.i3/status-primary
 #	status_command i3status --config ~/.i3/status-secundary
 #	status_command conky -w i3 -c ~/.i3/conkyrc
 	tray_output none
@@ -302,7 +302,7 @@ bar {
 bar {
 	output VGA1
 	position top
-	status_command i3status --config ~/.i3/status-primary
+	#status_command i3status --config ~/.i3/status-primary
 #	status_command i3status --config ~/.i3/status-secundary
 #	status_command conky -w i3 -c ~/.i3/conkyrc
 	tray_output none
@@ -427,6 +427,8 @@ for_window [title="xfce4-notifyd"] floating enable
 for_window [class="Gnucash"] floating enable
 for_window [title="* - GnuCash"] floating disable
 for_window [class="Agnclient"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="qemu-system-*"] floating enable
 
 # Start some util apps
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
