@@ -47,7 +47,7 @@ alias h="history"
 alias j="jobs"
 
 alias week='date +%V'
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
