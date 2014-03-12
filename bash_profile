@@ -70,3 +70,5 @@ if [ "$PRODUCT_ID" = "ThinkPad T410" ]; then
 	# IBM TP horizontal scrolling
 	xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
 fi
+
+[ -f ~/.bash_profile_local ] && . ~/.bash_profile_local
