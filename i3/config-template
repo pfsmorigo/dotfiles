@@ -1,0 +1,18 @@
+###############################################################################
+# DISPLAYNAME
+###############################################################################
+bar {
+	output DISPLAYNAME
+	position top
+	status_command i3blocks
+	tray_output none
+
+	colors {
+		$background
+		$statusline
+		$barcolor1
+		$barcolor2
+		$barcolor3
+		$barcolor4
+	}
+}

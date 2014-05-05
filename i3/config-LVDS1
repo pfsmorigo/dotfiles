@@ -1,0 +1,31 @@
+###############################################################################
+# LVDS1
+###############################################################################
+
+# Workspace settings
+workspace $w1 output LVDS1
+workspace $w2 output LVDS1
+workspace $w3 output LVDS1
+workspace $w4 output LVDS1
+workspace $w5 output LVDS1
+
+bar {
+	output LVDS1
+	position top
+	status_command i3status --config ~/.i3/status-primary
+	#status_command py3status -c ~/.i3/status-primary
+	#status_command i3status --config ~/.i3/status-primary.conf | while read C; do echo "$(complement.sh austin zurich pomodoro) $C"; done
+	#status_command conky -t 'CPU: ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% ${cpu cpu5}% ${cpu cpu6}% ${cpu cpu7}% ${cpu cpu8}% - ${cpu cpu0}% | MEM: $mem/$memmax - $memperc% | SWAP: $swap/$swapmax $swapperc% | ${time %a %b %d %T %Z %Y}'
+	#status_command conky | dzen2 -h ’17’ -w ’1500’ -x ’2340’ -ta ’rm’ -fn ’-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso8859-1’
+
+	tray_output LVDS1
+
+	colors {
+		$background
+		$statusline
+		$barcolor1
+		$barcolor2
+		$barcolor3
+		$barcolor4
+	}
+}

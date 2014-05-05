@@ -25,7 +25,7 @@ set $w7 7
 set $w8 8
 set $w9 9
 set $w10 10
-set $www  www
+set $www www
 set $work work
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -141,6 +141,12 @@ bindsym $mod+a focus parent
 # focus last urgent
 bindsym $mod+Escape [urgent="last"] focus
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+#
+# # Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 # switch to workspace
 bindsym $mod+1   workspace $w1
 bindsym $mod+2   workspace $w2
@@ -210,13 +216,6 @@ bindsym $mod+t border normal
 bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
-# Workspace settings
-#workspace $w1 output LVDS1
-#workspace $w2 output LVDS1
-#workspace $w3 output LVDS1
-#workspace $w4 output LVDS1
-#workspace $w5 output LVDS1
-
 # functions control
 # key definition at /usr/share/X11/XKeysymDB
 
@@ -251,8 +250,8 @@ bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 0
 bindsym Print                      exec gnome-screenshot
 bindsym $alt+Print                 exec gnome-screenshot --window
 
-bindsym $mod+period                exec ~/bin/automatic gui
-bindsym $mod+comma                 exec killall automatic
+bindsym $mod+Control+F1            exec ~/bin/automatic ff
+bindsym $mod+Control+F12           exec killall automatic
 
 # Notify history
 bindsym $mod+n                     exec notify
@@ -260,69 +259,6 @@ bindsym $mod+n                     exec notify
 # xpad
 bindsym $mod+p                     exec xpad -t
 bindsym $mod+Shift+p               exec xpad -n
-
-
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-	output LVDS1
-	position top
-	status_command i3status --config ~/.i3/status-primary
-	#status_command py3status -c ~/.i3/status-primary
-	#status_command i3status --config ~/.i3/status-primary.conf | while read C; do echo "$(complement.sh austin zurich pomodoro) $C"; done
-	#status_command conky -t 'CPU: ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}% ${cpu cpu5}% ${cpu cpu6}% ${cpu cpu7}% ${cpu cpu8}% - ${cpu cpu0}% | MEM: $mem/$memmax - $memperc% | SWAP: $swap/$swapmax $swapperc% | ${time %a %b %d %T %Z %Y}'
-	#status_command conky | dzen2 -h ’17’ -w ’1500’ -x ’2340’ -ta ’rm’ -fn ’-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso8859-1’
-
-	tray_output LVDS1
-
-	colors {
-		$background
-		$statusline
-		$barcolor1
-		$barcolor2
-		$barcolor3
-		$barcolor4
-	}
-}
-
-bar {
-	output HDMI2
-	position top
-	#status_command i3status --config ~/.i3/status-primary
-#	status_command i3status --config ~/.i3/status-secundary
-#	status_command conky -w i3 -c ~/.i3/conkyrc
-	tray_output none
-
-	colors {
-		$background
-		$statusline
-		$barcolor1
-		$barcolor2
-		$barcolor3
-		$barcolor4
-	}
-}
-
-bar {
-	output VGA1
-	position top
-	#status_command i3status --config ~/.i3/status-primary
-#	status_command i3status --config ~/.i3/status-secundary
-#	status_command conky -w i3 -c ~/.i3/conkyrc
-	tray_output none
-
-	colors {
-		$background
-		$statusline
-		$barcolor1
-		$barcolor2
-		$barcolor3
-		$barcolor4
-	}
-}
-
 
 # screen
 bindsym $mod+F1 [class="URxvt" title="1\*"] focus
@@ -379,13 +315,11 @@ for_window [window_role="toolbox_window"] move left
 for_window [window_role="toolbox_window"] resize shrink left 325px
 #for_window [window_role="gimp-dock"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
 
-
 # gimp
 assign [class="Gimp"] gimp
 #for_window [title="GIMP Startup"] move workspace gimp
 #for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move left; resize shrink right 31px or 31 ppt
 #for_window [window_role="gimp-dock"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
-
 
 # minecraft
 assign [title="Magic Launcher"] mc
@@ -393,7 +327,6 @@ assign [title="Minecraft*"] mc
 assign [title="MCEdit *"] mcedit
 for_window [title="Minecraft*"] border none
 for_window [class="magic-launcher-MagicLauncher"] floating disable; layout tabbed
-
 
 # im
 bindsym $mod+m workspace im
@@ -403,7 +336,6 @@ for_window [class="Pidgin"] move workspace im
 for_window [class="Sametime"] move workspace im
 assign [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] im
 #for_window [class="Pidgin"] floating enable
-
 
 # others
 for_window [class="Blueman-manager"] floating enable
@@ -435,6 +367,10 @@ for_window [title="* - GnuCash"] floating disable
 for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="qemu-system-*"] floating enable
+for_window [class="Keepassx"] floating enable
+#for_window [class="Nagstamon"] floating enable; border none
+#for_window [class="Nagstamon"] floating enable
+assign [class="Nagstamon"] nagios
 
 # Start some util apps
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
@@ -448,6 +384,7 @@ exec --no-startup-id /home/pfsmorigo/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
 exec --no-startup-id /usr/bin/xpad
+exec --no-startup-id /usr/bin/nagstamon
 
 #exec --no-startup-id /usr/bin/dropbox
 #exec --no-startup-id /usr/bin/screen -dmR
