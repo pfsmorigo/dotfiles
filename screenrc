@@ -1,26 +1,21 @@
 startup_message off
 
 term screen-256color
+#enable 256 colors
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo xterm*|rxvt*|kterm*|Eterm*|gnome-terminal* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 
 #backtick 1 3 3 screencaps.sh
 #hardstatus alwayslastline "%{bw}%1` %= %D %Y-%m-%d %c:%s "
 #hardstatus alwayslastline "%{= RW}%s%{-}%{.Wk} %= %-w%{= BW} %t %{= .W9}%+w"
 
-caption string "%?%{kw}%-Lw%?%{wb} %n*%f %t %?(%u)%?%?%{kw}%+Lw %= %h "
+caption string "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 
-#shelltitle "$ | ---"
 shelltitle "$|"
-
-termcapinfo xterm*|rxvt*|kterm*|Eterm*|gnome-terminal* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
-
-#enable 256 colors
-terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 #clean screen when exit a program
 altscreen on
 
-#hardstatus string "^E (^Et) | $USER@^EH"
-#hardstatus string "screen %n (%t) %w %? [%h]%?"
 hardstatus string "%H) %w"
 hardstatus off
 
