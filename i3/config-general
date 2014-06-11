@@ -253,6 +253,8 @@ bindsym $alt+Print                 exec gnome-screenshot --window
 bindsym $mod+Control+F1            exec ~/bin/automatic ff
 bindsym $mod+Control+F12           exec killall automatic
 
+bindsym $mod+Control+F11           exec pavucontrol
+
 # Notify history
 bindsym $mod+n                     exec notify
 
@@ -368,9 +370,11 @@ for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="qemu-system-*"] floating enable
 for_window [class="Keepassx"] floating enable
-#for_window [class="Nagstamon"] floating enable; border none
+for_window [class="Copyq"] floating enable
+for_window [class="Vncviewer"] floating enable
+for_window [class="Nagstamon"] floating enable; border none
 #for_window [class="Nagstamon"] floating enable
-assign [class="Nagstamon"] nagios
+#assign [class="Nagstamon"] nagios
 
 # Start some util apps
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
@@ -379,7 +383,8 @@ exec --no-startup-id /usr/bin/screen -AOxRR main
 exec --no-startup-id /usr/bin/xfce4-power-manager
 exec --no-startup-id /usr/bin/feh --bg-scale ~/Backgrounds/circuit_board-Abstract_design_wallpaper_2560x1600.jpg
 exec --no-startup-id /usr/bin/xautolock
-exec --no-startup-id /usr/bin/parcellite
+#exec --no-startup-id /usr/bin/parcellite
+exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /home/pfsmorigo/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable

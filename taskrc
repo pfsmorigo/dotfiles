@@ -22,10 +22,11 @@ regex=on
 search.case.sensitive=no
 #rc.gc=off # makes ID numbers persistent.
 
+journal.time=on
+
 dateformat.annotation=Y-M-D
 dateformat.report=a, b d
 dateformat=Y-M-D
-
 
 report.inbox.description=InBox
 report.inbox.columns=id,tags,priority,description
