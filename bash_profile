@@ -71,4 +71,7 @@ if [ "$PRODUCT_ID" = "ThinkPad T410" ]; then
 	xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
 fi
 
+CDARGS=/usr/share/doc/cdargs/examples/cdargs-bash.sh
+grep -q Debian /etc/issue && test -f $CDARGS && . $CDARGS
+
 [ -f ~/.bash_profile_local ] && . ~/.bash_profile_local
