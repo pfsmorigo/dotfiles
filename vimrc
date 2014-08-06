@@ -13,6 +13,8 @@ set showmatch
 set cursorline      " Enable CursorLine
 set nocompatible    " be iMproved
 set encoding=utf-8
+set nocscopeverbose " Workaround to fix duplicated message
+
 
 set bs=2            " This influences the behavior of the backspace option. It is fairly complex so see :help 'bs' for more details.
 "set wrapmargin=8    " This is the number of characters from the right window border where wrapping starts.
