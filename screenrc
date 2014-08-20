@@ -16,7 +16,7 @@ shelltitle "$|"
 #clean screen when exit a program
 altscreen on
 
-hardstatus string "%H) %w"
+hardstatus string "%H-%S) %w"
 hardstatus off
 
 deflog on

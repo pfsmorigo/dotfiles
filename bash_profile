@@ -35,6 +35,7 @@ alias la="ls -lah"
 alias irc_urls='tail $HOME/.weechat/urls.log'
 alias lvim="vim -c \"normal '0\""
 alias enable_alert='PS1="$PS1\a"'
+alias task="taskassist; task"
 
 if type -t colordiff 2>&1 > /dev/null; then
 	alias diff='colordiff'
