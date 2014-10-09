@@ -66,21 +66,18 @@ client.background        #342826
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return       exec smowterm
+bindsym $mod+Return       exec smowterm local pfsmorigo
 bindsym $mod+Shift+Return exec smowterm gui
-#bindsym $mod+Return       exec urxvtc -e sh -c "/usr/bin/screen -OxR main"
-#bindsym $mod+Shift+Return exec urxvtc -name URxvtRemote -e sh -c "~/bin/screen_remote z8"
-#bindsym $mod+Return       exec dbus-launch --exit-with-session urxvtc -e sh -c "/usr/bin/screen -OxR main"
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb '#000000' -nf '#ffffff' -sb '#000000' -sf '#1793d0' -p  'Run: ' -fn '-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso8859-1'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -nb '#2D2D2D' -nf '#888888' -sb '#3749D6' -sf '#DEDEDE' -l 10 -i"
+bindsym $mod+d exec dmenu_run -nb '#000000' -nf '#ffffff' -sb '#000000' -sf '#1793d0' -p  'Run: ' -f
 
 # change focus
 bindsym $mod+h focus left
@@ -222,7 +219,7 @@ bindsym $mod+u border none
 bindsym XF86ScreenSaver            exec xautolock -locknow
 bindsym XF86Sleep                  exec computer suspend
 bindsym XF86Hibernate              exec computer hibernate
-bindsym XF86TouchpadToggle         exec toggle_touchpad
+bindsym XF86TouchpadToggle         exec computer touchpad toggle
 
 # Section to control the Master output
 bindSym XF86AudioRaiseVolume       exec --no-startup-id "amixer -qM set Master 5%+"
@@ -251,6 +248,7 @@ bindsym Print                      exec gnome-screenshot
 bindsym $alt+Print                 exec gnome-screenshot --window
 
 bindsym $mod+Control+F1            exec ~/bin/automatic ff
+bindsym $mod+Control+F2            exec ~/bin/automatic zf
 bindsym $mod+Control+F12           exec killall automatic
 
 bindsym $mod+Control+F11           exec pavucontrol
@@ -340,51 +338,48 @@ assign [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] i
 #for_window [class="Pidgin"] floating enable
 
 # others
+for_window [class="Agnclient"] floating enable
+for_window [class="Arandr"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Conky"] floating disable; move right
+for_window [class="Copyq"] floating enable
 for_window [class="Devede"] floating enable
 for_window [class="Eog"] floating enable
+for_window [class="Gedit"] floating enable
+for_window [class="Gnucash"] floating enable
 for_window [class="Gtk-recordMyDesktop"] floating enable
 for_window [class="Ibmsaml"] floating enable
 for_window [class="Istanbul"] floating enable
-for_window [class="Key-mon"] border none
-for_window [class="Key-mon"] floating enable
+for_window [class="Keepassx"] floating enable
+for_window [class="Key-mon"] floating enable; border none
+for_window [class="Nagstamon"] floating enable; border none
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Setroubleshoot"] floating enable
 for_window [class="Shotwell"] floating enable
 for_window [class="Skype"] floating enable move right 520px, move down 15px
+for_window [class="Vncviewer"] floating enable
 for_window [class="X3270"] floating enable
 for_window [class="XFontSel"] floating enable
 for_window [class="grub-emu"] floating enable
-for_window [class="xpad"] border none
-for_window [class="xpad"] floating enable
+for_window [class="qemu-system-*"] floating enable
+for_window [class="xpad"] floating enable; border none
+for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
-for_window [title="xfce4-notifyd"] border none
-for_window [title="xfce4-notifyd"] floating enable
-for_window [class="Gnucash"] floating enable
-for_window [title="* - GnuCash"] floating disable
-for_window [class="Agnclient"] floating enable
-for_window [class="Arandr"] floating enable
-for_window [class="qemu-system-*"] floating enable
-for_window [class="Keepassx"] floating enable
-for_window [class="Copyq"] floating enable
-for_window [class="Vncviewer"] floating enable
-for_window [class="Nagstamon"] floating enable; border none
+for_window [title="xfce4-notifyd"] floating enable; border none
 #for_window [class="Nagstamon"] floating enable
 #assign [class="Nagstamon"] nagios
 
 # Start some util apps
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 exec --no-startup-id /usr/local/bin/urxvtd -q -f -o
-exec --no-startup-id /usr/bin/screen -AOxRR main
 exec --no-startup-id /usr/bin/xfce4-power-manager
 exec --no-startup-id /usr/bin/feh --bg-scale ~/Backgrounds/circuit_board-Abstract_design_wallpaper_2560x1600.jpg
 exec --no-startup-id /usr/bin/xautolock
-#exec --no-startup-id /usr/bin/parcellite
-exec --no-startup-id /usr/bin/copyq
+exec --no-startup-id /usr/bin/parcellite
+#exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /home/pfsmorigo/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
@@ -410,4 +405,19 @@ exec --no-startup-id /usr/bin/nagstamon
 
 
 #exec pgrep stalonetray > /dev/null || stalonetray -bg '#303030' -f 0 --max-geometry 5x1 --geometry 5x1-0+0 --grow-gravity W --icon-gravity E -i 16 --kludges force_icons_size --no-shrink true --scrollbars horizontal --skip-taskbar true --sticky true --window-layer bottom
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
 
