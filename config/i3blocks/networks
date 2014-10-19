@@ -1,0 +1,33 @@
+#!/bin/bash
+
+speed() {
+	SPEED="$(cat /sys/class/net/$1/speed 2> /dev/null)"
+	[ -n "$SPEED" ] && echo " ($SPEED Mbps)"
+}
+
+OUTPUT=
+
+OLDIFS=$IFS
+IFS=$'\n'
+for IF in $(ip -o -4 a); do
+	NAME=$(echo $IF | awk '{ print $2 }')
+	IP=$(echo $IF | awk '{ print $4 }' | cut -d/ -f1)
+
+	case $NAME in
+		wlp3s0)
+			OUTPUT+=" $IP ($(iwgetid -r))"
+			;;
+
+		em1)
+			OUTPUT+= $IP $(speed $NAME)
+			;;
+
+		tun0)
+			OUTPUT+=" $IP$(speed $NAME)"
+			;;
+	esac
+	OUTPUT+="    "
+done
+IFS=$OLDIFS
+
+echo "$OUTPUT" | sed 's/^ *//; s/ *$//'
