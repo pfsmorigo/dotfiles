@@ -19,7 +19,11 @@ for IF in $(ip -o -4 a); do
 			;;
 
 		em1)
-			OUTPUT+= $IP $(speed $NAME)
+			OUTPUT+=" $IP $(speed $NAME)"
+			;;
+
+		enp0s26u1u2)
+		   	OUTPUT+=" $IP $(speed $NAME)"
 			;;
 
 		tun0)
@@ -30,4 +34,10 @@ for IF in $(ip -o -4 a); do
 done
 IFS=$OLDIFS
 
-echo "$OUTPUT" | sed 's/^ *//; s/ *$//'
+if [ -z "$(echo $OUTPUT | xargs)" ]; then
+   echo "no network"
+   echo ""
+   echo "#ff0000"
+else
+   echo "$OUTPUT" | sed 's/^ *//; s/ *$//'
+fi

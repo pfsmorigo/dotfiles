@@ -4,6 +4,10 @@ separator=false
 separator_block_width=10
 full_text=|
 
+[capslock]
+command=/home/pfsmorigo/.config/i3blocks/capslock
+interval=2
+
 [pomodoro]
 command=$HOME/.local/bin/pomodoro -i
 interval=5
