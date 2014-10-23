@@ -1,8 +1,7 @@
 align=center
 color=#eeeeee
 separator=false
-separator_block_width=10
-full_text=|
+separator_block_width=15
 
 [capslock]
 command=/home/pfsmorigo/.config/i3blocks/capslock
@@ -12,20 +11,15 @@ interval=2
 command=$HOME/.local/bin/pomodoro -i
 interval=5
 
-[separator]
-
 [networks]
 command=/home/pfsmorigo/.config/i3blocks/networks
 interval=5
-
-[separator]
 
 [cpu]
 label=
 command=/usr/local/libexec/i3blocks/cpu_usage
 interval=10
 #min_width=CPU: 100.00%
-#separator=false
 
 [load]
 label=
@@ -35,7 +29,6 @@ interval=10
 [memory]
 label=
 command=/usr/local/libexec/i3blocks/memory
-separator=false
 interval=30
 
 [swap]
@@ -53,8 +46,6 @@ label=
 command=/usr/local/libexec/i3blocks/disk $HOmE
 interval=30
 
-[separator]
-
 [temp]
 label=
 command=echo $(acpi -t | awk '{ print $4 }' | cut -d. -f1)°C
@@ -65,17 +56,12 @@ label=
 command=/usr/local/libexec/i3blocks/battery BAT0
 interval=30
 
-[separator]
-
 [volume]
 label=
 command=/usr/local/libexec/i3blocks/volume
 interval=once
 signal=10
 
-[separator]
-
 [time]
-command=date '+ %a, %b %d %H:%M:%S %Z'
+command=date '+%a, %b %d %H:%M:%S %Z    '
 interval=5
-

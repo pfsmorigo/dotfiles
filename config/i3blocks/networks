@@ -1,8 +1,12 @@
 #!/bin/bash
 
-speed() {
-	SPEED="$(cat /sys/class/net/$1/speed 2> /dev/null)"
-	[ -n "$SPEED" ] && echo " ($SPEED Mbps)"
+complement() {
+	if [ "$(iwgetid | cut -d' ' -f1)" = "$1" ]; then
+		echo " ($(iwgetid -r))"
+	else
+		SPEED="$(cat /sys/class/net/$1/speed 2> /dev/null)"
+		[ -n "$SPEED" ] && echo " ($SPEED Mbps)"
+	fi
 }
 
 OUTPUT=
@@ -14,23 +18,14 @@ for IF in $(ip -o -4 a); do
 	IP=$(echo $IF | awk '{ print $4 }' | cut -d/ -f1)
 
 	case $NAME in
-		wlp3s0)
-			OUTPUT+=" $IP ($(iwgetid -r))"
-			;;
-
-		em1)
-			OUTPUT+=" $IP $(speed $NAME)"
-			;;
-
-		enp0s26u1u2)
-		   	OUTPUT+=" $IP $(speed $NAME)"
-			;;
-
-		tun0)
-			OUTPUT+=" $IP$(speed $NAME)"
-			;;
+		lo|virbr*)   continue ;;
+		em*)         ICON= ;; # ethernet
+		enp0s26u1u2) ICON= ;; # usb
+		tun*)        ICON= ;; # vpn
+		wlp3s0)      ICON= ;; # wireless
+		*)           ICON= ;; # generic
 	esac
-	OUTPUT+="    "
+	OUTPUT+="$ICON $IP$(complement $NAME)   "
 done
 IFS=$OLDIFS
 
