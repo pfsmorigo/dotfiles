@@ -2,12 +2,12 @@
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/IBM/bin
+PATH=$PATH:$HOME/.local/bin
 export PATH
 
 export GDK_USE_XFT=1
 export QT_XFT=true
-export BROWSER="/usr/bin/browser"
+export BROWSER="/usr/bin/google-chrome"
 export EDITOR="/usr/bin/vim"
 
 # Larger bash history (allow 32³ entries; default is 500)
@@ -35,7 +35,7 @@ alias la="ls -lah"
 alias irc_urls='tail $HOME/.weechat/urls.log'
 alias lvim="vim -c \"normal '0\""
 alias enable_alert='PS1="$PS1\a"'
-alias task="taskassist; task"
+#alias task="taskassist; task"
 
 if type -t colordiff 2>&1 > /dev/null; then
 	alias diff='colordiff'
@@ -58,7 +58,7 @@ alias whois="whois -h whois-servers.net"
 #shopt -s histappend     # don't clear the history each time
 
 PRODUCT_ID=$(cat /sys/class/dmi/id/product_version 2> /dev/null)
-if [ "$PRODUCT_ID" = "ThinkPad T410" ]; then
+if [[ "$PRODUCT_ID" =~ "ThinkPad" ]]; then
 	#setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp'
 	#setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp,caps:swapescape,altwin:meta_win'
 	setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp,caps:swapescape'

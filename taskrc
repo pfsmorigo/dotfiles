@@ -52,12 +52,30 @@ report.ibm.labels=ID,D,Project,Description
 report.ibm.sort=priority-,project+,entry+,description+
 report.ibm.filter=+ibm status:pending
 
+report.ibm_new.description=IBM Tasks
+report.ibm_new.columns=id,depends.indicator,project,description.truncated
+report.ibm_new.labels=ID,D,Project,Description
+report.ibm_new.sort=priority-,project+,entry+,description+
+report.ibm_new.filter=+ibm +new -someday status:pending
+
 report.rt.description=Request Tracker
 report.rt.columns=id,priority,depends,due,entry.age,tags,description.truncated
 report.rt.labels=ID,P,D,Due,Age,Tags,Description
 report.rt.sort=description+
 report.rt.filter=+rt status:pending
 
+report.bwp.description=Build with patches tasks
+report.bwp.columns=id,status,end,description
+report.bwp.sort=status,project+,entry+,description+
+report.bwp.filter=pro:debian_bwp ( status:pending or status:completed )
+
+report.today.description=Done today
+report.today.columns=id,project,description
+report.today.filter=end.after:today status:completed
+
+report.yesterday.description=Done yesterday
+report.yesterday.columns=id,project,description
+report.yesterday.filter=end.after:yesterday end.before:today status:completed
 
 #### Colors ###################################################################
 
@@ -103,8 +121,8 @@ color.pri.H=color255
 color.pri.M=color250
 color.pri.L=color245
 color.tagged=rgb031
-color.blocked=white on color8
-color.blocking=white on color15
+color.blocked=white on rgb210
+color.blocking=white on rgb220
 color.project.none=
 color.tag.none=
 color.alternate=on color233

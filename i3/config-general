@@ -35,13 +35,16 @@ set $work work
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-#font pango:DejaVu Sans Mono 8
 
-#font pango:Cantarell 8
+#font pango:DejaVu Sans Mono 9
+font pango:Cantarell, icons 9
 #font pango:Nanum Gothic 8
-#font pango:PT Sans 8
-font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
-
+#font pango:PT Sans, icons 8
+#font pango:Envy Code R 10
+#font pango:Cuprum 11
+#font pango:Cuprum, icons 11
+#font pango:Liberation Mono 8
+#font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
 
 # colors
 set $background  background         #000000
@@ -77,7 +80,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -nb '#2D2D2D' -nf '#888888' -sb '#3749D6' -sf '#DEDEDE' -l 10 -i"
-bindsym $mod+d exec dmenu_run -nb '#000000' -nf '#ffffff' -sb '#000000' -sf '#1793d0' -p  'Run: ' -f
+bindsym $mod+d exec dmenu_run -nb '#000000' -nf '#ffffff' -sb '#000000' -sf '#1793d0' -p  'Run: ' -f -fn Cantarell:11
 
 # change focus
 bindsym $mod+h focus left
@@ -232,8 +235,8 @@ bindSym XF86AudioMute              exec --no-startup-id "amixer -q  set Master t
 #bindSym Shift+XF86AudioMute        exec --no-startup-id "amixer -q  set Capture toggle"
 
 
-bindsym XF86MonBrightnessUp        exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown      exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp        exec xbacklight -inc 1
+bindsym XF86MonBrightnessDown      exec xbacklight -dec 1
 bindsym $mod+XF86MonBrightnessUp   exec xbacklight -set 100
 bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 0
 
@@ -290,22 +293,22 @@ workspace "work" output LVDS1
 assign [title="NotesLogo"] work
 assign [title="(IBM|Lotus) Notes*"] work
 assign [class="Notes"] work
-for_window [title="NotesLogo"] floating enable
-for_window [title="NotesLogo"] border none
-#for_window [class="(IBM|Lotus) Notes"] floating disable
-for_window [class="(IBM|Lotus) Notes" title="* is In a Meeting "] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Add Sametime Contact*"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Add Sametime Group*"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Alarm"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Alert Me When "] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Call*"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Change Group*"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Contact Added*"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Edit Nickname*"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Group Added*"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Preferences"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Remove Groups/Contacts*"] floating enable
-for_window [class="(IBM|Lotus) Notes" title="Sametime "] floating enable
+#for_window [title="NotesLogo"] floating enable
+#for_window [title="NotesLogo"] border none
+##for_window [class="(IBM|Lotus) Notes"] floating disable
+#for_window [class="(IBM|Lotus) Notes" title="* is In a Meeting "] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Add Sametime Contact*"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Add Sametime Group*"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Alarm"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Alert Me When "] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Call*"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Change Group*"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Contact Added*"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Edit Nickname*"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Group Added*"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Preferences"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Remove Groups/Contacts*"] floating enable
+#for_window [class="(IBM|Lotus) Notes" title="Sametime "] floating enable
 
 # dia
 assign [class="Dia"] dia
@@ -317,9 +320,6 @@ for_window [window_role="toolbox_window"] resize shrink left 325px
 
 # gimp
 assign [class="Gimp"] gimp
-#for_window [title="GIMP Startup"] move workspace gimp
-#for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move left; resize shrink right 31px or 31 ppt
-#for_window [window_role="gimp-dock"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
 
 # minecraft
 assign [title="Magic Launcher"] mc
@@ -346,12 +346,14 @@ for_window [class="Copyq"] floating enable
 for_window [class="Devede"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="Gedit"] floating enable
+for_window [class="Gimp"] border none
 for_window [class="Gnucash"] floating enable
 for_window [class="Gtk-recordMyDesktop"] floating enable
 for_window [class="Ibmsaml"] floating enable
 for_window [class="Istanbul"] floating enable
 for_window [class="Keepassx"] floating enable
 for_window [class="Key-mon"] floating enable; border none
+for_window [class="Lxappearance"] floating enable
 for_window [class="Nagstamon"] floating enable; border none
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -361,26 +363,27 @@ for_window [class="Skype"] floating enable move right 520px, move down 15px
 for_window [class="Vncviewer"] floating enable
 for_window [class="X3270"] floating enable
 for_window [class="XFontSel"] floating enable
+for_window [class="Yumex"] floating enable; border none
 for_window [class="grub-emu"] floating enable
 for_window [class="qemu-system-*"] floating enable
 for_window [class="xpad"] floating enable; border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
+for_window [title="Page(s) Unresponsive"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="xfce4-notifyd"] floating enable; border none
-#for_window [class="Nagstamon"] floating enable
 #assign [class="Nagstamon"] nagios
 
 # Start some util apps
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
+#exec --no-startup-id /usr/bin/xfce4-power-manager
 exec --no-startup-id /usr/local/bin/urxvtd -q -f -o
-exec --no-startup-id /usr/bin/xfce4-power-manager
-exec --no-startup-id /usr/bin/feh --bg-scale ~/Backgrounds/circuit_board-Abstract_design_wallpaper_2560x1600.jpg
+exec --no-startup-id /usr/bin/feh --bg-scale ~/media/backgrounds/circuit_board-Abstract_design_wallpaper_2560x1600.jpg
 exec --no-startup-id /usr/bin/xautolock
 exec --no-startup-id /usr/bin/parcellite
 #exec --no-startup-id /usr/bin/copyq
-exec --no-startup-id /home/pfsmorigo/bin/dropbox_monitor
+exec --no-startup-id /home/pfsmorigo/.local/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
 exec --no-startup-id /usr/bin/xpad

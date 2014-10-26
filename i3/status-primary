@@ -3,67 +3,66 @@ general {
 	color_good = "#9999FF"
 	color_degraded = "#FFFF99"
 	color_bad = "#FF9999"
-	color_separator = "#333333"
+	color_separator = "#999933"
 	interval = 1
 	output_format = "i3bar"
 }
 
-order += "command pomodoro"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
-order += "wireless wlan0"
+order += "wireless wlp3s0"
+#order += "wireless wlan0"
 #order += "ipv6"
 order += "ethernet em1"
 order += "ethernet tun0"
 order += "ethernet ppp0"
 order += "ethernet usb0"
 #order += "ipv6"
-#order += "command pomodoro"
 order += "disk /"
 order += "disk /home"
 order += "battery 0"
 order += "cpu_temperature 0"
-#order += "command fanspeed"
 order += "load"
 order += "volume master"
 order += "volume capture"
-#order += "command date_zurich"
-order += "tztime us_central"
-order += "tztime pouk"
-order += "tztime zurich"
-order += "tztime gmt"
-order += "tztime local"
+order += "time"
 
 wireless wlan0 {
-	format_up = "%ip (%essid)"
+	format_up = " %ip (%essid)"
+	format_down = ""
+	color_bad = "#555555"
+}
+
+wireless wlp3s0 {
+	format_up = " %ip (%essid)"
 	format_down = ""
 	color_bad = "#555555"
 }
 
 ethernet em1 {
 	# if you use %speed, i3status requires root privileges
-	format_up = "%ip"
+	format_up = " %ip"
 	format_down = ""
 	color_bad = "#555555"
 }
 
 ethernet tun0 {
 	# if you use %speed, i3status requires root privileges
-	format_up = "%ip"
+	format_up = " %ip"
 	format_down = ""
 	color_bad = "#555555"
 }
 
 ethernet ppp0 {
 	# if you use %speed, i3status requires root privileges
-	format_up = "%ip"
+	format_up = " %ip"
 	format_down = ""
 	color_bad = "#555555"
 }
 
 ethernet usb0 {
 	# if you use %speed, i3status requires root privileges
-	format_up = "%ip"
+	format_up = " %ip"
 	format_down = ""
 	color_bad = "#555555"
 }
@@ -74,7 +73,7 @@ ipv6 {
 }
 
 battery 0 {
-	format = "%status %percentage %remaining"
+	format = " %status %percentage %remaining"
 	#format = "%status %percentage %remaining ▁▂▃▄▅▆▇█"
 }
 
@@ -87,66 +86,35 @@ run_watch VPN {
 }
 
 load {
-	format = "%1min %5min %15min"
+	format = " %1min %5min %15min"
 }
 
 cpu_temperature 0 {
-	format = "%degrees°C"
+	format = " %degrees°C"
 }
 
 disk "/" {
-	format = "/ %free"
+	format = " %free"
 }
 
 disk "/home" {
-	format = "~ %free"
+	format = " %free"
 }
 
 volume master {
-    format = "%volume"
+    format = " %volume"
     device = "default"
     mixer = "Master"
     mixer_idx = 0
 }
 
 volume capture {
-    format = "%volume"
+    format = " %volume"
     device = "default"
     mixer = "Capture"
     mixer_idx = 0
 }
 
-tztime zurich {
-	format = "%Z %H"
-	timezone = "Europe/Zurich"
+time {
+	format = " %a, %b %d %H:%M:%S"
 }
-
-tztime us_central {
-	format = "%Z %H"
-	timezone = "US/Central"
-}
-
-tztime pouk {
-	format = "%Z %H"
-	timezone = "America/New_York"
-}
-
-tztime gmt {
-	format = "%Z %H"
-	timezone = "GMT"
-}
-
-tztime local {
-	format = "%a, %b %d %H:%M:%S"
-}
-
-command pomodoro {
-	format = "%result"
-    commandline = "pomodoro status"
-}
-
-#command fanspeed {
-#	format = "%result"
-#    commandline = "cat /proc/acpi/ibm/fan | grep speed: | cut -f 3"
-#}
-

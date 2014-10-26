@@ -23,7 +23,7 @@ hardstatus off
 deflog on
 logtstamp on
 logtstamp after 5
-logfile $HOME/Log/screen/screenlog_%Y-%m-%d_%S-%t
+logfile $HOME/logs/screen/screenlog_%Y-%m-%d_%S-%t
 
 defscrollback 10000
 

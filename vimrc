@@ -131,7 +131,7 @@ map <F3> :NERDTreeToggle<CR>
 Bundle 'scrooloose/nerdcommenter'
 
 Bundle 'vim-scripts/vimwiki'
-let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/'}, {'path': '~/IBM/wiki/'}]
+let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/'}, {'path': '~/ibm/wiki/'}]
 
 Bundle 'AutoComplPop'
 

@@ -31,3 +31,5 @@
 
 [include]
 	path = .gitconfig-userinfo
+[sendemail]
+	bcc = pfsmorigo@gmail.com
