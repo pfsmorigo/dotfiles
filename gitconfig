@@ -30,6 +30,10 @@
 	zero = !git clean -fd && git clean -fdX && git co .
 
 [include]
-	path = .gitconfig-userinfo
+	path = .gitconfig-local
+
 [sendemail]
 	bcc = pfsmorigo@gmail.com
+
+[push]
+	default = simple
