@@ -4,22 +4,26 @@ separator=false
 separator_block_width=15
 
 [capslock]
-command=/home/pfsmorigo/.config/i3blocks/capslock
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/capslock
 interval=2
 
+[yumupdate]
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/yumupdate
+interval=240
+
 [pomodoro]
+label=
 command=$HOME/.local/bin/pomodoro -i
 interval=5
 
 [networks]
-command=/home/pfsmorigo/.config/i3blocks/networks
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/networks
 interval=5
 
 [cpu]
 label=
 command=/usr/local/libexec/i3blocks/cpu_usage
 interval=10
-#min_width=CPU: 100.00%
 
 [load]
 label=
@@ -43,12 +47,17 @@ interval=30
 
 [disk-home]
 label=
-command=/usr/local/libexec/i3blocks/disk $HOmE
+command=/usr/local/libexec/i3blocks/disk $HOME
 interval=30
 
 [temp]
 label=
-command=echo $(acpi -t | awk '{ print $4 }' | cut -d. -f1)°C
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/temperature
+interval=2
+
+[fanspeed]
+label=
+command=grep speed /proc/acpi/ibm/fan | awk '{ print $2 }'
 interval=2
 
 [battery]
@@ -59,6 +68,12 @@ interval=30
 [volume]
 label=
 command=/usr/local/libexec/i3blocks/volume
+interval=once
+signal=10
+
+[mic]
+label=
+command=/home/pfsmorigo/.local/bin/computer sound Capture show
 interval=once
 signal=10
 

@@ -1,0 +1,13 @@
+align=center
+color=#eeeeee
+separator=false
+separator_block_width=15
+
+[mercadobitcoin]
+label=
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/mercadobitcoin
+interval=60
+
+[time]
+command=date '+%a, %b %d %H:%M:%S %Z    '
+interval=5
