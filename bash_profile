@@ -59,9 +59,9 @@ alias whois="whois -h whois-servers.net"
 
 PRODUCT_ID=$(cat /sys/class/dmi/id/product_version 2> /dev/null)
 if [[ "$PRODUCT_ID" =~ "ThinkPad" ]]; then
-	#setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp'
+	setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp'
 	#setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp,caps:swapescape,altwin:meta_win'
-	setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp,caps:swapescape'
+	#setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp,caps:swapescape'
 
 	# IBM TP mouse scrolling with middle mouse buttom
 	xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
