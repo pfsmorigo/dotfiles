@@ -3,9 +3,14 @@ color=#eeeeee
 separator=false
 separator_block_width=15
 
-[mercadobitcoin]
+[cotacoes]
 label=
-command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/mercadobitcoin
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/cotacoes.py
+interval=60
+
+[bitcoin]
+label=
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/bitcoin
 interval=60
 
 [time]
