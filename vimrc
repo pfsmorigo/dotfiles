@@ -132,7 +132,32 @@ if filereadable(expand("~/.vim/bundle/vundle/README.md"))
 	Bundle 'scrooloose/nerdcommenter'
 
 	Bundle 'vim-scripts/vimwiki'
-	let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/'}, {'path': '~/ibm/wiki/'}]
+	let g:vimwiki_dir_link = 'index'
+	let g:vimwiki_fold_lists = 1
+	let g:vimwiki_folding = 1
+	let g:vimwiki_hl_cb_checked = 1
+	let g:vimwiki_hl_headers = 1
+	"let g:vimwiki_url_maxsave = 0
+	let g:vimwiki_use_mouse = 1
+	let s:vimwiki_pvt = {}
+	let s:vimwiki_pvt.path             = '~/wiki'
+	let s:vimwiki_pvt.path_html        = '~/wiki/html'
+	let s:vimwiki_pvt.ext              = '.md'
+	let s:vimwiki_pvt.syntax           = 'markdown'
+	let s:vimwiki_pvt.diary_rel_path   = 'diary/'
+	let s:vimwiki_pvt.diary_index      = 'index'
+	let s:vimwiki_pvt.diary_header     = 'Journal'
+	let s:vimwiki_pvt.diary_sort       = 'desc'
+	let s:vimwiki_ibm = {}
+	let s:vimwiki_ibm.path             = '~/ibm/wiki'
+	let s:vimwiki_ibm.path_html        = '~/ibm/wiki/html'
+	let s:vimwiki_ibm.ext              = '.md'
+	let s:vimwiki_ibm.syntax           = 'markdown'
+	let s:vimwiki_ibm.diary_rel_path   = 'diary/'
+	let s:vimwiki_ibm.diary_index      = 'index'
+	let s:vimwiki_ibm.diary_header     = 'Journal'
+	let s:vimwiki_ibm.diary_sort       = 'desc'
+	let g:vimwiki_list = [s:vimwiki_pvt, s:vimwiki_ibm]
 
 	Bundle 'AutoComplPop'
 
