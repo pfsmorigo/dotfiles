@@ -1,0 +1,21 @@
+auto-reload         yes
+browser             "/usr/local/bin/browser %u"
+download-path       "~/downloads/podcasts"
+feedlist-format     "%4i %n %11u %-15T %t"
+goto-next-feed      no
+max-downloads       4
+notify-always       yes
+notify-beep         yes
+notify-format       "newsbeuter: %n unread articles within %f unread feeds"
+notify-program      notify-send
+notify-screen       yes
+notify-xterm        yes
+player              mplayer
+refresh-on-startup  yes
+reload-threads      2
+show-read-articles  no
+show-read-feeds     no
+
+feedlist-title-format    "%N %V - %u unread, %t total%?T? - tag ‘%T’&?"
+articlelist-title-format "%N %V - %T (%u unread, %t total) %U"
+
