@@ -25,8 +25,11 @@ set $w7 7
 set $w8 8
 set $w9 9
 set $w10 10
-set $www www
-set $work work
+set $www 
+set $work 
+set $dia dia
+set $gimp gimp
+set $mc mc
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -37,8 +40,8 @@ set $work work
 # chose a FreeType font, such as:
 
 #font pango:DejaVu Sans Mono 9
-font pango:Cantarell, icons 9
-#font pango:Nanum Gothic 8
+#font pango:Cantarell, icons 9
+font pango:Nanum Gothic 8
 #font pango:PT Sans, icons 8
 #font pango:Envy Code R 10
 #font pango:Cuprum 11
@@ -277,21 +280,21 @@ bindsym $mod+F10 [class="URxvt" title="0\*"] focus
 
 # www
 #bindsym $mod+F2 [class="Google-chrome"] focus
-assign [class="Opera"] www
-assign [class="Firefox"] www
-assign [class="Google-chrome"] www
-assign [class="Chromium-browser"] www
-assign [class="Browser"] www
+assign [class="Opera"] $www
+assign [class="Firefox"] $www
+assign [class="Google-chrome"] $www
+assign [class="Chromium-browser"] $www
+assign [class="Browser"] $www
 #for_window [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
 for_window [class="Google-chrome"] border none
 for_window [class="Chromium-browser"] border none
 for_window [class="Firefox"] border none
 
 # work
-workspace "work" output LVDS1
-assign [title="NotesLogo"] work
-assign [title="(IBM|Lotus) Notes*"] work
-assign [class="Notes"] work
+workspace $work output LVDS1
+assign [title="NotesLogo"] $work
+assign [title="(IBM|Lotus) Notes*"] $work
+assign [class="Notes"] $work
 #for_window [title="NotesLogo"] floating enable
 #for_window [title="NotesLogo"] border none
 ##for_window [class="(IBM|Lotus) Notes"] floating disable
@@ -310,7 +313,7 @@ assign [class="Notes"] work
 #for_window [class="(IBM|Lotus) Notes" title="Sametime "] floating enable
 
 # dia
-assign [class="Dia"] dia
+assign [class="Dia"] $dia
 for_window [window_role="toolbox_window"] floating disable
 for_window [window_role="toolbox_window"] layout toggle split
 for_window [window_role="toolbox_window"] move left
@@ -318,22 +321,22 @@ for_window [window_role="toolbox_window"] resize shrink left 325px
 #for_window [window_role="gimp-dock"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
 
 # gimp
-assign [class="Gimp"] gimp
+assign [class="Gimp"] $gimp
 
 # minecraft
-assign [title="Magic Launcher"] mc
-assign [title="Minecraft*"] mc
-assign [title="MCEdit *"] mcedit
+assign [title="Magic Launcher"] $mc
+assign [title="Minecraft*"] $mc
+assign [title="MCEdit *"] $mc
 for_window [title="Minecraft*"] border none
 for_window [class="magic-launcher-MagicLauncher"] floating disable; layout tabbed
 
 # im
-bindsym $mod+m workspace im
-bindsym $mod+Shift+M move workspace im
+bindsym $mod+m workspace $im
+bindsym $mod+Shift+M move workspace $im
 workspace "im" output LVDS1
-for_window [class="Pidgin"] move workspace im
-for_window [class="Sametime"] move workspace im
-assign [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] im
+for_window [class="Pidgin"] move workspace $im
+for_window [class="Sametime"] move workspace $im
+assign [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $im
 #for_window [class="Pidgin"] floating enable
 
 # others
