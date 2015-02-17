@@ -3,17 +3,17 @@
 ###############################################################################
 
 bar {
+	#font pango:DejaVu Sans Mono, Icons 8
 	output LVDS1
 	position top
 	status_command i3blocks
 	tray_output LVDS1
 	colors {
-		$background
-		$statusline
-		$barcolor1
-		$barcolor2
-		$barcolor3
-		$barcolor4
+		background $background
+		focused_workspace $focused_workspace
+		active_workspace $active_workspace
+		inactive_workspace $inactive_workspace
+		urgent_workspace $urgent_workspace
 	}
 }
 

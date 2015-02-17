@@ -12,7 +12,7 @@ command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/yumupdate
 interval=240
 
 [pomodoro]
-label=
+label=
 command=$HOME/.local/bin/pomodoro -i
 interval=5
 

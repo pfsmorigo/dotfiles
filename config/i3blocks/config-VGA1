@@ -3,9 +3,19 @@ color=#eeeeee
 separator=false
 separator_block_width=15
 
-[cotacoes]
-label=
-command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/cotacoes.py
+[dolar]
+label=US$
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/cotacoes.py dolar
+interval=60
+
+[euro]
+label=EURO
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/cotacoes.py euro
+interval=60
+
+[bovespa]
+label=Bovespa
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/cotacoes.py bovespa
 interval=60
 
 [bitcoin]
