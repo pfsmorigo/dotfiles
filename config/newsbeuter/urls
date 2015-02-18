@@ -5,8 +5,8 @@ http://feeds.feedburner.com/NoticiasLinux news
 http://br.linux.feedsportal.com/c/34277/f/637314/index.rss news
 
 # GRUB
-https://admin.fedoraproject.org/updates/rss/rss2.0?package=grub2 grub "~GRUB: Fedora"
-https://packages.qa.debian.org/g/grub2/news.rss20.xml grub "~GRUB: Debian"
+https://admin.fedoraproject.org/updates/rss/rss2.0?package=grub2 grub fedora "~GRUB: Fedora"
+https://packages.qa.debian.org/g/grub2/news.rss20.xml grub debian "~GRUB: Debian"
 
 # Debian
 http://rss.gmane.org/gmane.linux.debian.devel.changes.unstable debian "~Debian Devel Unstable Changes"
@@ -82,6 +82,12 @@ http://shortrecipes.blogspot.com/feeds/posts/default linux
 http://feeds.feedburner.com/codinghorror/ development
 http://feeds.feedburner.com/Geeksforgeeks development
 http://feeds.feedburner.com/quicklycode development
+
+# Ubuntu
+http://packages.ubuntu.com/trusty/newpkg?format=rss ubuntu trusty "~Ubuntu trusty new packages"
+http://packages.ubuntu.com/utopic/newpkg?format=rss ubuntu utopic "~Ubuntu utopic new packages"
+http://packages.ubuntu.com/vivid/newpkg?format=rss ubuntu vivid "~Ubuntu vivid new packages"
+http://www.ubuntu.com/usn/atom.xml ubuntu security
 
 http://feeds.feedburner.com/BashCuresCancer foss
 http://feeds.feedburner.com/EnglishExperts learn
