@@ -1,12 +1,13 @@
+
 ###############################################################################
-# LVDS1
+# primary
 ###############################################################################
 
 bar {
-	output LVDS1
+	output DISPLAYNAME
 	position top
 	status_command i3blocks
-	tray_output LVDS1
+	tray_output DISPLAYNAME
 
 	colors {
 		focused_workspace 	$colors_focused
@@ -17,8 +18,8 @@ bar {
 }
 
 # Workspace settings
-workspace $w1 output LVDS1
-workspace $w2 output LVDS1
-workspace $w3 output LVDS1
-workspace $w4 output LVDS1
-workspace $w5 output LVDS1
+workspace $w1 output DISPLAYNAME
+workspace $w2 output DISPLAYNAME
+workspace $w3 output DISPLAYNAME
+workspace $w4 output DISPLAYNAME
+workspace $w5 output DISPLAYNAME

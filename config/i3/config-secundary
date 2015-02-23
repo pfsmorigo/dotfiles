@@ -1,11 +1,12 @@
+
 ###############################################################################
-# DISPLAYNAME
+# secundary
 ###############################################################################
 
 bar {
 	output DISPLAYNAME
 	position top
-	status_command i3blocks -c ~/.config/i3blocks/config-DISPLAYNAME
+	status_command i3blocks -c ~/.config/i3blocks/config-secundary
 	tray_output none
 
 	colors {
