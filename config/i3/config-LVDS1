@@ -7,6 +7,13 @@ bar {
 	position top
 	status_command i3blocks
 	tray_output LVDS1
+
+	colors {
+		focused_workspace 	$colors_focused
+		active_workspace 	$colors_focused_inactive
+		inactive_workspace	$colors_unfocused
+		urgent_workspace 	$colors_urgent
+	}
 }
 
 # Workspace settings

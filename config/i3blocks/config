@@ -1,6 +1,6 @@
 align=center
-color=#eeeeee
-separator=false
+color=#ffffff
+separator=true
 separator_block_width=15
 
 [capslock]
@@ -12,7 +12,6 @@ command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/yumupdate
 interval=240
 
 [pomodoro]
-label=
 command=$HOME/.local/bin/pomodoro -i
 interval=5
 
@@ -21,62 +20,54 @@ command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/networks
 interval=5
 
 [cpu]
-label=
 command=/usr/local/libexec/i3blocks/cpu_usage
 interval=10
 
 [load]
-label=
 command=/usr/local/libexec/i3blocks/load_average
 interval=10
 
 [memory]
-label=
 command=/usr/local/libexec/i3blocks/memory
 interval=30
 
 [swap]
-label=
 command=/usr/local/libexec/i3blocks/memory swap
 interval=30
 
 [disk-root]
-label=
 command=/usr/local/libexec/i3blocks/disk /
 interval=30
 
 [disk-home]
-label=
 command=/usr/local/libexec/i3blocks/disk $HOME
 interval=30
 
 [temp]
-label=
 command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/temperature
 interval=2
 
 [fanspeed]
-label=
 command=grep speed /proc/acpi/ibm/fan | awk '{ print $2 }'
 interval=2
 
 [battery]
-label=
 command=/usr/local/libexec/i3blocks/battery BAT0
 interval=30
 
 [volume]
-label=
 command=/usr/local/libexec/i3blocks/volume
 interval=once
 signal=10
+separator_block_width=10
+separator=false
 
 [mic]
-label=
 command=/home/pfsmorigo/.local/bin/computer sound Capture show
 interval=once
 signal=10
 
 [time]
-command=date '+%a, %b %d %H:%M:%S %Z    '
+command=date '+%a, %b %d %H:%M:%S'
+#command=date '+%a, %b %d %H:%M:%S %Z    '
 interval=5
