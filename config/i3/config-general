@@ -235,14 +235,6 @@ bindsym $mod+Control+F1            exec ~/bin/automatic ff
 bindsym $mod+Control+F2            exec ~/bin/automatic zf
 bindsym $mod+Control+F12           exec killall automatic
 
-
-# Notify history
-bindsym $mod+n                     exec notify
-
-# xpad
-bindsym $mod+p                     exec xpad -t
-bindsym $mod+Shift+p               exec xpad -n
-
 # www
 #bindsym $mod+F2 [class="Google-chrome"] focus
 assign [class="Opera"] $www
@@ -352,19 +344,7 @@ exec --no-startup-id /usr/bin/parcellite
 exec --no-startup-id /home/pfsmorigo/.local/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
-exec --no-startup-id /usr/bin/xpad
 exec --no-startup-id /usr/bin/nagstamon
-
-## autostart file support
-##exec ~/.i3/startup
-#
-### Background wallpaper
-#exec nitrogen --restore
-#
-### Keyboard indicator/switcher for tray
-#exec fbxkb
-
-#exec pgrep stalonetray > /dev/null || stalonetray -bg '#303030' -f 0 --max-geometry 5x1 --geometry 5x1-0+0 --grow-gravity W --icon-gravity E -i 16 --kludges force_icons_size --no-shrink true --scrollbars horizontal --skip-taskbar true --sticky true --window-layer bottom
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
