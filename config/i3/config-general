@@ -248,7 +248,6 @@ for_window [class="Chromium-browser"] border none
 for_window [class="Firefox"] border none
 
 # work
-workspace $work output LVDS1
 assign [title="NotesLogo"] $work
 assign [title="(IBM|Lotus) Notes*"] $work
 assign [class="Notes"] $work
@@ -290,7 +289,6 @@ for_window [class="magic-launcher-MagicLauncher"] floating disable; layout tabbe
 # im
 bindsym $mod+m workspace $im
 bindsym $mod+Shift+M move workspace $im
-workspace "im" output LVDS1
 for_window [class="Pidgin"] move workspace $im
 for_window [class="Sametime"] move workspace $im
 assign [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $im
