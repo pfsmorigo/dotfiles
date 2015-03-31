@@ -40,7 +40,7 @@ URxvt*scrollBar:           false
 URxvt*internalBorder:      1
 URxvt*visualBell:          true
 URxvt*urgentOnBell:        true
-URxvt*urlLauncher:         /usr/local/bin/browser
+URxvt*urlLauncher:         /usr/bin/xdg-open
 URxvt*underlineURLs:       true
 URxvt*termName:            rxvt-256color
 

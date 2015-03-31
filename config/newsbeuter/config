@@ -1,5 +1,5 @@
 auto-reload         yes
-browser             "/usr/local/bin/browser %u"
+browser             "/usr/bin/xdg-open %u"
 download-path       "~/downloads/podcasts"
 feedlist-format     "%4i %n %11u %-15T %t"
 goto-next-feed      no
