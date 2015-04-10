@@ -94,8 +94,9 @@ autocmd BufEnter */grub*/**/*.{c,h} call GnuIndent()
 
 
 """" 80 Columns
-
-set colorcolumn=80
+if version >= 703
+	set colorcolumn=80
+endif
 "let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
@@ -177,8 +178,10 @@ if filereadable(expand("~/.vim/bundle/vundle/README.md"))
 
 	Bundle 'powerman/vim-plugin-viewdoc'
 
-	Bundle 'majutsushi/tagbar'
-	nmap <F8> :TagbarToggle<CR>
+	if version >= 703
+		Bundle 'majutsushi/tagbar'
+		nmap <F8> :TagbarToggle<CR>
+	endif
 
 	Bundle 'kien/ctrlp.vim'
 
