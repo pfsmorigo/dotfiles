@@ -9,6 +9,7 @@ export GDK_USE_XFT=1
 export QT_XFT=true
 export BROWSER="/usr/bin/google-chrome"
 export EDITOR="/usr/bin/vim"
+export TASKRC="~/.config/task"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768

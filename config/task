@@ -1,6 +1,6 @@
 #### General ##################################################################
 
-data.location=/home/pfsmorigo/.task
+data.location=~/.local/share/task
 regex=on
 search.case.sensitive=no
 #rc.gc=off # makes ID numbers persistent.
@@ -12,70 +12,26 @@ dateformat=Y-M-D
 
 #### Reports ##################################################################
 
-report.inbox.description=InBox
+report.inbox.description=inbox
 report.inbox.columns=id,tags,priority,description
 report.inbox.labels=ID,Tags,Priority,Description
 report.inbox.sort=priority-
 report.inbox.filter=pro: status:pending
 
-report.mine.description=Work Stuff
-report.mine.columns=id,project,priority,description
-report.mine.sort=priority-,grub+
-report.mine.labels=ID,Project,Priority,Description of task
-
-report.pri.description=My own report
-report.pri.columns=id,entry,description
-report.pri.labels=ID,Entered,Description
-report.pri.sort=entry+,description+
-report.pri.filter=status:pending
-
-report.lab.description=Brazil Lab Stuff
-report.lab.columns=id,tags,priority,description
-report.lab.sort=priority-
-report.lab.filter=project:brazillab status:pending
-
-report.personal.description=Personal Tasks
-report.personal.columns=id,project,entry,priority,tags,depends,description
-report.personal.labels=ID,Project,Added,P,Tags,D,Description
-report.personal.sort=project+,entry+,description+
-report.personal.filter=( pro:health or pro:money or pro:love or pro:study or pro:neb or pro:tools or pro:lfs ) status:pending
-
-report.professional.description=Profissional Tasks
-report.professional.columns=id,project,entry,priority,tags,depends,description
-report.professional.labels=ID,Project,Added,P,Tags,D,Description
-report.professional.sort=project+,entry+,description+
-report.professional.filter=( pro:ibm or pro:ltc or pro:brazillab or pro:grub or pro:i3 ) status:pending
-
-report.ibm.description=IBM Tasks
-report.ibm.columns=id,depends.indicator,project,description.truncated
-report.ibm.labels=ID,D,Project,Description
-report.ibm.sort=priority-,project+,entry+,description+
-report.ibm.filter=+ibm status:pending
-
-report.ibm_new.description=IBM Tasks
-report.ibm_new.columns=id,depends.indicator,project,description.truncated
-report.ibm_new.labels=ID,D,Project,Description
-report.ibm_new.sort=priority-,project+,entry+,description+
-report.ibm_new.filter=+ibm +new -someday status:pending
-
-report.rt.description=Request Tracker
-report.rt.columns=id,priority,depends,due,entry.age,tags,description.truncated
-report.rt.labels=ID,P,D,Due,Age,Tags,Description
-report.rt.sort=description+
-report.rt.filter=+rt status:pending
-
-report.bwp.description=Build with patches tasks
-report.bwp.columns=id,status,end,description
-report.bwp.sort=status,project+,entry+,description+
-report.bwp.filter=pro:debian_bwp ( status:pending or status:completed )
-
 report.today.description=Done today
-report.today.columns=id,project,description
+report.today.columns=id,pomo,project,description
 report.today.filter=end.after:today status:completed
 
 report.yesterday.description=Done yesterday
 report.yesterday.columns=id,project,description
 report.yesterday.filter=end.after:yesterday end.before:today status:completed
+
+
+#### User Defined Attributes (UDA) ############################################
+
+uda.pomo.type=numeric
+uda.pomo.label=Pomodoro
+
 
 #### Colors ###################################################################
 
