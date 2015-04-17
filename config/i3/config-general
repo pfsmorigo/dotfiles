@@ -11,13 +11,13 @@ set $w7 7
 set $w8 8
 set $w9 9
 set $w10 10
-set $work 
-set $www 
-set $office 
-set $im 
-set $gimp 
+set $work work
+set $www www
+set $office office
+set $im im
+set $gimp gimp
 set $dia dia
-set $mc mc
+set $games games
 set $colors_focused          #38a741 #26712c #ffffff #88f791
 set $colors_focused_inactive #333333 #5f676a #ffffff #838383
 set $colors_unfocused        #333333 #222222 #888888 #838383
@@ -31,8 +31,9 @@ client.unfocused        $colors_unfocused
 client.urgent           $colors_urgent
 client.placeholder      $colors_placeholder
 
+font pango:Cantarell 10
+#font pango:Cantarell, smow-icons 8
 #font pango:DejaVu Sans Mono 9
-font pango:Cantarell, smow-icons 8
 #font pango:Nanum Gothic 8
 #font pango:Nanum Gothic, smow-icons 10
 #font pango:PT Sans, icons 8
@@ -56,7 +57,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec dmenu_run -f -nb '#000' -nf '#fff' -sb '#000' -sf '#38a741' -fn Cantarell-11
+bindsym $mod+d exec dmenu_run -f -nb '#000' -nf '#fff' -sb '#000' -sf '#38a741' -fn Cantarell-13
 
 # change focus
 bindsym $mod+h focus left
@@ -134,7 +135,7 @@ bindsym $mod+7   workspace $w7
 bindsym $mod+8   workspace $w8
 bindsym $mod+9   workspace $w9
 bindsym $mod+0   workspace $w10
-bindsym $mod+F6  workspace $mc
+bindsym $mod+F6  workspace $games
 bindsym $mod+F7  workspace $dia
 bindsym $mod+F8  workspace $gimp
 bindsym $mod+F9  workspace $im
@@ -192,7 +193,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
 bindsym $mod+t border normal
 bindsym $mod+y border 1pixel
 bindsym $mod+u border none
@@ -234,6 +234,10 @@ bindsym $alt+Print                 exec gnome-screenshot --window
 bindsym $mod+Control+F1            exec ~/bin/automatic ff
 bindsym $mod+Control+F2            exec ~/bin/automatic zf
 bindsym $mod+Control+F12           exec killall automatic
+
+bindsym $mod+Tab                   exec /usr/bin/copyq toggle
+bindsym $mod+Shift+Tab             exec /usr/bin/copyq menu
+bindsym $mod+Control+Tab           exec /usr/bin/copyq action
 
 # www
 #bindsym $mod+F2 [class="Google-chrome"] focus
@@ -279,13 +283,6 @@ for_window [window_role="toolbox_window"] resize shrink left 325px
 # gimp
 assign [class="Gimp"] $gimp
 
-# minecraft
-assign [title="Magic Launcher"] $mc
-assign [title="Minecraft*"] $mc
-assign [title="MCEdit *"] $mc
-for_window [title="Minecraft*"] border none
-for_window [class="magic-launcher-MagicLauncher"] floating disable; layout tabbed
-
 # im
 bindsym $mod+m workspace $im
 bindsym $mod+Shift+M move workspace $im
@@ -293,6 +290,18 @@ for_window [class="Pidgin"] move workspace $im
 for_window [class="Sametime"] move workspace $im
 assign [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $im
 #for_window [class="Pidgin"] floating enable
+
+# games
+assign [title="Magic Launcher"] $games
+assign [title="Minecraft*"] $games
+assign [title="MCEdit *"] $games
+assign [class="Steam*"] $games
+assign [class="Unturned*"] $games
+for_window [title="Minecraft*"] border none
+for_window [class="magic-launcher-MagicLauncher"] floating disable; layout tabbed
+for_window [class="Unturned*"] floating disable; layout tabbed
+#for_window [class="Steam*"] floating disable; layout tabbed
+#for_window [title="Steam Login"] floating enable
 
 # others
 for_window [class="Agnclient"] floating enable
@@ -338,7 +347,7 @@ for_window [title="xfce4-notifyd"] floating enable; border none
 exec --no-startup-id /usr/local/bin/urxvtd -q -f -o
 exec --no-startup-id /usr/bin/feh --bg-scale ~/media/backgrounds/circuit_board-Abstract_design_wallpaper_2560x1600.jpg
 exec --no-startup-id /usr/bin/xautolock
-exec --no-startup-id /usr/bin/parcellite
+exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /home/pfsmorigo/.local/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
