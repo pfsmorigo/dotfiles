@@ -2,18 +2,15 @@
 ! Xft
 !----------------------------------------------------------------------------
 
-!Xft.antialias:   1
-!Xft.dpi:         96
+Xft.antialias:   1
+Xft.dpi:         96
 !Xft.hinting:     1
 !Xft.hintstyle:   hintfull
-!Xft.rgba:        rbg
-!Xft.lcdfilter:   lcddefault
+Xft.hintstyle:   hintnone
+Xft.lcdfilter:   lcddefault
+Xft.rgba:        rgb
 
 !Xft.autohint: 0
-!Xft.lcdfilter:  lcddefault
-!Xft.hintstyle:  hintfull
-!Xft.hinting: 1
-!Xft.antialias: 1
 !Xft.rgba: rgb
 
 !all rgba:       unknown rgb bgr vrgb vbgr none
@@ -37,7 +34,7 @@ URxvt*transparent:         true
 URxvt*shading:             20
 URxvt*saveLines:           1000000
 URxvt*scrollBar:           false
-URxvt*internalBorder:      1
+URxvt*internalBorder:      3
 URxvt*visualBell:          true
 URxvt*urgentOnBell:        true
 URxvt*urlLauncher:         /usr/bin/xdg-open
@@ -50,8 +47,8 @@ URxvt*depth:               32
 URxvt*underlineColor:      yellow
 
 URxvt.letterSpace:         -2
-URxvt.font:                xft:Liberation Mono:size=9,xft:Icons:size=9
-URxvtRemote.font:          xft:Liberation Mono:size=9,xft:Icons:size=9
+URxvt.font:                xft:Liberation Mono:size=10,xft:Icons:size=10
+URxvtRemote.font:          xft:Liberation Mono:size=10,xft:Icons:size=10
 
 ! C-0, C-+ and C-= to activate small, medium, and big font size resp.
 URxvt*keysym.C-underscore: command:\033]50;xft:Liberation Mono:size=7\007
