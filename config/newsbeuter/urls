@@ -51,9 +51,6 @@ http://torvalds-family.blogspot.com/feeds/posts/default personalities
 http://kroah.com/log/index.rss personalities
 http://mjg59.dreamwidth.org/data/atom personalities
 
-# Music
-http://musicforprogramming.net/rss.php music
-
 # Repository
 http://git.kernel.org/?p=linux/kernel/git/stable/linux-stable.git;a=atom repository
 
@@ -63,16 +60,10 @@ http://www.fsf.org/resources/jobs/RSS/ opensource
 http://opensource.com/feed opensource
 http://www.gnu.org/rss/whatsnew.rss opensource
 
-# Jobs
-https://weworkremotely.com/categories/2/jobs.rss jobs
-
 # Regional
 http://www.pocosdecaldas.mg.gov.br/site/?feed=rss2 pocosdecaldas
 http://www.pocosja.com.br/feed/ pocosdecaldas
 http://paravoce.descubrapocos.com.br/feed/atom/ pocosdecaldas
-
-# Money
-http://www.bolhaimobiliariabrasil.com/feed/ money
 
 # Linux
 http://feeds.feedburner.com/Command-line-fu linux
@@ -89,6 +80,11 @@ http://packages.ubuntu.com/utopic/newpkg?format=rss ubuntu utopic "~Ubuntu utopi
 http://packages.ubuntu.com/vivid/newpkg?format=rss ubuntu vivid "~Ubuntu vivid new packages"
 http://www.ubuntu.com/usn/atom.xml ubuntu security
 
+# Others
+http://musicforprogramming.net/rss.php music
+https://weworkremotely.com/categories/2/jobs.rss jobs
+http://www.bolhaimobiliariabrasil.com/feed/ money
+http://blogs.coreboot.org/feed/ coreboot
 http://feeds.feedburner.com/BashCuresCancer foss
 http://feeds.feedburner.com/EnglishExperts learn
 http://www.trashisfortossers.com/feeds/posts/default
