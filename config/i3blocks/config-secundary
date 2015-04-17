@@ -1,7 +1,14 @@
 align=center
 color=#eeeeee
-separator=false
-separator_block_width=15
+separator_block_width=25
+
+[copyq]
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/copyq
+interval=10
+
+[rhythmbox]
+command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/rhythmbox
+interval=10
 
 [dolar]
 label=US$
@@ -24,5 +31,5 @@ command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/bitcoin
 interval=60
 
 [time]
-command=date '+%a, %b %d %H:%M:%S %Z    '
+command=date '+%a, %b %d %H:%M:%S'
 interval=5
