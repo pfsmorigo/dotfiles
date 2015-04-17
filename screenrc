@@ -20,10 +20,10 @@ backtick 1 5 5 awk '{ print $1 }' /proc/loadavg
 hardstatus string "%H-%S | %1`) %w"
 hardstatus off
 
-deflog on
-logtstamp on
-logtstamp after 5
-logfile $HOME/logs/screen/screenlog_%Y-%m-%d_%S-%t
+#deflog on
+#logtstamp on
+#logtstamp after 5
+#logfile $HOME/logs/screen/screenlog_%Y-%m-%d_%S-%t
 
 defscrollback 10000
 
