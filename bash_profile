@@ -2,9 +2,7 @@
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin
-export PATH
-
+export PATH=$HOME/.local/bin:$PATH
 export GDK_USE_XFT=1
 export QT_XFT=true
 export BROWSER="/usr/bin/google-chrome"
