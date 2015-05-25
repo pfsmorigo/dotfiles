@@ -110,6 +110,16 @@ augroup templates
 augroup END
 
 
+"""" Info
+
+function! ShowInfo()
+	let wordUnderCursor = expand("<cword>")
+	let info = system("echo -n $(grep \"^".wordUnderCursor." \" ~/dict | cut -d' ' -f2-)")
+	echo wordUnderCursor.": ".info
+endfunction
+map <F6> :call ShowInfo()<CR>
+
+
 """" Vundle
 
 if filereadable(expand("~/.vim/bundle/vundle/README.md"))

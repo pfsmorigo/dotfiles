@@ -28,6 +28,8 @@
 	ignored = ls-files --others -i --exclude-standard
 	start = !git init && git add . && git commit -m "baseline"
 	zero = !git clean -fd && git clean -fdX && git co .
+	b = branch -avv
+	r = remote -v
 
 [include]
 	path = .gitconfig-local
@@ -37,3 +39,5 @@
 
 [push]
 	default = simple
+
+# vim: filetype=config

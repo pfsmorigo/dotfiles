@@ -34,7 +34,7 @@ URxvt*transparent:         true
 URxvt*shading:             20
 URxvt*saveLines:           1000000
 URxvt*scrollBar:           false
-URxvt*internalBorder:      3
+URxvt*internalBorder:      4
 URxvt*visualBell:          true
 URxvt*urgentOnBell:        true
 URxvt*urlLauncher:         /usr/bin/xdg-open
@@ -218,7 +218,7 @@ xfontsel.pane.fieldBox.MenuButton.shapeStyle:     rectangle
 ! Xautolock
 !----------------------------------------------------------------------------
 
-Xautolock.time:         3
+Xautolock.time:         5
 Xautolock.notify:       10
 Xautolock.notifier:     notify-send "Locking!"
 Xautolock.corners:      00+-
