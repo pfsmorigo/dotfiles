@@ -1,3 +1,5 @@
+# vim: filetype=config
+
 set $mod Mod4
 set $alt Mod1
 set $resize_value 5
@@ -167,26 +169,27 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width $resize_value px or $resize_value ppt
         bindsym j resize grow height $resize_value px or $resize_value ppt
         bindsym k resize shrink height $resize_value px or $resize_value ppt
         bindsym l resize grow width $resize_value px or $resize_value ppt
 
-        # same bindings, but for the arrow keys
+        bindsym Shift+h resize shrink width 1 px or 1 ppt
+        bindsym Shift+j resize grow height 1 px or 1 ppt
+        bindsym Shift+k resize shrink height 1 px or 1 ppt
+        bindsym Shift+l resize grow width 1 px or 1 ppt
+
         bindsym Left resize shrink width $resize_value px or $resize_value ppt
         bindsym Down resize grow height $resize_value px or $resize_value ppt
         bindsym Up resize shrink height $resize_value px or $resize_value ppt
         bindsym Right resize grow width $resize_value px or $resize_value ppt
 
-        # back to normal: Enter or Escape
+        bindsym Shift+Left resize shrink width 1 px or 1 ppt
+        bindsym Shift+Down resize grow height 1 px or 1 ppt
+        bindsym Shift+Up resize shrink height 1 px or 1 ppt
+        bindsym Shift+Right resize grow width 1 px or 1 ppt
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -215,6 +218,8 @@ bindSym Shift+XF86AudioLowerVolume exec --no-startup-id computer sound Capture d
 bindSym XF86AudioMicMute           exec --no-startup-id computer sound Capture mute
 
 bindSym Shift+XF86AudioMicMute     exec --no-startup-id pavucontrol
+
+bindSym XF86Display                exec --no-startup-id computer display
 
 bindsym XF86MonBrightnessUp        exec --no-startup-id xbacklight -inc 1
 bindsym XF86MonBrightnessDown      exec --no-startup-id xbacklight -dec 1
@@ -246,10 +251,11 @@ assign [class="Firefox"] $www
 assign [class="Google-chrome"] $www
 assign [class="Chromium-browser"] $www
 assign [class="Browser"] $www
-#for_window [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
+for_window [class="Google-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
 for_window [class="Google-chrome"] border none
 for_window [class="Chromium-browser"] border none
 for_window [class="Firefox"] border none
+for_window [title="Page(s) Unresponsive"] floating enable
 
 # work
 assign [title="NotesLogo"] $work
@@ -273,7 +279,7 @@ assign [class="Notes"] $work
 #for_window [class="(IBM|Lotus) Notes" title="Sametime "] floating enable
 
 # dia
-assign [class="Dia"] $dia
+assign [class="Dia$"] $dia
 for_window [window_role="toolbox_window"] floating disable
 for_window [window_role="toolbox_window"] layout toggle split
 for_window [window_role="toolbox_window"] move left
@@ -335,7 +341,6 @@ for_window [class="qemu-system-*"] floating enable
 for_window [class="xpad"] floating enable; border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
-for_window [title="Page(s) Unresponsive"] floating enable
 for_window [title="QEMU"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
