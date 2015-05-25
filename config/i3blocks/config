@@ -8,12 +8,21 @@ command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=2
 
+[mouse_move]
+command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
+interval=10
+signal=11
+
 [yumupdate]
 command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=240
 
+[deja-dup]
+command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
+interval=120
+
 [pomodoro]
-command=$HOME/.local/bin/pomodoro -i
+command=$HOME/.local/bin/pomodoro
 interval=5
 
 [networks]
