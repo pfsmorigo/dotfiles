@@ -21,10 +21,6 @@ interval=240
 command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=120
 
-[pomodoro]
-command=$HOME/.local/bin/pomodoro
-interval=5
-
 [networks]
 command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=5
@@ -71,6 +67,11 @@ separator=false
 command=$HOME/.local/bin/computer sound Capture show
 interval=once
 signal=10
+
+[stopwatch_countdown]
+command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
+interval=1
+signal=13
 
 [time]
 command=date '+%a, %b %d %H:%M:%S'

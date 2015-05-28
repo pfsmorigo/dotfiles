@@ -26,6 +26,11 @@ label=
 command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/bitcoin
 interval=60
 
+[stopwatch_countdown]
+command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
+interval=5
+signal=13
+
 [time]
 command=date '+%a, %b %d %H:%M:%S'
 interval=5
