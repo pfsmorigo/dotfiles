@@ -32,7 +32,7 @@
 	r = remote -v
 
 [include]
-	path = .gitconfig-local
+	path = local
 
 [sendemail]
 	bcc = pfsmorigo@gmail.com
