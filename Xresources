@@ -58,7 +58,7 @@ URxvt*keysym.C-equal:      command:\033]50;xft:Liberation Mono:size=14\007
 URxvt*keysym.C-plus:       command:\033]50;xft:Liberation Mono:size=18\007
 
 ! Perl extensions (options: default,keyboard-select,url-select,clipboard,searchable-scrollback,tabbed)
-URxvt*perl-lib:            /home/pfsmorigo/projects/smowlinux/scripts-3rdparty/urxvt
+URxvt*perl-lib:            /home/pfsmorigo/projects/smowlinux/scripts/3rdparty/urxvt
 URxvt*perl-ext:            default,url-select,clipboard,font-size
 URxvt*keysym.M-u:          perl:url-select:select_next
 URxvt*keysym.M-c:          perl:clipboard:copy
