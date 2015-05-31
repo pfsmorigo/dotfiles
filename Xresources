@@ -225,3 +225,16 @@ Xautolock.corners:      00+-
 Xautolock.delay:        5
 Xautolock.cornersize:   40
 Xautolock.locker:       i3lock -c 000000
+
+
+!----------------------------------------------------------------------------
+! rofi
+!----------------------------------------------------------------------------
+
+rofi.fg:                #ffffff
+rofi.bg:                #38a741
+rofi.bgalt:             #26712c
+rofi.bgalt:             #26712c
+rofi.hlfg:              #000000
+rofi.hlbg:              #ffffff
+rofi.columns:           3
