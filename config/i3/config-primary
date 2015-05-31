@@ -6,6 +6,7 @@
 bar {
 	output DISPLAYNAME
 	position top
+	strip_workspace_numbers yes
 	status_command i3blocks
 	tray_output DISPLAYNAME
 

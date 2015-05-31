@@ -6,12 +6,12 @@ command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 
 [capslock]
 command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
-interval=2
-
-[mouse_move]
-command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
-interval=10
+interval=once
 signal=11
+
+[xautolock]
+command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
+signal=13
 
 [yumupdate]
 command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
@@ -71,8 +71,9 @@ signal=10
 [stopwatch_countdown]
 command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=1
-signal=13
 
 [time]
 command=date '+%a, %b %d %H:%M:%S'
 interval=5
+
+# vim: filetype=config

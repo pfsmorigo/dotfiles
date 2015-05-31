@@ -3,16 +3,16 @@
 set $mod Mod4
 set $alt Mod1
 set $resize_value 5
-set $w1 1
-set $w2 2
-set $w3 3
-set $w4 4
-set $w5 5
-set $w6 6
-set $w7 7
-set $w8 8
-set $w9 9
-set $w10 10
+set $w1 1:I
+set $w2 2:II
+set $w3 3:III
+set $w4 4:IV
+set $w5 5:V
+set $w6 6:VI
+set $w7 7:VII
+set $w8 8:VIII
+set $w9 9:IX
+set $w10 10:X
 set $work work
 set $www www
 set $office office
@@ -244,6 +244,9 @@ bindsym $mod+Tab                   exec /usr/bin/copyq toggle
 bindsym $mod+Shift+Tab             exec /usr/bin/copyq menu
 bindsym $mod+Control+Tab           exec /usr/bin/copyq action
 
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
 # www
 #bindsym $mod+F2 [class="Google-chrome"] focus
 assign [class="Opera"] $www
@@ -398,3 +401,17 @@ mode $sysmenu {
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
+
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
+
+# The middle button and a modifer over any part of the window kills the window
+bindsym --whole-window $mod+button2 kill
+
+# The right button toggles floating
+bindsym button3 floating toggle
+bindsym $mod+button3 floating toggle
+
+# The side buttons move the window around
+bindsym button9 move left
+bindsym button8 move right
