@@ -1,35 +1,34 @@
+# vim: filetype=config
+
 align=center
-color=#eeeeee
+color=#ffffff
 separator_block_width=25
+command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 
 [rhythmbox]
-command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/rhythmbox
 interval=10
 
-[dolar]
+[cotacoes]
 label=US$
-command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/cotacoes.py dolar
+instance=dolar
 interval=60
 
-[euro]
+[cotacoes]
 label=EURO
-command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/cotacoes.py euro
+instance=euro
 interval=60
 
-[bovespa]
+[cotacoes]
 label=Bovespa
-command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/cotacoes.py bovespa
+instance=bovespa
 interval=60
 
 [bitcoin]
 label=
-command=/home/pfsmorigo/projects/smowlinux/scripts/i3blocks/bitcoin
 interval=60
 
 [stopwatch_countdown]
-command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=5
-signal=13
 
 [time]
 command=date '+%a, %b %d %H:%M:%S'

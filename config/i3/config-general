@@ -275,17 +275,14 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # www
-#bindsym $mod+F2 [class="Google-chrome"] focus
-assign [class="Opera"] $www
 assign [class="Firefox"] $www
 assign [class="Google-chrome"] $www
 assign [class="Chromium-browser"] $www
-assign [class="Browser"] $www
-for_window [class="Google-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
-for_window [class="Google-chrome"] border none
-for_window [class="Chromium-browser"] border none
-for_window [class="Firefox"] border none
-for_window [title="Page(s) Unresponsive"] floating enable
+#for_window [class="Google-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
+#for_window [class="Google-chrome"] border none
+#for_window [class="Chromium-browser"] border none
+#for_window [class="Firefox"] border none
+#for_window [title="Page(s) Unresponsive"] floating enable
 
 # work
 assign [title="NotesLogo"] $work
@@ -359,6 +356,7 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="Nagstamon"] floating enable; border none
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Seahorse"] floating enable
 for_window [class="Setroubleshoot"] floating enable
 for_window [class="Shotwell"] floating enable
 for_window [class="Skype"] floating enable move right 520px, move down 15px

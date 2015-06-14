@@ -1,3 +1,5 @@
+# vim: filetype=config
+
 align=center
 color=#ffffff
 separator=true
@@ -5,24 +7,25 @@ separator_block_width=15
 command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 
 [capslock]
-command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=once
 signal=11
 
 [xautolock]
-command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 signal=13
 
 [yumupdate]
-command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=240
 
 [deja-dup]
-command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=120
 
+[bandwidth2]
+interval=5
+
+separator_block_width=10
+separator=false
+
 [networks]
-command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=5
 
 [cpu_usage]
@@ -47,7 +50,6 @@ instance=/home
 interval=30
 
 [temperature]
-command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=2
 
 [fanspeed]
@@ -60,6 +62,7 @@ interval=30
 [volume]
 interval=once
 signal=10
+
 separator_block_width=10
 separator=false
 
@@ -69,11 +72,13 @@ interval=once
 signal=10
 
 [stopwatch_countdown]
-command=$HOME/projects/smowlinux/scripts/i3blocks/$BLOCK_NAME
 interval=1
+command=/home/pfsmorigo/projects/pfsmorigo/linux/3rdparty/i3blocks/scripts/$BLOCK_NAME
+instance=notify-send test
+
+#[stopwatch_countdown]
+#interval=1
 
 [time]
 command=date '+%a, %b %d %H:%M:%S'
 interval=5
-
-# vim: filetype=config

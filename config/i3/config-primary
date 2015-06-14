@@ -19,8 +19,8 @@ bar {
 }
 
 # Workspace settings
-workspace $w1 output DISPLAYNAME
-workspace $w2 output DISPLAYNAME
-workspace $w3 output DISPLAYNAME
-workspace $w4 output DISPLAYNAME
-workspace $w5 output DISPLAYNAME
+workspace $w01 output DISPLAYNAME
+workspace $w02 output DISPLAYNAME
+workspace $w03 output DISPLAYNAME
+workspace $w04 output DISPLAYNAME
+workspace $w05 output DISPLAYNAME
