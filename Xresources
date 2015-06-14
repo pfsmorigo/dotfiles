@@ -231,10 +231,27 @@ Xautolock.locker:       i3lock -c 000000
 ! rofi
 !----------------------------------------------------------------------------
 
-rofi.fg:                #ffffff
-rofi.bg:                #38a741
-rofi.bgalt:             #26712c
-rofi.bgalt:             #26712c
-rofi.hlfg:              #000000
-rofi.hlbg:              #ffffff
-rofi.columns:           3
+rofi.columns:           1
+rofi.ssh-command:       smowterm {host}
+rofi.sidebar-mode:      true
+rofi.lines:             15
+rofi.width:             20
+!rofi.font:              Liberation Mono 10
+rofi.font:              Cantarell 11
+
+!rofi.fg:                #ffffff
+!rofi.bg:                #38a741
+!rofi.hlfg:              #000000
+!rofi.hlbg:              #ffffff
+!rofi.bgalt:             #26712c
+
+rofi.fg:                #505050
+rofi.bg:                #000000
+rofi.hlfg:              #ffffff
+rofi.hlbg:              #26712c
+rofi.bgalt:             #070707
+rofi.bc:                #26712c
+rofi.bw:                2
+rofi.location:          0
+rofi.padding:           10
+rofi.fixed-num-lines:   true
