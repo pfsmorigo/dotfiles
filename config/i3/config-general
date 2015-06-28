@@ -278,6 +278,8 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 assign [class="Firefox"] $www
 assign [class="Google-chrome"] $www
 assign [class="Chromium-browser"] $www
+for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
+#for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] move scratchpad; floating enable; border 1pixel
 #for_window [class="Google-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
 #for_window [class="Google-chrome"] border none
 #for_window [class="Chromium-browser"] border none
@@ -339,6 +341,7 @@ for_window [class="Unturned*"] floating disable; layout tabbed
 # others
 for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
+for_window [class="Birdie"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Conky"] floating disable; move right
 for_window [class="Copyq"] floating enable
