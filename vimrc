@@ -162,8 +162,6 @@ if filereadable(expand("~/.vim/bundle/vundle/README.md"))
 	let s:vimwiki_ibm = {}
 	let s:vimwiki_ibm.path             = '~/ibm/wiki'
 	let s:vimwiki_ibm.path_html        = '~/ibm/wiki/html'
-	let s:vimwiki_ibm.ext              = '.md'
-	let s:vimwiki_ibm.syntax           = 'markdown'
 	let s:vimwiki_ibm.diary_rel_path   = 'diary/'
 	let s:vimwiki_ibm.diary_index      = 'index'
 	let s:vimwiki_ibm.diary_header     = 'Journal'
