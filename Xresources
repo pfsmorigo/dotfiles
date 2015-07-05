@@ -220,7 +220,7 @@ xfontsel.pane.fieldBox.MenuButton.shapeStyle:     rectangle
 
 Xautolock.time:         5
 Xautolock.notify:       10
-Xautolock.notifier:     notify-send "Locking!"
+Xautolock.notifier:     pkill -SIGRTMIN+13 i3blocks
 Xautolock.corners:      00+-
 Xautolock.delay:        5
 Xautolock.cornersize:   40
