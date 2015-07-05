@@ -236,21 +236,34 @@ rofi.ssh-command:       smowterm {host}
 rofi.sidebar-mode:      true
 rofi.lines:             15
 rofi.width:             20
-!rofi.font:              Liberation Mono 10
 rofi.font:              Cantarell 11
+!rofi.color-enabled:     true
 
-!rofi.fg:                #ffffff
-!rofi.bg:                #38a741
-!rofi.hlfg:              #000000
-!rofi.hlbg:              #ffffff
-!rofi.bgalt:             #26712c
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+!rofi.color-normal: #222222,  #00ff00,  #eee8d5,  #586e75,  #eee8d5
+!rofi.color-active: #00ffff,  #00ff00,  #eee8d5,  #268bd2,  #fdf6e3
+!rofi.color-urgent: #ff0000,  #00ff00,  #eee8d5,  #dc322f,  #fdf6e3
 
-rofi.fg:                #505050
-rofi.bg:                #000000
+!                  'bg',     'border'
+!rofi.color-window: #2222ff,  #26712c
+
+rofi.fg:                #888888
 rofi.hlfg:              #ffffff
+rofi.fg-active:         #ffff00
+rofi.hlfg-active:       #ffff00
+rofi.fg-urgent:         #ff0000
+rofi.hlfg-urgent:       #ff0000
+
+rofi.bg:                #222222
+rofi.bgalt:             #333333
+rofi.bg-active:         #555500
+rofi.bg-urgent:         #550000
 rofi.hlbg:              #26712c
-rofi.bgalt:             #070707
+rofi.hlbg-active:       #26712c
+rofi.hlbg-urgent:       #26712c
+
 rofi.bc:                #26712c
+
 rofi.bw:                2
 rofi.location:          0
 rofi.padding:           10
