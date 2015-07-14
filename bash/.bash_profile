@@ -8,7 +8,6 @@ export QT_XFT=true
 export BROWSER="/usr/bin/google-chrome"
 export EDITOR="/usr/bin/vim"
 export TASKRC="$HOME/.config/task"
-export SCREENRC="$HOME/.config/screen"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
