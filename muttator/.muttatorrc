@@ -1,0 +1,13 @@
+"set gui=nomail,nomenu,nostatus
+
+nmap e <C-s>
+
+nmap gi  :goto Inbox<CR>
+nmap gl  :goto MailingLists/brazillabteam<CR>
+nmap gd  :goto MailingLists/debian-le<CR>
+nmap ggb :goto MailingLists/bug-grub<CR>
+nmap ggh :goto MailingLists/help-grub<CR>
+nmap ggd :goto MailingLists/grub-devel<CR>
+nmap ge  :goto Archives<CR>
+
+nmap <C-e> :source ~/.muttatorrc<cr>:echo "reloaded!"<CR>
