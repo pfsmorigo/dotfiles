@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<short>Leapcast</short>
+	<description>ChromeCast emulation app for any device</description>
+	<port protocol="tcp" port="8008"/>
+</service>
+
