@@ -65,7 +65,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return       exec smowterm local pfsmorigo
-bindsym $mod+Shift+Return exec smowterm gui
+bindsym $mod+Shift+Return exec rofi -show ssh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -372,7 +372,7 @@ for_window [class="qemu-system-*"] floating enable
 for_window [class="xpad"] floating enable; border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
-for_window [title="QEMU"] floating enable
+for_window [title="^QEMU$"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="xfce4-notifyd"] floating enable; border none

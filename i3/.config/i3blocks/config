@@ -49,7 +49,7 @@ interval=30
 instance=/home
 interval=30
 
-[temperature]
+[temperature2]
 interval=2
 
 [fanspeed]
