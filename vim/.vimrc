@@ -14,12 +14,11 @@ set cursorline      " Enable CursorLine
 set nocompatible    " be iMproved
 set encoding=utf-8
 set nocscopeverbose " Workaround to fix duplicated message
-
-
 set bs=2            " This influences the behavior of the backspace option. It is fairly complex so see :help 'bs' for more details.
 "set wrapmargin=8    " This is the number of characters from the right window border where wrapping starts.
 set ruler           " This makes vim show the current row and column at the bottom right of the screen.
 
+set errorformat+=remote:\ %f:%l:%c:%m
 
 if &t_Co == 256
 	highlight CursorLine   ctermbg=235 ctermfg=NONE cterm=NONE
@@ -66,11 +65,11 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 " call gcc directly if a Makefile is not found
 if !filereadable("Makefile")
-	setlocal makeprg=gcc\ -Wall\ -Wextra\ -o\ %<\ %
+	set makeprg=gcc\ -Wall\ -Wextra\ -o\ %<\ %
 endif
 
 if filereadable(".make")
-	setlocal makeprg=.\ .make
+	set makeprg=.\ .make
 endif
 
 map <F5> :make<CR><CR>
