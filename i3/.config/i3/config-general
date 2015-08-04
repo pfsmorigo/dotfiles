@@ -14,26 +14,26 @@ set $w07  7:VII
 set $w08  8:VIII
 set $w09  9:IX
 set $w10 10:X
-set $w11 11:XI
-set $w12 12:XII
-set $w13 13:XIII
-set $w14 14:XIV
-set $w15 15:XV
-set $w16 16:games
-set $w17 17:dia
-set $w18 18:gimp
-set $w19 19:im
-set $w20 20:office
-set $w21 21:www
-set $w22 22:work
 
-set $games  16:games
-set $dia    17:dia
-set $gimp   18:gimp
-set $im     19:im
-set $office 20:office
-set $www    21:www
-set $work   22:work
+set $wF1 20:www
+set $wF2 21:work
+set $wF3 22:office
+set $wF4 23:im
+set $wF5 24:gimp
+set $wF6 25:meld
+set $wF7 26:dia
+set $wF8 27:rhythmbox
+set $wF9 28:games
+
+set $www       20:www
+set $work      21:work
+set $office    22:office
+set $im        23:im
+set $gimp      24:gimp
+set $meld      25:meld
+set $dia       26:dia
+set $rhythmbox 27:rhythmbox
+set $games     28:games
 
 set $colors_focused          #38a741 #26712c #ffffff #88f791
 set $colors_focused_inactive #333333 #5f676a #ffffff #838383
@@ -152,18 +152,19 @@ bindsym $mod+7   workspace $w07
 bindsym $mod+8   workspace $w08
 bindsym $mod+9   workspace $w09
 bindsym $mod+0   workspace $w10
-bindsym $mod+F1  workspace $w11
-bindsym $mod+F2  workspace $w12
-bindsym $mod+F3  workspace $w13
-bindsym $mod+F4  workspace $w14
-bindsym $mod+F5  workspace $w15
-bindsym $mod+F6  workspace $w16
-bindsym $mod+F7  workspace $w17
-bindsym $mod+F8  workspace $w18
-bindsym $mod+F9  workspace $w19
-bindsym $mod+F10 workspace $w20
-bindsym $mod+F11 workspace $w21
-bindsym $mod+F12 workspace $w22
+
+bindsym $mod+F1  workspace $wF1
+bindsym $mod+F2  workspace $wF2
+bindsym $mod+F3  workspace $wF3
+bindsym $mod+F4  workspace $wF4
+bindsym $mod+F5  workspace $wF5
+bindsym $mod+F6  workspace $wF6
+bindsym $mod+F7  workspace $wF7
+bindsym $mod+F8  workspace $wF8
+bindsym $mod+F9  workspace $wF9
+bindsym $mod+F10 workspace $wF10
+bindsym $mod+F11 workspace $wF11
+bindsym $mod+F12 workspace $wF12
 
 # switch between the current and the previously focused one
 bindsym $mod+b workspace back_and_forth
@@ -179,18 +180,19 @@ bindsym $mod+Shift+7   move container to workspace $w07
 bindsym $mod+Shift+8   move container to workspace $w08
 bindsym $mod+Shift+9   move container to workspace $w09
 bindsym $mod+Shift+0   move container to workspace $w10
-bindsym $mod+Shift+F1  move container to workspace $w11
-bindsym $mod+Shift+F2  move container to workspace $w12
-bindsym $mod+Shift+F3  move container to workspace $w13
-bindsym $mod+Shift+F4  move container to workspace $w14
-bindsym $mod+Shift+F5  move container to workspace $w15
-bindsym $mod+Shift+F6  move container to workspace $w16
-bindsym $mod+Shift+F7  move container to workspace $w17
-bindsym $mod+Shift+F8  move container to workspace $w18
-bindsym $mod+Shift+F9  move container to workspace $w19
-bindsym $mod+Shift+F10 move container to workspace $w20
-bindsym $mod+Shift+F11 move container to workspace $w21
-bindsym $mod+Shift+F12 move container to workspace $w22
+
+bindsym $mod+Shift+F1  move container to workspace $wF1
+bindsym $mod+Shift+F2  move container to workspace $wF2
+bindsym $mod+Shift+F3  move container to workspace $wF3
+bindsym $mod+Shift+F4  move container to workspace $wF4
+bindsym $mod+Shift+F5  move container to workspace $wF5
+bindsym $mod+Shift+F6  move container to workspace $wF6
+bindsym $mod+Shift+F7  move container to workspace $wF7
+bindsym $mod+Shift+F8  move container to workspace $wF8
+bindsym $mod+Shift+F9  move container to workspace $wF9
+bindsym $mod+Shift+F10 move container to workspace $wF10
+bindsym $mod+Shift+F11 move container to workspace $wF11
+bindsym $mod+Shift+F12 move container to workspace $wF12
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
