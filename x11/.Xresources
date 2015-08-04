@@ -34,7 +34,7 @@ URxvt*transparent:         true
 URxvt*shading:             20
 URxvt*saveLines:           1000000
 URxvt*scrollBar:           false
-URxvt*internalBorder:      4
+URxvt*internalBorder:      5
 URxvt*visualBell:          true
 URxvt*urgentOnBell:        true
 URxvt*urlLauncher:         /usr/bin/xdg-open
