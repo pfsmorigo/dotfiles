@@ -38,7 +38,7 @@ set $games     28:games
 set $colors_focused          #38a741 #26712c #ffffff #88f791
 set $colors_focused_inactive #333333 #5f676a #ffffff #838383
 set $colors_unfocused        #333333 #222222 #888888 #838383
-set $colors_urgent           #2f343a #900000 #ffffff #ff0000
+set $colors_urgent           #ff0000 #900000 #ffffff #ff0000
 set $colors_placeholder      #000000 #0c0c0c #ffffff #000000
 #                            border  backgr. text    indicator
 
@@ -48,6 +48,7 @@ client.unfocused        $colors_unfocused
 client.urgent           $colors_urgent
 client.placeholder      $colors_placeholder
 
+#font pango:Hack 9
 font pango:Cantarell 10
 #font pango:Cantarell, smow-icons 8
 #font pango:DejaVu Sans Mono 9
@@ -342,6 +343,13 @@ for_window [class="magic-launcher-MagicLauncher"] floating disable; layout tabbe
 for_window [class="Unturned*"] floating disable; layout tabbed
 #for_window [class="Steam*"] floating disable; layout tabbed
 #for_window [title="Steam Login"] floating enable
+
+# rhythmbox
+assign [class="Rhythmbox"] $rhythmbox
+for_window [class="Rhythmbox"] border none
+
+# meld
+assign [class="Meld"] $meld
 
 # others
 for_window [class="Agnclient"] floating enable
