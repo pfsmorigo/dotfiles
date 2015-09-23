@@ -65,7 +65,7 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 " call gcc directly if a Makefile is not found
 if !filereadable("Makefile")
-	set makeprg=gcc\ -Wall\ -Wextra\ -o\ %<\ %
+	set makeprg=gcc\ -Wall\ -Wextra\ -ggdb\ -o\ %<\ %
 endif
 
 if filereadable(".make")
