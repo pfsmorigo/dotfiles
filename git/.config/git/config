@@ -30,7 +30,7 @@
 	zero = !git clean -fd && git clean -fdX && git co .
 	b = branch -avv
 	r = remote -v
-	edit = "!vim $(git ls-files -m) -p"
+	edit = "!vim $(git ls-files -m) $(git diff --name-only base) -p"
 
 [include]
 	path = local
