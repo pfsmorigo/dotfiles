@@ -1,0 +1,25 @@
+section: screens
+	boson:
+	altaica.local:
+end
+
+#section: aliases
+#	altaica.local:
+#		192.168.1.3
+#end
+
+section: links
+	boson:
+		right(0,50) = altaica.local
+
+	altaica.local:
+		left = boson(0,50)
+
+end
+
+section: options
+	#screenSaverSync = false
+	# My KVM uses Scroll Lock to switch screens, so set the
+	# hotkey to lock the cursor to the screen to something else
+	#keystroke(f12) = lockCursorToScreen(toggle)
+end
