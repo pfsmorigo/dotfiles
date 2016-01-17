@@ -18,22 +18,20 @@ set $w10 10:X
 set $wF1 20:www
 set $wF2 21:work
 set $wF3 22:office
-set $wF4 23:im
-set $wF5 24:gimp
-set $wF6 25:meld
-set $wF7 26:dia
-set $wF8 27:rhythmbox
-set $wF9 28:games
+set $wF4 23:gimp
+set $wF5 24:dev
+set $wF6 25:dia
+set $wF7 26:rhythmbox
+set $wF8 27:games
 
 set $www       20:www
 set $work      21:work
 set $office    22:office
-set $im        23:im
-set $gimp      24:gimp
-set $meld      25:meld
-set $dia       26:dia
-set $rhythmbox 27:rhythmbox
-set $games     28:games
+set $gimp      23:gimp
+set $dev       24:dev
+set $dia       25:dia
+set $rhythmbox 26:rhythmbox
+set $games     27:games
 
 set $colors_focused          #38a741 #26712c #ffffff #88f791
 set $colors_focused_inactive #333333 #5f676a #ffffff #838383
@@ -269,8 +267,9 @@ bindsym $mod+XF86MonBrightnessDown exec --no-startup-id xbacklight -set 0
 bindsym Print                      exec gnome-screenshot
 bindsym $alt+Print                 exec gnome-screenshot --window
 
-bindsym $mod+Control+F1            exec ~/bin/automatic ff
-bindsym $mod+Control+F2            exec ~/bin/automatic zf
+bindsym $mod+Control+F1            exec ~/.local/bin/automatic ff
+bindsym $mod+Control+F2            exec ~/.local/bin/automatic zf
+bindsym $mod+Control+F3            exec ~/.local/bin/automatic te
 bindsym $mod+Control+F12           exec killall automatic
 
 bindsym $mod+Tab                   exec /usr/bin/copyq toggle
@@ -282,36 +281,14 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # www
 assign [class="Firefox"] $www
-assign [class="Google-chrome"] $www
 assign [class="Chromium-browser"] $www
+assign [instance="(G|g)oogle-chrome"] $www
 for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
-#for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] move scratchpad; floating enable; border 1pixel
-#for_window [class="Google-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
-#for_window [class="Google-chrome"] border none
-#for_window [class="Chromium-browser"] border none
-#for_window [class="Firefox"] border none
-#for_window [title="Page(s) Unresponsive"] floating enable
 
 # work
 assign [title="NotesLogo"] $work
 assign [title="(IBM|Lotus) Notes*"] $work
 assign [class="Notes"] $work
-#for_window [title="NotesLogo"] floating enable
-#for_window [title="NotesLogo"] border none
-##for_window [class="(IBM|Lotus) Notes"] floating disable
-#for_window [class="(IBM|Lotus) Notes" title="* is In a Meeting "] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Add Sametime Contact*"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Add Sametime Group*"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Alarm"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Alert Me When "] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Call*"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Change Group*"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Contact Added*"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Edit Nickname*"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Group Added*"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Preferences"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Remove Groups/Contacts*"] floating enable
-#for_window [class="(IBM|Lotus) Notes" title="Sametime "] floating enable
 
 # dia
 assign [class="Dia$"] $dia
@@ -324,23 +301,17 @@ for_window [window_role="toolbox_window"] resize shrink left 325px
 # gimp
 assign [class="Gimp"] $gimp
 
-# im
-bindsym $mod+m workspace $im
-bindsym $mod+Shift+M move workspace $im
-for_window [class="Pidgin"] move workspace $im
-for_window [class="Sametime"] move workspace $im
-assign [class="Google-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] $im
-#for_window [class="Pidgin"] floating enable
-
 # games
 assign [title="Magic Launcher"] $games
 assign [title="Minecraft*"] $games
 assign [title="MCEdit *"] $games
 assign [class="Steam*"] $games
 assign [class="Unturned*"] $games
+assign [instance="ingress.com__intel"] $games
 for_window [title="Minecraft*"] border none
 for_window [class="magic-launcher-MagicLauncher"] floating disable; layout tabbed
 for_window [class="Unturned*"] floating disable; layout tabbed
+for_window [instance="ingress.com__intel"] border none
 #for_window [class="Steam*"] floating disable; layout tabbed
 #for_window [title="Steam Login"] floating enable
 
@@ -348,8 +319,11 @@ for_window [class="Unturned*"] floating disable; layout tabbed
 assign [class="Rhythmbox"] $rhythmbox
 for_window [class="Rhythmbox"] border none
 
-# meld
-assign [class="Meld"] $meld
+# dev
+assign [class="Meld"] $dev
+assign [class="Gitk"] $dev
+for_window [class="Meld"] layout tabbed
+for_window [class="Gitk"] layout tabbed
 
 # others
 for_window [class="Agnclient"] floating enable
@@ -372,6 +346,7 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="Nagstamon"] floating enable; border none
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Sametime"] floating enable
 for_window [class="Seahorse"] floating enable
 for_window [class="Setroubleshoot"] floating enable
 for_window [class="Shotwell"] floating enable
@@ -385,9 +360,9 @@ for_window [class="qemu-system-*"] floating enable
 for_window [class="xpad"] floating enable; border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
-for_window [title="^QEMU$"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
+for_window [title="^QEMU$"] floating enable
 for_window [title="xfce4-notifyd"] floating enable; border none
 
 # Start some util apps
@@ -400,7 +375,6 @@ exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /home/pfsmorigo/.local/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
-exec --no-startup-id /usr/bin/nagstamon
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
