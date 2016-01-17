@@ -6,6 +6,7 @@ set scrolloff=3     " keep 3 lines when scrolling
 set showcmd         " display incomplete commands
 set hlsearch        " highlight searches
 set number          " show line numbers
+set relativenumber  " use relative number for navigation mode
 set numberwidth=5   " number of spaces in line number
 set background=dark " adapt colors for background
 set mouse=a         " enable mouse (fix mouse scrolling in urxvt)
@@ -93,6 +94,7 @@ autocmd BufEnter */grub*/**/*.{c,h} call GnuIndent()
 
 
 """" 80 Columns
+
 if version >= 703
 	set colorcolumn=80
 endif
@@ -107,6 +109,12 @@ augroup templates
   " read in templates files
   autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
 augroup END
+
+
+" Switch to absolute numbering in insert mode
+
+au InsertEnter * :set norelativenumber
+au InsertLeave * :set relativenumber
 
 
 """" Info
