@@ -35,9 +35,6 @@
 [include]
 	path = local
 
-[sendemail]
-	bcc = pfsmorigo@gmail.com
-
 [push]
 	default = simple
 
