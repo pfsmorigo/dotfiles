@@ -15,15 +15,12 @@ xftalpha 0.7
 override_utf8_locale yes
 
 TEXT
-$sysname $kernel
+$kernel ${color grey} Uptime:$color $uptime
 $hr
-${color grey}Uptime:$color $uptime
-${color grey}Frequency (in MHz):$color $freq
-${color grey}Frequency (in GHz):$color $freq_g
 ${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
 ${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
 ${color grey}CPU Usage:$color $cpu% ${cpubar 4}
-${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
+${color grey}Processes:$color $processes ${color grey}Running:$color $running_processes ${color grey}Freq:$color ${freq_g}GHz
 $hr
  /     $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
  /home $color${fs_used /home}/${fs_size /home} ${fs_bar 6 /home}
@@ -40,7 +37,7 @@ ${color lightgrey} ${top name 7} ${top pid 7} ${top cpu 7} ${top mem 7}
 ${color lightgrey} ${top name 8} ${top pid 8} ${top cpu 8} ${top mem 8}
 ${color lightgrey} ${top name 9} ${top pid 9} ${top cpu 9} ${top mem 9}
 ${color lightgrey} ${top name 10} ${top pid 10} ${top cpu 10} ${top mem 10}
-$hr
+#$hr
 #${execpi 8600 task calendar}
 
 
