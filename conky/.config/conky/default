@@ -1,0 +1,21 @@
+gap_x 10
+gap_y 20
+
+alignment top_right
+background yes
+update_interval 5
+double_buffer yes
+draw_shades yes
+border_inner_margin 10
+
+use_xft yes
+xftfont DejaVu Sans Mono:size=14
+xftalpha 0.7
+override_utf8_locale yes
+
+TEXT
+
+${execpi 8600 uname -r}
+${execpi 8600 cal $(date +'%m %Y' -d 'last month') | grep -v 'Su Mo'}
+${execpi 8600 cal | sed -e 's/'`date | awk '{print $3}'`'/\$\{color e84448}'`date | awk '{print $3}'`'\$\{color}/' | grep -v 'Su Mo'}
+${execpi 8600 cal $(date +'%m %Y' -d 'next month') | grep -v 'Su Mo'}
