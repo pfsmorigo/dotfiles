@@ -10,7 +10,7 @@ draw_graph_borders yes
 border_inner_margin 10
 
 use_xft yes
-xftfont DejaVu Sans Mono:size=10
+xftfont DejaVu Sans Mono:size=14
 xftalpha 0.7
 override_utf8_locale yes
 
@@ -25,29 +25,24 @@ ${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
 ${color grey}CPU Usage:$color $cpu% ${cpubar 4}
 ${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
 $hr
+${color grey}File systems:
  /     $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
  /home $color${fs_used /home}/${fs_size /home} ${fs_bar 6 /home}
+$hr
+${color grey}Networking:
+Up:$color ${upspeed eth0} ${color grey} - Down:$color ${downspeed eth0}
 $hr
 ${color grey}Name              PID   CPU%   MEM%
 ${color lightgrey} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${color lightgrey} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
 ${color lightgrey} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
 ${color lightgrey} ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
-${color lightgrey} ${top name 5} ${top pid 5} ${top cpu 5} ${top mem 5}
-${color lightgrey} ${top name 5} ${top pid 5} ${top cpu 5} ${top mem 5}
-${color lightgrey} ${top name 6} ${top pid 6} ${top cpu 6} ${top mem 6}
-${color lightgrey} ${top name 7} ${top pid 7} ${top cpu 7} ${top mem 7}
-${color lightgrey} ${top name 8} ${top pid 8} ${top cpu 8} ${top mem 8}
-${color lightgrey} ${top name 9} ${top pid 9} ${top cpu 9} ${top mem 9}
-${color lightgrey} ${top name 10} ${top pid 10} ${top cpu 10} ${top mem 10}
-$hr
-#${execpi 8600 task calendar}
 
+${color blue}$hr$color
+${execpi 8600 cal $(date +'%m %Y' -d 'last month') | grep -v 'Su Mo'}
+${color blue}$hr$color
+${execpi 8600 cal | sed -e 's/'`date | awk '{print $3}'`'/\$\{color e84448}'`date | awk '{print $3}'`'\$\{color}/' | grep -v 'Su Mo'}
+${color blue}$hr$color
+${execpi 8600 cal $(date +'%m %Y' -d 'next month') | grep -v 'Su Mo'}
 
-#${color blue}$hr$color
-#${execpi 8600 cal $(date +'%m %Y' -d 'last month') | grep -v 'Su Mo'}
-#${color blue}$hr$color
-#${execpi 8600 cal | sed -e 's/'`date | awk '{print $3}'`'/\$\{color e84448}'`date | awk '{print $3}'`'\$\{color}/' | grep -v 'Su Mo'}
-#${color blue}$hr$color
-#${execpi 8600 cal $(date +'%m %Y' -d 'next month') | grep -v 'Su Mo'}
 
