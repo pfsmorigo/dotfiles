@@ -127,29 +127,23 @@ endfunction
 map <F6> :call ShowInfo()<CR>
 
 
-"""" Vundle
+"""" Plugins
 
-if filereadable(expand("~/.vim/bundle/vundle/README.md"))
-	filetype off                  " required!
-	filetype plugin indent on     " required!
+if filereadable(expand("~/.vim/autoload/plug.vim"))
+	call plug#begin('~/.vim/plugged')
 
-	set rtp+=~/.vim/bundle/vundle/
-	call vundle#rc()
+	Plug 'ctags.vim'
 
-	Bundle 'gmarik/vundle'
-
-	Bundle 'ctags.vim'
-
-	Bundle 'cscope_macros.vim'
+	Plug 'cscope_macros.vim'
 	map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 	map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-	Bundle 'scrooloose/nerdtree'
+	Plug 'scrooloose/nerdtree'
 	map <F3> :NERDTreeToggle<CR>
 
-	Bundle 'scrooloose/nerdcommenter'
+	Plug 'scrooloose/nerdcommenter'
 
-	Bundle 'vim-scripts/vimwiki'
+	Plug 'vim-scripts/vimwiki'
 	let g:vimwiki_dir_link = 'index'
 	let g:vimwiki_fold_lists = 1
 	let g:vimwiki_folding = 1
@@ -175,39 +169,43 @@ if filereadable(expand("~/.vim/bundle/vundle/README.md"))
 	let s:vimwiki_ibm.diary_sort       = 'desc'
 	let g:vimwiki_list = [s:vimwiki_pvt, s:vimwiki_ibm]
 
-	Bundle 'AutoComplPop'
+	Plug 'AutoComplPop'
 
-	Bundle 'a.vim'
+	Plug 'a.vim'
 
-	Bundle 'SpellCheck'
+	Plug 'SpellCheck'
 
-	Bundle 'po.vim'
+	Plug 'po.vim'
 
-	Bundle 'mru.vim'
+	Plug 'mru.vim'
 	map <F4> :MRU<CR>
 
-	Bundle 'fugitive.vim'
+	Plug 'fugitive.vim'
 
-	Bundle 'Lokaltog/vim-powerline'
+	Plug 'Lokaltog/vim-powerline'
 	"let g:Powerline_symbols = 'fancy'
 
-	Bundle 'powerman/vim-plugin-viewdoc'
+	Plug 'powerman/vim-plugin-viewdoc'
 
 	if version >= 703
-		Bundle 'majutsushi/tagbar'
+		Plug 'majutsushi/tagbar'
 		nmap <F8> :TagbarToggle<CR>
 	endif
 
-	Bundle 'kien/ctrlp.vim'
+	Plug 'kien/ctrlp.vim'
 
-	Bundle 'gnupg.vim'
+	Plug 'gnupg.vim'
 
-	Bundle 'vcscommand.vim'
+	Plug 'vcscommand.vim'
 
-	Bundle 'Shougo/unite.vim'
+	Plug 'Shougo/unite.vim'
 	nnoremap <space>/ :Unite grep:.<CR>
 	nnoremap <space>y :Unite history/yanks<cr>
 	nnoremap <space>s :Unite -quick-match buffer<cr>
 
-	Bundle 'tpope/vim-fugitive'
+	Plug 'tpope/vim-fugitive'
+
+	Plug 'jnwhiteh/vim-golang'
+
+	call plug#end()
 endif
