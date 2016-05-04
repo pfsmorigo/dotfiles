@@ -41,11 +41,9 @@ if type -t colordiff 2>&1 > /dev/null; then
 	alias diff='colordiff'
 fi
 
-alias t='todo.sh -d ~/.todo-txt'
-alias s="cd ~ && screen -t"
 alias g="git"
-alias h="history"
-alias j="jobs"
+alias m="time make -j$(grep -c ^processor /proc/cpuinfo)"
+alias t='todo.sh -d $HOME/Dropbox/todo/todo.cfg'
 
 alias week='date +%V'
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
