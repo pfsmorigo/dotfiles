@@ -1,0 +1,32 @@
+background no
+use_xft yes
+xftfont Bitstream Vera Sans Mono:size=10
+xftalpha 0.8
+update_interval 0
+total_run_times 0
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_colour hotpink
+own_window_hints undecorated,below,skip_taskbar,sticky,skip_pager
+double_buffer yes
+#minimum_size 280 5
+draw_shades yes
+draw_outline no
+draw_graph_borders yes
+stippled_borders 8
+border_width 1
+#maximum_width 155
+default_color darkgrey
+default_shade_color black
+default_outline_color black
+alignment top_left
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+override_utf8_locale no
+use_spacer no
+
+TEXT
+${exec cat $HOME/Dropbox/todo/todo.txt}

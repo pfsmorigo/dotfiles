@@ -74,6 +74,8 @@ if filereadable(".make")
 endif
 
 map <F5> :make<CR><CR>
+map <leader>t :tabe ~/Dropbox/todo/todo.txt<CR>
+map <leader>T :tabe ~/Dropbox/todo/done.txt<CR>
 
 """" GNU Coding Standards
 
@@ -206,6 +208,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	Plug 'tpope/vim-fugitive'
 
 	Plug 'jnwhiteh/vim-golang'
+
+	Plug 'freitass/todo.txt-vim'
 
 	call plug#end()
 endif
