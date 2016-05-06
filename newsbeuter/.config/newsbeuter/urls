@@ -1,15 +1,18 @@
+# Particular
+https://www.facebook.com/feeds/notifications.php?id=1518105309&viewer=1518105309&key=AWhiu60FX63IaNej&format=rss20 social "~Facebook"
+
 # News
 http://lwn.net/headlines/newrss news
 http://lwn.net/headlines/Features news
 http://feeds.feedburner.com/NoticiasLinux news
 http://br.linux.feedsportal.com/c/34277/f/637314/index.rss news
+http://www.estadao.com.br/rss/economia.xml news
+http://www.estadao.com.br/rss/ultimas.xml news
+http://info.abril.com.br/aberto/infonews/rssnews.xml news
 
 # GRUB
 https://admin.fedoraproject.org/updates/rss/rss2.0?package=grub2 grub fedora "~GRUB: Fedora"
 https://packages.qa.debian.org/g/grub2/news.rss20.xml grub debian "~GRUB: Debian"
-
-# Debian
-http://rss.gmane.org/gmane.linux.debian.devel.changes.unstable debian "~Debian Devel Unstable Changes"
 
 # Comics
 http://explainxkcd.com/rss.xml comic
@@ -51,19 +54,11 @@ http://torvalds-family.blogspot.com/feeds/posts/default personalities
 http://kroah.com/log/index.rss personalities
 http://mjg59.dreamwidth.org/data/atom personalities
 
-# Repository
-http://git.kernel.org/?p=linux/kernel/git/stable/linux-stable.git;a=atom repository
-
 # Open Source
 http://static.fsf.org/fsforg/rss/news.xml opensource
 http://www.fsf.org/resources/jobs/RSS/ opensource
 http://opensource.com/feed opensource
 http://www.gnu.org/rss/whatsnew.rss opensource
-
-# Regional
-http://www.pocosdecaldas.mg.gov.br/site/?feed=rss2 pocosdecaldas
-http://www.pocosja.com.br/feed/ pocosdecaldas
-http://paravoce.descubrapocos.com.br/feed/atom/ pocosdecaldas
 
 # Linux
 http://feeds.feedburner.com/Command-line-fu linux
@@ -73,12 +68,6 @@ http://shortrecipes.blogspot.com/feeds/posts/default linux
 http://feeds.feedburner.com/codinghorror/ development
 http://feeds.feedburner.com/Geeksforgeeks development
 http://feeds.feedburner.com/quicklycode development
-
-# Ubuntu
-http://packages.ubuntu.com/trusty/newpkg?format=rss ubuntu trusty "~Ubuntu trusty new packages"
-http://packages.ubuntu.com/utopic/newpkg?format=rss ubuntu utopic "~Ubuntu utopic new packages"
-http://packages.ubuntu.com/vivid/newpkg?format=rss ubuntu vivid "~Ubuntu vivid new packages"
-http://www.ubuntu.com/usn/atom.xml ubuntu security
 
 # Others
 http://musicforprogramming.net/rss.php music

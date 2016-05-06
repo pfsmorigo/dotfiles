@@ -264,8 +264,7 @@ bindsym $mod+XF86MonBrightnessDown exec --no-startup-id xbacklight -set 0
 #bindsym XF86AudioRecord            exec zenity --info --text "Define Audio Record"
 
 # Other binds
-bindsym Print                      exec gnome-screenshot
-bindsym $alt+Print                 exec gnome-screenshot --window
+bindsym Print                      exec gnome-screenshot --interactive
 
 bindsym $mod+Control+F1            exec ~/.local/bin/automatic ff
 bindsym $mod+Control+F2            exec ~/.local/bin/automatic zf
@@ -276,6 +275,8 @@ bindsym $mod+Tab                   exec /usr/bin/copyq toggle
 bindsym $mod+Shift+Tab             exec /usr/bin/copyq menu
 bindsym $mod+Control+Tab           exec /usr/bin/copyq action
 
+bindsym $mod+Shift+W               exec ~/.local/bin/wallpaper
+
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
@@ -283,7 +284,8 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 assign [class="Firefox"] $www
 assign [class="Chromium-browser"] $www
 assign [instance="(G|g)oogle-chrome"] $www
-for_window [class="Google-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
+for_window [class="(G|g)oogle-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
+for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable
 
 # work
 assign [title="NotesLogo"] $work
@@ -331,7 +333,7 @@ for_window [class="Arandr"] floating enable
 for_window [class="Birdie"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Conky"] floating disable; move right
-for_window [class="Copyq"] floating enable
+for_window [class="copyq"] floating enable
 for_window [class="Devede"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="Gedit"] floating enable
@@ -364,17 +366,19 @@ for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="^QEMU$"] floating enable
 for_window [title="xfce4-notifyd"] floating enable; border none
+#for_window [class="(?i)firefox"] title_format "<span foreground='red'>%title</span>"
 
 # Start some util apps
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 #exec --no-startup-id /usr/bin/xfce4-power-manager
 exec --no-startup-id /usr/local/bin/urxvtd -q -f -o
-exec --no-startup-id /usr/bin/feh --bg-scale ~/media/backgrounds/circuit_board-Abstract_design_wallpaper_2560x1600.jpg
 exec --no-startup-id /usr/bin/xautolock
 exec --no-startup-id /usr/bin/copyq
-exec --no-startup-id /home/pfsmorigo/.local/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
+exec --no-startup-id /home/pfsmorigo/.local/bin/myconky
+exec --no-startup-id /home/pfsmorigo/.local/bin/dropbox_monitor
+exec --no-startup-id /home/pfsmorigo/.local/bin/wallpaper
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {

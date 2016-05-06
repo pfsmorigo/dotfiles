@@ -22,8 +22,10 @@
 	logy = log --decorate=full --simplify-by-decoration
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	list  = log --pretty=format:'%h | %ci | %s - %an <%ae>' --abbrev-commit
 	ls = ls-files
 	gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+	tags = log --tags --simplify-by-decoration --pretty=\"format:%ci %d\"
 	vanish = clean -fdx
 	ignored = ls-files --others -i --exclude-standard
 	start = !git init && git add . && git commit -m "baseline"
@@ -38,4 +40,4 @@
 [push]
 	default = simple
 
-# vim: filetype=config
+#vim: filetype=config

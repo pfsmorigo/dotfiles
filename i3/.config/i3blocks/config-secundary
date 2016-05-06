@@ -9,12 +9,12 @@ command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 interval=10
 
 [cotacoes]
-label=US$
+label=$
 instance=dolar
 interval=60
 
 [cotacoes]
-label=EURO
+label=€
 instance=euro
 interval=60
 

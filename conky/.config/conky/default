@@ -21,9 +21,7 @@ maximum_width 155
 default_color darkgrey
 default_shade_color black
 default_outline_color black
-alignment bottom_right
-gap_x 4
-gap_y 4
+alignment top_right
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
@@ -41,16 +39,16 @@ ${color #5b6dad} ${membar 6,140}
 ${color #5b6dad}Swap:$color$swap/$swapmax
 ${color #5b6dad} ${swapbar 6,140}
 
-${color #5b6dad}ETH0 Down: $color${downspeed eth0}${alignr} k/s
+${color #5b6dad}ETH0 Down: $color${downspeed eth0}
 ${color #5b6dad} ${downspeedgraph eth0 16,140 000000 7f8ed3 150}
-${color #5b6dad}ETH0 Up:   $color${upspeed eth0}${alignr} k/s
+${color #5b6dad}ETH0 Up:   $color${upspeed eth0}
 ${color #5b6dad} ${upspeedgraph eth0 16,140 000000 7f8ed3 18}
 
 ${color #5b6dad}File systems:
 ${color #5b6dad}/       $color${fs_free /}
 ${color #5b6dad} ${fs_bar 6,140 /}
-${color #5b6dad}storage $color${fs_free /mnt/storage}
-${color #5b6dad} ${fs_bar 6,140 /mnt/storage}
+${color #5b6dad}/home   $color${fs_free /home}
+${color #5b6dad} ${fs_bar 6,140 /home}
 
 ${color #5b6dad}Processes:$color $processes | $running_processes
 ${color} Cpu usage    CPU

@@ -13,7 +13,7 @@ signal=11
 [xautolock]
 signal=13
 
-[yumupdate]
+[fedoraupdate]
 interval=240
 
 [deja-dup]
@@ -73,12 +73,12 @@ signal=10
 
 [stopwatch_countdown]
 interval=1
-command=/home/pfsmorigo/projects/pfsmorigo/linux/3rdparty/i3blocks/scripts/$BLOCK_NAME
+#command=/home/pfsmorigo/projects/pfsmorigo/linux/3rdparty/i3blocks/scripts/$BLOCK_NAME
 instance=notify-send test
 
 #[stopwatch_countdown]
 #interval=1
 
 [time]
-command=date '+%a, %b %d %H:%M:%S'
-interval=5
+command=date '+%a, %b %d %kh%M'
+interval=30
