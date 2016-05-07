@@ -73,8 +73,8 @@ signal=10
 
 [stopwatch_countdown]
 interval=1
-#command=/home/pfsmorigo/projects/pfsmorigo/linux/3rdparty/i3blocks/scripts/$BLOCK_NAME
-instance=notify-send test
+#command=$HOME/projects/i3blocks/scripts/$BLOCK_NAME
+instance=notify-send "Countdown is over!"
 
 #[stopwatch_countdown]
 #interval=1
