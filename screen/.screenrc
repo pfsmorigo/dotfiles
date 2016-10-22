@@ -12,8 +12,9 @@ shelltitle "$|"
 #clean screen when exit a program
 altscreen on
 
-backtick 1 5 5 awk '{ print $1 }' /proc/loadavg
-hardstatus string "%H-%S | %1`) %w"
+backtick 1 300 300 uname -r
+backtick 2 5 5 awk '{ print $1 }' /proc/loadavg
+hardstatus string "%H | %S | %1` | %2` | %w %=%u"
 hardstatus off
 
 defscrollback 10000
