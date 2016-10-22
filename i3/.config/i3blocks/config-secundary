@@ -9,23 +9,31 @@ command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 interval=10
 
 [cotacoes]
-label=$
-instance=dolar
+label=D
+instance=USD
 interval=60
 
 [cotacoes]
-label=€
-instance=euro
+label=E
+instance=EUR
 interval=60
 
 [cotacoes]
-label=Bovespa
-instance=bovespa
+label=P
+instance=ARS
+interval=60
+
+[cotacoes]
+label=L
+instance=GBP
 interval=60
 
 [bitcoin]
 label=
 interval=60
+
+[temperature2]
+interval=2
 
 [stopwatch_countdown]
 interval=5

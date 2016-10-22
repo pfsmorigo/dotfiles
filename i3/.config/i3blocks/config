@@ -73,11 +73,7 @@ signal=10
 
 [stopwatch_countdown]
 interval=1
-#command=$HOME/projects/i3blocks/scripts/$BLOCK_NAME
-instance=notify-send "Countdown is over!"
-
-#[stopwatch_countdown]
-#interval=1
+#instance=notify-send "Countdown is over!"
 
 [time]
 command=date '+%a, %b %d %kh%M'
