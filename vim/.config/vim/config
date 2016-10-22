@@ -64,6 +64,9 @@ autocmd FileType c,cpp match WARN /\s\+$\|\%>80v.\+/
 " for python
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
+" for patches and diff
+autocmd Filetype diff setlocal nomodifiable
+
 " call gcc directly if a Makefile is not found
 if !filereadable("Makefile")
 	set makeprg=gcc\ -Wall\ -Wextra\ -ggdb\ -o\ %<\ %
@@ -93,7 +96,7 @@ endfunction
 "autocmd FileType c,cpp call GnuIndent()
 "autocmd BufEnter */grub*/* call GnuIndent()
 autocmd BufEnter */grub*/**/*.{c,h} call GnuIndent()
-
+autocmd BufEnter */linux*/**/*.{c,h} set makeprg=time\ make\ -j20\ all
 
 """" 80 Columns
 
@@ -170,6 +173,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	let s:vimwiki_ibm.diary_header     = 'Journal'
 	let s:vimwiki_ibm.diary_sort       = 'desc'
 	let g:vimwiki_list = [s:vimwiki_pvt, s:vimwiki_ibm]
+	map <leader>wn :VimwikiDiaryNextDay<CR>
+	map <leader>wp :VimwikiDiaryPrevDay<CR>
 
 	Plug 'AutoComplPop'
 
@@ -207,9 +212,11 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'tpope/vim-fugitive'
 
-	Plug 'jnwhiteh/vim-golang'
-
 	Plug 'freitass/todo.txt-vim'
+
+	Plug 'fatih/vim-go'
 
 	call plug#end()
 endif
+
+" vim: syntax=vim
