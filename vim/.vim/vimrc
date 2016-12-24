@@ -1,3 +1,6 @@
+set viminfo+=n$HOME/.cache/vim/viminfo
+set runtimepath=$HOME/.local/share/vim,$VIM,$VIMRUNTIME
+
 set t_Co=256        " 256 colors enabled
 set ls=2            " allways show status line #powerline plugin
 set tabstop=4       " numbers of spaces of tab character
@@ -112,7 +115,7 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 augroup templates
   au!
   " read in templates files
-  autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
+  autocmd BufNewFile *.* silent! execute '0r ~/.local/share/vim/templates/skeleton.'.expand("<afile>:e")
 augroup END
 
 
@@ -134,8 +137,8 @@ map <F6> :call ShowInfo()<CR>
 
 """" Plugins
 
-if filereadable(expand("~/.vim/autoload/plug.vim"))
-	call plug#begin('~/.vim/plugged')
+if filereadable(expand("~/.local/share/vim/autoload/plug.vim"))
+	call plug#begin('~/.local/share/vim/plugged')
 
 	Plug 'ctags.vim'
 

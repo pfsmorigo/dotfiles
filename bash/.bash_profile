@@ -7,9 +7,25 @@ export GDK_USE_XFT=1
 export QT_XFT=true
 export BROWSER="/usr/bin/google-chrome"
 export EDITOR="/usr/bin/vim"
-export TASKRC="$HOME/.config/task"
-export VIMINIT='let $MYVIMRC="$HOME/.config/vim/config" | source $MYVIMRC'
 export ANSIBLE_HOSTS=$PWD/ansible/hosts
+
+# XDG Support
+source .config/user-dirs.dirs
+export TASKRC="$XDG_CONFIG_HOME/task"
+#export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+export LESSHISTFILE="$XDG_CACHE_HOME/less"
+export GIMP2_DIRECTORY="$XDG_DATA_HOME/gimp"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export SCREENRC="$XDG_CONFIG_HOME/screen/screenrc"
+export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvt/urxvt-$(hostname)"
+export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
+export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+export GRAMPSHOME="$XDG_CONFIG_HOME/gramps"
+export WINEPREFIX="$XDG_DATA_HOME/wine"
+export ICEAUTHORITY="$XDG_RUNTIME_DIR/x11/ICEauthority"
+export XCOMPOSEFILE="$XDG_CONFIG_HOME/x11/XCompose"
+export XAUTHORITY="$XDG_RUNTIME_DIR/x11/Xauthority"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
