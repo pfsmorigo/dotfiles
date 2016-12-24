@@ -53,7 +53,7 @@ interval=30
 interval=2
 
 [fanspeed]
-command=grep speed /proc/acpi/ibm/fan | awk '{ print $2 }'
+command=grep ^speed: /proc/acpi/ibm/fan | awk '{ print $2 }'
 interval=2
 
 [battery]

@@ -33,11 +33,11 @@ set $dia       25:dia
 set $rhythmbox 26:rhythmbox
 set $games     27:games
 
-set $colors_focused          #38a741 #26712c #ffffff #88f791
-set $colors_focused_inactive #333333 #5f676a #ffffff #838383
-set $colors_unfocused        #333333 #222222 #888888 #838383
-set $colors_urgent           #ff0000 #900000 #ffffff #ff0000
-set $colors_placeholder      #000000 #0c0c0c #ffffff #000000
+set $colors_focused          #26712c #26712c #ffffff #88f791
+set $colors_focused_inactive #5f676a #5f676a #ffffff #838383
+set $colors_unfocused        #222222 #222222 #888888 #838383
+set $colors_urgent           #900000 #900000 #ffffff #ff0000
+set $colors_placeholder      #0c0c0c #0c0c0c #ffffff #000000
 #                            border  backgr. text    indicator
 
 client.focused          $colors_focused
@@ -308,7 +308,7 @@ assign [class="Gimp"] $gimp
 #for_window [title="Steam Login"] floating enable
 for_window [class="Unturned*"] floating disable; layout tabbed
 for_window [class="ioquake3.x86*"] floating disable; layout tabbed
-for_window [class="magic-launcher-MagicLauncher"] floating disable; layout tabbed
+for_window [class="magic-launcher-MagicLauncher"] floating enable
 for_window [instance="ingress.com__intel"] border none
 for_window [title="Minecraft*"] border none
 assign [class="Steam*"] $games
@@ -338,6 +338,7 @@ for_window [class="Blueman-manager"] floating enable
 for_window [class="Conky"] floating disable; move right
 for_window [class="Deja-dup"] floating enable
 for_window [class="Devede"] floating enable
+for_window [class="Dwarf_Fortress"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="Gedit"] floating enable
@@ -360,6 +361,7 @@ for_window [class="Setroubleshoot"] floating enable
 for_window [class="Shotwell"] floating enable
 for_window [class="Skype"] floating enable move right 520px, move down 15px
 for_window [class="Unetbootin"] floating enable
+for_window [class="Virt-manager"] floating enable
 for_window [class="Vncviewer"] floating enable
 for_window [class="X3270"] floating enable
 for_window [class="XFontSel"] floating enable
@@ -368,6 +370,7 @@ for_window [class="copyq"] floating enable
 for_window [class="grub-emu"] floating enable
 for_window [class="qemu-system-*"] floating enable
 for_window [class="xpad"] floating enable; border none
+for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb" class="Google-chrome"] floating enable
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
@@ -384,6 +387,7 @@ exec --no-startup-id /usr/bin/xautolock
 exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
+exec --no-startup-id $HOME/.local/bin/homesync
 exec --no-startup-id $HOME/.local/bin/dropbox_monitor
 exec --no-startup-id $HOME/.local/bin/wallpaper
 
