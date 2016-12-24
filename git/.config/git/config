@@ -22,8 +22,9 @@
 	logy = log --decorate=full --simplify-by-decoration
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	local = log --pretty=oneline --abbrev-commit master..HEAD
+	local = log --pretty=oneline --abbrev-commit --no-color --reverse --pretty=format:"%h %cI %aI %s" master..HEAD
 	list  = log --pretty=format:'%h | %ci | %s - %an <%ae>' --abbrev-commit
+	csv = log --pretty=format:'%h|%cd|%s|%ae' --abbrev-commit --date=short
 	ls = ls-files
 	gr = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
 	tags = log --tags --simplify-by-decoration --pretty=\"format:%ci %d\"

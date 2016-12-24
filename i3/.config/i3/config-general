@@ -382,7 +382,7 @@ for_window [title="xfce4-notifyd"] floating enable; border none
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 #exec --no-startup-id /usr/bin/xfce4-power-manager
 #exec --no-startup-id $HOME/.local/bin/myconky
-exec --no-startup-id /usr/local/bin/urxvtd -q -f -o
+exec --no-startup-id env urxvtd -q -f -o
 exec --no-startup-id /usr/bin/xautolock
 exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/blueman-applet

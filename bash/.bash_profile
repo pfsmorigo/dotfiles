@@ -11,14 +11,15 @@ export ANSIBLE_HOSTS=$PWD/ansible/hosts
 
 # XDG Support
 source .config/user-dirs.dirs
-export TASKRC="$XDG_CONFIG_HOME/task"
+xrdb "$XDG_CONFIG_HOME/x11/Xresources"
 #export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export TASKRC="$XDG_CONFIG_HOME/task"
 export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 export LESSHISTFILE="$XDG_CACHE_HOME/less"
 export GIMP2_DIRECTORY="$XDG_DATA_HOME/gimp"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export SCREENRC="$XDG_CONFIG_HOME/screen/screenrc"
-export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvt/urxvt-$(hostname)"
+export SCREENRC="$XDG_CONFIG_HOME/screenrc"
+export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvt-$(hostname)"
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export GRAMPSHOME="$XDG_CONFIG_HOME/gramps"

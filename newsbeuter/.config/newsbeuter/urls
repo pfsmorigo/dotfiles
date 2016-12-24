@@ -10,6 +10,9 @@ http://www.estadao.com.br/rss/economia.xml news
 http://www.estadao.com.br/rss/ultimas.xml news
 http://info.abril.com.br/aberto/infonews/rssnews.xml news
 
+# Security
+https://nvd.nist.gov/download/nvd-rss.xml security
+
 # GRUB
 https://admin.fedoraproject.org/updates/rss/rss2.0?package=grub2 grub fedora "~GRUB: Fedora"
 https://packages.qa.debian.org/g/grub2/news.rss20.xml grub debian "~GRUB: Debian"
@@ -68,6 +71,9 @@ http://shortrecipes.blogspot.com/feeds/posts/default linux
 http://feeds.feedburner.com/codinghorror/ development
 http://feeds.feedburner.com/Geeksforgeeks development
 http://feeds.feedburner.com/quicklycode development
+
+# Cryptography
+http://eprint.iacr.org/rss/atom.xml cryptography
 
 # Others
 http://musicforprogramming.net/rss.php music
