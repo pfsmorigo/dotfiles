@@ -1,5 +1,5 @@
 set viminfo+=n$HOME/.cache/vim/viminfo
-set runtimepath=$HOME/.local/share/vim,$VIM,$VIMRUNTIME
+set runtimepath=$HOME/.vim,$VIM,$VIMRUNTIME
 
 set t_Co=256        " 256 colors enabled
 set ls=2            " allways show status line #powerline plugin
@@ -113,9 +113,9 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 """" Templates
 
 augroup templates
-  au!
-  " read in templates files
-  autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
+	au!
+	" read in templates files
+	autocmd BufNewFile *.* silent! execute '0r ~/.vim/templates/skeleton.'.expand("<afile>:e")
 augroup END
 
 
@@ -160,8 +160,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	"let g:vimwiki_url_maxsave = 0
 	let g:vimwiki_use_mouse = 1
 	let s:vimwiki_pvt = {}
-	let s:vimwiki_pvt.path             = '~/wiki'
-	let s:vimwiki_pvt.path_html        = '~/wiki/html'
+	let s:vimwiki_pvt.path             = '~/Dropbox/Wiki'
+	let s:vimwiki_pvt.path_html        = '~/Dropbox/Wiki/html'
 	let s:vimwiki_pvt.ext              = '.md'
 	let s:vimwiki_pvt.syntax           = 'markdown'
 	let s:vimwiki_pvt.diary_rel_path   = 'diary/'
@@ -187,13 +187,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'po.vim'
 
-	Plug 'mru.vim'
-	map <F4> :MRU<CR>
-
 	Plug 'fugitive.vim'
-
-	Plug 'Lokaltog/vim-powerline'
-	"let g:Powerline_symbols = 'fancy'
 
 	Plug 'powerman/vim-plugin-viewdoc'
 
@@ -218,6 +212,12 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	Plug 'freitass/todo.txt-vim'
 
 	Plug 'fatih/vim-go'
+
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	let g:airline_powerline_fonts = 1
+	let g:airline_theme='luna'
+	let g:airline#extensions#tabline#enabled = 1
 
 	call plug#end()
 endif
