@@ -8,31 +8,13 @@ command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 [rhythmbox]
 interval=10
 
-[cotacoes]
-label=D
-instance=USD
+[mercadobitcoin]
 interval=60
 
 [cotacoes]
-label=E
-instance=EUR
 interval=60
 
-[cotacoes]
-label=P
-instance=ARS
-interval=60
-
-[cotacoes]
-label=L
-instance=GBP
-interval=60
-
-[bitcoin]
-label=
-interval=60
-
-[temperature2]
+[temperature]
 interval=2
 
 [stopwatch_countdown]

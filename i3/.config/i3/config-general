@@ -47,7 +47,7 @@ client.urgent           $colors_urgent
 client.placeholder      $colors_placeholder
 
 #font pango:Hack 9
-font pango:Cantarell 10
+font pango:Cantarell 9.6
 #font pango:Cantarell, smow-icons 8
 #font pango:DejaVu Sans Mono 9
 #font pango:Nanum Gothic 8
@@ -280,115 +280,100 @@ bindsym $mod+Shift+W               exec ~/.local/bin/wallpaper
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
-# www
-assign [class="Firefox"] $www
 assign [class="Chromium-browser"] $www
-assign [instance="(G|g)oogle-chrome"] $www
-for_window [class="(G|g)oogle-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
-for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable
-
-# work
-assign [title="NotesLogo"] $work
-assign [title="(IBM|Lotus) Notes*"] $work
-assign [class="Notes"] $work
-
-# dia
 assign [class="Dia$"] $dia
-for_window [window_role="toolbox_window"] floating disable
-for_window [window_role="toolbox_window"] layout toggle split
-for_window [window_role="toolbox_window"] move left
-for_window [window_role="toolbox_window"] resize shrink left 325px
-#for_window [window_role="gimp-dock"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
-
-# gimp
+assign [class="Firefox"] $www
 assign [class="Gimp"] $gimp
-
-# games
-#for_window [class="Steam*"] floating disable; layout tabbed
-#for_window [title="Steam Login"] floating enable
-for_window [class="Unturned*"] floating disable; layout tabbed
-for_window [class="ioquake3.x86*"] floating disable; layout tabbed
-for_window [class="magic-launcher-MagicLauncher"] floating enable
-for_window [instance="ingress.com__intel"] border none
-for_window [title="Minecraft*"] border none
+assign [class="Gitk"] $dev
+assign [class="Meld"] $dev
+assign [class="Notes"] $work
+assign [class="Rhythmbox"] $rhythmbox
 assign [class="Steam*"] $games
 assign [class="Unturned*"] $games
 assign [class="ioquake3.x86*"] $games
+assign [instance="(G|g)oogle-chrome"] $www
 assign [instance="ingress.com__intel"] $games
+assign [title="(IBM|Lotus) Notes*"] $work
 assign [title="MCEdit *"] $games
 assign [title="Magic Launcher"] $games
 assign [title="Minecraft*"] $games
+assign [title="NotesLogo"] $work
 
-# rhythmbox
-assign [class="Rhythmbox"] $rhythmbox
-for_window [class="Rhythmbox"] border none
 
-# dev
-assign [class="Meld"] $dev
-assign [class="Gitk"] $dev
-for_window [class="Meld"] layout tabbed
-for_window [class="Gitk"] layout tabbed
-
-# others
 #for_window [class="(?i)firefox"] title_format "<span foreground='red'>%title</span>"
+for_window [class="(G|g)oogle-chrome"] border none
+for_window [class="(G|g)oogle-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
+for_window [class="(G|g)oogle-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable move position mouse # Authy
+for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable, border normal
 for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Birdie"] floating enable
 for_window [class="Blueman-manager"] floating enable
-for_window [class="Conky"] floating disable; move right
+for_window [class="Conky"] floating disable, move right
 for_window [class="Deja-dup"] floating enable
 for_window [class="Devede"] floating enable
+for_window [class="Dia$" window_role="toolbox_window"] floating disable
+for_window [class="Dia$" window_role="toolbox_window"] layout toggle split
+for_window [class="Dia$" window_role="toolbox_window"] move left
+for_window [class="Dia$" window_role="toolbox_window"] resize shrink left 325px
 for_window [class="Dwarf_Fortress"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="Evince"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="Gimp"] border none
+for_window [class="Gitk"] layout tabbed
 for_window [class="Gnucash"] floating enable
 for_window [class="Gnuplot_qt"] floating enable
 for_window [class="Gtk-recordMyDesktop"] floating enable
 for_window [class="Ibmsaml"] floating enable
 for_window [class="Istanbul"] floating enable
 for_window [class="Keepassx"] floating enable
-for_window [class="Key-mon"] floating enable; border none
+for_window [class="Key-mon"] floating enable, border none
 for_window [class="Lxappearance"] floating enable
-for_window [class="Nagstamon"] floating enable; border none
+for_window [class="Meld"] layout tabbed
+for_window [class="Nagstamon"] floating enable, border none
 for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Pidgin"] floating enable
+for_window [class="Rhythmbox"] border none
 for_window [class="Sametime"] floating enable
 for_window [class="Seahorse"] floating enable
 for_window [class="Setroubleshoot"] floating enable
 for_window [class="Shotwell"] floating enable
 for_window [class="Skype"] floating enable move right 520px, move down 15px
+for_window [class="Steam*" title="Friends"] floating enable
 for_window [class="Unetbootin"] floating enable
+for_window [class="Unturned*"] floating disable, layout tabbed
 for_window [class="Virt-manager"] floating enable
+#for_window [class="Virt-manager" title="* on QEMU/KVM"] floating disable
 for_window [class="Vncviewer"] floating enable
 for_window [class="X3270"] floating enable
 for_window [class="XFontSel"] floating enable
-for_window [class="Yumex"] floating enable; border none
+for_window [class="Yumex"] floating enable, border none
 for_window [class="copyq"] floating enable
 for_window [class="grub-emu"] floating enable
+for_window [class="ioquake3.x86*"] floating disable, layout tabbed
+for_window [class="magic-launcher-MagicLauncher"] floating enable
 for_window [class="qemu-system-*"] floating enable
-for_window [class="xpad"] floating enable; border none
-for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb" class="Google-chrome"] floating enable
+for_window [class="xpad"] floating enable, border none
+for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
+for_window [title="Minecraft*"] border none
 for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="^QEMU$"] floating enable
-for_window [title="xfce4-notifyd"] floating enable; border none
+for_window [title="xfce4-notifyd"] floating enable, border none
 
 # Start some util apps
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 #exec --no-startup-id /usr/bin/xfce4-power-manager
 #exec --no-startup-id $HOME/.local/bin/myconky
-exec --no-startup-id env urxvtd -q -f -o
+#exec --no-startup-id env urxvtd -q -f -o
 exec --no-startup-id /usr/bin/xautolock
 exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
-exec --no-startup-id $HOME/.local/bin/homesync
-exec --no-startup-id $HOME/.local/bin/dropbox_monitor
 exec --no-startup-id $HOME/.local/bin/wallpaper
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown

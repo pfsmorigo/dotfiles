@@ -16,10 +16,14 @@ signal=13
 [fedoraupdate]
 interval=240
 
+[lsyncd]
+interval=60
+
 [deja-dup]
 interval=120
 
-[bandwidth2]
+[bandwidth]
+command=/usr/local/libexec/i3blocks/bandwidth -i ↓ -o ↑
 interval=5
 
 separator_block_width=10
@@ -49,7 +53,7 @@ interval=30
 instance=/home
 interval=30
 
-[temperature2]
+[temperature]
 interval=2
 
 [fanspeed]
@@ -76,5 +80,5 @@ interval=1
 #instance=notify-send "Countdown is over!"
 
 [time]
-command=date '+%a, %b %d %kh%M'
+command=date '+%a, %b %d %j %kh%M'
 interval=30
