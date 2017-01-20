@@ -219,6 +219,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	let g:airline_theme='luna'
 	let g:airline#extensions#tabline#enabled = 1
 
+	Plug 'ledger/vim-ledger'
+
 	call plug#end()
 endif
 
