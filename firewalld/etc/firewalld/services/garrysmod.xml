@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<short>Garry's Mod</short>
+	<description>Garry's Mod server</description>
+	<port protocol="udp" port="1200"/>
+	<port protocol="udp" port="26901"/>
+	<port protocol="udp" port="27000"/>
+	<port protocol="udp" port="27015"/>
+	<port protocol="udp" port="27020"/>
+	<port protocol="tcp" port="27015"/>
+	<port protocol="tcp" port="27020"/>
+</service>
+
