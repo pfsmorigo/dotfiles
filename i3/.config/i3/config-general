@@ -66,14 +66,15 @@ floating_modifier $mod
 hide_edge_borders both
 
 # start a terminal
-bindsym $mod+Return       exec smowterm local $USER
+bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec rofi -show ssh
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # program launcher
-bindsym $mod+d exec rofi -show run
+# this run-command trick is in order to support the existing bash aliases
+bindsym $mod+d exec rofi -rnow -run-command "/bin/bash -i -c '{cmd}'" -show run
 
 # change focus
 bindsym $mod+h focus left
@@ -235,6 +236,7 @@ bindsym $mod+u border none
 # key definition at /usr/share/X11/XKeysymDB
 
 bindsym XF86ScreenSaver            exec --no-startup-id computer lock
+bindsym Shift+XF86ScreenSaver      exec mode $system_menu
 bindsym XF86Sleep                  exec --no-startup-id computer suspend
 bindsym XF86Hibernate              exec --no-startup-id computer hibernate
 
@@ -250,12 +252,9 @@ bindSym XF86AudioMicMute           exec --no-startup-id computer sound Capture m
 
 bindSym Shift+XF86AudioMicMute     exec --no-startup-id pavucontrol
 
-bindSym XF86Display                exec --no-startup-id computer display
-
-bindsym XF86MonBrightnessUp        exec --no-startup-id xbacklight -inc 1
-bindsym XF86MonBrightnessDown      exec --no-startup-id xbacklight -dec 1
-bindsym $mod+XF86MonBrightnessUp   exec --no-startup-id xbacklight -set 100
-bindsym $mod+XF86MonBrightnessDown exec --no-startup-id xbacklight -set 0
+bindSym XF86Display                mode $display_menu
+bindsym XF86MonBrightnessUp        exec --no-startup-id xbacklight -inc 20
+bindsym XF86MonBrightnessDown      exec --no-startup-id xbacklight -dec 20
 
 #bindsym XF86AudioPlay              exec zenity --info --text "Define Play"
 #bindsym XF86AudioStop              exec zenity --info --text "Define Stop"
@@ -299,7 +298,6 @@ assign [title="Magic Launcher"] $games
 assign [title="Minecraft*"] $games
 assign [title="NotesLogo"] $work
 
-
 #for_window [class="(?i)firefox"] title_format "<span foreground='red'>%title</span>"
 for_window [class="(G|g)oogle-chrome"] border none
 for_window [class="(G|g)oogle-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
@@ -309,6 +307,7 @@ for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Birdie"] floating enable
 for_window [class="Blueman-manager"] floating enable
+for_window [class="Cheese"] floating enable
 for_window [class="Conky"] floating disable, move right
 for_window [class="Deja-dup"] floating enable
 for_window [class="Devede"] floating enable
@@ -317,13 +316,16 @@ for_window [class="Dia$" window_role="toolbox_window"] layout toggle split
 for_window [class="Dia$" window_role="toolbox_window"] move left
 for_window [class="Dia$" window_role="toolbox_window"] resize shrink left 325px
 for_window [class="Dwarf_Fortress"] floating enable
+for_window [class="Electrum"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="Evince"] floating enable
+for_window [class="Firewall-config"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="Gimp"] border none
 for_window [class="Gitk"] layout tabbed
 for_window [class="Gnucash"] floating enable
 for_window [class="Gnuplot_qt"] floating enable
+for_window [class="GParted"] floating enable
 for_window [class="Gtk-recordMyDesktop"] floating enable
 for_window [class="Ibmsaml"] floating enable
 for_window [class="Istanbul"] floating enable
@@ -345,7 +347,7 @@ for_window [class="Steam*" title="Friends"] floating enable
 for_window [class="Unetbootin"] floating enable
 for_window [class="Unturned*"] floating disable, layout tabbed
 for_window [class="Virt-manager"] floating enable
-#for_window [class="Virt-manager" title="* on QEMU/KVM"] floating disable
+for_window [title="* on QEMU/KVM"] floating disable
 for_window [class="Vncviewer"] floating enable
 for_window [class="X3270"] floating enable
 for_window [class="XFontSel"] floating enable
@@ -376,44 +378,23 @@ exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
 exec --no-startup-id $HOME/.local/bin/wallpaper
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Pause mode "$mode_system"
-
-set $audiomenu "volume:  [+]10%  [-]10%  [m]ute  [r]eset"
-bindsym $mod+Control+F5   mode $audiomenu
-
-mode $audiomenu {
-    bindsym r             exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- 100%
-    bindsym plus          exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +10%
-    bindsym KP_Add        exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +10%
-    bindsym minus         exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -10%
-    bindsym KP_Subtract   exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -10%
-    bindsym m             exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym Return        mode "default"
-    bindsym Escape        mode "default"
-}
-
-set $sysmenu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"
-bindsym $mod+Control+F6 mode $sysmenu
-
-mode $sysmenu {
+set $system_menu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"
+mode $system_menu {
     bindsym r         restart
     bindsym l         exit
     bindsym p         exec shutdown -P now
     bindsym b         exec shutdown -r now
     bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+}
+
+set $display_menu "display:   [r]eset   [p]rimary only   [s]econdary only   [b]oth"
+mode $display_menu {
+    bindsym r         exec xrandr --auto, mode "default"
+    bindsym p         exec display primary, mode "default"
+    bindsym s         exec display secondary, mode "default"
+    bindsym b         exec display both, mode "default"
+    bindsym Return    exec display primary, mode "default"
     bindsym Escape    mode "default"
 }
 

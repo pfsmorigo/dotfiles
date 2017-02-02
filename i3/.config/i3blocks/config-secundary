@@ -11,7 +11,36 @@ interval=10
 [mercadobitcoin]
 interval=60
 
-[cotacoes]
+[infomoney]
+instance=ibovespa
+interval=60
+
+[infomoney]
+instance=nasdaq
+interval=60
+
+[infomoney]
+instance=shanghai
+interval=60
+
+[infomoney]
+instance=ifix
+interval=60
+
+[infomoney]
+instance=dolar
+interval=60
+
+[infomoney]
+instance=euro
+interval=60
+
+[infomoney]
+instance=cdi
+interval=60
+
+[infomoney]
+instance=poupanca
 interval=60
 
 [temperature]
@@ -19,6 +48,14 @@ interval=2
 
 [stopwatch_countdown]
 interval=5
+
+[time]
+command=TZ=US/Central date +"%kh%M %Z" | sed 's/^ //g'
+interval=30
+
+[time]
+command=TZ=America/New_York date +"%kh%M %Z" | sed 's/^ //g'
+interval=30
 
 [time]
 command=date '+%a, %b %d %H:%M:%S'

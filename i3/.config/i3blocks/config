@@ -10,20 +10,19 @@ command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 interval=once
 signal=11
 
-[xautolock]
-signal=13
+[lsyncd]
+interval=60
+
+#[xautolock]
+#signal=13
 
 [fedoraupdate]
 interval=240
 
-[lsyncd]
-interval=60
-
 [deja-dup]
 interval=120
 
-[bandwidth]
-command=/usr/local/libexec/i3blocks/bandwidth -i ↓ -o ↑
+[bandwidth -i ↓ -o ↑]
 interval=5
 
 separator_block_width=10
@@ -34,6 +33,9 @@ interval=5
 
 [cpu_usage]
 interval=10
+
+separator_block_width=10
+separator=false
 
 [load_average]
 interval=10
@@ -56,9 +58,9 @@ interval=30
 [temperature]
 interval=2
 
-[fanspeed]
-command=grep ^speed: /proc/acpi/ibm/fan | awk '{ print $2 }'
-interval=2
+#[fanspeed]
+#command=grep ^speed: /proc/acpi/ibm/fan | awk '{ print $2 }'
+#interval=2
 
 [battery]
 interval=30
@@ -70,8 +72,8 @@ signal=10
 separator_block_width=10
 separator=false
 
-[mic]
-command=$HOME/.local/bin/computer sound Capture show
+[volume]
+instance=Capture
 interval=once
 signal=10
 
@@ -80,5 +82,5 @@ interval=1
 #instance=notify-send "Countdown is over!"
 
 [time]
-command=date '+%a, %b %d %j %kh%M'
+command=date +"%a, %b %d (%j) %kh%M" | sed 's/ 0/ /g;s/(0/(/g'
 interval=30
