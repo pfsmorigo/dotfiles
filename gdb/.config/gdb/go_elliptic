@@ -1,0 +1,12 @@
+# vim: filetype=gdb
+
+define args4
+	x/4gx $r3
+	x/4gx $r4
+	x/4gx $r5
+end
+
+define test
+	b p256_test.go:190
+	run
+end

@@ -1,0 +1,19 @@
+# vim: filetype=gdb
+
+set confirm off
+layout split
+
+define args
+	i r r3 r4 r5 r6
+end
+
+document args
+  r3 is the 1st parameter of the function and the return value
+  r4 is the 2nd parameter
+  r5 is the 3rd parameter
+  r6 is the 4th parameter
+end
+
+define fp
+	x/32gx $r1
+end

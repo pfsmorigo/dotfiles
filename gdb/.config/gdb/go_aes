@@ -1,0 +1,25 @@
+# vim: filetype=gdb
+
+define encrypt
+	break aes_p8_encrypt
+	break aes_p8_decrypt
+	run
+    set $src = $r3
+	set $dst = $r4
+	set $enc = $r5
+	i r r3 r4 r5
+end
+
+define default
+	break main:36
+	break aes_p8_set_encrypt_key
+	break aes_p8_set_decrypt_key
+	break aes_p8_encrypt
+	break aes_p8_decrypt
+	break aesp8-ppc.S:135
+	run
+end
+
+b p256_asm_ppc64le.s:129
+b p256_asm_ppc64le.s:140
+b p256_test.go:110

@@ -1,5 +1,6 @@
-set auto-load safe-path /
-#add-auto-load-safe-path ~/projects/go/src/runtime/runtime-gdb.py
+set auto-load safe-path ~
+source ~/dotfiles/gdb/.config/gdb/default.py
 
-set $localinit = "$HOME/.config/gdb/$(basename $(pwd -P))"
-python gdb.execute("shell source " + str(gdb.parse_and_eval("$localinit")))
+#set $local = "$HOME/.config/gdb/$(basename $(pwd -P))"
+#python gdb.execute("shell echo source " + str(gdb.parse_and_eval("$local")) + "> /tmp/gdb")
+#source /tmp/gdb
