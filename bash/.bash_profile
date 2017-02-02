@@ -7,26 +7,33 @@ export GDK_USE_XFT=1
 export QT_XFT=true
 export BROWSER="/usr/bin/google-chrome"
 export EDITOR="/usr/bin/vim"
-export ANSIBLE_HOSTS=$PWD/ansible/hosts
+export TERMINAL="$HOME/.local/bin/smowterm"
 
 # XDG Support
-source .config/user-dirs.dirs
-xrdb "$XDG_CONFIG_HOME/x11/Xresources"
+source "$HOME/.config/user-dirs.dirs"
 #export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
-export TASKRC="$XDG_CONFIG_HOME/task"
-export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
-export LESSHISTFILE="$XDG_CACHE_HOME/less"
+alias abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_CONFIG_HOME/abook/addressbook"
+alias claws-mail="claws-mail --alternate-config-dir $XDG_CONFIG_HOME/claws-mail"
+alias electrum="electrum --dir $XDG_CONFIG_HOME/electrum"
+alias ledger="ledger --init-file $XDG_CONFIG_HOME/ledgerrc"
+alias pidgin="pidgin --config=$XDG_CONFIG_HOME/purple"
 export GIMP2_DIRECTORY="$XDG_DATA_HOME/gimp"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export SCREENRC="$XDG_CONFIG_HOME/screenrc"
-export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvt-$(hostname)"
-export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
-export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export GRAMPSHOME="$XDG_CONFIG_HOME/gramps"
-export WINEPREFIX="$XDG_DATA_HOME/wine"
 export ICEAUTHORITY="$XDG_RUNTIME_DIR/x11/ICEauthority"
-export XCOMPOSEFILE="$XDG_CONFIG_HOME/x11/XCompose"
+export LESSHISTFILE="$XDG_CACHE_HOME/less"
+export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvt-$(hostname)"
+export SCREENRC="$XDG_CONFIG_HOME/screenrc"
+export TASKRC="$XDG_CONFIG_HOME/task"
+export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
+export WINEPREFIX="$XDG_DATA_HOME/wine"
 export XAUTHORITY="$XDG_RUNTIME_DIR/x11/Xauthority"
+export XCOMPOSEFILE="$XDG_CONFIG_HOME/x11/XCompose"
+export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
+test x$DISPLAY != x && xrdb "$XDG_CONFIG_HOME/x11/Xresources"
+
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
@@ -54,7 +61,7 @@ alias la="ls -lah"
 alias irc_urls='tail $HOME/.weechat/urls.log'
 alias lvim="vim -c \"normal '0\""
 alias enable_alert='PS1="$PS1\a"'
-#alias task="taskassist; task"
+alias libreoffice="GTK_THEME=Clearlooks libreoffice"
 
 if type -t colordiff 2>&1 > /dev/null; then
 	alias diff='colordiff'
