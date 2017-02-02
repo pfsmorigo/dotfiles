@@ -47,7 +47,7 @@ client.urgent           $colors_urgent
 client.placeholder      $colors_placeholder
 
 #font pango:Hack 9
-font pango:Cantarell 9.6
+font pango:Cantarell 10
 #font pango:Cantarell, smow-icons 8
 #font pango:DejaVu Sans Mono 9
 #font pango:Nanum Gothic 8
