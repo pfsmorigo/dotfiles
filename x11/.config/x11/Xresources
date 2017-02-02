@@ -47,7 +47,7 @@ URxvt*depth:               32
 URxvt*underlineColor:      yellow
 
 URxvt*letterSpace:         -2
-URxvt*font:                xft:Liberation Mono:size=11,xft:Icons:size=11
+URxvt*font:                xft:Liberation Mono for Powerline:size=11,xft:Liberation Mono:size=11
 
 ! C-0, C-+ and C-= to activate small, medium, and big font size resp.
 URxvt*keysym.C-underscore: command:\033]50;xft:Liberation Mono:size=7\007
