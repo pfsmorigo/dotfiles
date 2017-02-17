@@ -6,7 +6,14 @@ define args4
 	x/4gx $r5
 end
 
+define mulby3
+	del breakpoints
+	print $dynbreak("p256_asm_ppc64le.s", "TEXT ·p256MulBy3")
+	run
+end
+
 define test
-	b p256_test.go:190
+	del breakpoints
+	print $dynbreak("p256_test.go", "t.Error(\"Function\", i, err)")
 	run
 end
