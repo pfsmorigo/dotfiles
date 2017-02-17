@@ -100,3 +100,11 @@ CDARGS=/usr/share/doc/cdargs/examples/cdargs-bash.sh
 grep -q Debian /etc/issue && test -f $CDARGS && . $CDARGS
 
 [ -f ~/.bash_profile_local ] && . ~/.bash_profile_local
+
+if [ -n "$RUN_SCREEN" -a -z "$STY" ]; then
+	echo Hostname: $HOSTNAME
+	~/.local/bin/screen_switch
+	test $? -eq 127 && screen -AOxRR '$USER'
+	test $? -eq 127 && bash
+	test $? -ne 1 && sleep 10
+fi
