@@ -10,30 +10,33 @@ export EDITOR="/usr/bin/vim"
 export TERMINAL="$HOME/.local/bin/smowterm"
 
 # XDG Support
-source "$HOME/.config/user-dirs.dirs"
-#export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
-alias abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_CONFIG_HOME/abook/addressbook"
-alias claws-mail="claws-mail --alternate-config-dir $XDG_CONFIG_HOME/claws-mail"
-alias electrum="electrum --dir $XDG_CONFIG_HOME/electrum"
-alias ledger="ledger --init-file $XDG_CONFIG_HOME/ledgerrc"
-alias pidgin="pidgin --config=$XDG_CONFIG_HOME/purple"
-export GIMP2_DIRECTORY="$XDG_DATA_HOME/gimp"
-export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-export GRAMPSHOME="$XDG_CONFIG_HOME/gramps"
-export ICEAUTHORITY="$XDG_RUNTIME_DIR/x11/ICEauthority"
-export LESSHISTFILE="$XDG_CACHE_HOME/less"
-export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
-export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvt-$(hostname)"
-export SCREENRC="$XDG_CONFIG_HOME/screenrc"
-export TASKRC="$XDG_CONFIG_HOME/task"
-export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
-export WINEPREFIX="$XDG_DATA_HOME/wine"
-export XAUTHORITY="$XDG_RUNTIME_DIR/x11/Xauthority"
-export XCOMPOSEFILE="$XDG_CONFIG_HOME/x11/XCompose"
-export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
-export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
-test x$DISPLAY != x && xrdb "$XDG_CONFIG_HOME/x11/Xresources"
+if [ -e "$HOME/.config/user-dirs.dirs" ]; then
+	source "$HOME/.config/user-dirs.dirs"
+	[[ ! -e "$XDG_CONFIG_HOME" ]] && break
 
+	#export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+	alias abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_CONFIG_HOME/abook/addressbook"
+	alias claws-mail="claws-mail --alternate-config-dir $XDG_CONFIG_HOME/claws-mail"
+	alias electrum="electrum --dir $XDG_CONFIG_HOME/electrum"
+	alias ledger="ledger --init-file $XDG_CONFIG_HOME/ledgerrc"
+	alias pidgin="pidgin --config=$XDG_CONFIG_HOME/purple"
+	export GIMP2_DIRECTORY="$XDG_DATA_HOME/gimp"
+	export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+	export GRAMPSHOME="$XDG_CONFIG_HOME/gramps"
+	export ICEAUTHORITY="$XDG_RUNTIME_DIR/x11/ICEauthority"
+	export LESSHISTFILE="$XDG_CACHE_HOME/less"
+	export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+	export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvt-$(hostname)"
+	export SCREENRC="$XDG_CONFIG_HOME/screenrc"
+	export TASKRC="$XDG_CONFIG_HOME/task"
+	export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
+	export WINEPREFIX="$XDG_DATA_HOME/wine"
+	export XAUTHORITY="$XDG_RUNTIME_DIR/x11/Xauthority"
+	export XCOMPOSEFILE="$XDG_CONFIG_HOME/x11/XCompose"
+	export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+	export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
+	test x$DISPLAY != x && xrdb "$XDG_CONFIG_HOME/x11/Xresources"
+fi
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
@@ -68,7 +71,7 @@ if type -t colordiff 2>&1 > /dev/null; then
 fi
 
 alias g="git"
-alias m="time make -j$(grep -c ^proc /proc/cpuinfo) 2>&1 | tee /tmp/build"
+alias m="time make -j$(grep -c ^proc /proc/cpuinfo)"
 alias t='todo.sh -d $HOME/Dropbox/todo/todo.cfg'
 
 alias week='date +%V'
@@ -101,10 +104,4 @@ grep -q Debian /etc/issue && test -f $CDARGS && . $CDARGS
 
 [ -f ~/.bash_profile_local ] && . ~/.bash_profile_local
 
-if [ -n "$RUN_SCREEN" -a -z "$STY" ]; then
-	echo Hostname: $HOSTNAME
-	~/.local/bin/screen_switch
-	test $? -eq 127 && screen -AOxRR '$USER'
-	test $? -eq 127 && bash
-	test $? -ne 1 && sleep 10
-fi
+#PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
