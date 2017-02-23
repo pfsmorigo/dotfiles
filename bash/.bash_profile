@@ -2,14 +2,8 @@ alias la="ls -lah"
 alias ll="ls -lh"
 alias ls="ls --color"
 
-alias ga="git add"
-alias gc="git commit"
-alias gd="git pull"
 alias gl="git log"
-alias gr="git rm"
 alias gs="git status"
-alias gu="git push"
-alias gw="git show"
 
 alias m="time make -j$(grep -c ^proc /proc/cpuinfo)"
 alias s='screen_switch'
@@ -64,7 +58,7 @@ if [ -e "$HOME/.config/user-dirs.dirs" ]; then
 	export XCOMPOSEFILE="$XDG_CONFIG_HOME/x11/XCompose"
 	export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 	export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
-	test x$DISPLAY != x && xrdb "$XDG_CONFIG_HOME/x11/Xresources"
+	[ -n "$DISPLAY" -a -f /usr/bin/xrdb ] && xrdb "$XDG_CONFIG_HOME/x11/Xresources"
 fi
 
 PRODUCT_ID=$(cat /sys/class/dmi/id/product_version 2> /dev/null)
