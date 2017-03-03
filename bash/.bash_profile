@@ -64,13 +64,10 @@ fi
 PRODUCT_ID=$(cat /sys/class/dmi/id/product_version 2> /dev/null)
 if [[ "$PRODUCT_ID" =~ "ThinkPad" ]]; then
 	setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp'
-	#setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp,caps:swapescape,altwin:meta_win'
-	#setxkbmap -model us -layout us -variant intl -option 'terminate:ctrl_alt_bksp,caps:swapescape'
 
 	# IBM TP mouse scrolling with middle mouse buttom
 	xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
 	xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
-	#xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 8 200
 
 	# IBM TP horizontal scrolling
 	xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
@@ -82,7 +79,3 @@ grep -q Debian /etc/issue && test -f $CDARGS && . $CDARGS
 [ -f ~/.bash_profile_local ] && . ~/.bash_profile_local
 
 . shelltags -tesglfmb
-
-#set -o vi
-#shopt -s autocd         # move you up one directory quickly
-#shopt -s histappend     # don't clear the history each time
