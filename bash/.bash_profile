@@ -81,8 +81,7 @@ grep -q Debian /etc/issue && test -f $CDARGS && . $CDARGS
 
 [ -f ~/.bash_profile_local ] && . ~/.bash_profile_local
 
-#PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-. smartprompt
+. shelltags -tesglfmb
 
 #set -o vi
 #shopt -s autocd         # move you up one directory quickly
