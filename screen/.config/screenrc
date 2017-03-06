@@ -14,8 +14,7 @@ altscreen on
 
 backtick 1 300 300 uname -r
 backtick 2 5 5 awk '{ print $1 }' /proc/loadavg
-#hardstatus string "%H | %S | %1` | %2` | %w %=%u"
-hardstatus string "%H (%1`) | %2` | %S | %w %=%u"
+hardstatus string "[screen] %H (%1`) | %2` | %S   %w %=%u"
 hardstatus off
 
 defscrollback 10000
