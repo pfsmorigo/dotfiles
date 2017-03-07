@@ -1,33 +1,27 @@
-startup_message off
-
-#enable 256 colors
+# enable 256 colors
 term screen-256color
 terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 termcapinfo xterm*|rxvt*|kterm*|Eterm*|gnome-terminal* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 
-caption string "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
-
-shelltitle "$|"
-
-#clean screen when exit a program
-altscreen on
+shelltitle "$ |bash"
 
 backtick 1 300 300 uname -r
 backtick 2 5 5 awk '{ print $1 }' /proc/loadavg
-hardstatus string "[screen] %H (%1`) | %2` | %S   %w %=%u"
+hardstatus string "[screen] %H (%1`) | %2` | %S | %w %=%u"
 hardstatus off
 
 defscrollback 10000
 
 hardcopy_append on
-hardcopydir $HOME/.screen
+hardcopydir $HOME/log/screen
 
 activity "%c activity -> %n%f %t^G"
 silencewait 10
 
+startup_message off # be quiet!
 vbell off
+altscreen on # clean screen when exit a program
 
 screen 0
 
 bind b eval "writebuf" "exec sh -c 'cat /tmp/screen-exchange | xclip'"
-
