@@ -47,12 +47,12 @@ client.urgent           $colors_urgent
 client.placeholder      $colors_placeholder
 
 #font pango:Hack 9
-font pango:Cantarell 10
-#font pango:Cantarell, smow-icons 8
+#font pango:Cantarell 9, Material-Design-Iconic-Font 9.5
+font pango:Cantarell 9.5
 #font pango:DejaVu Sans Mono 9
-#font pango:Nanum Gothic 8
+#font pango:Nanum Gothic 9
 #font pango:Nanum Gothic, smow-icons 10
-#font pango:PT Sans, icons 8
+#font pango:PT Sans, icons 9
 #font pango:Envy Code R 10
 #font pango:Cuprum 11
 #font pango:Cuprum, icons 11
@@ -133,7 +133,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # focus last urgent
-bindsym $mod+Escape [urgent="last"] focus
+#bindsym $mod+Escape [urgent="last"] focus
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -236,7 +236,6 @@ bindsym $mod+u border none
 # key definition at /usr/share/X11/XKeysymDB
 
 bindsym XF86ScreenSaver            exec --no-startup-id computer lock
-bindsym Shift+XF86ScreenSaver      exec mode $system_menu
 bindsym XF86Sleep                  exec --no-startup-id computer suspend
 bindsym XF86Hibernate              exec --no-startup-id computer hibernate
 
@@ -275,6 +274,9 @@ bindsym $mod+Shift+Tab             exec /usr/bin/copyq menu
 bindsym $mod+Control+Tab           exec /usr/bin/copyq action
 
 bindsym $mod+Shift+W               exec ~/.local/bin/wallpaper
+bindsym $mod+Escape                exec xautolock -locknow
+bindsym $mod+Delete                mode $system_menu
+
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
@@ -371,7 +373,8 @@ for_window [title="xfce4-notifyd"] floating enable, border none
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 #exec --no-startup-id /usr/bin/xfce4-power-manager
 #exec --no-startup-id $HOME/.local/bin/myconky
-#exec --no-startup-id env urxvtd -q -f -o
+exec --no-startup-id env urxvtd -q -f -o
+exec --no-startup-id /home/pfsmorigo/.local/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/xautolock
 exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/blueman-applet
@@ -388,12 +391,12 @@ mode $system_menu {
     bindsym Escape    mode "default"
 }
 
-set $display_menu "display:   [r]eset   [p]rimary only   [s]econdary only   [b]oth"
+set $display_menu "display:   [r]eset   [p]rimary only   [s]econdary only   [a]bove"
 mode $display_menu {
     bindsym r         exec xrandr --auto, mode "default"
     bindsym p         exec display primary, mode "default"
     bindsym s         exec display secondary, mode "default"
-    bindsym b         exec display both, mode "default"
+    bindsym a         exec display above, mode "default"
     bindsym Return    exec display primary, mode "default"
     bindsym Escape    mode "default"
 }
