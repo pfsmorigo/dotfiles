@@ -25,9 +25,6 @@ interval=120
 [bandwidth -i ↓ -o ↑]
 interval=5
 
-separator_block_width=10
-separator=false
-
 [networks]
 interval=5
 
@@ -40,18 +37,27 @@ separator=false
 [load_average]
 interval=10
 
-[memory]
+[mem]
+label=R
 interval=30
 
-[memory]
-instance=swap
+separator_block_width=10
+separator=false
+
+[mem swap]
+label=S
 interval=30
 
 [disk]
+label=/
 instance=/
 interval=30
 
+separator_block_width=10
+separator=false
+
 [disk]
+label=~
 instance=/home
 interval=30
 
@@ -62,7 +68,7 @@ interval=2
 #command=grep ^speed: /proc/acpi/ibm/fan | awk '{ print $2 }'
 #interval=2
 
-[battery]
+[battery2]
 interval=30
 
 [volume]
@@ -81,6 +87,5 @@ signal=10
 interval=1
 #instance=notify-send "Countdown is over!"
 
-[time]
-command=date +"%a, %b %d (%j) %kh%M" | sed 's/ 0/ /g;s/(0/(/g'
+[datetime]
 interval=30
