@@ -41,7 +41,6 @@ if [ -e "$HOME/.config/user-dirs.dirs" ]; then
 	alias abook="abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile $XDG_CONFIG_HOME/abook/addressbook"
 	alias claws-mail="claws-mail --alternate-config-dir $XDG_CONFIG_HOME/claws-mail"
 	alias electrum="electrum --dir $XDG_CONFIG_HOME/electrum"
-	alias ledger="ledger --init-file $XDG_CONFIG_HOME/ledgerrc"
 	alias pidgin="pidgin --config=$XDG_CONFIG_HOME/purple"
 	export GIMP2_DIRECTORY="$XDG_DATA_HOME/gimp"
 	export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
@@ -57,7 +56,6 @@ if [ -e "$HOME/.config/user-dirs.dirs" ]; then
 	export XAUTHORITY="$XDG_RUNTIME_DIR/x11/Xauthority"
 	export XCOMPOSEFILE="$XDG_CONFIG_HOME/x11/XCompose"
 	export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
-	export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
 	[ -n "$DISPLAY" -a -f /usr/bin/xrdb ] && xrdb "$XDG_CONFIG_HOME/x11/Xresources"
 fi
 

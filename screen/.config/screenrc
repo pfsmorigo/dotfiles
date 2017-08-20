@@ -3,12 +3,11 @@ term screen-256color
 terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 termcapinfo xterm*|rxvt*|kterm*|Eterm*|gnome-terminal* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 
-shelltitle "$ |bash"
-
 backtick 1 300 300 uname -r
 backtick 2 5 5 awk '{ print $1 }' /proc/loadavg
-hardstatus string "[screen] %H (%1`) | %2` | %S | %w %=%u"
+hardstatus string "[screen] %H (%1`) %2` | %S | %w"
 hardstatus off
+shelltitle "$|"
 
 defscrollback 10000
 

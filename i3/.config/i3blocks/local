@@ -1,0 +1,12 @@
+#!/bin/bash
+
+exit
+[ -n "$(ip -o a | grep " 9.")" -a -z "$(pgrep steam)" ] && exit # working time!
+
+#BRLOCAL=$(/home/pfsmorigo/scripts/games/7dtd.py 108.61.120.69 25484)
+#DEADLIGHT=$(/home/pfsmorigo/scripts/games/7dtd.py acidstorm.bluefangsolutions.com 28000)
+INTENSIFICADOS=$(/home/pfsmorigo/scripts/games/7dtd.py server.intensificados.com.br 26900)
+
+#OUTPUT="$BRLOCAL | $DEADLIGHT"
+OUTPUT="$INTENSIFICADOS"
+echo $OUTPUT

@@ -23,6 +23,7 @@ set $wF5 24:dev
 set $wF6 25:dia
 set $wF7 26:rhythmbox
 set $wF8 27:games
+set $wF9 28:zoom
 
 set $www       20:www
 set $work      21:work
@@ -32,6 +33,7 @@ set $dev       24:dev
 set $dia       25:dia
 set $rhythmbox 26:rhythmbox
 set $games     27:games
+set $zoom      28:zoom
 
 set $colors_focused          #26712c #26712c #ffffff #88f791
 set $colors_focused_inactive #5f676a #5f676a #ffffff #838383
@@ -264,10 +266,7 @@ bindsym XF86MonBrightnessDown      exec --no-startup-id xbacklight -dec 20
 # Other binds
 bindsym Print                      exec gnome-screenshot --interactive
 
-bindsym $mod+Control+F1            exec ~/.local/bin/automatic ff
-bindsym $mod+Control+F2            exec ~/.local/bin/automatic zf
-bindsym $mod+Control+F3            exec ~/.local/bin/automatic te
-bindsym $mod+Control+F12           exec killall automatic
+bindsym $mod+Control+F1            exec ~/.local/bin/automatic home
 
 bindsym $mod+Tab                   exec /usr/bin/copyq toggle
 bindsym $mod+Shift+Tab             exec /usr/bin/copyq menu
@@ -292,6 +291,7 @@ assign [class="Rhythmbox"] $rhythmbox
 assign [class="Steam*"] $games
 assign [class="Unturned*"] $games
 assign [class="ioquake3.x86*"] $games
+assign [class="zoom"] $zoom
 assign [instance="(G|g)oogle-chrome"] $www
 assign [instance="ingress.com__intel"] $games
 assign [title="(IBM|Lotus) Notes*"] $work
@@ -360,14 +360,20 @@ for_window [class="ioquake3.x86*"] floating disable, layout tabbed
 for_window [class="magic-launcher-MagicLauncher"] floating enable
 for_window [class="qemu-system-*"] floating enable
 for_window [class="xpad"] floating enable, border none
+for_window [class="zoom"] floating enable
+for_window [class="TeamSpeak 3"] floating enable
 for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
 for_window [title="Minecraft*"] border none
+for_window [title="Steam Guard -*"] floating enable
+for_window [title="pass: *"] floating enable
+for_window [title="Steam - News"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="^QEMU$"] floating enable
 for_window [title="xfce4-notifyd"] floating enable, border none
+for_window [title="Relógio Virtual de Ponto"] floating enable move position mouse
 
 # Start some util apps
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon

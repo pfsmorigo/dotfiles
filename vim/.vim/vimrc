@@ -82,6 +82,7 @@ endif
 map <F5> :make<CR><CR>
 map <leader>t :tabe ~/Dropbox/todo/todo.txt<CR>
 map <leader>T :tabe ~/Dropbox/todo/done.txt<CR>
+map <leader>l :tabe ~/money/ledger/inbox.ledger<CR>
 
 """" GNU Coding Standards
 
@@ -204,14 +205,15 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'Shougo/unite.vim'
 	nnoremap <space>/ :Unite grep:.<CR>
-	nnoremap <space>y :Unite history/yanks<cr>
-	nnoremap <space>s :Unite -quick-match buffer<cr>
+	nnoremap <space>y :Unite history/yanks<CR>
+	nnoremap <space>s :Unite -quick-match buffer<CR>
 
 	Plug 'tpope/vim-fugitive'
 
 	Plug 'freitass/todo.txt-vim'
 
 	Plug 'fatih/vim-go'
+	autocmd BufNewFile,BufRead *.go :GoPath $HOME/projects/go/bin
 
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
@@ -220,6 +222,13 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	let g:airline#extensions#tabline#enabled = 1
 
 	Plug 'ledger/vim-ledger'
+	let g:ledger_maxwidth = 80
+	let g:ledger_align_at = 46
+	let g:ledger_fold_blanks = 1
+	let g:ledger_fillstring = '· '
+	autocmd BufNewFile,BufRead *.ledger nmap <F2> :%LedgerAlign<CR><CR>
+
+	Plug 'chrisbra/csv.vim'
 
 	call plug#end()
 endif

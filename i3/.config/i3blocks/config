@@ -3,21 +3,18 @@
 align=center
 color=#ffffff
 separator=true
-separator_block_width=15
+separator_block_width=12
 command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 
 [capslock]
 interval=once
 signal=11
 
-[lsyncd]
-interval=60
-
 #[xautolock]
 #signal=13
 
-[fedoraupdate]
-interval=240
+[local]
+interval=15
 
 [deja-dup]
 interval=120
@@ -31,7 +28,7 @@ interval=5
 [cpu_usage]
 interval=10
 
-separator_block_width=10
+separator_block_width=5
 separator=false
 
 [load_average]
@@ -41,7 +38,7 @@ interval=10
 label=R
 interval=30
 
-separator_block_width=10
+separator_block_width=5
 separator=false
 
 [mem swap]
@@ -53,7 +50,7 @@ label=/
 instance=/
 interval=30
 
-separator_block_width=10
+separator_block_width=5
 separator=false
 
 [disk]
@@ -75,7 +72,7 @@ interval=30
 interval=once
 signal=10
 
-separator_block_width=10
+separator_block_width=5
 separator=false
 
 [volume]
@@ -86,6 +83,25 @@ signal=10
 [stopwatch_countdown]
 interval=1
 #instance=notify-send "Countdown is over!"
+instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 
 [datetime]
 interval=30
+
+separator_block_width=5
+separator=false
+
+[fedoraupdate]
+interval=240
+
+separator_block_width=5
+separator=false
+
+[mount /dev/mapper/manaus-home]
+interval=3
+
+separator_block_width=5
+separator=false
+
+[lsyncd]
+interval=60
