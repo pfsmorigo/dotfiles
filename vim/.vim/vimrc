@@ -49,6 +49,7 @@ function! ToggleInvisible()
 endfunction
 
 map <F7> :call ToggleInvisible()<CR>
+map <F2> gg=G
 
 syntax on
 
@@ -141,9 +142,9 @@ map <F6> :call ShowInfo()<CR>
 if filereadable(expand("~/.vim/autoload/plug.vim"))
 	call plug#begin('~/.vim/plugged')
 
-	Plug 'ctags.vim'
+	Plug 'vim-scripts/ctags.vim'
 
-	Plug 'cscope_macros.vim'
+	Plug 'vim-scripts/cscope_macros.vim'
 	map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 	map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
@@ -180,15 +181,15 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	map <leader>wn :VimwikiDiaryNextDay<CR>
 	map <leader>wp :VimwikiDiaryPrevDay<CR>
 
-	Plug 'AutoComplPop'
+	Plug 'vim-scripts/AutoComplPop'
 
-	Plug 'a.vim'
+	Plug 'vim-scripts/a.vim'
 
-	Plug 'SpellCheck'
+	Plug 'vim-scripts/SpellCheck'
 
-	Plug 'po.vim'
+	Plug 'vim-scripts/po.vim'
 
-	Plug 'fugitive.vim'
+	Plug 'vim-scripts/fugitive.vim'
 
 	Plug 'powerman/vim-plugin-viewdoc'
 
@@ -199,9 +200,9 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'kien/ctrlp.vim'
 
-	Plug 'gnupg.vim'
+	Plug 'vim-scripts/gnupg.vim'
 
-	Plug 'vcscommand.vim'
+	Plug 'vim-scripts/vcscommand.vim'
 
 	Plug 'Shougo/unite.vim'
 	nnoremap <space>/ :Unite grep:.<CR>
@@ -213,7 +214,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	Plug 'freitass/todo.txt-vim'
 
 	Plug 'fatih/vim-go'
-	autocmd BufNewFile,BufRead *.go :GoPath $HOME/projects/go/bin
+	"autocmd BufNewFile,BufRead *.go :GoPath $HOME/projects/go
 
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
@@ -227,8 +228,15 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	let g:ledger_fold_blanks = 1
 	let g:ledger_fillstring = '· '
 	autocmd BufNewFile,BufRead *.ledger nmap <F2> :%LedgerAlign<CR><CR>
+	autocmd BufNewFile,BufRead *.ledger noremap <silent><buffer> <2-LeftMouse> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
 
 	Plug 'chrisbra/csv.vim'
+
+	Plug 'mhinz/vim-rfc'
+
+	Plug 'pearofducks/ansible-vim'
+	au BufRead,BufNewFile */ansible/*.yml set filetype=ansible
+	let g:ansible_unindent_after_newline = 1
 
 	call plug#end()
 endif
