@@ -1,0 +1,60 @@
+# vim: filetype=gdb
+
+set auto-load safe-path /
+set tui border-kind space
+set confirm off
+layout split
+
+define print_chacha_state
+	set $E0=$r11
+	set $E1=$r12
+	set $E2=$r14
+	set $E3=$r15
+	set $E4=$r16
+	set $E5=$r17
+	set $E6=$r18
+	set $E7=$r19
+	set $E8=$r20
+	set $E9=$r21
+	set $E10=$r22
+	set $E11=$r23
+	set $E12=$r24
+	set $E13=$r25
+	set $E14=$r26
+	set $E15=$r27
+	printf "%10lx %10lx %10lx %10lx\n", $E0, $E1, $E2, $E3
+	printf "%10lx %10lx %10lx %10lx\n", $E4, $E5, $E6, $E7
+	printf "%10lx %10lx %10lx %10lx\n", $E8, $E9, $E10, $E11
+	printf "%10lx %10lx %10lx %10lx\n", $E12, $E13, $E14, $E15
+end
+
+define print_chacha_state_openssl
+	set $E0=$r16
+	set $E1=$r17
+	set $E2=$r18
+	set $E3=$r19
+	set $E4=$r20
+	set $E5=$r21
+	set $E6=$r22
+	set $E7=$r23
+	set $E8=$r24
+	set $E9=$r25
+	set $E10=$r26
+	set $E11=$r27
+	set $E12=$r28
+	set $E13=$r29
+	set $E14=$r30
+	set $E15=$r31
+	printf "%10lx %10lx %10lx %10lx\n", $E0, $E1, $E2, $E3
+	printf "%10lx %10lx %10lx %10lx\n", $E4, $E5, $E6, $E7
+	printf "%10lx %10lx %10lx %10lx\n", $E8, $E9, $E10, $E11
+	printf "%10lx %10lx %10lx %10lx\n", $E12, $E13, $E14, $E15
+end
+
+define go
+	del br
+	#b chacha_ppc64le.go:23
+	b chacha_ppc64le.s:171
+	run
+	refresh
+end
