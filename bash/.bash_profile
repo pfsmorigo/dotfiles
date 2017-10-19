@@ -56,7 +56,12 @@ if [ -e "$HOME/.config/user-dirs.dirs" ]; then
 	export XAUTHORITY="$XDG_RUNTIME_DIR/x11/Xauthority"
 	export XCOMPOSEFILE="$XDG_CONFIG_HOME/x11/XCompose"
 	export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
-	[ -n "$DISPLAY" -a -f /usr/bin/xrdb ] && xrdb "$XDG_CONFIG_HOME/x11/Xresources"
+	export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
+
+	# If there is a X server running
+	if xset q &> /dev/null; then
+		[ -f /usr/bin/xrdb ] && xrdb "$XDG_CONFIG_HOME/x11/Xresources"
+	fi
 fi
 
 PRODUCT_ID=$(cat /sys/class/dmi/id/product_version 2> /dev/null)
