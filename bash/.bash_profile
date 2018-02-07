@@ -5,7 +5,7 @@ alias ls="ls --color"
 alias gl="git log"
 alias gs="git status"
 
-alias m="time make -j$(grep -c ^proc /proc/cpuinfo)"
+alias m="time make -j$(\grep -c ^proc /proc/cpuinfo)"
 alias s='screen_switch'
 
 alias grep='grep --color'
