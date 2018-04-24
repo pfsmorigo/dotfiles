@@ -1,3 +1,7 @@
 *.pyc
+*.swn
+*.swo
 *.swp
+*.test
 .gdbinit
+cscope.out

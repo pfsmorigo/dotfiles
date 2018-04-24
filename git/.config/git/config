@@ -39,6 +39,9 @@
 [include]
 	path = local
 
+[http]
+	cookiefile = cookies
+
 [push]
 	default = simple
 

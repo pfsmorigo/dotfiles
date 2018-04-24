@@ -1,4 +1,5 @@
 *.swp
+git/.config/git/cookies
 git/.config/git/local
 gtk/.config/gtk-3.0/bookmarks
 i3/.config/i3/config
