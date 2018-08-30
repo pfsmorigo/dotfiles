@@ -18,12 +18,15 @@ class DynamicBreakpoint(gdb.Function):
 
 DynamicBreakpoint()
 
-config_dir = os.path.dirname(__file__)
-working_dir = os.getcwd()
-
 # Load target config if available
-gdbinit_target = os.path.join(config_dir, gdb.TARGET_CONFIG)
-if os.path.exists(os.path.expanduser(gdbinit_target)):
-    gdb.execute('source %s' % gdbinit_target)
-if os.path.exists(os.path.expanduser(gdbinit_target) + ".py"):
-    gdb.execute('source %s.py' % gdbinit_target)
+targets = []
+targets.append(gdb.TARGET_CONFIG) # architecture specifics
+targets.append(targets[-1]+".py")
+targets.append(os.getcwd()[len(os.getenv("HOME"))+1:].replace('/', '_')) # project specifics
+targets.append(targets[-1]+".py")
+
+for target in targets:
+    fullpath = "%s/%s" % (os.path.dirname(__file__), target)
+    if os.path.exists(os.path.expanduser(fullpath)):
+        print("Loading %s..." % fullpath)
+        gdb.execute("source %s" % fullpath)

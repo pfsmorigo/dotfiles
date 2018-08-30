@@ -1,0 +1,10 @@
+# vim: filetype=gdb
+
+define go
+	del br
+	b ghashp8-ppc.s:12
+	b ghashp8-ppc.s:140
+	b ghashp8-ppc.s:193
+	run
+	refresh
+end
