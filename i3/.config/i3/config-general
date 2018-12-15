@@ -34,9 +34,11 @@ set $dia       25:dia
 set $rhythmbox 26:rhythmbox
 set $games     27:games
 set $zoom      28:zoom
+set $selenium  29:selenium
 
-set $colors_focused          #26712c #26712c #ffffff #88f791
-set $colors_focused_inactive #5f676a #5f676a #ffffff #838383
+#set $colors_focused          #7F2F11 #7F2F11 #ffffff #88f791
+set $colors_focused          #e28059 #e28059 #ffffff #88f791
+set $colors_focused_inactive #5E2750 #5E2750 #ffffff #838383
 set $colors_unfocused        #222222 #222222 #888888 #838383
 set $colors_urgent           #900000 #900000 #ffffff #ff0000
 set $colors_placeholder      #0c0c0c #0c0c0c #ffffff #000000
@@ -50,7 +52,8 @@ client.placeholder      $colors_placeholder
 
 #font pango:Hack 9
 #font pango:Cantarell 9, Material-Design-Iconic-Font 9.5
-font pango:Cantarell 9.5
+#font pango:Cantarell 11
+font pango:Ubuntu Bold 8.5
 #font pango:DejaVu Sans Mono 9
 #font pango:Nanum Gothic 9
 #font pango:Nanum Gothic, smow-icons 10
@@ -68,7 +71,8 @@ floating_modifier $mod
 hide_edge_borders both
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec ~/.local/bin/smowterm
 bindsym $mod+Shift+Return exec rofi -show ssh
 
 # kill focused window
@@ -139,9 +143,11 @@ bindsym $mod+a focus parent
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
-#
+
 # # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+
+bindsym $mod+equal sticky toggle
 
 # switch to workspace
 bindsym $mod+1   workspace $w01
@@ -204,15 +210,15 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
-        bindsym h resize shrink width $resize_value px or $resize_value ppt
-        bindsym j resize grow height $resize_value px or $resize_value ppt
-        bindsym k resize shrink height $resize_value px or $resize_value ppt
-        bindsym l resize grow width $resize_value px or $resize_value ppt
+        bindsym h resize shrink width $resize_value px
+        bindsym j resize grow height $resize_value px
+        bindsym k resize shrink height $resize_value px
+        bindsym l resize grow width $resize_value px
 
-        bindsym Shift+h resize shrink width 1 px or 1 ppt
-        bindsym Shift+j resize grow height 1 px or 1 ppt
-        bindsym Shift+k resize shrink height 1 px or 1 ppt
-        bindsym Shift+l resize grow width 1 px or 1 ppt
+        bindsym Shift+h resize shrink width 1 px
+        bindsym Shift+j resize grow height 1 px
+        bindsym Shift+k resize shrink height 1 px
+        bindsym Shift+l resize grow width 1 px
 
         bindsym Left resize shrink width $resize_value px or $resize_value ppt
         bindsym Down resize grow height $resize_value px or $resize_value ppt
@@ -292,6 +298,7 @@ assign [class="Steam*"] $games
 assign [class="Unturned*"] $games
 assign [class="ioquake3.x86*"] $games
 assign [class="zoom"] $zoom
+assign [instance="google-chrome \(\/tmp\/\.org\.chromium\.Chromium\.*"] $selenium
 assign [instance="(G|g)oogle-chrome"] $www
 assign [instance="ingress.com__intel"] $games
 assign [title="(IBM|Lotus) Notes*"] $work
@@ -300,10 +307,10 @@ assign [title="Magic Launcher"] $games
 assign [title="Minecraft*"] $games
 assign [title="NotesLogo"] $work
 
-#for_window [class="(?i)firefox"] title_format "<span foreground='red'>%title</span>"
 for_window [class="(G|g)oogle-chrome"] border none
-for_window [class="(G|g)oogle-chrome" instance="crx_fahmaaghhglfmonjliepjlchgpgfmobi"] floating enable
-for_window [class="(G|g)oogle-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable move position mouse # Authy
+for_window [class="(G|g)oogle-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable, move position mouse # Authy
+for_window [class="(G|g)oogle-chrome" instance="crx_gidgenkbbabolejbgbpnhbimgjbffefm"] floating enable, move absolute position center # Vysor
+for_window [class="(G|g)oogle-chrome" instance="crx_*"] floating enable title_format "<span foreground='yellow'>%title</span>"
 for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable, border normal
 for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
@@ -312,6 +319,7 @@ for_window [class="Blueman-manager"] floating enable
 for_window [class="Cheese"] floating enable
 for_window [class="Conky"] floating disable, move right
 for_window [class="Deja-dup"] floating enable
+for_window [class="Org.gnome.DejaDup"] floating enable
 for_window [class="Devede"] floating enable
 for_window [class="Dia$" window_role="toolbox_window"] floating disable
 for_window [class="Dia$" window_role="toolbox_window"] layout toggle split
@@ -320,7 +328,6 @@ for_window [class="Dia$" window_role="toolbox_window"] resize shrink left 325px
 for_window [class="Dwarf_Fortress"] floating enable
 for_window [class="Electrum"] floating enable
 for_window [class="Eog"] floating enable
-for_window [class="Evince"] floating enable
 for_window [class="Firewall-config"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="Gimp"] border none
@@ -362,29 +369,38 @@ for_window [class="qemu-system-*"] floating enable
 for_window [class="xpad"] floating enable, border none
 for_window [class="zoom"] floating enable
 for_window [class="TeamSpeak 3"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="insync.py"] floating enable
+for_window [class="Gnome-control-center"] floating enable
+for_window [class="Virt-viewer"] floating enable
 for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
 for_window [title="Minecraft*"] border none
-for_window [title="Steam Guard -*"] floating enable
-for_window [title="pass: *"] floating enable
+for_window [title="Relógio Virtual de Ponto"] floating enable move position mouse
+for_window [title="SoundWire Server"] floating enable
 for_window [title="Steam - News"] floating enable
+for_window [title="Steam Guard -*"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="^QEMU$"] floating enable
+for_window [title="pass: *"] floating enable
 for_window [title="xfce4-notifyd"] floating enable, border none
-for_window [title="Relógio Virtual de Ponto"] floating enable move position mouse
+
+
 
 # Start some util apps
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
-#exec --no-startup-id /usr/bin/xfce4-power-manager
+#exec --no-startup-id /usr/bin/autossh -M 22116 -fTN rick-znc
 #exec --no-startup-id $HOME/.local/bin/myconky
-exec --no-startup-id env urxvtd -q -f -o
-exec --no-startup-id /home/pfsmorigo/.local/bin/dropbox_monitor
+#exec --no-startup-id env urxvtd -q -f -o
 exec --no-startup-id /usr/bin/xautolock
 exec --no-startup-id /usr/bin/copyq
-exec --no-startup-id /usr/bin/blueman-applet
+#exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
+#exec --no-startup-id /usr/bin/xfce4-power-manager
+exec --no-startup-id $HOME/.local/bin/dropbox_monitor
 exec --no-startup-id $HOME/.local/bin/wallpaper
 
 set $system_menu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"

@@ -5,11 +5,14 @@ color=#ffffff
 separator_block_width=25
 command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 
+[pgoversion]
+interval=1800
+
 [rhythmbox]
 interval=10
 
-[mercadobitcoin]
-interval=60
+#[mercadobitcoin]
+#interval=60
 
 [infomoney]
 instance=ibovespa
@@ -19,13 +22,13 @@ interval=60
 instance=nasdaq
 interval=60
 
-[infomoney]
-instance=shanghai
-interval=60
+#[infomoney]
+#instance=shanghai
+#interval=60
 
-[infomoney]
-instance=ifix
-interval=60
+#[infomoney]
+#instance=ifix
+#interval=60
 
 [infomoney]
 instance=dolar
@@ -35,13 +38,13 @@ interval=60
 instance=euro
 interval=60
 
-[infomoney]
-instance=cdi
-interval=60
+#[infomoney]
+#instance=cdi
+#interval=60
 
-[infomoney]
-instance=poupanca
-interval=60
+#[infomoney]
+#instance=poupanca
+#interval=60
 
 [temperature]
 interval=2

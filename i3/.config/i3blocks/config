@@ -3,12 +3,16 @@
 align=center
 color=#ffffff
 separator=true
-separator_block_width=12
+separator_block_width=20
 command=/usr/local/libexec/i3blocks/$BLOCK_NAME
 
 [capslock]
 interval=once
 signal=11
+
+[infomoney]
+instance=dolar
+interval=60
 
 #[xautolock]
 #signal=13
@@ -46,27 +50,11 @@ label=S
 interval=30
 
 [disk]
-label=/
 instance=/
-interval=30
-
-separator_block_width=5
-separator=false
-
-[disk]
-label=~
-instance=/home
 interval=30
 
 [temperature]
 interval=2
-
-#[fanspeed]
-#command=grep ^speed: /proc/acpi/ibm/fan | awk '{ print $2 }'
-#interval=2
-
-[battery2]
-interval=30
 
 [volume]
 interval=once
@@ -80,6 +68,9 @@ instance=Capture
 interval=once
 signal=10
 
+[battery2]
+interval=30
+
 [stopwatch_countdown]
 interval=1
 #instance=notify-send "Countdown is over!"
@@ -91,17 +82,12 @@ interval=30
 separator_block_width=5
 separator=false
 
-[fedoraupdate]
-interval=240
-
-separator_block_width=5
-separator=false
-
 [mount /dev/mapper/manaus-home]
 interval=3
 
 separator_block_width=5
 separator=false
 
-[lsyncd]
+[notification]
+command=/home/pfsmorigo/projects/i3blocks/scripts/notification
 interval=60

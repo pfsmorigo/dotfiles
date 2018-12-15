@@ -16,6 +16,10 @@ bar {
 		inactive_workspace	$colors_unfocused
 		urgent_workspace 	$colors_urgent
 	}
+
+	# Tray output
+	bindsym $mod+n tray_output none
+	bindsym $mod+Shift+n tray_output DISPLAYNAME
 }
 
 # Workspace settings
