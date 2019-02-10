@@ -23,6 +23,7 @@ set bs=2            " This influences the behavior of the backspace option. It i
 set ruler           " This makes vim show the current row and column at the bottom right of the screen.
 
 set errorformat+=remote:\ %f:%l:%c:%m
+set title
 
 if &t_Co == 256
 	highlight CursorLine   ctermbg=235 ctermfg=NONE cterm=NONE
@@ -36,6 +37,8 @@ if &t_Co == 256
 	autocmd InsertLeave * highlight  CursorLine ctermbg=235 ctermfg=NONE
 endif
 
+set spellfile=$HOME/.vim/spell/en.utf-8.add
+autocmd FileType gitcommit setlocal spell spelllang=en
 
 " Toggle “invisible” characters
 function! ToggleInvisible()
@@ -81,8 +84,8 @@ if filereadable(".make")
 endif
 
 map <F5> :make<CR><CR>
-map <leader>t :tabe ~/Dropbox/todo/todo.txt<CR>
-map <leader>T :tabe ~/Dropbox/todo/done.txt<CR>
+map <leader>t :tabe ~/Dropbox/Apps/Simpletask/todo/todo.txt<CR>
+map <leader>T :tabe ~/Dropbox/Apps/Simpletask/todo/done.txt<CR>
 map <leader>l :tabe ~/money/ledger/inbox.ledger<CR>
 
 """" GNU Coding Standards
@@ -153,7 +156,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'scrooloose/nerdcommenter'
 
-	Plug 'vim-scripts/vimwiki'
+	Plug 'vimwiki/vimwiki'
 	let g:vimwiki_dir_link = 'index'
 	let g:vimwiki_fold_lists = 1
 	let g:vimwiki_folding = 1
@@ -181,15 +184,13 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	map <leader>wn :VimwikiDiaryNextDay<CR>
 	map <leader>wp :VimwikiDiaryPrevDay<CR>
 
-	Plug 'vim-scripts/AutoComplPop'
+	"Plug 'vim-scripts/AutoComplPop'
 
 	Plug 'vim-scripts/a.vim'
 
 	Plug 'vim-scripts/SpellCheck'
 
 	Plug 'vim-scripts/po.vim'
-
-	Plug 'vim-scripts/fugitive.vim'
 
 	Plug 'powerman/vim-plugin-viewdoc'
 
@@ -227,8 +228,18 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	let g:ledger_align_at = 46
 	let g:ledger_fold_blanks = 1
 	let g:ledger_fillstring = '· '
-	autocmd BufNewFile,BufRead *.ledger nmap <F2> :%LedgerAlign<CR><CR>
-	autocmd BufNewFile,BufRead *.ledger noremap <silent><buffer> <2-LeftMouse> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
+	let g:ledger_default_commodity = 'BRL'
+	let g:ledger_commodity_sep = ' '
+	let g:ledger_date_format = '%Y-%m-%d'
+	let g:ledger_commodity_before = 0
+	autocmd FileType ledger setlocal expandtab tabstop=4 shiftwidth=4
+	autocmd FileType ledger nmap <F2> :%LedgerAlign<CR><CR>
+	autocmd FileType ledger nmap <F3> :call ledger#transaction_state_toggle(line('.'), ' *!')<CR>
+	autocmd FileType ledger nmap <F4> :call ledger#entry()<CR>
+	autocmd FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
+	autocmd FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
+	"autocmd FileType ledger inoremap : :<C-x><C-o>
+
 
 	Plug 'chrisbra/csv.vim'
 
@@ -237,6 +248,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	Plug 'pearofducks/ansible-vim'
 	au BufRead,BufNewFile */ansible/*.yml set filetype=ansible
 	let g:ansible_unindent_after_newline = 1
+
+	Plug 'AndrewRadev/linediff.vim'
 
 	call plug#end()
 endif
