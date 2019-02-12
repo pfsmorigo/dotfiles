@@ -2,8 +2,9 @@
 
 align=center
 color=#ffffff
-separator_block_width=25
-command=/usr/local/libexec/i3blocks/$BLOCK_NAME
+separator=true
+separator_block_width=20
+command=$HOME/scripts/i3blocks/$BLOCK_NAME
 
 [pgoversion]
 interval=1800
@@ -48,9 +49,6 @@ interval=60
 
 [temperature]
 interval=2
-
-[stopwatch_countdown]
-interval=5
 
 [time]
 command=TZ=US/Central date +"%kh%M %Z" | sed 's/^ //g'

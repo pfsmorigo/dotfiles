@@ -4,7 +4,7 @@ align=center
 color=#ffffff
 separator=true
 separator_block_width=20
-command=/usr/local/libexec/i3blocks/$BLOCK_NAME
+command=$HOME/scripts/i3blocks/$BLOCK_NAME
 
 [capslock]
 interval=once
@@ -16,9 +16,6 @@ interval=60
 
 #[xautolock]
 #signal=13
-
-[local]
-interval=15
 
 [deja-dup]
 interval=120
@@ -53,14 +50,21 @@ interval=30
 instance=/
 interval=30
 
+separator_block_width=5
+separator=false
+
+[disk]
+instance=/win
+interval=30
+
 [temperature]
 interval=2
 
-[volume]
+[pulseaudio]
 interval=once
 signal=10
 
-separator_block_width=5
+separator_block_width=10
 separator=false
 
 [volume]
@@ -68,12 +72,11 @@ instance=Capture
 interval=once
 signal=10
 
-[battery2]
+[battery]
 interval=30
 
 [stopwatch_countdown]
 interval=1
-#instance=notify-send "Countdown is over!"
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 
 [datetime]
@@ -88,6 +91,11 @@ interval=3
 separator_block_width=5
 separator=false
 
+[touchpad]
+interval=30
+
+separator_block_width=5
+separator=false
+
 [notification]
-command=/home/pfsmorigo/projects/i3blocks/scripts/notification
 interval=60

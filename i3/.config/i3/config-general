@@ -2,39 +2,47 @@
 
 set $mod Mod4
 set $alt Mod1
-set $resize_value 5
+set $resize_value 1
 
-set $w01  1:I
-set $w02  2:II
-set $w03  3:III
-set $w04  4:IV
-set $w05  5:V
-set $w06  6:VI
-set $w07  7:VII
-set $w08  8:VIII
-set $w09  9:IX
-set $w10 10:X
+set $w01  1:一
+set $w02  2:二
+set $w03  3:三
+set $w04  4:四
+set $w05  5:五
+set $w06  6:六
+set $w07  7:七
+set $w08  8:八
+set $w09  9:九
+set $w10 10:十
+#set $w01  1:I
+#set $w02  2:II
+#set $w03  3:III
+#set $w04  4:IV
+#set $w05  5:V
+#set $w06  6:VI
+#set $w07  7:VII
+#set $w08  8:VIII
+#set $w09  9:IX
+#set $w10 10:X
 
-set $wF1 20:www
+set $wF1 20:🌎
 set $wF2 21:work
 set $wF3 22:office
-set $wF4 23:gimp
-set $wF5 24:dev
+set $wF4 23:🎨
+set $wF5 24:💻
 set $wF6 25:dia
-set $wF7 26:rhythmbox
-set $wF8 27:games
-set $wF9 28:zoom
+set $wF7 26:🎵
+set $wF8 27:🎮
 
-set $www       20:www
+set $www       20:🌎
 set $work      21:work
 set $office    22:office
-set $gimp      23:gimp
-set $dev       24:dev
+set $gimp      23:🎨
+set $dev       24:💻
 set $dia       25:dia
-set $rhythmbox 26:rhythmbox
-set $games     27:games
-set $zoom      28:zoom
-set $selenium  29:selenium
+set $rhythmbox 26:🎵
+set $games     27:🎮
+set $selenium  28:selenium
 
 #set $colors_focused          #7F2F11 #7F2F11 #ffffff #88f791
 set $colors_focused          #e28059 #e28059 #ffffff #88f791
@@ -53,7 +61,7 @@ client.placeholder      $colors_placeholder
 #font pango:Hack 9
 #font pango:Cantarell 9, Material-Design-Iconic-Font 9.5
 #font pango:Cantarell 11
-font pango:Ubuntu Bold 8.5
+font pango:Ubuntu Bold 11.5
 #font pango:DejaVu Sans Mono 9
 #font pango:Nanum Gothic 9
 #font pango:Nanum Gothic, smow-icons 10
@@ -73,14 +81,15 @@ hide_edge_borders both
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec ~/.local/bin/smowterm
-bindsym $mod+Shift+Return exec rofi -show ssh
+bindsym $mod+Shift+Return exec ~/.local/bin/smowrofi ssh
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # program launcher
 # this run-command trick is in order to support the existing bash aliases
-bindsym $mod+d exec rofi -rnow -run-command "/bin/bash -i -c '{cmd}'" -show run
+#bindsym $mod+d exec rofi -rnow -run-command "/bin/bash -i -c '{cmd}'" -show run
+bindsym $mod+d exec ~/.local/bin/smowrofi
 
 # change focus
 bindsym $mod+h focus left
@@ -210,25 +219,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
-        bindsym h resize shrink width $resize_value px
-        bindsym j resize grow height $resize_value px
-        bindsym k resize shrink height $resize_value px
-        bindsym l resize grow width $resize_value px
-
-        bindsym Shift+h resize shrink width 1 px
-        bindsym Shift+j resize grow height 1 px
-        bindsym Shift+k resize shrink height 1 px
-        bindsym Shift+l resize grow width 1 px
-
-        bindsym Left resize shrink width $resize_value px or $resize_value ppt
-        bindsym Down resize grow height $resize_value px or $resize_value ppt
-        bindsym Up resize shrink height $resize_value px or $resize_value ppt
-        bindsym Right resize grow width $resize_value px or $resize_value ppt
-
-        bindsym Shift+Left resize shrink width 1 px or 1 ppt
-        bindsym Shift+Down resize grow height 1 px or 1 ppt
-        bindsym Shift+Up resize shrink height 1 px or 1 ppt
-        bindsym Shift+Right resize grow width 1 px or 1 ppt
+        bindsym h resize shrink width  $resize_value px or $resize_value ppt
+        bindsym j resize grow   height $resize_value px or $resize_value ppt
+        bindsym k resize shrink height $resize_value px or $resize_value ppt
+        bindsym l resize grow   width  $resize_value px or $resize_value ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -242,6 +236,24 @@ bindsym $mod+u border none
 
 # functions control
 # key definition at /usr/share/X11/XKeysymDB
+
+bindsym XF86Launch1 exec zenity --info --text="F1"  # F1  Settings
+                                                    # F2  Brightness down
+                                                    # F3  Brightness up
+                                                    # F4  Switch video mode
+                                                    # F5  Touchpad on/off
+                                                    # F6  Mute
+                                                    # F7  Volume down
+                                                    # F8  Volume up
+                                                    # F9  Keyboard backlight
+bindsym XF86Launch2 exec zenity --info --text="F10" # F10
+                                                    # F11
+bindsym XF86WLAN exec zenity --info --text="F12"    # F12 Wifi
+                                                    # Menu
+
+
+
+
 
 bindsym XF86ScreenSaver            exec --no-startup-id computer lock
 bindsym XF86Sleep                  exec --no-startup-id computer suspend
@@ -281,6 +293,7 @@ bindsym $mod+Control+Tab           exec /usr/bin/copyq action
 bindsym $mod+Shift+W               exec ~/.local/bin/wallpaper
 bindsym $mod+Escape                exec xautolock -locknow
 bindsym $mod+Delete                mode $system_menu
+bindsym $mod+Shift+Delete          mode $size_menu
 
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
@@ -288,7 +301,7 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 assign [class="Chromium-browser"] $www
 assign [class="Dia$"] $dia
-assign [class="Firefox"] $www
+#assign [class="Firefox"] $www
 assign [class="Gimp"] $gimp
 assign [class="Gitk"] $dev
 assign [class="Meld"] $dev
@@ -297,6 +310,7 @@ assign [class="Rhythmbox"] $rhythmbox
 assign [class="Steam*"] $games
 assign [class="Unturned*"] $games
 assign [class="ioquake3.x86*"] $games
+assign [class="StardewValley*"] $games
 assign [class="zoom"] $zoom
 assign [instance="google-chrome \(\/tmp\/\.org\.chromium\.Chromium\.*"] $selenium
 assign [instance="(G|g)oogle-chrome"] $www
@@ -304,6 +318,7 @@ assign [instance="ingress.com__intel"] $games
 assign [title="(IBM|Lotus) Notes*"] $work
 assign [title="MCEdit *"] $games
 assign [title="Magic Launcher"] $games
+assign [title="Minecraft Launcher"] $games
 assign [title="Minecraft*"] $games
 assign [title="NotesLogo"] $work
 
@@ -357,6 +372,7 @@ for_window [class="Unetbootin"] floating enable
 for_window [class="Unturned*"] floating disable, layout tabbed
 for_window [class="Virt-manager"] floating enable
 for_window [title="* on QEMU/KVM"] floating disable
+for_window [title="Minecraft Launcher"] floating enable
 for_window [class="Vncviewer"] floating enable
 for_window [class="X3270"] floating enable
 for_window [class="XFontSel"] floating enable
@@ -390,7 +406,7 @@ for_window [title="xfce4-notifyd"] floating enable, border none
 
 
 # Start some util apps
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+#exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 #exec --no-startup-id /usr/bin/autossh -M 22116 -fTN rick-znc
 #exec --no-startup-id $HOME/.local/bin/myconky
@@ -399,7 +415,7 @@ exec --no-startup-id /usr/bin/xautolock
 exec --no-startup-id /usr/bin/copyq
 #exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/nm-applet --sm-disable
-#exec --no-startup-id /usr/bin/xfce4-power-manager
+exec --no-startup-id /usr/bin/xfce4-power-manager
 exec --no-startup-id $HOME/.local/bin/dropbox_monitor
 exec --no-startup-id $HOME/.local/bin/wallpaper
 
@@ -421,6 +437,15 @@ mode $display_menu {
     bindsym a         exec display above, mode "default"
     bindsym Return    exec display primary, mode "default"
     bindsym Escape    mode "default"
+}
+
+set $size_menu "size:   [1] vertical 960   [2] horizontal 540"
+mode $size_menu {
+    bindsym 1         resize set 960 0, mode "default"
+    bindsym 2         resize set 0 540, mode "default"
+    bindsym Escape    mode "default"
+
+
 }
 
 # The middle button over a titlebar kills the window
