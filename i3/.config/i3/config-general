@@ -25,17 +25,19 @@ set $w10 10:十
 #set $w09  9:IX
 #set $w10 10:X
 
-set $wF1 20:🌎
-set $wF2 21:work
-set $wF3 22:office
-set $wF4 23:🎨
-set $wF5 24:💻
-set $wF6 25:dia
-set $wF7 26:🎵
-set $wF8 27:🎮
+set $wF1  20:🌎
+set $wF2  21:💻
+set $wF3  22:office
+set $wF4  23:🎨
+set $wF5  24:💻
+set $wF6  25:dia
+set $wF7  26:🎵
+set $wF8  27:🎮
+set $wF9  28:selenium
+set $wF10 29:🎲
 
 set $www       20:🌎
-set $work      21:work
+set $meet      21:💻
 set $office    22:office
 set $gimp      23:🎨
 set $dev       24:💻
@@ -43,6 +45,9 @@ set $dia       25:dia
 set $rhythmbox 26:🎵
 set $games     27:🎮
 set $selenium  28:selenium
+set $cura      29:🎲
+
+set $deja_dup  30:deja-dup
 
 #set $colors_focused          #7F2F11 #7F2F11 #ffffff #88f791
 set $colors_focused          #e28059 #e28059 #ffffff #88f791
@@ -237,7 +242,8 @@ bindsym $mod+u border none
 # functions control
 # key definition at /usr/share/X11/XKeysymDB
 
-bindsym XF86Launch1 exec zenity --info --text="F1"  # F1  Settings
+bindsym XF86Launch1 exec xfce4-settings-manager
+#bindsym XF86Launch1 exec zenity --info --text="F1"  # F1  Settings
                                                     # F2  Brightness down
                                                     # F3  Brightness up
                                                     # F4  Switch video mode
@@ -291,7 +297,7 @@ bindsym $mod+Shift+Tab             exec /usr/bin/copyq menu
 bindsym $mod+Control+Tab           exec /usr/bin/copyq action
 
 bindsym $mod+Shift+W               exec ~/.local/bin/wallpaper
-bindsym $mod+Escape                exec xautolock -locknow
+bindsym $mod+Escape                exec /usr/bin/xfce4-screensaver-command -l
 bindsym $mod+Delete                mode $system_menu
 bindsym $mod+Shift+Delete          mode $size_menu
 
@@ -299,7 +305,8 @@ bindsym $mod+Shift+Delete          mode $size_menu
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
-assign [class="Chromium-browser"] $www
+
+#assign [class="Chromium-browser"] $www
 assign [class="Dia$"] $dia
 #assign [class="Firefox"] $www
 assign [class="Gimp"] $gimp
@@ -312,7 +319,8 @@ assign [class="Unturned*"] $games
 assign [class="ioquake3.x86*"] $games
 assign [class="StardewValley*"] $games
 assign [class="zoom"] $zoom
-assign [instance="google-chrome \(\/tmp\/\.org\.chromium\.Chromium\.*"] $selenium
+assign [class="Org.gnome.DejaDup"] $deja_dup
+assign [instance="(G|g)oogle-chrome \(\/tmp\/\.org\.chromium\.Chromium\.*"] $selenium
 assign [instance="(G|g)oogle-chrome"] $www
 assign [instance="ingress.com__intel"] $games
 assign [title="(IBM|Lotus) Notes*"] $work
@@ -321,6 +329,8 @@ assign [title="Magic Launcher"] $games
 assign [title="Minecraft Launcher"] $games
 assign [title="Minecraft*"] $games
 assign [title="NotesLogo"] $work
+#assign [instance="meet.google.com"] $meet
+assign [instance="cura"] $cura
 
 for_window [class="(G|g)oogle-chrome"] border none
 for_window [class="(G|g)oogle-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable, move position mouse # Authy
@@ -333,6 +343,7 @@ for_window [class="Birdie"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Cheese"] floating enable
 for_window [class="Conky"] floating disable, move right
+for_window [class="cura"] border none
 for_window [class="Deja-dup"] floating enable
 for_window [class="Org.gnome.DejaDup"] floating enable
 for_window [class="Devede"] floating enable
@@ -389,6 +400,8 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="insync.py"] floating enable
 for_window [class="Gnome-control-center"] floating enable
 for_window [class="Virt-viewer"] floating enable
+for_window [class="Google Play Music Desktop Player"] floating enable
+for_window [class="(X|x)fce4-*"] floating enable, border none
 for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
@@ -401,7 +414,7 @@ for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="^QEMU$"] floating enable
 for_window [title="pass: *"] floating enable
-for_window [title="xfce4-notifyd"] floating enable, border none
+for_window [instance="meet.google.com"] floating enable, border none, resize set width 1024 px height 768 px
 
 
 
@@ -411,11 +424,12 @@ for_window [title="xfce4-notifyd"] floating enable, border none
 #exec --no-startup-id /usr/bin/autossh -M 22116 -fTN rick-znc
 #exec --no-startup-id $HOME/.local/bin/myconky
 #exec --no-startup-id env urxvtd -q -f -o
-exec --no-startup-id /usr/bin/xautolock
+#exec --no-startup-id /usr/bin/xautolock
 exec --no-startup-id /usr/bin/copyq
 #exec --no-startup-id /usr/bin/blueman-applet
-exec --no-startup-id /usr/bin/nm-applet --sm-disable
-exec --no-startup-id /usr/bin/xfce4-power-manager
+exec --no-startup-id /usr/bin/nm-applet
+#exec --no-startup-id /usr/bin/xfce4-power-manager
+exec --no-startup-id /usr/bin/xfsettingsd
 exec --no-startup-id $HOME/.local/bin/dropbox_monitor
 exec --no-startup-id $HOME/.local/bin/wallpaper
 

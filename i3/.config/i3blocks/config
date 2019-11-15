@@ -10,6 +10,9 @@ command=$HOME/scripts/i3blocks/$BLOCK_NAME
 interval=once
 signal=11
 
+[virsh]
+interval=30
+
 [infomoney]
 instance=dolar
 interval=60
@@ -24,6 +27,9 @@ interval=120
 interval=5
 
 [networks]
+interval=5
+
+[vpn]
 interval=5
 
 [cpu_usage]
@@ -54,6 +60,13 @@ separator_block_width=5
 separator=false
 
 [disk]
+instance=/home
+interval=30
+
+separator_block_width=5
+separator=false
+
+[disk]
 instance=/win
 interval=30
 
@@ -71,9 +84,6 @@ separator=false
 instance=Capture
 interval=once
 signal=10
-
-[battery]
-interval=30
 
 [stopwatch_countdown]
 interval=1

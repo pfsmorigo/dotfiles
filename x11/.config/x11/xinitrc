@@ -12,7 +12,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # Here Xfce is kept as default
-session=${1:-mate}
+session=${1:-lxde}
 
 case $session in
     awesome           ) exec awesome;;
@@ -20,8 +20,8 @@ case $session in
     catwm             ) exec catwm;;
     cinnamon          ) exec cinnamon-session;;
     dwm               ) exec dwm;;
-    enlightenment     ) exec enlightenment_start;;
     ede               ) exec startede;;
+    enlightenment     ) exec enlightenment_start;;
     fluxbox           ) exec startfluxbox;;
     gnome             ) exec gnome-session;;
     gnome-classic     ) exec gnome-session --session=gnome-classic;;
@@ -29,6 +29,7 @@ case $session in
     icewm             ) exec icewm-session;;
     jwm               ) exec jwm;;
     kde               ) exec startkde;;
+    lxde              ) exec startlxde;;
     mate              ) exec mate-session;;
     monster|monsterwm ) exec monsterwm;;
     notion            ) exec notion;;
