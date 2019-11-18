@@ -13,9 +13,9 @@ signal=11
 [virsh]
 interval=30
 
-[infomoney]
-instance=dolar
-interval=60
+#[infomoney]
+#instance=dolar
+#interval=60
 
 #[xautolock]
 #signal=13

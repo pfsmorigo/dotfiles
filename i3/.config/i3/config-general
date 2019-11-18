@@ -423,14 +423,18 @@ for_window [instance="meet.google.com"] floating enable, border none, resize set
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 #exec --no-startup-id /usr/bin/autossh -M 22116 -fTN rick-znc
 #exec --no-startup-id $HOME/.local/bin/myconky
-#exec --no-startup-id env urxvtd -q -f -o
 #exec --no-startup-id /usr/bin/xautolock
-exec --no-startup-id /usr/bin/copyq
 #exec --no-startup-id /usr/bin/blueman-applet
-exec --no-startup-id /usr/bin/nm-applet
-#exec --no-startup-id /usr/bin/xfce4-power-manager
+#exec --no-startup-id $HOME/.local/bin/dropbox_monitor
+
 exec --no-startup-id /usr/bin/xfsettingsd
-exec --no-startup-id $HOME/.local/bin/dropbox_monitor
+exec --no-startup-id /usr/bin/xfce4-power-manager
+exec --no-startup-id /usr/bin/xfce4-screensaver
+exec --no-startup-id /usr/bin/nm-applet
+exec --no-startup-id /usr/bin/urxvtd -q -f -o
+exec --no-startup-id /usr/bin/copyq
+exec --no-startup-id /usr/bin/insync
+exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
 exec --no-startup-id $HOME/.local/bin/wallpaper
 
 set $system_menu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"

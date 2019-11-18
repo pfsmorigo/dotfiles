@@ -5,14 +5,14 @@ termcapinfo xterm*|rxvt*|kterm*|Eterm*|gnome-terminal* 'hs:ts=\E]0;:fs=\007:ds=\
 
 backtick 1 300 300 uname -r
 backtick 2 5 5 awk '{ print $1 }' /proc/loadavg
-hardstatus string "[screen] %H (%1`) %2` | %S | %w"
+hardstatus string "%H (%1`)  %2`  [%S] %w"
 hardstatus off
 shelltitle "$|"
 
 defscrollback 10000
 
 hardcopy_append on
-hardcopydir $HOME/log/screen
+hardcopydir $HOME/logs/screen
 
 activity "%c activity -> %n%f %t^G"
 silencewait 10

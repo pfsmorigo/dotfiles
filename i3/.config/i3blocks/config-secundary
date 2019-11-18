@@ -15,13 +15,13 @@ interval=10
 #[mercadobitcoin]
 #interval=60
 
-[infomoney]
-instance=ibovespa
-interval=60
+#[infomoney]
+#instance=ibovespa
+#interval=60
 
-[infomoney]
-instance=nasdaq
-interval=60
+#[infomoney]
+#instance=nasdaq
+#interval=60
 
 #[infomoney]
 #instance=shanghai
@@ -31,13 +31,13 @@ interval=60
 #instance=ifix
 #interval=60
 
-[infomoney]
-instance=dolar
-interval=60
+#[infomoney]
+#instance=dolar
+#interval=60
 
-[infomoney]
-instance=euro
-interval=60
+#[infomoney]
+#instance=euro
+#interval=60
 
 #[infomoney]
 #instance=cdi
