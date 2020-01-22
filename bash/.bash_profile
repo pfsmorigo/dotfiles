@@ -72,9 +72,7 @@ if [ -e "$HOME/.config/user-dirs.dirs" ]; then
 	export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible.cfg"
 
 	# If there is a X server running
-	if xset q &> /dev/null; then
-		[ -f /usr/bin/xrdb ] && xrdb "$XDG_CONFIG_HOME/x11/Xresources"
-	fi
+	xset q &> /dev/null && test -f /usr/bin/xrdb && xrdb ~/.Xresources
 fi
 
 PRODUCT_ID=$(cat /sys/class/dmi/id/product_version 2> /dev/null)
