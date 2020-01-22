@@ -1,0 +1,69 @@
+#
+# WeeChat 2.6 (compiled on Oct 11 2019 15:07:22)
+#
+# Use /autoconf load or cat this file to the FIFO pipe.
+#
+# For more info, see https://weechat.org/scripts/source/autoconf.py.html
+#
+
+*/set weechat.look.color_inactive_buffer off
+*/set weechat.look.color_inactive_window off
+*/set weechat.look.hotlist_add_conditions "${away} || ${buffer.num_displayed} == 0"
+*/set weechat.look.mouse on
+*/set weechat.look.paste_bracketed off
+*/set weechat.look.paste_max_lines 3
+*/set weechat.look.prefix_align_max 10
+*/set weechat.look.prefix_align_min 10
+*/set weechat.look.prefix_same_nick "..."
+*/set weechat.look.prefix_suffix "│"
+*/set weechat.look.save_layout_on_exit all
+*/set weechat.look.separator_horizontal ""
+*/set weechat.look.window_title "WeeChat ${info:version}"
+*/set weechat.color.chat_nick_colors "31,35,38,40,49,63,70,80,92,99,112,126,130,138,142,148,160,162,167,169,174,176,178,184,186,210,212,215,247"
+*/set weechat.color.chat_nick_offline darkgray
+*/set weechat.color.chat_nick_offline_highlight_bg darkgray
+*/set weechat.completion.nick_completer ", "
+*/set weechat.completion.partial_completion_command on
+*/set weechat.completion.partial_completion_command_arg on
+*/set weechat.completion.partial_completion_other on
+*/set weechat.bar.buflist.items "buflist"
+*/set weechat.bar.fset.items "fset"
+*/set logger.look.backlog 100000
+*/set logger.color.backlog_end darkgray
+*/set logger.color.backlog_line darkgray
+*/set logger.file.info_lines on
+*/set logger.file.mask "%Y/%m/$plugin.$name.log"
+*/set logger.file.path "~/logs/weechat"
+*/set logger.level.irc 3
+*/set spell.check.default_dict "en,pt_BR"
+*/set spell.check.enabled on
+*/set spell.dict.core.weechat "en,pt_BR"
+*/set buflist.look.sort "number"
+*/set buflist.format.buffer "${indent}${format_nick_prefix}${color_hotlist}${format_name}"
+*/set buflist.format.hotlist_highlight "${color:lightgreen}"
+*/set buflist.format.hotlist_message "${color:yellow}"
+*/set buflist.format.hotlist_none "${color:gray}"
+*/set irc.look.color_nicks_in_nicklist on
+*/set irc.look.new_channel_position near_server
+*/set irc.look.new_pv_position near_server
+*/set irc.look.server_buffer independent
+*/set irc.color.nick_prefixes "q:lightred;a:lightcyan;o:lightgreen;h:lightmagenta;v:yellow;*:lightblue"
+*/set irc.color.topic_new 36
+*/set irc.color.topic_old 244
+*/set irc.network.autoreconnect_delay_max 1800
+*/set irc.network.lag_reconnect 0
+*/set irc.network.send_unknown_commands on
+*/set irc.network.whois_double_nick on
+*/set irc.server_default.realname "Paulo Flabiano Smorigo"
+*/set irc.server_default.sasl_mechanism dh-blowfish
+*/set irc.server_default.ssl_cert "%h/pfsmorigo_com.crt"
+*/set irc.server_default.ssl_dhkey_size 4096
+*/set irc.server_default.ssl_priorities "NORMAL"
+*/set irc.server_default.ssl_verify off
+*/set autosort.sorting.replacements "[]"
+*/set autosort.sorting.rules "[["core", 0], ["perl", 1], ["irc", 2], ["*", 3], ["irc.irc_raw", 0], ["irc.server", 1]]"
+*/set autosort.v3.helpers "{"core_first": "${if:${buffer.full_name}!=core.weechat}", "irc_raw_last": "${if:${buffer.full_name}==irc.irc_raw}", "irc_last": "${if:${buffer.plugin.name}==irc}", "hashless_name": "${info:autosort_replace,#,,${buffer.name}}", "irc_first": "${if:${buffer.plugin.name}!=irc}", "irc_raw_first": "${if:${buffer.full_name}!=irc.irc_raw}"}"
+*/set autosort.v3.rules "["${core_first}", "${irc_last}", "${buffer.plugin.name}", "${irc_raw_first}", "${if:${plugin}==irc?${server}}", "${if:${plugin}==irc?${info:autosort_order,${type},server,*,channel,private}}", "${if:${plugin}==irc?${hashless_name}}", "${buffer.full_name}"]"
+*/set urlgrab.default.localcmd "/usr/bin/xdg-open %s"
+*/set urlgrab.default.remotecmd "ssh -x localhost -i ~/.ssh/id_rsa -C "export DISPLAY=":0.0" && xdg-open %s""
+*/set urlgrab.default.url_log "~/.config/weechat/urls.log"
