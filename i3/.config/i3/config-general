@@ -395,6 +395,7 @@ for_window [class="magic-launcher-MagicLauncher"] floating enable
 for_window [class="qemu-system-*"] floating enable
 for_window [class="xpad"] floating enable, border none
 for_window [class="zoom"] floating enable
+for_window [class="Synergy"] floating enable
 for_window [class="TeamSpeak 3"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="insync.py"] floating enable
@@ -434,6 +435,7 @@ exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
 exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/insync
+exec --no-startup-id /usr/bin/synergy
 exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
 exec --no-startup-id $HOME/.local/bin/wallpaper
 
