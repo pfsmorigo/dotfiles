@@ -422,7 +422,6 @@ for_window [title="pass: *"] floating enable
 for_window [instance="meet.google.com"] floating enable, border none, resize set width 1024 px height 768 px
 
 
-
 # Start some util apps
 #exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
@@ -431,7 +430,6 @@ for_window [instance="meet.google.com"] floating enable, border none, resize set
 #exec --no-startup-id /usr/bin/xautolock
 #exec --no-startup-id /usr/bin/blueman-applet
 #exec --no-startup-id $HOME/.local/bin/dropbox_monitor
-
 exec --no-startup-id /usr/bin/xfsettingsd
 exec --no-startup-id /usr/bin/xfce4-power-manager
 exec --no-startup-id /usr/bin/xfce4-screensaver
@@ -442,6 +440,7 @@ exec --no-startup-id /usr/bin/insync
 exec --no-startup-id /usr/bin/synergy
 exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
 exec --no-startup-id $HOME/.local/bin/wallpaper
+exec --no-startup-id $HOME/scripts/desktop/keyboardleds.py
 
 set $system_menu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"
 mode $system_menu {
