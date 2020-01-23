@@ -2,7 +2,7 @@
 
 set $mod Mod4
 set $alt Mod1
-set $resize_value 1
+set $resize_value 10
 
 set $w01  1:一
 set $w02  2:二
@@ -82,6 +82,9 @@ floating_modifier $mod
 
 # Hide borders
 hide_edge_borders both
+
+# The window will always be marked urgent, but the focus will not be stolen.
+focus_on_window_activation urgent
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
@@ -288,7 +291,7 @@ bindsym XF86MonBrightnessDown      exec --no-startup-id xbacklight -dec 20
 #bindsym XF86AudioRecord            exec zenity --info --text "Define Audio Record"
 
 # Other binds
-bindsym Print                      exec gnome-screenshot --interactive
+bindsym Print                      exec xfce4-screenshooter
 
 bindsym $mod+Control+F1            exec ~/.local/bin/automatic home
 
@@ -354,6 +357,7 @@ for_window [class="Dia$" window_role="toolbox_window"] resize shrink left 325px
 for_window [class="Dwarf_Fortress"] floating enable
 for_window [class="Electrum"] floating enable
 for_window [class="Eog"] floating enable
+for_window [class="Firefox"] border none
 for_window [class="Firewall-config"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="Gimp"] border none
