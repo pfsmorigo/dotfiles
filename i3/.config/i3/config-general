@@ -386,6 +386,8 @@ for_window [class="Steam*" title="Friends"] floating enable
 for_window [class="Unetbootin"] floating enable
 for_window [class="Unturned*"] floating disable, layout tabbed
 for_window [class="Virt-manager"] floating enable
+for_window [class="7dLauncher.x86_64"] floating enable
+for_window [class="7DaysToDie.x86_64"] floating disable, border none
 for_window [title="* on QEMU/KVM"] floating disable
 for_window [title="Minecraft Launcher"] floating enable
 for_window [class="Vncviewer"] floating enable
