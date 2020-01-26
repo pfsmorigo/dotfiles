@@ -34,6 +34,8 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun
 export EDITOR="/usr/bin/vim"
 export TERMINAL="$HOME/.local/bin/smowterm"
 
+export GPG_TTY=$(tty)
+
 export HISTSIZE=32768 # Larger bash history (allow 32³ entries)
 export HISTFILESIZE=$HISTSIZE
 export HISTTIMEFORMAT='%F %T '
