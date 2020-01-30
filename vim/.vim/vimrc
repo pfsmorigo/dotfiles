@@ -84,8 +84,8 @@ if filereadable(".make")
 endif
 
 map <F5> :make<CR><CR>
-map <leader>t :tabe ~/Dropbox/Apps/Simpletask/todo/todo.txt<CR>
-map <leader>T :tabe ~/Dropbox/Apps/Simpletask/todo/done.txt<CR>
+map <leader>t :tabe ~/snap/syncthing/common/notes/todo.txt/todo.txt<CR>
+map <leader>T :tabe ~/snap/syncthing/common/notes/todo.txt/done.txt<CR>
 map <leader>l :tabe ~/money/ledger/inbox.ledger<CR>
 
 """" GNU Coding Standards
@@ -164,8 +164,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	"let g:vimwiki_url_maxsave = 0
 	let g:vimwiki_use_mouse = 1
 	let s:vimwiki_pvt = {}
-	let s:vimwiki_pvt.path             = '~/Dropbox/Wiki'
-	let s:vimwiki_pvt.path_html        = '~/Dropbox/Wiki/html'
+	let s:vimwiki_pvt.path             = '~/snap/syncthing/common/notes'
+	let s:vimwiki_pvt.path_html        = '~/snap/syncthing/common/notes/html'
 	let s:vimwiki_pvt.ext              = '.md'
 	let s:vimwiki_pvt.syntax           = 'markdown'
 	let s:vimwiki_pvt.diary_rel_path   = 'diary/'
