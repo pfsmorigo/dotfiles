@@ -21,14 +21,19 @@ set nocscopeverbose " Workaround to fix duplicated message
 set bs=2            " This influences the behavior of the backspace option. It is fairly complex so see :help 'bs' for more details.
 "set wrapmargin=8    " This is the number of characters from the right window border where wrapping starts.
 set ruler           " This makes vim show the current row and column at the bottom right of the screen.
+set tabpagemax=100
 
 set errorformat+=remote:\ %f:%l:%c:%m
 set title
 
 if &t_Co == 256
 	highlight CursorLine   ctermbg=235 ctermfg=NONE cterm=NONE
-	highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+	highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=none
 	highlight WARN ctermbg=red
+
+	highlight diffFile    cterm=bold ctermfg=White ctermbg=DarkBlue
+	highlight diffAdded   cterm=bold ctermfg=Green ctermbg=none
+	highlight diffRemoved cterm=bold ctermfg=Red   ctermbg=none
 
 	" Change Color when entering Insert Mode
 	autocmd InsertEnter * highlight  CursorLine ctermbg=17 ctermfg=NONE
@@ -39,6 +44,18 @@ endif
 
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 autocmd FileType gitcommit setlocal spell spelllang=en
+
+function! HandleURL()
+	let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
+	echo s:uri
+	if s:uri != ""
+		silent exec "!xdg-open '".s:uri."'"
+		:redraw!
+	else
+		echo "No URI found in line."
+	endif
+endfunction
+map <leader>u :call HandleURL()<cr>
 
 " Toggle “invisible” characters
 function! ToggleInvisible()
@@ -53,8 +70,6 @@ endfunction
 
 map <F7> :call ToggleInvisible()<CR>
 map <F2> gg=G
-
-syntax on
 
 " force to save if not have permissions
 cmap w!! %!sudo tee > /dev/null %
@@ -112,7 +127,7 @@ if version >= 703
 	set colorcolumn=80
 endif
 "let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermbg=235
 
 
 """" Templates
@@ -250,7 +265,13 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'AndrewRadev/linediff.vim'
 
+	Plug 'chrisbra/csv.vim'
+
+	Plug 'psf/black'
+
 	call plug#end()
 endif
+
+syntax on
 
 " vim: syntax=vim
