@@ -1,7 +1,3 @@
-# Load Oh My Fish configuration.
-set -gx OMF_PATH "$HOME/projects/omf"
-source $OMF_PATH/init.fish
-
 #set -g theme_color_scheme user
 set -g theme_date_timezone America/Sao_Paulo
 set -g theme_display_cmd_duration yes
