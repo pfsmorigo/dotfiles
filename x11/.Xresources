@@ -49,11 +49,11 @@ URxvt*letterSpace:         -1
 URxvt*font:                xft:Ubuntu Mono derivative Powerline:size=15
 
 ! Perl extensions
-URxvt.perl-ext-common:     default,matcher,font-size
-URxvt.keysym.C-equal:      font-size:reset
-URxvt.keysym.C-slash:      font-size:show
-!URxvt*keysym.C-Delete:     perl:matcher:last
-!URxvt*keysym.M-Delete:     perl:matcher:list
+URxvt*perl-ext-common:     default,matcher,font-size
+URxvt*keysym.C-equal:      font-size:reset
+URxvt*keysym.C-slash:      font-size:show
+URxvt*keysym.C-Delete:     perl:matcher:last
+URxvt*keysym.M-Delete:     perl:matcher:list
 
 URxvt*cursorBlink:         1
 !URxvt*cursorUnderline:     1
