@@ -3,7 +3,7 @@
 #  and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
 #  or set -gx OMF_PATH "$HOME/.local/share/omf"
 
-set -gx OMF_PATH "$HOME/projects/omf"
+#set -gx OMF_PATH "$HOME/projects/omf"
 
 # Load Oh My Fish configuration.
-source $OMF_PATH/init.fish
+#source $OMF_PATH/init.fish
