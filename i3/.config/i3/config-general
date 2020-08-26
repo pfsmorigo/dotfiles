@@ -291,13 +291,15 @@ bindsym XF86MonBrightnessDown      exec --no-startup-id xbacklight -dec 20
 #bindsym XF86AudioRecord            exec zenity --info --text "Define Audio Record"
 
 # Other binds
-bindsym Print                      exec xfce4-screenshooter
+bindsym Print                      exec /usr/bin/xfce4-screenshooter
 
 bindsym $mod+Control+F1            exec ~/.local/bin/automatic home
 
-bindsym $mod+Tab                   exec /usr/bin/copyq toggle
-bindsym $mod+Shift+Tab             exec /usr/bin/copyq menu
-bindsym $mod+Control+Tab           exec /usr/bin/copyq action
+bindsym $mod+Tab                   exec /usr/bin/xfce4-popup-clipman
+bindsym $mod+Control+Tab           exec /usr/bin/xfce4-popup-clipman-actions
+#bindsym $mod+Tab                   exec /usr/bin/copyq toggle
+#bindsym $mod+Shift+Tab             exec /usr/bin/copyq menu
+#bindsym $mod+Control+Tab           exec /usr/bin/copyq action
 
 bindsym $mod+Shift+W               exec ~/.local/bin/wallpaper
 bindsym $mod+Escape                exec /usr/bin/xfce4-screensaver-command -l
@@ -334,6 +336,11 @@ assign [title="Minecraft*"] $games
 assign [title="NotesLogo"] $work
 #assign [instance="meet.google.com"] $meet
 assign [instance="cura"] $cura
+
+
+for_window [class="URxvt" title="morty *"] title_format "<span foreground='#ddffdd'>%title</span>"
+for_window [class="URxvt" title="jerry *"] title_format "<span foreground='#ddddff'>%title</span>"
+
 
 for_window [class="(G|g)oogle-chrome"] border none
 for_window [class="(G|g)oogle-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable, move position mouse # Authy
@@ -409,6 +416,12 @@ for_window [class="Gnome-control-center"] floating enable
 for_window [class="Virt-viewer"] floating enable
 for_window [class="Google Play Music Desktop Player"] floating enable
 for_window [class="(X|x)fce4-*"] floating enable, border none
+for_window [class="Snap-store"] floating enable
+for_window [class="System-config-printer.py"] floating enable
+for_window [class="TigerVNC Viewer"] floating enable, border none
+for_window [class="Vinagre"] floating enable
+for_window [class="Insync"] floating enable
+for_window [class="Gsmartcontrol"] floating enable
 for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
@@ -421,6 +434,7 @@ for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="^QEMU$"] floating enable
 for_window [title="pass: *"] floating enable
+for_window [title="IRPF *"] floating enable
 for_window [instance="meet.google.com"] floating enable, border none, resize set width 1024 px height 768 px
 
 
@@ -429,18 +443,19 @@ for_window [instance="meet.google.com"] floating enable, border none, resize set
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 #exec --no-startup-id /usr/bin/autossh -M 22116 -fTN rick-znc
 #exec --no-startup-id $HOME/.local/bin/myconky
-#exec --no-startup-id /usr/bin/xautolock
 #exec --no-startup-id /usr/bin/blueman-applet
 #exec --no-startup-id $HOME/.local/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/xfsettingsd
 exec --no-startup-id /usr/bin/xfce4-power-manager
 exec --no-startup-id /usr/bin/xfce4-screensaver
+exec --no-startup-id /usr/bin/xfce4-clipman
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
-exec --no-startup-id /usr/bin/copyq
+#exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/insync
 exec --no-startup-id /usr/bin/synergy
 exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
+exec --no-startup-id /snap/bin/syncthing
 exec --no-startup-id $HOME/.local/bin/wallpaper
 exec --no-startup-id $HOME/scripts/desktop/keyboardleds.py
 

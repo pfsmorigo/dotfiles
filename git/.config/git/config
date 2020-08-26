@@ -49,4 +49,7 @@
 [push]
 	default = simple
 
+[url "git+ssh://git.launchpad.net/"]
+	insteadof = lp:
+
 #vim: filetype=config

@@ -6,4 +6,5 @@ i3/.config/i3/config
 i3/.config/i3blocks/config
 vim/.vim/.netrwhist
 vim/.vim/autoload/plug.vim.old
+vim/.vim/black/
 vim/.vim/plugged

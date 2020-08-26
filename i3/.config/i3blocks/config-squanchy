@@ -19,6 +19,10 @@ interval=10
 [deja-dup]
 interval=120
 
+[watson]
+interval=60
+command=watson status
+
 [bandwidth -i ↓ -o ↑]
 interval=5
 
@@ -65,8 +69,16 @@ separator_block_width=5
 separator=false
 
 [disk]
-label=D
-instance=/data
+label=V
+instance=/mnt/vault
+interval=30
+
+separator_block_width=5
+separator=false
+
+[disk]
+label=W
+instance=/mnt/windows
 interval=30
 
 [temperature]
@@ -95,6 +107,10 @@ interval=30
 [time]
 command=TZ=America/New_York date +"%kh%M %Z" | sed 's/^ //g'
 interval=30
+
+[tasmota]
+instance=sonoff-s26-2
+interval=once
 
 [time]
 command=date '+%a, %b %d %H:%M:%S'
