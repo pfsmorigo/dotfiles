@@ -4,4 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/offlineimap -l /tmp/offlineimap.log
+ExecStart=/usr/bin/offlineimap -c $HOME/.config/offlineimap/config -l $HOME/logs/offlineimap.log
+
+[Install]
+WantedBy=default.target

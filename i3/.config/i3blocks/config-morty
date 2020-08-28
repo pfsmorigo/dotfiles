@@ -42,14 +42,12 @@ separator=false
 interval=10
 
 [mem]
-label=R
 interval=30
 
 separator_block_width=5
 separator=false
 
 [mem swap]
-label=S
 interval=30
 
 [disk]
@@ -88,6 +86,12 @@ signal=10
 [stopwatch_countdown]
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
+
+[tasmota]
+interval=once
+
+[battery]
+interval=30
 
 [datetime]
 interval=30

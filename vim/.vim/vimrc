@@ -27,13 +27,13 @@ set errorformat+=remote:\ %f:%l:%c:%m
 set title
 
 if &t_Co == 256
-	highlight CursorLine   ctermbg=235 ctermfg=NONE cterm=NONE
-	highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=none
-	highlight WARN ctermbg=red
-
-	highlight diffFile    cterm=bold ctermfg=White ctermbg=DarkBlue
-	highlight diffAdded   cterm=bold ctermfg=Green ctermbg=none
-	highlight diffRemoved cterm=bold ctermfg=Red   ctermbg=none
+	hi CursorLine  ctermbg=235  ctermfg=NONE     cterm=NONE
+	hi LineNr      ctermbg=NONE ctermfg=DarkGrey cterm=NONE    term=bold
+	hi diffAdded   ctermbg=NONE ctermfg=blue     cterm=NONE
+	hi diffChanged ctermbg=NONE ctermfg=green    cterm=NONE
+	hi diffRemoved ctermbg=NONE ctermfg=red      cterm=NONE
+	hi WARN        ctermbg=red
+	hi SignColumn  ctermbg=235
 
 	" Change Color when entering Insert Mode
 	autocmd InsertEnter * highlight  CursorLine ctermbg=17 ctermfg=NONE
@@ -43,7 +43,8 @@ if &t_Co == 256
 endif
 
 set spellfile=$HOME/.vim/spell/en.utf-8.add
-autocmd FileType gitcommit setlocal spell spelllang=en
+exec 'silent mkspell! ' . &spellfile . '.spl ' . &spellfile
+autocmd FileType gitcommit,debchangelog setlocal spell spelllang=en
 
 function! HandleURL()
 	let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;]*')
@@ -87,7 +88,7 @@ autocmd FileType c,cpp match WARN /\s\+$\|\%>80v.\+/
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 " for patches and diff
-autocmd Filetype diff setlocal nomodifiable
+autocmd Filetype diff,logreview setlocal nomodifiable
 
 " call gcc directly if a Makefile is not found
 if !filereadable("Makefile")
@@ -97,6 +98,8 @@ endif
 if filereadable(".make")
 	set makeprg=.\ .make
 endif
+
+autocmd BufRead,BufNewFile ~/ubuntu/packages/* set makeprg=umt\ build\ -f
 
 map <F5> :make<CR><CR>
 map <leader>t :tabe ~/snap/syncthing/common/notes/todo.txt/todo.txt<CR>
@@ -176,7 +179,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	let g:vimwiki_fold_lists = 1
 	let g:vimwiki_hl_cb_checked = 1
 	let g:vimwiki_hl_headers = 1
-	"let g:vimwiki_url_maxsave = 0
+	let g:vimwiki_url_maxsave = 0
 	let g:vimwiki_use_mouse = 1
 	let s:vimwiki_pvt = {}
 	let s:vimwiki_pvt.path             = '~/snap/syncthing/common/notes'
@@ -215,7 +218,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'kien/ctrlp.vim'
 
-	Plug 'vim-scripts/gnupg.vim'
+	"Plug 'vim-scripts/gnupg.vim'
 
 	Plug 'vim-scripts/vcscommand.vim'
 
@@ -234,8 +237,10 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	let g:airline_powerline_fonts = 1
-	let g:airline_theme='luna'
+	"let g:airline_theme='luna'
+	let g:airline_theme='wombat'
 	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tagbar#enabled = 1
 
 	Plug 'ledger/vim-ledger'
 	let g:ledger_maxwidth = 80
@@ -268,6 +273,12 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	Plug 'chrisbra/csv.vim'
 
 	Plug 'psf/black'
+
+	Plug 'tyru/open-browser.vim'
+
+	Plug 'andreshazard/vim-logreview'
+
+	Plug 'airblade/vim-gitgutter'
 
 	call plug#end()
 endif
