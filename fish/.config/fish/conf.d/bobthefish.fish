@@ -1,4 +1,6 @@
 #set -g theme_color_scheme user
+set -g theme_display_screen yes
+set -g theme_display_screen_verbose yes
 set -g theme_date_timezone America/Sao_Paulo
 set -g theme_display_cmd_duration yes
 set -g theme_display_git yes
