@@ -21,6 +21,7 @@ function bobthefish_colors -S -d 'Define a custom bobthefish color scheme'
   set -x color_vagrant               48b4fb ffffff --bold
   set -x color_username              3333ff ffff00 --bold
   set -x color_hostname              3333ff ffffff --bold
+  set -x color_screen                009900 ffffff --bold
   set -x color_rvm                   af0000 cccccc --bold
   set -x color_virtualfish           005faf cccccc --bold
   set -x color_virtualgo             005faf cccccc --bold

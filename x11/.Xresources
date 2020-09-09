@@ -22,8 +22,8 @@ Xft.rgba:        rgb
 ! Xcursor
 !----------------------------------------------------------------------------
 
-Xcursor.theme:   Vanilla-DMZ-AA
-Xcursor.size:    32
+!Xcursor.theme:   Vanilla-DMZ-AA
+!Xcursor.size:    32
 
 
 !----------------------------------------------------------------------------
@@ -40,7 +40,7 @@ URxvt*urgentOnBell:        true
 URxvt*urlLauncher:         /usr/bin/xdg-open
 URxvt*underlineURLs:       true
 
-URxvt*background:          rgb:00/00/00
+URxvt*background:          rgb:00/2b/36
 URxvt*foreground:          rgb:ff/ff/ff
 URxvt*depth:               32
 URxvt*underlineColor:      yellow
@@ -74,13 +74,13 @@ URxvt*keysym.C-9:          command:\033]10;#000\007\033]11;#fff\007
 ! Color Theme
 !----------------------------------------------------------------------------
 
-*fading:                 25
-!*background:             #000000
-!*foreground:             #FFFFFF
-*fadeColor:              #000000
-*cursorColor:          	 #FFFFFF
-*pointerColorBackground: #FF0000
-*pointerColorForeground: #220000
+!*fading:                 25
+!*background:             #002b36
+!*foreground:             #ffffff
+!*fadeColor:              #000000
+!*cursorColor:          	 #FFFFFF
+!*pointerColorBackground: #FF0000
+!*pointerColorForeground: #220000
 
 ! black dark/light
 *color0:                 #000000

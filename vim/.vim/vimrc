@@ -100,6 +100,7 @@ if filereadable(".make")
 endif
 
 autocmd BufRead,BufNewFile ~/ubuntu/packages/* set makeprg=umt\ build\ -f
+autocmd BufRead,BufNewFile ~/.Xresources       set makeprg=xrdb\ ~/.Xresources
 
 map <F5> :make<CR><CR>
 map <leader>t :tabe ~/snap/syncthing/common/notes/todo.txt/todo.txt<CR>
