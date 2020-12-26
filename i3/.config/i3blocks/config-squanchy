@@ -13,6 +13,9 @@ signal=11
 [virsh]
 interval=30
 
+[lxc]
+interval=30
+
 [rhythmbox]
 interval=10
 
@@ -78,7 +81,7 @@ separator=false
 
 [disk]
 label=W
-instance=/mnt/windows
+instance=/windows
 interval=30
 
 [temperature]

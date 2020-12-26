@@ -26,8 +26,8 @@ set $w10 10:十
 #set $w10 10:X
 
 set $wF1  20:🌎
-set $wF2  21:💻
-set $wF3  22:office
+set $wF2  21:zoom
+set $wF3  22:🎥
 set $wF4  23:🎨
 set $wF5  24:💻
 set $wF6  25:dia
@@ -37,8 +37,7 @@ set $wF9  28:selenium
 set $wF10 29:🎲
 
 set $www       20:🌎
-set $meet      21:💻
-set $office    22:office
+set $zoom      21:zoom
 set $gimp      23:🎨
 set $dev       24:💻
 set $dia       25:dia
@@ -46,7 +45,6 @@ set $rhythmbox 26:🎵
 set $games     27:🎮
 set $selenium  28:selenium
 set $cura      29:🎲
-
 set $deja_dup  30:deja-dup
 
 #set $colors_focused          #7F2F11 #7F2F11 #ffffff #88f791
@@ -334,7 +332,6 @@ assign [title="Magic Launcher"] $games
 assign [title="Minecraft Launcher"] $games
 assign [title="Minecraft*"] $games
 assign [title="NotesLogo"] $work
-#assign [instance="meet.google.com"] $meet
 assign [instance="cura"] $cura
 
 
