@@ -14,6 +14,7 @@ compat
 COMPILERFLAGS
 conf
 config
+containerd
 CVE
 cve
 debhelper
@@ -75,6 +76,8 @@ natty
 opendmarc
 OpenStack
 pfsmorigo
+POC
+PPA
 ppc64el
 ppc64le
 python2
@@ -94,6 +97,7 @@ ubuntu3
 ubuntu4
 ubuntu5
 UINT64
+unix
 urllib3
 urls
 USN

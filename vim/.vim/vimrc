@@ -78,9 +78,6 @@ cmap w!! %!sudo tee > /dev/null %
 " enable ctrl+c
 vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
 
-
-inoremap jk <esc>
-
 match WARN /\s\+$/
 autocmd FileType c,cpp match WARN /\s\+$\|\%>80v.\+/
 
