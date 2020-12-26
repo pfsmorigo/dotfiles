@@ -10,7 +10,13 @@ command=$HOME/scripts/i3blocks/$BLOCK_NAME
 interval=once
 signal=11
 
+[bluetooth]
+interval=30
+
 [virsh]
+interval=30
+
+[nordvpn]
 interval=30
 
 #[infomoney]

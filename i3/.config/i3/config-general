@@ -454,7 +454,7 @@ exec --no-startup-id /usr/bin/urxvtd -q -f -o
 #exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/insync start
 exec --no-startup-id /usr/bin/synergy
-exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
+exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 exec --no-startup-id /snap/bin/syncthing
 exec --no-startup-id $HOME/.local/bin/wallpaper
 exec --no-startup-id $HOME/scripts/desktop/keyboardleds.py
