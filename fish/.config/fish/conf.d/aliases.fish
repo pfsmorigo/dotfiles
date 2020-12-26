@@ -21,3 +21,6 @@ alias qd='quilt diff'
 alias qr='quilt refresh'
 alias qs='quilt series'
 alias s='screen_switch'
+alias ws='watson status'
+alias wl='watson log -G'
+
