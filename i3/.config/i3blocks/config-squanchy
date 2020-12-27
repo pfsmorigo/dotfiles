@@ -10,6 +10,10 @@ command=$HOME/scripts/i3blocks/$BLOCK_NAME
 interval=once
 signal=11
 
+[check_process]
+instance=syncthing
+interval=30
+
 [virsh]
 interval=30
 
