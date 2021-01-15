@@ -169,3 +169,24 @@ export ANSIBLE_CONFIG="$HOME/.config/ansible.cfg"
 xset q &> /dev/null && test -f /usr/bin/xrdb && xrdb ~/.Xresources
 
 . shelltags -tesglfmb
+
+# use an existing environment if it is running, otherwise start a new agent
+SSH_ENV="$HOME/.ssh/environment"
+
+ssh_start_agent() {
+    echo ""
+    echo -n "Initialising new SSH agent... "
+    ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
+    echo "done"
+    chmod 600 "$SSH_ENV"
+    . "$SSH_ENV" > /dev/null
+}
+
+if [ -f "$SSH_ENV" ]; then
+    . "$SSH_ENV" > /dev/null
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        ssh_start_agent
+    }
+else
+    ssh_start_agent
+fi
