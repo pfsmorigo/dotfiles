@@ -1,1 +1,1 @@
-/home/pfsmorigo/projects/omf/themes/bobthefish/fish_prompt.fish
+../../../../../projects/omf/themes/bobthefish/fish_prompt.fish
