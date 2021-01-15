@@ -168,8 +168,6 @@ export ANSIBLE_CONFIG="$HOME/.config/ansible.cfg"
 # If there is a X server running
 xset q &> /dev/null && test -f /usr/bin/xrdb && xrdb ~/.Xresources
 
-. shelltags -tesglfmb
-
 # use an existing environment if it is running, otherwise start a new agent
 SSH_ENV="$HOME/.ssh/environment"
 
