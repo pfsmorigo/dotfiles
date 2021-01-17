@@ -278,6 +278,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'airblade/vim-gitgutter'
 
+	Plug 'dag/vim-fish'
+
 	call plug#end()
 endif
 
