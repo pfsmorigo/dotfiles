@@ -105,6 +105,7 @@ alias gss="git status --short"
 alias qd="quilt diff"
 alias qr="quilt refresh"
 alias qs="quilt series"
+alias qi="quilt import"
 
 alias m="time make -j$(\grep -c ^proc /proc/cpuinfo)"
 alias s="screen_switch"
@@ -176,5 +177,13 @@ else
     ssh_start_agent
 fi
 
+# Check if the default key was already added to the agent
+if ! ssh-add -l | grep -q $(cat ~/.ssh/id_rsa.pub | cut -d' ' -f3); then
+	echo "Please add your default key to the agent."
+	ssh-add
+fi
+
 # Save aliases in .bash_aliases so fish can import it later
 alias > ~/.bash_aliases
+
+test -f ~/.bash_ubuntusec && . ~/.bash_ubuntusec
