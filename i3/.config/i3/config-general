@@ -441,7 +441,7 @@ for_window [instance="meet.google.com"] floating enable, border none, resize set
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 #exec --no-startup-id /usr/bin/autossh -M 22116 -fTN rick-znc
 #exec --no-startup-id $HOME/.local/bin/myconky
-#exec --no-startup-id /usr/bin/blueman-applet
+exec --no-startup-id /usr/bin/blueman-applet
 #exec --no-startup-id $HOME/.local/bin/dropbox_monitor
 exec --no-startup-id /usr/bin/xfsettingsd
 exec --no-startup-id /usr/bin/xfce4-power-manager
