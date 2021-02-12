@@ -5,6 +5,7 @@ color=#ffffff
 separator=true
 separator_block_width=20
 command=$HOME/scripts/i3blocks/$BLOCK_NAME
+markup=pango
 
 [capslock]
 interval=once
@@ -17,7 +18,7 @@ interval=30
 [virsh]
 interval=30
 
-[lxc]
+[machines]
 interval=30
 
 [rhythmbox]
