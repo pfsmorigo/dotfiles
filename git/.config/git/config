@@ -7,9 +7,6 @@
 [color "diff"]
 	whitespace = red reverse
 
-[commit]
-	gpgsign = true
-
 [core]
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	editor = vim
@@ -48,6 +45,9 @@
 
 [push]
 	default = simple
+
+[pull]
+	rebase = true
 
 [url "git+ssh://git.launchpad.net/"]
 	insteadof = lp:
