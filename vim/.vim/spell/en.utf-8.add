@@ -11,6 +11,8 @@ avahi
 axel
 base64
 blkcipher
+bsd
+buildd
 CFLAGS
 compat
 COMPILERFLAGS
@@ -19,6 +21,7 @@ config
 containerd
 CVE
 cve
+CVEs
 debhelper
 debian
 DEP
@@ -63,13 +66,16 @@ initscripts
 ip
 IPv4
 IPv6
+jackson
 jaunty
 json
 kFreeBSD
 LDAP
 libavformat
+libjackson
 libjpeg
 libmng
+libnet
 libogg
 libopenjpeg
 libpng
