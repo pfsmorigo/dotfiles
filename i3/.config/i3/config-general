@@ -420,7 +420,7 @@ for_window [class="Vinagre"] floating enable
 for_window [class="Insync"] floating enable
 for_window [class="Gsmartcontrol"] floating enable
 for_window [class="Camset"] floating enable
-for_window [class="Yubico Authenticator"] floating enable
+for_window [class="Yubico Authenticator"] floating enable, sticky enable
 for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
@@ -434,8 +434,8 @@ for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="^QEMU$"] floating enable
 for_window [title="pass: *"] floating enable
 for_window [title="IRPF *"] floating enable
-for_window [instance="meet.google.com"] floating enable, border none, resize set width 1024 px height 768 px
-
+for_window [instance="meet.google.com"] floating enable, border none, sticky enable, resize set width 1024 px height 768 px
+for_window [instance="steam_app_1174180"] floating enable
 
 # Start some util apps
 #exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
