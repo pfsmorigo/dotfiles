@@ -420,6 +420,7 @@ for_window [class="Vinagre"] floating enable
 for_window [class="Insync"] floating enable
 for_window [class="Gsmartcontrol"] floating enable
 for_window [class="Camset"] floating enable
+for_window [class="Yubico Authenticator"] floating enable
 for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
