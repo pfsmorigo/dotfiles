@@ -104,6 +104,8 @@ map <leader>t :tabe ~/snap/syncthing/common/notes/todo.txt/todo.txt<CR>
 map <leader>T :tabe ~/snap/syncthing/common/notes/todo.txt/done.txt<CR>
 map <leader>l :tabe ~/money/ledger/inbox.ledger<CR>
 
+autocmd FileType json map <F2> :%!python3 -m json.tool<CR>
+
 """" GNU Coding Standards
 
 function! GnuIndent()
