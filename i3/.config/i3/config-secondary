@@ -7,7 +7,7 @@ bar {
 	output DISPLAYNAME
 	position top
 	strip_workspace_numbers yes
-	status_command i3blocks -c ~/.config/i3blocks/config-secundary
+	status_command i3blocks -c ~/.config/i3blocks/config-secondary
 	tray_output none
 
 	colors {
