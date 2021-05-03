@@ -14,16 +14,6 @@ set $w07  7:七
 set $w08  8:八
 set $w09  9:九
 set $w10 10:十
-#set $w01  1:I
-#set $w02  2:II
-#set $w03  3:III
-#set $w04  4:IV
-#set $w05  5:V
-#set $w06  6:VI
-#set $w07  7:VII
-#set $w08  8:VIII
-#set $w09  9:IX
-#set $w10 10:X
 
 set $wF1  20:🌎
 set $wF2  21:zoom
@@ -47,14 +37,12 @@ set $selenium  28:selenium
 set $cura      29:🎲
 set $deja_dup  30:deja-dup
 
-#set $colors_focused          #7F2F11 #7F2F11 #ffffff #88f791
-#set $colors_focused          #e28059 #e28059 #ffffff #88f791
-set $colors_focused          #777777 #777777 #ffffff #88f791
-set $colors_focused_inactive #5E2750 #5E2750 #ffffff #838383
-set $colors_unfocused        #222222 #222222 #888888 #838383
-set $colors_urgent           #900000 #900000 #ffffff #ff0000
-set $colors_placeholder      #0c0c0c #0c0c0c #ffffff #000000
-#                            border  backgr. text    indicator
+# class                      border  bground text    indic.  child_border
+set $colors_focused          #4C7899 #2E9EF4 #FFFFFF #2E9EF4 #2E9EF4
+set $colors_focused_inactive #333333 #5F676A #FFFFFF #484E50 #5F676A
+set $colors_unfocused        #333333 #222222 #888888 #292D2E #222222
+set $colors_urgent           #2F343A #900000 #FFFFFF #900000 #900000
+set $colors_placeholder      #000000 #0C0C0C #FFFFFF #000000 #0C0C0C
 
 client.focused          $colors_focused
 client.focused_inactive $colors_focused_inactive
@@ -62,19 +50,7 @@ client.unfocused        $colors_unfocused
 client.urgent           $colors_urgent
 client.placeholder      $colors_placeholder
 
-#font pango:Hack 9
-#font pango:Cantarell 9, Material-Design-Iconic-Font 9.5
-#font pango:Cantarell 11
 font pango:Ubuntu Bold 11.5
-#font pango:DejaVu Sans Mono 9
-#font pango:Nanum Gothic 9
-#font pango:Nanum Gothic, smow-icons 10
-#font pango:PT Sans, icons 9
-#font pango:Envy Code R 10
-#font pango:Cuprum 11
-#font pango:Cuprum, icons 11
-#font pango:Liberation Mono 8
-#font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

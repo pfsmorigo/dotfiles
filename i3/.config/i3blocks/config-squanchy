@@ -81,16 +81,12 @@ label=V
 instance=/mnt/vault
 interval=30
 
-separator_block_width=5
-separator=false
-
-[disk]
-label=W
-instance=/windows
-interval=30
-
 [temperature]
 interval=2
+
+[hddtemp]
+command=nc -w1 localhost 7634 | awk -F'|' '{print $4 " " $9 " " $14}'
+interval=5
 
 [pulseaudio]
 interval=once
@@ -117,7 +113,7 @@ command=TZ=America/New_York date +"%kh%M %Z" | sed 's/^ //g'
 interval=30
 
 [tasmota]
-instance=sonoff-s26-2
+instance=sonoff-mini-2.lindt
 interval=once
 
 [time]
