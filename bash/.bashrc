@@ -107,6 +107,8 @@ alias qr="quilt refresh"
 alias qs="quilt series"
 alias qi="quilt import"
 
+alias dp="docker ps --format '{{ .Names }}|{{.Status}}|{{ .Ports }}' --all | column -t -s'|'"
+
 alias m="time make -j$(\grep -c ^proc /proc/cpuinfo)"
 alias s="screen_switch"
 alias b="buku --np --oa -S"
