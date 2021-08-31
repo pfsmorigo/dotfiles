@@ -69,8 +69,9 @@ function! ToggleInvisible()
 	endif
 endfunction
 
-map <F7> :call ToggleInvisible()<CR>
 map <F2> gg=G
+map <F3> :setlocal foldmethod=syntax
+map <F7> :call ToggleInvisible()<CR>
 
 " force to save if not have permissions
 cmap w!! %!sudo tee > /dev/null %
@@ -86,6 +87,9 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 " for patches and diff
 autocmd Filetype diff,logreview setlocal nomodifiable
+
+" for json
+"autocmd Filetype json setlocal foldmethod=syntax
 
 " call gcc directly if a Makefile is not found
 if !filereadable("Makefile")
@@ -281,6 +285,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	Plug 'airblade/vim-gitgutter'
 
 	Plug 'dag/vim-fish'
+
+	Plug 'elzr/vim-json'
 
 	call plug#end()
 endif
