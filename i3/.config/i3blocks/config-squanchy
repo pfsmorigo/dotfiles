@@ -21,6 +21,9 @@ interval=30
 [machines]
 interval=30
 
+[playerctl]
+interval=5
+
 [rhythmbox]
 interval=10
 
@@ -84,19 +87,15 @@ interval=30
 [temperature]
 interval=2
 
-[hddtemp]
-command=nc -w1 localhost 7634 | awk -F'|' '{print $4 " " $9 " " $14}'
-interval=5
-
-[pulseaudio]
-interval=once
-signal=10
-
-separator_block_width=10
+separator_block_width=5
 separator=false
 
-[volume]
-instance=Capture
+[hddtemp]
+command=nc -w1 localhost 7634 | awk -F'|' '{print $4 "°C " $9 "°C " $14 "°C"}'
+interval=5
+
+[volume-pulseaudio]
+command=$HOME/projects/i3blocks-contrib/volume-pulseaudio/$BLOCK_NAME
 interval=once
 signal=10
 
@@ -111,10 +110,6 @@ interval=30
 [time]
 command=TZ=America/New_York date +"%kh%M %Z" | sed 's/^ //g'
 interval=30
-
-[tasmota]
-instance=sonoff-mini-2.lindt
-interval=once
 
 [time]
 command=date '+%a, %b %d %H:%M:%S'

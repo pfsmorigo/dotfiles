@@ -245,9 +245,13 @@ bindsym XF86Hibernate              exec --no-startup-id computer hibernate
 
 bindsym XF86TouchpadToggle         exec --no-startup-id computer touchpad toggle
 
-bindSym XF86AudioRaiseVolume       exec --no-startup-id computer sound Master up
-bindSym XF86AudioLowerVolume       exec --no-startup-id computer sound Master down
-bindSym XF86AudioMute              exec --no-startup-id computer sound Master mute
+bindsym XF86AudioRaiseVolume       exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume       exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute              exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
+
+#bindSym XF86AudioRaiseVolume       exec --no-startup-id computer sound Master up
+#bindSym XF86AudioLowerVolume       exec --no-startup-id computer sound Master down
+#bindSym XF86AudioMute              exec --no-startup-id computer sound Master mute
 
 bindSym Shift+XF86AudioRaiseVolume exec --no-startup-id computer sound Capture up
 bindSym Shift+XF86AudioLowerVolume exec --no-startup-id computer sound Capture down
