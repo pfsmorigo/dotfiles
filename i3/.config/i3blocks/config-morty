@@ -82,6 +82,9 @@ command=$HOME/projects/i3blocks-contrib/volume-pulseaudio/$BLOCK_NAME
 interval=once
 signal=10
 
+[pulseaudio-server squanchy]
+interval=30
+
 [stopwatch_countdown]
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
