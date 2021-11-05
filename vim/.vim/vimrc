@@ -276,8 +276,6 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'chrisbra/csv.vim'
 
-	Plug 'psf/black'
-
 	Plug 'tyru/open-browser.vim'
 
 	Plug 'andreshazard/vim-logreview'
@@ -287,6 +285,10 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	Plug 'dag/vim-fish'
 
 	Plug 'elzr/vim-json'
+
+	if executable('/usr/bin/black')
+		Plug 'psf/black'
+	endif
 
 	call plug#end()
 endif
