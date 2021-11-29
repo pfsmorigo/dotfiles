@@ -19,9 +19,6 @@ interval=30
 [nordvpn]
 interval=30
 
-[deja-dup]
-interval=120
-
 [bandwidth -i ↓ -o ↑]
 interval=5
 

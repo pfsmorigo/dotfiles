@@ -26,9 +26,6 @@ interval=30
 #[xautolock]
 #signal=13
 
-[deja-dup]
-interval=120
-
 [bandwidth -i ↓ -o ↑]
 interval=5
 

@@ -27,9 +27,6 @@ interval=5
 [rhythmbox]
 interval=10
 
-[deja-dup]
-interval=120
-
 [watson]
 interval=60
 command=watson status
