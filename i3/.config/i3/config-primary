@@ -21,10 +21,3 @@ bar {
 	bindsym $mod+n tray_output none
 	bindsym $mod+Shift+n tray_output DISPLAYNAME
 }
-
-# Workspace settings
-workspace $w01 output DISPLAYNAME
-workspace $w02 output DISPLAYNAME
-workspace $w03 output DISPLAYNAME
-workspace $w04 output DISPLAYNAME
-workspace $w05 output DISPLAYNAME
