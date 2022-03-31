@@ -432,7 +432,7 @@ exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
 #exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/insync start
-exec --no-startup-id /usr/bin/synergy
+exec --no-startup-id /usr/bin/barrier
 exec --no-startup-id /usr/bin/xhost +local:
 exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 exec --no-startup-id /snap/bin/syncthing
