@@ -19,12 +19,8 @@ interval=30
 [nordvpn]
 interval=30
 
-#[infomoney]
-#instance=dolar
-#interval=60
-
-#[xautolock]
-#signal=13
+[dollar_ptax]
+interval=60
 
 [bandwidth -i ↓ -o ↑]
 interval=5
