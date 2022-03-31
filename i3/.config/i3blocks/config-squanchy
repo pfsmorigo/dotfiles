@@ -21,9 +21,6 @@ interval=30
 [machines]
 interval=30
 
-[playerctl]
-interval=5
-
 [rhythmbox]
 interval=10
 

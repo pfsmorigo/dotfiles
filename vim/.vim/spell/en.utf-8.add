@@ -36,6 +36,7 @@ eduardo
 eoan
 EOL
 eol
+ESM
 esm1
 esm2
 esm3
@@ -143,3 +144,5 @@ webencodings
 wildcard
 xenial
 xml
+XSS
+Zabbix
