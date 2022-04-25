@@ -10,9 +10,6 @@ command=$HOME/scripts/i3blocks/$BLOCK_NAME
 interval=once
 signal=11
 
-[bluetooth]
-interval=30
-
 [virsh]
 interval=30
 
@@ -60,7 +57,7 @@ interval=30
 [temperature]
 interval=2
 
-[volume-pulseaudio]
+[volume-pulseaudio -d]
 command=$HOME/projects/i3blocks-contrib/volume-pulseaudio/$BLOCK_NAME
 interval=once
 signal=10
