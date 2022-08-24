@@ -246,7 +246,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'freitass/todo.txt-vim'
 
-	Plug 'fatih/vim-go'
+	"Plug 'fatih/vim-go'
 	"autocmd BufNewFile,BufRead *.go :GoPath $HOME/projects/go
 
 	Plug 'vim-airline/vim-airline'
@@ -259,7 +259,7 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 
 	Plug 'ledger/vim-ledger'
 	let g:ledger_maxwidth = 80
-	let g:ledger_align_at = 46
+	let g:ledger_align_at = 56
 	let g:ledger_fold_blanks = 1
 	let g:ledger_fillstring = '· '
 	let g:ledger_default_commodity = 'BRL'
@@ -300,6 +300,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	if executable('/usr/bin/black')
 		Plug 'psf/black'
 	endif
+
+	Plug 'sirtaj/vim-openscad'
 
 	call plug#end()
 endif
