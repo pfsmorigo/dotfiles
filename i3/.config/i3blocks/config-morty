@@ -72,7 +72,7 @@ command=$HOME/projects/i3blocks-contrib/volume-pulseaudio/$BLOCK_NAME -d -F "\$V
 interval=once
 signal=10
 
-[pulseaudio-server squanchy]
+[pulseaudio-server pisa]
 interval=30
 
 [stopwatch_countdown]
