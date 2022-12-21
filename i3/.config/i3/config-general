@@ -292,7 +292,7 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 #assign [class="Chromium-browser"] $www
 assign [class="Dia$"] $dia
-#assign [class="Firefox"] $www
+assign [class="(F|f)irefox"] $www
 assign [class="Gimp"] $gimp
 assign [class="Gitk"] $dev
 assign [class="Meld"] $dev
@@ -313,9 +313,10 @@ assign [title="Magic Launcher"] $games
 assign [title="Minecraft Launcher"] $games
 assign [title="Minecraft*"] $games
 assign [title="NotesLogo"] $work
-assign [instance="cura"] $cura
+assign [instance="Ultimaker-Cura"] $cura
 assign [instance="play.geforcenow.com"] $games
 assign [instance="crx_egmafekfmcnknbdlbfbhafbllplmjlhn"] $games
+assign [class="steam_app_275850"] $games
 
 
 for_window [class="(G|g)oogle-chrome"] border none
@@ -329,7 +330,7 @@ for_window [class="Birdie"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Cheese"] floating enable
 for_window [class="Conky"] floating disable, move right
-for_window [class="cura"] border none
+for_window [class="Ultimaker-Cura"] border none
 for_window [class="Deja-dup"] floating enable
 for_window [class="Org.gnome.DejaDup"] floating enable
 for_window [class="Devede"] floating enable
@@ -340,7 +341,7 @@ for_window [class="Dia$" window_role="toolbox_window"] resize shrink left 325px
 for_window [class="Dwarf_Fortress"] floating enable
 for_window [class="Electrum"] floating enable
 for_window [class="Eog"] floating enable
-for_window [class="Firefox"] border none
+for_window [class="(F|f)irefox"] border none
 for_window [class="Firewall-config"] floating enable
 for_window [class="Gedit"] floating enable
 for_window [class="Gimp"] border none
@@ -399,7 +400,10 @@ for_window [class="Vinagre"] floating enable
 for_window [class="Insync"] floating enable
 for_window [class="Gsmartcontrol"] floating enable
 for_window [class="Camset"] floating enable
+for_window [class="Ledger Live"] floating enable
 for_window [class="Yubico Authenticator"] floating enable, sticky enable
+for_window [class="Usb-creator-gtk"] floating enable
+for_window [class="Imager"] floating enable
 for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
