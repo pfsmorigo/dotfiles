@@ -181,7 +181,7 @@ else
 fi
 
 # Check if the default key was already added to the agent
-if ! ssh-add -l | grep -q $(ssh-keygen -lf ~/.ssh/id_rsa.pub | cut -d' ' -f2); then
+if ! ssh-add -l | grep -q $(ssh-keygen -lf ~/.ssh/id_ed25519.pub | cut -d' ' -f2); then
 	echo "Please add your default key to the agent."
 	ssh-add
 fi
