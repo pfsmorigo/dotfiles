@@ -38,7 +38,9 @@ set $cura      29:🎲
 set $deja_dup  30:deja-dup
 
 # class                      border  bground text    indic.  child_border
-set $colors_focused          #4C7899 #2E9EF4 #FFFFFF #2E9EF4 #2E9EF4
+#set $colors_focused          #4C7899 #7764D8 #FFFFFF #7764D8 #7764D8  # theme blue
+#set $colors_focused          #4C7899 #E95420 #FFFFFF #E95420 #E95420  # theme yaru orange
+set $colors_focused          #4C7899 #7764D8 #FFFFFF #7764D8 #7764D8  # theme yaru purple
 set $colors_focused_inactive #333333 #5F676A #FFFFFF #484E50 #5F676A
 set $colors_unfocused        #333333 #222222 #888888 #292D2E #222222
 set $colors_urgent           #2F343A #900000 #FFFFFF #900000 #900000

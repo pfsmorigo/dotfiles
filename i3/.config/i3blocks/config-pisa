@@ -74,8 +74,16 @@ separator_block_width=5
 separator=false
 
 [disk]
-label=V
-instance=/mnt/vault
+label=S
+instance=/storage
+interval=30
+
+separator_block_width=5
+separator=false
+
+[disk]
+label=W
+instance=/windows
 interval=30
 
 [temperature]
