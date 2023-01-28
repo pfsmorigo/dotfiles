@@ -1,5 +1,5 @@
 configuration {
-	font: "Ubuntu 18";
+	font: "Ubuntu 16";
 	columns: 1;
 	ssh-command: "smowterm {host}";
 	sidebar-mode: true;
@@ -37,7 +37,8 @@ configuration {
 }
 
 window {
-	width:            1000px;
+	width:            800px;
+	height:           800px;
     background-color: @background;
     border:           2;
     padding:          2;
@@ -63,7 +64,7 @@ listview {
     border:       2px solid 0 0;
     padding:      2px 0 0;
     border-color: @separatorcolor;
-    spacing:      10px;
+    spacing:      5px;
     scrollbar:    @scrollbar;
 }
 
