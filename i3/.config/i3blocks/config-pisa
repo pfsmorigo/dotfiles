@@ -105,6 +105,9 @@ signal=10
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 
+[bitcoin 21000 24000]
+interval=600
+
 [time]
 command=TZ=US/Central date +"%kh%M %Z" | sed 's/^ //g'
 interval=30

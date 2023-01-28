@@ -16,26 +16,26 @@ set $w09  9:九
 set $w10 10:十
 
 set $wF1  20:🌎
-set $wF2  21:zoom
-set $wF3  22:🎥
+set $wF2  21:🛠️
+set $wF3  22:⊞
 set $wF4  23:🎨
 set $wF5  24:💻
 set $wF6  25:dia
-set $wF7  26:🎵
+set $wF7  26:zoom
 set $wF8  27:🎮
 set $wF9  28:selenium
 set $wF10 29:🎲
 
 set $www       20:🌎
-set $zoom      21:zoom
+set $webapp    21:🛠️
+set $windows   22:⊞
 set $gimp      23:🎨
 set $dev       24:💻
 set $dia       25:dia
-set $rhythmbox 26:🎵
+set $zoom      26:zoom
 set $games     27:🎮
-set $selenium  28:selenium
+set $selenium  29:selenium
 set $cura      29:🎲
-set $deja_dup  30:deja-dup
 
 # class                      border  bground text    indic.  child_border
 #set $colors_focused          #4C7899 #7764D8 #FFFFFF #7764D8 #7764D8  # theme blue
@@ -241,7 +241,7 @@ bindsym XF86WLAN exec zenity --info --text="F12"    # F12 Wifi
 
 
 
-bindsym XF86ScreenSaver            exec --no-startup-id computer lock
+bindsym XF86ScreenSaver            exec --no-startup-id xfce4-screensaver-command -l
 bindsym XF86Sleep                  exec --no-startup-id computer suspend
 bindsym XF86Hibernate              exec --no-startup-id computer hibernate
 
@@ -283,7 +283,7 @@ bindsym $mod+Control+Tab           exec /usr/bin/xfce4-popup-clipman-actions
 #bindsym $mod+Control+Tab           exec /usr/bin/copyq action
 
 bindsym $mod+Shift+W               exec ~/.local/bin/wallpaper
-bindsym $mod+Escape                exec ~/.local/bin/lockscreen
+bindsym $mod+Escape                exec  --no-startup-id xfce4-screensaver-command -l
 bindsym $mod+Delete                mode $system_menu
 bindsym $mod+Shift+Delete          mode $size_menu
 
@@ -305,7 +305,6 @@ assign [class="Unturned*"] $games
 assign [class="ioquake3.x86*"] $games
 assign [class="StardewValley*"] $games
 assign [class="zoom"] $zoom
-assign [class="Org.gnome.DejaDup"] $deja_dup
 assign [instance="(G|g)oogle-chrome \(\/tmp\/\.org\.chromium\.Chromium\.*"] $selenium
 assign [instance="(G|g)oogle-chrome"] $www
 assign [instance="ingress.com__intel"] $games
@@ -315,16 +314,14 @@ assign [title="Magic Launcher"] $games
 assign [title="Minecraft Launcher"] $games
 assign [title="Minecraft*"] $games
 assign [title="NotesLogo"] $work
+assign [title="^Windows.* on QEMU/KVM$"] $windows
 assign [instance="Ultimaker-Cura"] $cura
 assign [instance="play.geforcenow.com"] $games
-assign [instance="crx_egmafekfmcnknbdlbfbhafbllplmjlhn"] $games
+assign [instance="crx_.*"] $webapp
 assign [class="steam_app_275850"] $games
 
 
 for_window [class="(G|g)oogle-chrome"] border none
-for_window [class="(G|g)oogle-chrome" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable, move position mouse # Authy
-for_window [class="(G|g)oogle-chrome" instance="crx_gidgenkbbabolejbgbpnhbimgjbffefm"] floating enable, move absolute position center # Vysor
-for_window [class="(G|g)oogle-chrome" instance="crx_*"] floating enable title_format "<span foreground='yellow'>%title</span>"
 for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable, border normal
 for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
@@ -417,13 +414,14 @@ for_window [title="Steam Guard -*"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
 for_window [title="VNC authentication [VncAuth]"] floating enable
 for_window [title="^QEMU$"] floating enable
-for_window [title="pass: *"] floating enable
-for_window [title="IRPF *"] floating enable
+for_window [title="pass: .*"] floating enable
+for_window [title="IRPF .*"] floating enable
+for_window [title="^Windows.* on QEMU/KVM$"] floating disable, border none
 for_window [instance="meet.google.com"] floating enable, border none, sticky enable, resize set width 1024 px height 768 px
 for_window [instance="steam_app_1174180"] floating enable
 for_window [instance="URxvtRemote"] border normal, title_format "<span foreground='#ffff00'>%title</span>"
 for_window [instance="play.geforcenow.com"] floating disable, border none
-for_window [instance="crx_egmafekfmcnknbdlbfbhafbllplmjlhn"] floating disable, border none
+for_window [instance="crx_.*"] floating disable, border none
 
 # Start some util apps
 #exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
