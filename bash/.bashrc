@@ -155,6 +155,7 @@ export WEECHAT_HOME="$HOME/.config/weechat"
 export WINEPREFIX="$HOME/.local/share/wine"
 export ANSIBLE_CONFIG="$HOME/.config/ansible.cfg"
 export PASSWORD_STORE_DIR="$HOME/.config/password-store"
+export NOTMUCH_CONFIG="$HOME/.config/notmuch/default"
 
 # If there is a X server running
 xset q &> /dev/null && test -f /usr/bin/xrdb && xrdb ~/.Xresources
