@@ -161,29 +161,26 @@ xset q &> /dev/null && test -f /usr/bin/xrdb && xrdb ~/.Xresources
 
 # use an existing environment if it is running, otherwise start a new agent
 SSH_ENV="$HOME/.ssh/environment"
+SSH_KEY="$HOME/.ssh/id_ed25519"
+if [ -e $SSH_KEY ]; then
+    if [ -e "$SSH_ENV" ]; then
+        . "$SSH_ENV" > /dev/null
+        pgrep ssh-agent | grep -q ${SSH_AGENT_PID} && AGENT_READY=1
+    fi
 
-ssh_start_agent() {
-    echo ""
-    echo -n "Initialising new SSH agent... "
-    ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
-    echo "done"
-    chmod 600 "$SSH_ENV"
-    . "$SSH_ENV" > /dev/null
-}
+    if [ -z "$AGENT_READY" ]; then
+        echo ""
+        echo -n "Initialising new SSH agent... "
+        ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
+        echo "done"
+        chmod 600 "$SSH_ENV"
+        . "$SSH_ENV" > /dev/null
+    fi
 
-if [ -f "$SSH_ENV" ]; then
-    . "$SSH_ENV" > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        ssh_start_agent
-    }
-else
-    ssh_start_agent
-fi
-
-# Check if the default key was already added to the agent
-if ! ssh-add -l | grep -q $(ssh-keygen -lf ~/.ssh/id_ed25519.pub | cut -d' ' -f2); then
-	echo "Please add your default key to the agent."
-	ssh-add
+    if ! ssh-add -l | grep -q $(ssh-keygen -lf ${SSH_KEY}.pub | cut -d' ' -f2); then
+        echo "Please add your default key to the agent."
+        ssh-add $SSH_KEY
+    fi
 fi
 
 # Save aliases in .bash_aliases so fish can import it later
