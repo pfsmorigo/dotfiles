@@ -45,6 +45,8 @@ set $colors_focused_inactive #333333 #5F676A #FFFFFF #484E50 #5F676A
 set $colors_unfocused        #333333 #222222 #888888 #292D2E #222222
 set $colors_urgent           #2F343A #900000 #FFFFFF #900000 #900000
 set $colors_placeholder      #000000 #0C0C0C #FFFFFF #000000 #0C0C0C
+set $separator               #7764D8
+set $separator_symbol        "♦"
 
 client.focused          $colors_focused
 client.focused_inactive $colors_focused_inactive
