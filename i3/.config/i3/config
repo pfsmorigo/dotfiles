@@ -1,5 +1,3 @@
-# vim: filetype=config
-
 set $mod Mod4
 set $alt Mod1
 set $resize_value 10
@@ -489,3 +487,44 @@ bindsym $mod+button3 floating toggle
 # The side buttons move the window around
 bindsym button9 move left
 bindsym button8 move right
+
+bindsym $mod+n bar mode toggle
+
+bar {
+	position top
+	strip_workspace_numbers yes
+	status_command i3blocks -c ~/.config/i3blocks/config-`hostname`
+	separator_symbol $separator_symbol
+	modifier Mod3
+
+	colors {
+		separator           $separator
+		focused_workspace   $colors_focused
+		active_workspace    $colors_focused_inactive
+		inactive_workspace  $colors_unfocused
+		urgent_workspace    $colors_urgent
+	}
+
+}
+
+bar {
+    mode hide
+    hidden_state hide
+    tray_output none
+
+	position top
+	strip_workspace_numbers yes
+	status_command i3blocks -c ~/.config/i3blocks/config-secondary
+	separator_symbol $separator_symbol
+	modifier Mod3
+
+	colors {
+		separator           $separator
+		focused_workspace   $colors_focused
+		active_workspace    $colors_focused_inactive
+		inactive_workspace  $colors_unfocused
+		urgent_workspace    $colors_urgent
+	}
+}
+
+# vim: filetype=config
