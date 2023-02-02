@@ -1,0 +1,40 @@
+[[keys]]
+  index = 0
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "assets/back.png"
+  [keys.action]
+    deck = "~/.config/deckmaster/main.toml"
+
+[[keys]]
+  index = 5
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "assets/brightness_h.png"
+  [keys.action]
+    device = "brightness+10"
+  [keys.action_hold]
+    device = "brightness=100"
+
+[[keys]]
+  index = 10
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "assets/brightness_l.png"
+  [keys.action]
+    device = "brightness-10"
+  [keys.action_hold]
+    device = "brightness=0"
+
+[[keys]]
+  index = 14
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      label = "Sleep"
+  [keys.action]
+    device = "sleep"
+    deck = "~/.config/deckmaster/main.toml"

@@ -4,8 +4,14 @@ align=center
 color=#ffffff
 separator=true
 separator_block_width=20
-command=$HOME/scripts/i3blocks/$BLOCK_NAME
 markup=pango
+command=$HOME/scripts/i3blocks/$BLOCK_NAME
+
+# Soon
+#border_top=0
+#border_left=0
+#border_right=0
+#border_bottom=4
 
 [capslock]
 interval=once
@@ -20,9 +26,6 @@ interval=30
 
 [machines]
 interval=30
-
-[rhythmbox]
-interval=10
 
 [watson]
 interval=60
@@ -58,7 +61,7 @@ label=S
 interval=30
 
 [disk]
-label=S
+label=🖴 S
 instance=/
 interval=30
 
@@ -102,6 +105,7 @@ interval=15
 signal=10
 
 [stopwatch_countdown]
+label=🕓
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 
@@ -109,15 +113,15 @@ instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 interval=600
 
 [time]
-command=TZ=US/Central date +"%kh%M %Z" | sed 's/^ //g'
+command=TZ=US/Central date +"%kh%M %Z" | sed "s/^ //g"
 interval=30
 
 [time]
-command=TZ=America/New_York date +"%kh%M %Z" | sed 's/^ //g'
+command=TZ=America/New_York date +"%kh%M %Z" | sed "s/^ //g"
 interval=30
 
 [time]
-command=date '+%a, %b %d %H:%M:%S'
+command=date "+%a, %b %d %H:%M:%S"
 interval=5
 
 separator_block_width=5

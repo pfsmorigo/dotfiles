@@ -3,7 +3,7 @@ Description=Deckmaster Service
 
 [Service]
 # adjust the path to deckmaster and .deck file to suit your needs
-ExecStart=%h/go/bin/deckmaster --deck %h/.config/deckmaster/main.deck
+ExecStart=%h/go/bin/deckmaster --deck %h/.config/deckmaster/main.toml
 Restart=on-failure
 ExecReload=kill -HUP $MAINPID
 
