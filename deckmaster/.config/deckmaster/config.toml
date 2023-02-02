@@ -12,7 +12,7 @@
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "assets/brightness_h.png"
+      icon = "assets/brightness_high.png"
   [keys.action]
     device = "brightness+10"
   [keys.action_hold]
@@ -23,7 +23,7 @@
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      icon = "assets/brightness_l.png"
+      icon = "assets/brightness_low.png"
   [keys.action]
     device = "brightness-10"
   [keys.action_hold]
