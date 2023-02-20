@@ -5,8 +5,8 @@
     [keys.widget.config]
       mode = "cpu"
       fillColor = "#00f"
-	  borderColor = "#000"
-      history = 100
+	  borderColor = "#00f"
+      history = 10
 
 [[keys]]
   index = 1
@@ -15,8 +15,8 @@
     [keys.widget.config]
       mode = "memory"
       fillColor = "#090"
-      borderColor = "#000"
-      history = 100
+      borderColor = "#090"
+      history = 10
 
 [[keys]]
   index = 2

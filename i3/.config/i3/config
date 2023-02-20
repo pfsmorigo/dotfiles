@@ -272,7 +272,8 @@ bindsym XF86AudioNext              exec --no-startup-id playerctl next
 #bindsym XF86AudioRecord            exec zenity --info --text "Define Audio Record"
 
 # Other binds
-bindsym Print                      exec /usr/bin/xfce4-screenshooter
+bindsym Print                      exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshot_$(date +'%F_%H-%M-%S').png"
+bindsym Shift+Print                exec --no-startup-id /usr/bin/xfce4-screenshooter
 
 bindsym $mod+Control+F1            exec ~/.local/bin/automatic home
 
@@ -403,6 +404,8 @@ for_window [class="Ledger Live"] floating enable
 for_window [class="Yubico Authenticator"] floating enable, sticky enable
 for_window [class="Usb-creator-gtk"] floating enable
 for_window [class="Imager"] floating enable
+for_window [class="Thunar"] border none
+for_window [class="streamdeck"] floating enable
 for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable

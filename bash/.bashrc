@@ -113,8 +113,14 @@ alias m="time make -j$(\grep -c ^proc /proc/cpuinfo)"
 alias s="screen_switch"
 alias b="buku --np --oa -S"
 
-alias google-chrome="google-chrome --force-device-scale-factor=1.2 --force-dark-mode"
 alias abook="abook --config $HOME/.config/abook/abookrc --datafile $HOME/.config/abook/addressbook"
+
+if [ -e /usr/bin/bluetoothctl ]; then
+	alias connect_buds="bluetoothctl connect $(bluetoothctl devices | grep 'Galaxy Buds2' | cut -d' ' -f2)"
+	alias connect_sony="bluetoothctl connect $(bluetoothctl devices | grep 'WH-1000XM4' | cut -d' ' -f2)"
+fi
+
+alias ip="ip -color=auto"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -184,7 +190,7 @@ if [ -e $SSH_KEY ]; then
     fi
 fi
 
+test -f ~/.bash_ubuntusec && . ~/.bash_ubuntusec
+
 # Save aliases in .bash_aliases so fish can import it later
 alias > ~/.bash_aliases
-
-test -f ~/.bash_ubuntusec && . ~/.bash_ubuntusec

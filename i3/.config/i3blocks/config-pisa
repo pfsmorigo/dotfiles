@@ -92,13 +92,6 @@ interval=30
 [temperature]
 interval=2
 
-separator_block_width=5
-separator=false
-
-[hddtemp]
-command=nc -w1 localhost 7634 | awk -F'|' '{print $4 "°C " $9 "°C " $14 "°C"}'
-interval=5
-
 [volume-pulseaudio]
 command=$HOME/projects/i3blocks-contrib/volume-pulseaudio/$BLOCK_NAME -d -F "\$VOL% \$NAME" -f "\$VOL%"
 interval=15
