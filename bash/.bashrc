@@ -97,6 +97,7 @@ alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
 alias gd="git diff"
+alias gds="git diff --staged"
 alias gl="git log"
 alias gll="git log2"
 alias gs="git status"
@@ -146,6 +147,8 @@ export BROWSER="$HOME/.local/bin/openurl"
 
 export GPG_TTY=$(tty)
 
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
 export PASSWORD_STORE_CHARACTER_SET="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.\+\-@:;"
 export PASSWORD_STORE_GENERATED_LENGTH="20"
 
@@ -166,28 +169,12 @@ export NOTMUCH_CONFIG="$HOME/.config/notmuch/default"
 # If there is a X server running
 xset q &> /dev/null && test -f /usr/bin/xrdb && xrdb ~/.Xresources
 
-# use an existing environment if it is running, otherwise start a new agent
-SSH_ENV="$HOME/.ssh/environment"
 SSH_KEY="$HOME/.ssh/id_ed25519"
 if [ -e $SSH_KEY ]; then
-    if [ -e "$SSH_ENV" ]; then
-        . "$SSH_ENV" > /dev/null
-        pgrep ssh-agent | grep -q ${SSH_AGENT_PID} && AGENT_READY=1
-    fi
-
-    if [ -z "$AGENT_READY" ]; then
-        echo ""
-        echo -n "Initialising new SSH agent... "
-        ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
-        echo "done"
-        chmod 600 "$SSH_ENV"
-        . "$SSH_ENV" > /dev/null
-    fi
-
-    if ! ssh-add -l | grep -q $(ssh-keygen -lf ${SSH_KEY}.pub | cut -d' ' -f2); then
-        echo "Please add your default key to the agent."
-        ssh-add $SSH_KEY
-    fi
+	if ! ssh-add -l | grep -q $(ssh-keygen -lf ${SSH_KEY}.pub | cut -d' ' -f2); then
+		echo "Please add your default key to the agent."
+		ssh-add $SSH_KEY
+	fi
 fi
 
 test -f ~/.bash_ubuntusec && . ~/.bash_ubuntusec
