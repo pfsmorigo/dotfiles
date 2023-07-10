@@ -169,7 +169,7 @@ bindsym $mod+F11 workspace $wF11
 bindsym $mod+F12 workspace $wF12
 
 # switch between the current and the previously focused one
-bindsym $mod+b workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+1   move container to workspace $w01
@@ -277,11 +277,8 @@ bindsym Shift+Print                exec --no-startup-id /usr/bin/xfce4-screensho
 
 bindsym $mod+Control+F1            exec ~/.local/bin/automatic home
 
-bindsym $mod+Tab                   exec /usr/bin/xfce4-popup-clipman
-bindsym $mod+Control+Tab           exec /usr/bin/xfce4-popup-clipman-actions
-#bindsym $mod+Tab                   exec /usr/bin/copyq toggle
-#bindsym $mod+Shift+Tab             exec /usr/bin/copyq menu
-#bindsym $mod+Control+Tab           exec /usr/bin/copyq action
+bindsym $mod+c                     exec /usr/bin/xfce4-popup-clipman
+bindsym $mod+Control+c             exec /usr/bin/xfce4-popup-clipman-actions
 
 bindsym $mod+Shift+W               exec ~/.local/bin/wallpaper
 bindsym $mod+Escape                exec  --no-startup-id xfce4-screensaver-command -l
@@ -316,7 +313,7 @@ assign [title="Minecraft Launcher"] $games
 assign [title="Minecraft*"] $games
 assign [title="NotesLogo"] $work
 assign [title="^Windows.* on QEMU/KVM$"] $windows
-assign [instance="Ultimaker-Cura"] $cura
+assign [instance="Ulti(M|m)aker-Cura"] $cura
 assign [instance="play.geforcenow.com"] $games
 assign [instance="crx_.*"] $webapp
 assign [class="steam_app_275850"] $games
@@ -406,6 +403,7 @@ for_window [class="Usb-creator-gtk"] floating enable
 for_window [class="Imager"] floating enable
 for_window [class="Thunar"] border none
 for_window [class="streamdeck"] floating enable
+for_window [class="Hugin"] floating enable
 for_window [instance="ingress.com__intel"] border none
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable

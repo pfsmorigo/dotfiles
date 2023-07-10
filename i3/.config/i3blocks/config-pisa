@@ -61,7 +61,7 @@ label=S
 interval=30
 
 [disk]
-label=🖴 S
+label=S
 instance=/
 interval=30
 
@@ -81,14 +81,6 @@ label=S
 instance=/storage
 interval=30
 
-separator_block_width=5
-separator=false
-
-[disk]
-label=W
-instance=/windows
-interval=30
-
 [temperature]
 interval=2
 
@@ -104,6 +96,10 @@ instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 
 [bitcoin 21000 24000]
 interval=600
+
+[xprintidle]
+command=$BLOCK_NAME
+interval=5
 
 [time]
 command=TZ=US/Central date +"%kh%M %Z" | sed "s/^ //g"
