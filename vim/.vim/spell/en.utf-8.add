@@ -74,8 +74,8 @@ IPv6
 jackson
 jaunty
 json
-KLM
 kFreeBSD
+KLM
 LDAP
 libavformat
 libjackson
@@ -93,6 +93,7 @@ lintian
 Linux
 linux
 localhost
+LTS
 lucid
 manpage
 manpages
@@ -104,6 +105,7 @@ mk
 murray
 mysql
 natty
+NVD
 opendmarc
 OpenStack
 pfsmorigo
@@ -139,6 +141,7 @@ ubuntu2
 ubuntu3
 ubuntu4
 ubuntu5
+UCT
 UINT64
 unix
 upnphttp

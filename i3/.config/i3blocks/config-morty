@@ -25,9 +25,6 @@ interval=5
 [networks]
 interval=5
 
-[vpn]
-interval=5
-
 [cpu_usage]
 interval=10
 
@@ -68,7 +65,6 @@ interval=30
 interval=2
 
 [volume-pulseaudio -d]
-command=$HOME/projects/i3blocks-contrib/volume-pulseaudio/$BLOCK_NAME -d -F "\$VOL% \$NAME" -f "\$VOL%"
 interval=once
 signal=10
 
@@ -79,9 +75,6 @@ interval=30
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 
-[battery]
-interval=30
-
 [datetime]
 interval=30
 
@@ -90,6 +83,9 @@ separator=false
 
 [mount /dev/mapper/manaus-home]
 interval=3
+
+[vpn]
+interval=5
 
 separator_block_width=5
 separator=false
