@@ -28,8 +28,10 @@
   [keys.widget]
     id = "time"
     [keys.widget.config]
-      format = "%l;%d;%M"
+      format = "%l;%d;%M-"
       font = "regular;bold;regular"
+  [keys.action]
+    deck = "~/.config/deckmaster/pings.toml"
 
 [[keys]]
   index = 4
@@ -64,6 +66,31 @@
     keycode = "Mute"
 
 [[keys]]
+  index = 7
+  [keys.widget]
+    id = "command"
+    [keys.widget.config]
+	  command = "ps --no-headers -o %cpu -p $(pgrep deckmaster)"
+
+[[keys]]
+  index = 8
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "assets/laptop.png"
+  [keys.action]
+    keycode = "F11"
+
+[[keys]]
+  index = 9
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "assets/desktop.png"
+  [keys.action]
+    keycode = "F12"
+
+[[keys]]
   index = 10
   [keys.widget]
     id = "button"
@@ -90,32 +117,32 @@
   [keys.widget]
     id = "command"
     [keys.widget.config]
-      command = "echo 'ESM Standup'; echo '14:00'"
-      font = "regular;bold" # optional
-      color = "#fefefe" # optional
-	  layout = "0x0+72x20;0x12+72x52" # optional
+      command = "echo GPU;~/scripts/all/deckmaster_helper nvidia temp;~/scripts/all/deckmaster_helper nvidia maxtemp"
+      font = "regular;bold"
+      color = "#fefefe"
+	  layout = "0x0+72x12;0x20+72x30;0x60+72x12"
 
 [[keys]]
   index = 13
   [keys.widget]
     id = "command"
     [keys.widget.config]
-      command = "echo 'Pomodoro'; ~/scripts/all/pomodoro"
-      font = "regular;bold" # optional
-      color = "#fefefe" # optional
-	  layout = "0x0+72x20;0x12+72x52" # optional
-  [keys.action]
-      exec = "~/scripts/all/pomodoro start"
-  [keys.action_hold]
-      exec = "~/scripts/all/pomodoro reset"
+      command = "echo GPU;~/scripts/all/deckmaster_helper nvidia fan;~/scripts/all/deckmaster_helper nvidia maxfan"
+      font = "regular;bold"
+      color = "#fefefe"
+	  layout = "0x0+72x12;0x20+72x30;0x60+72x12"
 
 [[keys]]
   index = 14
   [keys.widget]
     id = "command"
     [keys.widget.config]
-      command = "echo 'Downloads'; ls -a ~/downloads | wc -l"
-      font = "regular;bold" # optional
-      color = "#fefefe" # optional
-	  layout = "0x0+72x20;0x12+72x52" # optional
+      command = "echo 'Pomodoro'; ~/scripts/all/pomodoro"
+      font = "regular;bold"
+      color = "#fefefe"
+	  layout = "0x0+72x20;0x12+72x52"
+  [keys.action]
+      exec = "~/scripts/all/pomodoro start"
+  [keys.action_hold]
+      exec = "~/scripts/all/pomodoro reset"
 

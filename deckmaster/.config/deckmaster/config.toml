@@ -8,33 +8,47 @@
     deck = "~/.config/deckmaster/main.toml"
 
 [[keys]]
-  index = 5
-  [keys.widget]
-    id = "button"
-    [keys.widget.config]
-      icon = "assets/brightness_high.png"
-  [keys.action]
-    device = "brightness+10"
-  [keys.action_hold]
-    device = "brightness=100"
-
-[[keys]]
   index = 10
   [keys.widget]
     id = "button"
     [keys.widget.config]
       icon = "assets/brightness_low.png"
   [keys.action]
-    device = "brightness-10"
-  [keys.action_hold]
-    device = "brightness=0"
+    device = "sleep"
+    deck = "~/.config/deckmaster/main.toml"
+
+[[keys]]
+  index = 11
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "assets/brightness_25.png"
+  [keys.action]
+    device = "brightness=15"
+
+[[keys]]
+  index = 12
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "assets/brightness_50.png"
+  [keys.action]
+    device = "brightness=30"
+
+[[keys]]
+  index = 13
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "assets/brightness_75.png"
+  [keys.action]
+    device = "brightness=40"
 
 [[keys]]
   index = 14
   [keys.widget]
     id = "button"
     [keys.widget.config]
-      label = "Sleep"
+      icon = "assets/brightness_high.png"
   [keys.action]
-    device = "sleep"
-    deck = "~/.config/deckmaster/main.toml"
+    device = "brightness=100"

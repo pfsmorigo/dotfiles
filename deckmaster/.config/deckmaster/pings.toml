@@ -1,0 +1,20 @@
+[[keys]]
+  index = 0
+  interval = 5000
+  [keys.widget]
+    id = "command"
+    [keys.widget.config]
+      command = "echo morty;~/scripts/all/deckmaster_helper ping morty-wifi.lan"
+      font = "regular;bold"
+      color = "#fefefe"
+	  layout = "0x0+72x12;0x20+72x30"
+
+[[keys]]
+  index = 14
+  [keys.widget]
+    id = "button"
+    [keys.widget.config]
+      icon = "assets/back.png"
+  [keys.action]
+    deck = "~/.config/deckmaster/main.toml"
+
