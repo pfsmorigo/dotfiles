@@ -46,7 +46,7 @@ URxvt*depth:               32
 URxvt*underlineColor:      yellow
 
 URxvt*letterSpace:         -1
-URxvt*font:                xft:Ubuntu Mono derivative Powerline:size=15
+URxvt*font:                xft:UbuntuMono Nerd Font:size=15
 
 ! Perl extensions
 URxvt*perl-ext-common:     default,matcher,font-size

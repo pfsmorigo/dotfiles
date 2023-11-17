@@ -52,7 +52,7 @@ client.unfocused        $colors_unfocused
 client.urgent           $colors_urgent
 client.placeholder      $colors_placeholder
 
-font pango:FontAwesome Solid 11.5, Ubuntu Bold 11.5
+font pango:UbuntuMono Nerd Font 11.5, Ubuntu Bold 11.5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
