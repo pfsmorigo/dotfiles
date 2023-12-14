@@ -68,6 +68,20 @@ interval=2
 interval=once
 signal=10
 
+separator_block_width=0
+separator=false
+
+[bluetooth-device Buds2 󱡏]
+interval=once
+signal=10
+
+separator_block_width=0
+separator=false
+
+[bluetooth-device 1000XM4 󰋋]
+interval=once
+signal=10
+
 [pulseaudio-server pisa]
 interval=30
 
