@@ -177,7 +177,7 @@ if [ -e $SSH_KEY ]; then
 	fi
 fi
 
-test -f ~/.bash_ubuntusec && . ~/.bash_ubuntusec
+for FILE in $(find ~/.config/bash/ -type f,l) ~/.bash_ubuntusec; do test -f $FILE && source $FILE; done
 
 # Save aliases in .bash_aliases so fish can import it later
 alias > ~/.bash_aliases
