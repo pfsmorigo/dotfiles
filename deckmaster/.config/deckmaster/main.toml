@@ -117,7 +117,7 @@
   [keys.widget]
     id = "command"
     [keys.widget.config]
-      command = "echo GPU;~/scripts/all/deckmaster_helper nvidia temp;~/scripts/all/deckmaster_helper nvidia maxtemp"
+      command = "echo GPU;~/scripts/all/deckmaster_helper gpu_temp big;~/scripts/all/deckmaster_helper gpu_temp small"
       font = "regular;bold"
       color = "#fefefe"
 	  layout = "0x0+72x12;0x20+72x30;0x60+72x12"
@@ -127,7 +127,7 @@
   [keys.widget]
     id = "command"
     [keys.widget.config]
-      command = "echo GPU;~/scripts/all/deckmaster_helper nvidia fan;~/scripts/all/deckmaster_helper nvidia maxfan"
+      command = "echo GPU;~/scripts/all/deckmaster_helper gpu_power big;~/scripts/all/deckmaster_helper gpu_power small"
       font = "regular;bold"
       color = "#fefefe"
 	  layout = "0x0+72x12;0x20+72x30;0x60+72x12"

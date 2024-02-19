@@ -1,6 +1,6 @@
 #!/bin/fish
 
-function change_release
+function __release_builddir
 	set DIR $PWD
 	set REL $argv
 

@@ -32,8 +32,9 @@ set $dev       24:💻
 set $dia       25:dia
 set $zoom      26:zoom
 set $games     27:🎮
-set $selenium  29:selenium
-set $cura      29:🎲
+set $selenium  28:selenium
+set $print3d   29:🎲
+set $resolve   30:resolve
 
 # class                      border  bground text    indic.  child_border
 #set $colors_focused          #4C7899 #7764D8 #FFFFFF #7764D8 #7764D8  # theme blue
@@ -296,28 +297,28 @@ assign [class="(F|f)irefox"] $www
 assign [class="Gimp"] $gimp
 assign [class="Gitk"] $dev
 assign [class="Meld"] $dev
-assign [class="Notes"] $work
 assign [class="Rhythmbox"] $rhythmbox
-assign [class="Steam*"] $games
-assign [class="Unturned*"] $games
-assign [class="ioquake3.x86*"] $games
-assign [class="StardewValley*"] $games
 assign [class="zoom"] $zoom
 assign [instance="(G|g)oogle-chrome \(\/tmp\/\.org\.chromium\.Chromium\.*"] $selenium
 assign [instance="(G|g)oogle-chrome"] $www
+assign [title="^Windows.* on QEMU/KVM$"] $windows
+assign [instance="Ulti(M|m)aker-Cura"] $print3d
+assign [class="PrusaSlicer"] $print3d
+assign [instance="crx_.*"] $webapp
+assign [class="resolve"] $resolve
+assign [class="(S|s)team*"] $games
+assign [class="Unturned*"] $games
+assign [class="ioquake3.x86*"] $games
+assign [class="StardewValley*"] $games
 assign [instance="ingress.com__intel"] $games
-assign [title="(IBM|Lotus) Notes*"] $work
 assign [title="MCEdit *"] $games
 assign [title="Magic Launcher"] $games
-assign [title="Minecraft Launcher"] $games
+assign [instance="minecraft-launcher"] $games
 assign [title="Minecraft*"] $games
-assign [title="NotesLogo"] $work
-assign [title="^Windows.* on QEMU/KVM$"] $windows
-assign [instance="Ulti(M|m)aker-Cura"] $cura
 assign [instance="play.geforcenow.com"] $games
-assign [instance="crx_.*"] $webapp
 assign [class="steam_app_275850"] $games
 
+for_window [class="UltiMaker-Cura" title="Preferences"] floating enable, border normal
 
 for_window [class="(G|g)oogle-chrome"] border none
 for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable, border normal
@@ -418,8 +419,10 @@ for_window [title="^QEMU$"] floating enable
 for_window [title="pass: .*"] floating enable
 for_window [title="IRPF .*"] floating enable
 for_window [title="^Windows.* on QEMU/KVM$"] floating disable, border none
+for_window [title="^CubicSDR :: SDR Devices$"] floating enable, border none
 for_window [instance="meet.google.com"] floating enable, border none, sticky enable, resize set width 1024 px height 768 px
 for_window [instance="steam_app_1174180"] floating enable
+for_window [instance="steamwebhelper"] floating enable
 for_window [instance="URxvtRemote"] border normal, title_format "<span foreground='#ffff00'>%title</span>"
 for_window [instance="play.geforcenow.com"] floating disable, border none
 for_window [instance="crx_.*"] floating disable, border none
@@ -445,6 +448,9 @@ exec --no-startup-id /usr/libexec/deja-dup/deja-dup-monitor
 exec --no-startup-id /snap/bin/syncthing
 exec --no-startup-id $HOME/.local/bin/wallpaper
 exec --no-startup-id $HOME/scripts/desktop/keyboardleds.py
+
+# Chrome required picom to render menus
+#exec --no-startup-id /usr/bin/picom
 
 set $system_menu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"
 mode $system_menu {
