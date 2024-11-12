@@ -13,6 +13,9 @@ command=$HOME/scripts/i3blocks/$BLOCK_NAME
 #border_right=0
 #border_bottom=4
 
+[foxbit.py]
+interval=15
+
 [capslock]
 interval=once
 signal=11
@@ -120,6 +123,10 @@ interval=30
 
 [time]
 command=date "+%a, %b %d %H:%M:%S"
+interval=5
+
+[countdown_days 2024-10-18]
+label=Sprint
 interval=5
 
 separator_block_width=5

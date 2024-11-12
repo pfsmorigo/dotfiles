@@ -2,37 +2,24 @@ set $mod Mod4
 set $alt Mod1
 set $resize_value 10
 
-set $w01  1:一
-set $w02  2:二
-set $w03  3:三
-set $w04  4:四
-set $w05  5:五
-set $w06  6:六
-set $w07  7:七
-set $w08  8:八
-set $w09  9:九
-set $w10 10:十
-
-set $wF1  20:🌎
-set $wF2  21:🛠️
 set $wF3  22:⊞
 set $wF4  23:🎨
 set $wF5  24:💻
 set $wF6  25:dia
 set $wF7  26:zoom
-set $wF8  27:🎮
-set $wF9  28:selenium
+set $wF9  28:🛠️
 set $wF10 29:🎲
 
 set $www       20:🌎
-set $webapp    21:🛠️
+set $obsidian  21:󰇈
+set $games     27:🎮
+
 set $windows   22:⊞
 set $gimp      23:🎨
 set $dev       24:💻
 set $dia       25:dia
 set $zoom      26:zoom
-set $games     27:🎮
-set $selenium  28:selenium
+set $webapp    28:🛠️
 set $print3d   29:🎲
 set $resolve   30:resolve
 
@@ -116,6 +103,9 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
+# rename workspaces
+bindsym $mod+Control+r exec i3-msg "rename workspace to $(i3-msg -t get_workspaces | jq -r 'map(select(.focused))[0].num'):$(rofi -dmenu -p 'Workspace name')"
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -139,31 +129,34 @@ bindsym $mod+a focus parent
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
-# # Show the first scratchpad window
+# Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+
+# Show chatgpt
+bindsym $mod+i [instance="chat.chatbotapp.ai"] scratchpad show
 
 bindsym $mod+equal sticky toggle
 
 # switch to workspace
-bindsym $mod+1   workspace $w01
-bindsym $mod+2   workspace $w02
-bindsym $mod+3   workspace $w03
-bindsym $mod+4   workspace $w04
-bindsym $mod+5   workspace $w05
-bindsym $mod+6   workspace $w06
-bindsym $mod+7   workspace $w07
-bindsym $mod+8   workspace $w08
-bindsym $mod+9   workspace $w09
-bindsym $mod+0   workspace $w10
+bindsym $mod+1   workspace number 1
+bindsym $mod+2   workspace number 2
+bindsym $mod+3   workspace number 3
+bindsym $mod+4   workspace number 4
+bindsym $mod+5   workspace number 5
+bindsym $mod+6   workspace number 6
+bindsym $mod+7   workspace number 7
+bindsym $mod+8   workspace number 8
+bindsym $mod+9   workspace number 9
+bindsym $mod+0   workspace number 10
 
-bindsym $mod+F1  workspace $wF1
-bindsym $mod+F2  workspace $wF2
+bindsym $mod+Control+W workspace $www
+bindsym $mod+Control+O workspace $obsidian
+bindsym $mod+Control+G workspace $games
 bindsym $mod+F3  workspace $wF3
 bindsym $mod+F4  workspace $wF4
 bindsym $mod+F5  workspace $wF5
 bindsym $mod+F6  workspace $wF6
 bindsym $mod+F7  workspace $wF7
-bindsym $mod+F8  workspace $wF8
 bindsym $mod+F9  workspace $wF9
 bindsym $mod+F10 workspace $wF10
 bindsym $mod+F11 workspace $wF11
@@ -173,25 +166,25 @@ bindsym $mod+F12 workspace $wF12
 bindsym $mod+Tab workspace back_and_forth
 
 # move focused container to workspace
-bindsym $mod+Shift+1   move container to workspace $w01
-bindsym $mod+Shift+2   move container to workspace $w02
-bindsym $mod+Shift+3   move container to workspace $w03
-bindsym $mod+Shift+4   move container to workspace $w04
-bindsym $mod+Shift+5   move container to workspace $w05
-bindsym $mod+Shift+6   move container to workspace $w06
-bindsym $mod+Shift+7   move container to workspace $w07
-bindsym $mod+Shift+8   move container to workspace $w08
-bindsym $mod+Shift+9   move container to workspace $w09
-bindsym $mod+Shift+0   move container to workspace $w10
+bindsym $mod+Shift+1   move container to workspace number 1
+bindsym $mod+Shift+2   move container to workspace number 2
+bindsym $mod+Shift+3   move container to workspace number 3
+bindsym $mod+Shift+4   move container to workspace number 4
+bindsym $mod+Shift+5   move container to workspace number 5
+bindsym $mod+Shift+6   move container to workspace number 6
+bindsym $mod+Shift+7   move container to workspace number 7
+bindsym $mod+Shift+8   move container to workspace number 8
+bindsym $mod+Shift+9   move container to workspace number 9
+bindsym $mod+Shift+0   move container to workspace number 10
 
-bindsym $mod+Shift+F1  move container to workspace $wF1
-bindsym $mod+Shift+F2  move container to workspace $wF2
+bindsym $mod+Shift+W   move container to workspace $www
+bindsym $mod+Shift+O   move container to workspace $obsidian
+bindsym $mod+Shift+G   move container to workspace $games
 bindsym $mod+Shift+F3  move container to workspace $wF3
 bindsym $mod+Shift+F4  move container to workspace $wF4
 bindsym $mod+Shift+F5  move container to workspace $wF5
 bindsym $mod+Shift+F6  move container to workspace $wF6
 bindsym $mod+Shift+F7  move container to workspace $wF7
-bindsym $mod+Shift+F8  move container to workspace $wF8
 bindsym $mod+Shift+F9  move container to workspace $wF9
 bindsym $mod+Shift+F10 move container to workspace $wF10
 bindsym $mod+Shift+F11 move container to workspace $wF11
@@ -274,14 +267,16 @@ bindsym XF86AudioNext              exec --no-startup-id playerctl next
 
 # Other binds
 bindsym Print                      exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshot_$(date +'%F_%H-%M-%S').png"
+bindsym $mod+p                     exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshot_$(date +'%F_%H-%M-%S').png"
 bindsym Shift+Print                exec --no-startup-id /usr/bin/xfce4-screenshooter
+bindsym $mod+Shift+P               exec --no-startup-id /usr/bin/xfce4-screenshooter
 
 bindsym $mod+Control+F1            exec ~/.local/bin/automatic home
 
 bindsym $mod+c                     exec /usr/bin/xfce4-popup-clipman
 bindsym $mod+Control+c             exec /usr/bin/xfce4-popup-clipman-actions
 
-bindsym $mod+Shift+W               exec ~/.local/bin/wallpaper
+bindsym $mod+Control+Shift+W       exec ~/.local/bin/wallpaper
 bindsym $mod+Escape                exec  --no-startup-id xfce4-screensaver-command -l
 bindsym $mod+Delete                mode $system_menu
 bindsym $mod+Shift+Delete          mode $size_menu
@@ -292,19 +287,20 @@ bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 
 #assign [class="Chromium-browser"] $www
-assign [class="Dia$"] $dia
 assign [class="(F|f)irefox"] $www
+assign [instance="(G|g)oogle-chrome"] $www
+assign [class="obsidian"] $obsidian
+assign [class="Dia$"] $dia
 assign [class="Gimp"] $gimp
 assign [class="Gitk"] $dev
 assign [class="Meld"] $dev
 assign [class="Rhythmbox"] $rhythmbox
 assign [class="zoom"] $zoom
-assign [instance="(G|g)oogle-chrome \(\/tmp\/\.org\.chromium\.Chromium\.*"] $selenium
-assign [instance="(G|g)oogle-chrome"] $www
+assign [instance="(G|g)oogle-chrome \(\/tmp\/\.org\.chromium\.Chromium\.*"] $webapp
+assign [instance="crx_.*"] $webapp
 assign [title="^Windows.* on QEMU/KVM$"] $windows
 assign [instance="Ulti(M|m)aker-Cura"] $print3d
 assign [class="PrusaSlicer"] $print3d
-assign [instance="crx_.*"] $webapp
 assign [class="resolve"] $resolve
 assign [class="(S|s)team*"] $games
 assign [class="Unturned*"] $games
@@ -405,7 +401,8 @@ for_window [class="Imager"] floating enable
 for_window [class="Thunar"] border none
 for_window [class="streamdeck"] floating enable
 for_window [class="Hugin"] floating enable
-for_window [instance="ingress.com__intel"] border none
+for_window [class="org.remmina.Remmina"] floating enable
+for_window [class="Solaar"] floating enable
 for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
 for_window [title="Minecraft*"] border none
@@ -420,27 +417,30 @@ for_window [title="pass: .*"] floating enable
 for_window [title="IRPF .*"] floating enable
 for_window [title="^Windows.* on QEMU/KVM$"] floating disable, border none
 for_window [title="^CubicSDR :: SDR Devices$"] floating enable, border none
+for_window [instance="ingress.com__intel"] border none
 for_window [instance="meet.google.com"] floating enable, border none, sticky enable, resize set width 1024 px height 768 px
 for_window [instance="steam_app_1174180"] floating enable
 for_window [instance="steamwebhelper"] floating enable
 for_window [instance="URxvtRemote"] border normal, title_format "<span foreground='#ffff00'>%title</span>"
 for_window [instance="play.geforcenow.com"] floating disable, border none
 for_window [instance="crx_.*"] floating disable, border none
+for_window [instance="chat.chatbotapp.ai"] move to scratchpad, border none, resize set width 1536 px height 1152 px
 
 # Start some util apps
 #exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 #exec --no-startup-id /usr/libexec/gnome-settings-daemon
 #exec --no-startup-id /usr/bin/autossh -M 22116 -fTN rick-znc
 #exec --no-startup-id $HOME/.local/bin/myconky
-exec --no-startup-id /usr/bin/blueman-applet
 #exec --no-startup-id $HOME/.local/bin/dropbox_monitor
+#exec --no-startup-id /usr/bin/copyq
+exec --no-startup-id /usr/bin/systemctl --user start ssh-agent
+exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/xfsettingsd
 exec --no-startup-id /usr/bin/xfce4-power-manager
 exec --no-startup-id /usr/bin/xfce4-screensaver
 exec --no-startup-id /usr/bin/xfce4-clipman
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
-#exec --no-startup-id /usr/bin/copyq
 exec --no-startup-id /usr/bin/insync start
 exec --no-startup-id /usr/bin/barrier
 exec --no-startup-id /usr/bin/xhost +local:
