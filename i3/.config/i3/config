@@ -266,8 +266,8 @@ bindsym XF86AudioNext              exec --no-startup-id playerctl next
 #bindsym XF86AudioRecord            exec zenity --info --text "Define Audio Record"
 
 # Other binds
-bindsym Print                      exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshot_$(date +'%F_%H-%M-%S').png"
-bindsym $mod+p                     exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshot_$(date +'%F_%H-%M-%S').png"
+bindsym Print                      exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshots/screenshot_$(date +'%F_%H-%M-%S').png"
+bindsym $mod+p                     exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshots/screenshot_$(date +'%F_%H-%M-%S').png"
 bindsym Shift+Print                exec --no-startup-id /usr/bin/xfce4-screenshooter
 bindsym $mod+Shift+P               exec --no-startup-id /usr/bin/xfce4-screenshooter
 
@@ -302,6 +302,10 @@ assign [title="^Windows.* on QEMU/KVM$"] $windows
 assign [instance="Ulti(M|m)aker-Cura"] $print3d
 assign [class="PrusaSlicer"] $print3d
 assign [class="resolve"] $resolve
+assign [instance="Ulti(M|m)aker-Cura"] $cura
+assign [instance="SuperSlicer"] $cura
+assign [instance="play.geforcenow.com"] $games
+assign [class="steam_app_275850"] $games
 assign [class="(S|s)team*"] $games
 assign [class="Unturned*"] $games
 assign [class="ioquake3.x86*"] $games
@@ -311,8 +315,6 @@ assign [title="MCEdit *"] $games
 assign [title="Magic Launcher"] $games
 assign [instance="minecraft-launcher"] $games
 assign [title="Minecraft*"] $games
-assign [instance="play.geforcenow.com"] $games
-assign [class="steam_app_275850"] $games
 
 for_window [class="UltiMaker-Cura" title="Preferences"] floating enable, border normal
 
@@ -425,6 +427,7 @@ for_window [instance="URxvtRemote"] border normal, title_format "<span foregroun
 for_window [instance="play.geforcenow.com"] floating disable, border none
 for_window [instance="crx_.*"] floating disable, border none
 for_window [instance="chat.chatbotapp.ai"] move to scratchpad, border none, resize set width 1536 px height 1152 px
+for_window [class="MPlayer"] floating enable, border none
 
 # Start some util apps
 #exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings

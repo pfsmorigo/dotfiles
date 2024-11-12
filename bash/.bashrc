@@ -147,7 +147,8 @@ export BROWSER="$HOME/.local/bin/openurl"
 
 export GPG_TTY=$(tty)
 
-export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+#export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 export PASSWORD_STORE_CHARACTER_SET="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.\+\-@:;"
 export PASSWORD_STORE_GENERATED_LENGTH="20"

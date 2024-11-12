@@ -16,8 +16,8 @@ interval=30
 [nordvpn]
 interval=30
 
-[dollar_ptax]
-interval=60
+#[dollar_ptax]
+#interval=60
 
 [bandwidth -i ↓ -o ↑]
 interval=5
@@ -85,12 +85,15 @@ signal=10
 [pulseaudio-server pisa]
 interval=30
 
+[datetime]
+interval=30
+
+separator_block_width=5
+separator=false
+
 [stopwatch_countdown]
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
-
-[datetime]
-interval=30
 
 separator_block_width=5
 separator=false
@@ -99,6 +102,9 @@ separator=false
 interval=3
 
 [vpn]
+interval=5
+
+[wireguard wg0]
 interval=5
 
 separator_block_width=5

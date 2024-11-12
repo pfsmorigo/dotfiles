@@ -26,6 +26,10 @@ set tabpagemax=100
 set errorformat+=remote:\ %f:%l:%c:%m
 set title
 
+let $notes_path = $HOME . '/obsidian/main'
+let $todotxt_todo_path = $notes_path . '/todo.txt/todo.txt'
+let $todotxt_done_path = $notes_path . '/todo.txt/done.txt'
+
 if &t_Co == 256
 	hi CursorLine  ctermbg=235  ctermfg=NONE     cterm=NONE
 	hi LineNr      ctermbg=NONE ctermfg=DarkGrey cterm=NONE    term=bold
@@ -119,8 +123,8 @@ autocmd BufRead,BufNewFile ~/ubuntu/packages/* set makeprg=umt\ build\ -f
 autocmd BufRead,BufNewFile ~/.Xresources       set makeprg=xrdb\ ~/.Xresources
 
 map <F5> :make<CR><CR>
-map <leader>t :tabe ~/snap/syncthing/common/notes/todo.txt/todo.txt<CR>
-map <leader>T :tabe ~/snap/syncthing/common/notes/todo.txt/done.txt<CR>
+map <leader>t :tabe $todotxt_todo_path<CR>
+map <leader>T :tabe $todotxt_done_path<CR>
 map <leader>l :tabe ~/money/ledger/inbox.ledger<CR>
 
 autocmd FileType json map <F2> :%!python3 -m json.tool<CR>
@@ -201,8 +205,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	let g:vimwiki_url_maxsave = 0
 	let g:vimwiki_use_mouse = 1
 	let s:vimwiki_pvt = {}
-	let s:vimwiki_pvt.path             = '~/snap/syncthing/common/notes'
-	let s:vimwiki_pvt.path_html        = '~/snap/syncthing/common/notes/html'
+	let s:vimwiki_pvt.path             = $notes_path
+	let s:vimwiki_pvt.path_html        = $notes_path . '/html'
 	let s:vimwiki_pvt.ext              = '.md'
 	let s:vimwiki_pvt.syntax           = 'markdown'
 	let s:vimwiki_pvt.diary_rel_path   = 'diary/'
