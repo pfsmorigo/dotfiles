@@ -152,6 +152,7 @@ bindsym $mod+0   workspace number 10
 bindsym $mod+Control+W workspace $www
 bindsym $mod+Control+O workspace $obsidian
 bindsym $mod+Control+G workspace $games
+bindsym $mod+Control+B [class="Blueman-manager"] scratchpad show
 bindsym $mod+F3  workspace $wF3
 bindsym $mod+F4  workspace $wF4
 bindsym $mod+F5  workspace $wF5
@@ -323,7 +324,7 @@ for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable, bor
 for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Birdie"] floating enable
-for_window [class="Blueman-manager"] floating enable
+for_window [class="Blueman-manager"] floating enable, move to scratchpad, resize set width 800 px height 600 px
 for_window [class="Cheese"] floating enable
 for_window [class="Conky"] floating disable, move right
 for_window [class="Ultimaker-Cura"] border none
