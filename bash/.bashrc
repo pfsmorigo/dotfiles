@@ -115,6 +115,7 @@ alias s="screen_switch"
 alias b="buku --np --oa -S"
 
 alias abook="abook --config $HOME/.config/abook/abookrc --datafile $HOME/.config/abook/addressbook"
+alias file_explorer="nautilus"
 
 if [ -e /usr/bin/bluetoothctl ]; then
 	alias connect_buds="bluetoothctl connect $(bluetoothctl devices | grep 'Galaxy Buds2' | cut -d' ' -f2)"
