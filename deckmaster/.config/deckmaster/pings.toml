@@ -4,7 +4,7 @@
   [keys.widget]
     id = "command"
     [keys.widget.config]
-      command = "echo morty;~/scripts/all/deckmaster_helper ping morty-wifi.lan"
+      command = "echo oslo;~/scripts/all/deckmaster_helper ping oslo-wifi.lan"
       font = "regular;bold"
       color = "#fefefe"
 	  layout = "0x0+72x12;0x20+72x30"
