@@ -9,6 +9,8 @@ configuration {
     background:                  #272727;
     background-color:            @background;
     foreground:                  #FFF;
+    highlight:                   #BBF;
+    scrollbar:                   #0F0;
 
     border-color:                #7764D8;
     separatorcolor:              @border-color;
