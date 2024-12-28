@@ -60,66 +60,58 @@ label=S
 interval=30
 
 [disk]
-label=S
-instance=/
-interval=30
-
-separator_block_width=5
-separator=false
-
-[disk]
 label=H
 instance=/home
 interval=30
 
-separator_block_width=5
-separator=false
+#separator_block_width=5
+#separator=false
 
-[disk]
-label=S
-instance=/storage
-interval=30
+#[disk]
+#label=S
+#instance=/storage
+#interval=30
 
 [temperature]
 interval=2
 
-[volume-pulseaudio -d]
+[volume-pipewire]
 interval=once
 signal=10
 
-separator_block_width=0
-separator=false
+#separator_block_width=0
+#separator=false
 
-[bluetooth-device Buds2 󱡏]
-interval=once
-signal=10
+#[bluetooth-device Buds2 󱡏]
+#interval=once
+#signal=10
 
-separator_block_width=0
-separator=false
+#separator_block_width=0
+#separator=false
 
-[bluetooth-device 1000XM4 󰋋]
-interval=once
-signal=10
+#[bluetooth-device 1000XM4 󰋋]
+#interval=once
+#signal=10
 
 [stopwatch_countdown]
 label=🕓
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 
-[bitcoin 21000 24000]
-interval=600
+#[bitcoin 21000 24000]
+#interval=600
 
-[xprintidle]
-command=$BLOCK_NAME
-interval=5
+#[xprintidle]
+#command=$BLOCK_NAME
+#interval=5
 
-[time]
-command=TZ=US/Central date +"%kh%M %Z" | sed "s/^ //g"
-interval=30
+#[time]
+#command=TZ=US/Central date +"%kh%M %Z" | sed "s/^ //g"
+#interval=30
 
-[time]
-command=TZ=America/New_York date +"%kh%M %Z" | sed "s/^ //g"
-interval=30
+#[time]
+#command=TZ=America/New_York date +"%kh%M %Z" | sed "s/^ //g"
+#interval=30
 
 [time]
 command=date "+%a, %b %d %H:%M:%S"
