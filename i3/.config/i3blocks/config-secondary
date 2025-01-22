@@ -35,38 +35,24 @@ separator=false
 interval=10
 
 [mem]
+label=R
 interval=30
 
 separator_block_width=5
 separator=false
 
 [mem swap]
+label=S
 interval=30
 
 [disk]
 instance=/
 interval=30
 
-separator_block_width=5
-separator=false
-
-[disk]
-instance=/home
-interval=30
-
 [temperature]
 interval=2
 
-[volume-pulseaudio -d]
-command=$HOME/projects/i3blocks-contrib/volume-pulseaudio/$BLOCK_NAME
-interval=once
-signal=10
-
-separator_block_width=10
-separator=false
-
-[volume]
-instance=Capture
+[volume-pipewire]
 interval=once
 signal=10
 

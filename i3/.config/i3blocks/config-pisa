@@ -34,6 +34,7 @@ command=watson status
 interval=5
 
 [networks]
+label=󱫋
 interval=5
 
 [vpn]
@@ -49,69 +50,38 @@ separator=false
 interval=10
 
 [mem]
-label=R
+label=󰍛
 interval=30
 
 separator_block_width=5
 separator=false
 
 [mem swap]
-label=S
+label=
 interval=30
 
 [disk]
-label=H
-instance=/home
+label=
+instance=/
 interval=30
-
-#separator_block_width=5
-#separator=false
-
-#[disk]
-#label=S
-#instance=/storage
-#interval=30
 
 [temperature]
 interval=2
 
-[volume-pipewire]
+#[volume-pipewire]
+#interval=once
+#signal=10
+
+[volume]
+command=$HOME/projects/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
+label=󰕾
 interval=once
 signal=10
-
-#separator_block_width=0
-#separator=false
-
-#[bluetooth-device Buds2 󱡏]
-#interval=once
-#signal=10
-
-#separator_block_width=0
-#separator=false
-
-#[bluetooth-device 1000XM4 󰋋]
-#interval=once
-#signal=10
 
 [stopwatch_countdown]
 label=🕓
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
-
-#[bitcoin 21000 24000]
-#interval=600
-
-#[xprintidle]
-#command=$BLOCK_NAME
-#interval=5
-
-#[time]
-#command=TZ=US/Central date +"%kh%M %Z" | sed "s/^ //g"
-#interval=30
-
-#[time]
-#command=TZ=America/New_York date +"%kh%M %Z" | sed "s/^ //g"
-#interval=30
 
 [time]
 command=date "+%a, %b %d %H:%M:%S"

@@ -2,25 +2,19 @@ set $mod Mod4
 set $alt Mod1
 set $resize_value 10
 
-set $wF3  22:⊞
-set $wF4  23:🎨
-set $wF5  24:💻
-set $wF6  25:dia
-set $wF7  26:zoom
-set $wF9  28:🛠️
+set $file_mgr  20:
+set $www       21:🌎
+set $obsidian  22:󰇈
+set $print3d   23:🎲
+set $games     24:🎮
 
-set $www       20:🌎
-set $obsidian  21:󰇈
-set $print3d   22:🎲
-set $games     23:🎮
-
-set $windows   24:⊞
-set $gimp      25:🎨
-set $dev       26:💻
-set $dia       27:dia
-set $zoom      28:zoom
-set $webapp    29:🛠️
-set $resolve   30:resolve
+set $windows   31:⊞
+set $gimp      32:🎨
+set $dev       33:💻
+set $dia       34:dia
+set $zoom      35:zoom
+set $webapp    36:🛠️
+set $resolve   37:resolve
 
 # class                      border  bground text    indic.  child_border
 #set $colors_focused          #4C7899 #7764D8 #FFFFFF #7764D8 #7764D8  # theme blue
@@ -148,19 +142,11 @@ bindsym $mod+8   workspace number 8
 bindsym $mod+9   workspace number 9
 bindsym $mod+0   workspace number 10
 
-bindsym $mod+Control+W workspace $www
-bindsym $mod+Control+O workspace $obsidian
+bindsym $mod+Control+W exec ~/scripts/all/i3switch $www      /usr/bin/google-chrome
+bindsym $mod+Control+E exec ~/scripts/all/i3switch $file_mgr /usr/bin/nautilus
+bindsym $mod+Control+O exec ~/scripts/all/i3switch $obsidian /snap/bin/obsidian
 bindsym $mod+Control+G workspace $games
 bindsym $mod+Control+D workspace $print3d
-bindsym $mod+Control+B [class="Blueman-manager"] scratchpad show
-bindsym $mod+F3  workspace $wF3
-bindsym $mod+F4  workspace $wF4
-bindsym $mod+F5  workspace $wF5
-bindsym $mod+F6  workspace $wF6
-bindsym $mod+F7  workspace $wF7
-bindsym $mod+F9  workspace $wF9
-bindsym $mod+F11 workspace $wF11
-bindsym $mod+F12 workspace $wF12
 
 # switch between the current and the previously focused one
 bindsym $mod+Tab workspace back_and_forth
@@ -178,24 +164,15 @@ bindsym $mod+Shift+9   move container to workspace number 9
 bindsym $mod+Shift+0   move container to workspace number 10
 
 bindsym $mod+Shift+W   move container to workspace $www
+bindsym $mod+Shift+E   move container to workspace $file_mgr
 bindsym $mod+Shift+O   move container to workspace $obsidian
 bindsym $mod+Shift+G   move container to workspace $games
 bindsym $mod+Shift+D   move container to workspace $print3d
-bindsym $mod+Shift+F3  move container to workspace $wF3
-bindsym $mod+Shift+F4  move container to workspace $wF4
-bindsym $mod+Shift+F5  move container to workspace $wF5
-bindsym $mod+Shift+F6  move container to workspace $wF6
-bindsym $mod+Shift+F7  move container to workspace $wF7
-bindsym $mod+Shift+F9  move container to workspace $wF9
-bindsym $mod+Shift+F11 move container to workspace $wF11
-bindsym $mod+Shift+F12 move container to workspace $wF12
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
         bindsym h resize shrink width  $resize_value px or $resize_value ppt
@@ -267,9 +244,8 @@ bindsym XF86AudioNext              exec --no-startup-id playerctl next
 
 # Other binds
 bindsym Print                      exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshots/screenshot_$(date +'%F_%H-%M-%S').png"
-bindsym $mod+p                     exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshots/screenshot_$(date +'%F_%H-%M-%S').png"
 bindsym Shift+Print                exec --no-startup-id /usr/bin/xfce4-screenshooter
-bindsym $mod+p                     exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshot_$(date +'%F_%H-%M-%S').png"
+bindsym $mod+p                     exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshots/screenshot_$(date +'%F_%H-%M-%S').png"
 bindsym $mod+Shift+P               exec --no-startup-id /usr/bin/xfce4-screenshooter
 
 bindsym $mod+Control+F1            exec ~/.local/bin/automatic home
@@ -307,7 +283,6 @@ assign [instance="minecraft-launcher"] $games
 assign [title="Minecraft*"] $games
 assign [instance="play.geforcenow.com"] $games
 assign [class="steam_app_"] $games
-assign [class="steam_app_990080"] $games
 assign [class="Dia$"] $dia
 assign [class="Gimp"] $gimp
 assign [class="Gitk"] $dev
@@ -318,6 +293,7 @@ assign [instance="(G|g)oogle-chrome \(\/tmp\/\.org\.chromium\.Chromium\.*"] $web
 assign [instance="crx_.*"] $webapp
 assign [title="^Windows.* on QEMU/KVM$"] $windows
 assign [class="resolve"] $resolve
+assign [class="org.gnome.Nautilus"] $file_mgr
 
 for_window [class="UltiMaker-Cura" title="Preferences"] floating enable, border normal
 
@@ -326,7 +302,7 @@ for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable, bor
 for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Birdie"] floating enable
-for_window [class="Blueman-manager"] floating enable, move to scratchpad, resize set width 800 px height 600 px
+for_window [class="Blueman-manager"] floating enable, resize set width 800 px height 600 px
 for_window [class="Cheese"] floating enable
 for_window [class="Conky"] floating disable, move right
 for_window [class="Ultimaker-Cura"] border none
@@ -424,8 +400,8 @@ for_window [title="^Windows.* on QEMU/KVM$"] floating disable, border none
 for_window [title="^CubicSDR :: SDR Devices$"] floating enable, border none
 for_window [instance="ingress.com__intel"] border none
 for_window [instance="meet.google.com"] floating enable, border none, sticky enable, resize set width 1024 px height 768 px
-for_window [instance="steam_app_1174180"] floating enable
-for_window [instance="steamwebhelper"] floating enable
+#for_window [instance="steam_app_1174180"] floating enable
+#for_window [instance="steamwebhelper"] floating enable
 for_window [instance="URxvtRemote"] border normal, title_format "<span foreground='#ffff00'>%title</span>"
 for_window [instance="play.geforcenow.com"] floating disable, border none
 for_window [instance="crx_.*"] floating disable, border none
