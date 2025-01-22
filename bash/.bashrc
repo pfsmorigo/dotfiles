@@ -115,7 +115,6 @@ alias s="screen_switch"
 alias b="buku --np --oa -S"
 
 alias abook="abook --config $HOME/.config/abook/abookrc --datafile $HOME/.config/abook/addressbook"
-alias file_explorer="nautilus"
 
 if [ -e /usr/bin/bluetoothctl ]; then
 	alias connect_buds="bluetoothctl connect $(bluetoothctl devices | grep 'Galaxy Buds2' | cut -d' ' -f2)"
@@ -148,9 +147,6 @@ export BROWSER="$HOME/.local/bin/openurl"
 
 export GPG_TTY=$(tty)
 
-#export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
-#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-
 export PASSWORD_STORE_CHARACTER_SET="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.\+\-@:;"
 export PASSWORD_STORE_GENERATED_LENGTH="20"
 
@@ -171,13 +167,16 @@ export NOTMUCH_CONFIG="$HOME/.config/notmuch/default"
 # If there is a X server running
 xset q &> /dev/null && test -f /usr/bin/xrdb && xrdb ~/.Xresources
 
-SSH_KEY="$HOME/.ssh/id_ed25519"
-if [ -e $SSH_KEY ]; then
-	if ! ssh-add -l | grep -q $(ssh-keygen -lf ${SSH_KEY}.pub | cut -d' ' -f2); then
-		echo "Please add your default key to the agent."
-		ssh-add $SSH_KEY
+for AGENT in ssh-agent.socket gnupg/S.gpg-agent.ssh; do
+	if [ -e $XDG_RUNTIME_DIR/$AGENT ]; then
+		export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/$AGENT
+		SSH_KEY="$HOME/.ssh/id_ed25519"
+		for SSH_KEY in $(find ~/.ssh/ -name id_\*.pub); do
+			ssh-add -l | grep -q $(ssh-keygen -lf ${SSH_KEY} | cut -d' ' -f2) || ssh-add ${SSH_KEY%.*}
+		done
+		break
 	fi
-fi
+done
 
 for FILE in $(find ~/.config/bash/ -type f,l) ~/.bash_ubuntusec; do test -f $FILE && source $FILE; done
 
