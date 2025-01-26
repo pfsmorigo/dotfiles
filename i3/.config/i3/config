@@ -69,6 +69,11 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+bindsym $mod+Control+h workspace prev
+bindsym $mod+Control+j workspace prev
+bindsym $mod+Control+k workspace next
+bindsym $mod+Control+l workspace next
+
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -82,10 +87,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # move to output
-bindsym $mod+Control+h move workspace to output left
-bindsym $mod+Control+j move workspace to output down
-bindsym $mod+Control+k move workspace to output up
-bindsym $mod+Control+l move workspace to output right
+bindsym $mod+Control+Shift+h move workspace to output left
+bindsym $mod+Control+Shift+j move workspace to output down
+bindsym $mod+Control+Shift+k move workspace to output up
+bindsym $mod+Control+Shift+l move workspace to output right
 
 # split in horizontal orientation
 bindsym $mod+Shift+v split h
@@ -295,6 +300,8 @@ assign [title="^Windows.* on QEMU/KVM$"] $windows
 assign [class="resolve"] $resolve
 assign [class="org.gnome.Nautilus"] $file_mgr
 
+for_window [window_role="bubble"] floating enable, border none
+
 for_window [class="UltiMaker-Cura" title="Preferences"] floating enable, border normal
 
 for_window [class="(G|g)oogle-chrome"] border none
@@ -409,14 +416,15 @@ for_window [instance="chat.chatbotapp.ai"] move to scratchpad, border none, resi
 for_window [class="MPlayer"] floating enable, border none
 
 # Start some util apps
+exec --no-startup-id /usr/bin/solaar --window=hide
 exec --no-startup-id /usr/bin/xfsettingsd
 exec --no-startup-id /usr/bin/xfce4-power-manager
+exec --no-startup-id /usr/bin/nm-applet
+exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/xfce4-clipman
 exec --no-startup-id /usr/bin/xfce4-screensaver
 exec --no-startup-id /usr/bin/barrier
-exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/xhost +local:
-exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
 exec --no-startup-id $HOME/.local/bin/wallpaper
 
@@ -433,9 +441,10 @@ exec --no-startup-id $HOME/.local/bin/wallpaper
 # Chrome required picom to render menus
 #exec --no-startup-id /usr/bin/picom
 
-set $system_menu "system:  [r]eload  [l]ogout  [p]oweroff  re[b]oot"
+set $system_menu "system:  [r]eload  [s]uspend  [l]ogout  [p]oweroff  re[b]oot"
 mode $system_menu {
     bindsym r         restart
+    bindsym s         exec systemctl suspend
     bindsym l         exit
     bindsym p         exec shutdown -P now
     bindsym b         exec shutdown -r now

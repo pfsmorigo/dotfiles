@@ -35,58 +35,33 @@ separator=false
 interval=10
 
 [mem]
+label=󰍛
 interval=30
 
 separator_block_width=5
 separator=false
 
 [mem swap]
+label=
 interval=30
 
 [disk]
+label=
 instance=/
-interval=30
-
-separator_block_width=5
-separator=false
-
-[disk]
-instance=/home
-interval=30
-
-separator_block_width=5
-separator=false
-
-[disk]
-instance=/win
 interval=30
 
 [temperature]
 interval=2
 
-[volume-pulseaudio -d]
+[volume]
+command=$HOME/projects/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
+label=󰕾
 interval=once
 signal=10
 
-separator_block_width=0
-separator=false
-
-[bluetooth-device Buds2 󱡏]
-interval=once
-signal=10
-
-separator_block_width=0
-separator=false
-
-[bluetooth-device 1000XM4 󰋋]
-interval=once
-signal=10
-
-[pulseaudio-server pisa]
-interval=30
-
-[datetime]
-interval=30
+[time]
+command=date "+%a, %b %d %H:%M:%S"
+interval=5
 
 separator_block_width=5
 separator=false
@@ -97,12 +72,6 @@ instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 
 separator_block_width=5
 separator=false
-
-[mount /dev/mapper/manaus-home]
-interval=3
-
-[vpn]
-interval=5
 
 [wireguard wg0]
 interval=5
