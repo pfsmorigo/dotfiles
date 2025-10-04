@@ -21,6 +21,7 @@ COMPILERFLAGS
 conf
 config
 containerd
+cppa
 CVE
 cve
 CVEs
@@ -30,6 +31,7 @@ DEP
 dfsg
 dh
 dir
+dirs
 distclean
 DoS
 dpatch
@@ -40,6 +42,7 @@ eoan
 EOL
 eol
 ESM
+esm
 esm1
 esm2
 esm3
@@ -60,6 +63,7 @@ gcc10
 german
 ghash
 gmx
+hlib
 hostname
 html5lib
 Hurd
@@ -102,6 +106,7 @@ md5sums
 minidlna
 minidlnad
 mk
+mkdir
 murray
 mysql
 natty
@@ -123,9 +128,11 @@ python3
 RCE
 RELEASED
 rss
+seceng
 setlocale
 skcipher
 Smorigo
+smtp
 snapd
 src
 struct

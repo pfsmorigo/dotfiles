@@ -27,8 +27,8 @@ set errorformat+=remote:\ %f:%l:%c:%m
 set title
 
 let $notes_path = $HOME . '/obsidian/main'
-let $todotxt_todo_path = $notes_path . '/todo.txt/todo.txt'
-let $todotxt_done_path = $notes_path . '/todo.txt/done.txt'
+let $todotxt_todo_path = $HOME. '/todo.txt/todo.txt'
+let $todotxt_done_path = $HOME. '/todo.txt/done.txt'
 
 if &t_Co == 256
 	hi CursorLine  ctermbg=235  ctermfg=NONE     cterm=NONE
@@ -117,6 +117,10 @@ endif
 
 if filereadable(".make")
 	set makeprg=.\ .make
+endif
+
+if filereadable(".config/i3/config")
+	set makeprg=i3-msg\ restart
 endif
 
 autocmd BufRead,BufNewFile ~/ubuntu/packages/* set makeprg=umt\ build\ -f
@@ -316,6 +320,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 	Plug 'puremourning/vimspector'
 
 	Plug 'nathangrigg/vim-beancount'
+
+	Plug 'hashivim/vim-terraform'
 
 	call plug#end()
 endif
