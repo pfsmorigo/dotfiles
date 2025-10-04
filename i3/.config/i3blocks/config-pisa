@@ -13,8 +13,8 @@ command=$HOME/scripts/i3blocks/$BLOCK_NAME
 #border_right=0
 #border_bottom=4
 
-[foxbit.py]
-interval=15
+#[foxbit.py]
+#interval=15
 
 [capslock]
 interval=once
@@ -74,14 +74,12 @@ label=󰕾
 interval=once
 signal=10
 
+[datetime]
+interval=30
+
 [stopwatch_countdown]
-label=🕓
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
-
-[time]
-command=date "+%a, %b %d %H:%M:%S"
-interval=5
 
 [countdown_days 2024-10-18]
 label=Sprint
