@@ -10,7 +10,7 @@ set $games     24:🎮
 set $vm        25:🖥️
 set $mail      26:📬
 set $personal  27:👤
-
+set $sh3d      28:🏠
 set $windows   31:⊞
 set $gimp      32:🎨
 set $dev       33:💻
@@ -152,8 +152,9 @@ bindsym $mod+8   workspace number 8
 bindsym $mod+9   workspace number 9
 bindsym $mod+0   workspace number 10
 
-bindsym $mod+Control+E exec ~/scripts/all/i3switch $file_mgr xdg-open $HOME
+bindsym $mod+Control+B exec /usr/bin/blueman-manager
 bindsym $mod+Control+W exec ~/scripts/all/i3switch $www      xdg-open https://www.google.com
+bindsym $mod+Control+E exec ~/scripts/all/i3switch $file_mgr xdg-open $HOME
 bindsym $mod+Control+O exec ~/scripts/all/i3switch $obsidian obsidian
 bindsym $mod+Control+G workspace $games
 bindsym $mod+Control+D workspace $print3d
@@ -301,6 +302,7 @@ assign [title="Minecraft*"] $games
 assign [instance="play.geforcenow.com"] $games
 assign [class="steam_app_"] $games
 assign [class="thunderbird-esr"] $mail
+assign [class="com-eteks-sweethome3d-SweetHome3D"] $sh3d
 assign [class="Dia$"] $dia
 assign [class="Gimp"] $gimp
 assign [class="Gitk"] $dev
@@ -319,9 +321,9 @@ for_window [window_role="bubble"] floating enable, border none
 for_window [class="UltiMaker-Cura" title="Preferences"] floating enable, border normal
 
 for_window [class="(G|g)oogle-chrome"] border none
-for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable, border normal
 for_window [class="Chromium"] border none
 for_window [class="Chromium" window_role="pop-up"] floating enable, border none
+for_window [class="(G|g)oogle-chrome" window_role="pop-up"] floating enable, border none
 for_window [class="Agnclient"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Birdie"] floating enable
@@ -364,7 +366,6 @@ for_window [class="Seahorse"] floating enable
 for_window [class="Setroubleshoot"] floating enable
 for_window [class="Shotwell"] floating enable
 for_window [class="Skype"] floating enable move right 520px, move down 15px
-for_window [class="Steam*" title="Friends"] floating enable
 for_window [class="Unetbootin"] floating enable
 for_window [class="Unturned*"] floating disable, layout tabbed
 for_window [class="7dLauncher.x86_64"] floating enable
@@ -409,6 +410,7 @@ for_window [title="* - GnuCash"] floating disable
 for_window [title="Event Tester"] floating enable
 for_window [title="Minecraft*"] border none
 for_window [title="SoundWire Server"] floating enable
+for_window [class="steam*" title="Friends List"] floating enable
 for_window [title="Steam - News"] floating enable
 for_window [title="Steam Guard -*"] floating enable
 for_window [title="VNC Viewer: Information"] floating enable
@@ -429,6 +431,9 @@ for_window [instance="chat.chatbotapp.ai"] move to scratchpad, border none, resi
 for_window [class="MPlayer"] floating enable, border none
 for_window [class="Hamster"] floating enable, border none
 for_window [class="Signal"] floating enable, border none
+for_window [class="Creality Print" title="^$"] floating enable, border none
+for_window [class="Opendeck"] floating enable, border 1pixel
+for_window [class="YouTube Music Desktop App"] floating enable
 
 # Start some util apps
 exec --no-startup-id /usr/bin/solaar --window=hide

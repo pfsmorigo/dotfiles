@@ -15,6 +15,8 @@ markup=pango
 
 #[foxbit.py]
 #interval=15
+[dollar]
+interval=120
 
 [capslock]
 interval=once
@@ -69,8 +71,12 @@ command=$HOME/projects/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
 interval=once
 signal=10
 
-[datetime]
-interval=30
+[time]
+command=date "+%a, %b %d %H:%M:%S"
+interval=5
+
+separator_block_width=5
+separator=false
 
 [stopwatch_countdown]
 interval=1
