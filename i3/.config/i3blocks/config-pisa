@@ -3,9 +3,9 @@
 align=center
 color=#ffffff
 separator=true
-separator_block_width=20
-markup=pango
+separator_block_width=30
 command=$HOME/scripts/i3blocks/$BLOCK_NAME
+markup=pango
 
 # Soon
 #border_top=0
@@ -34,7 +34,6 @@ command=watson status
 interval=5
 
 [networks]
-label=󱫋
 interval=5
 
 [vpn]
@@ -50,27 +49,23 @@ separator=false
 interval=10
 
 [mem]
-label=󰍛
 interval=30
 
 separator_block_width=5
 separator=false
 
 [mem swap]
-label=
 interval=30
 
 [disk]
-label=
 instance=/
 interval=30
 
 [temperature]
-interval=2
+interval=5
 
 [volume]
 command=$HOME/projects/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
-label=󰕾
 interval=once
 signal=10
 

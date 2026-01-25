@@ -1,6 +1,6 @@
 set $mod Mod4
 set $alt Mod1
-set $resize_value 10
+set $resize_value 5
 
 set $file_mgr  20:📂
 set $www       21:🌎
@@ -9,6 +9,7 @@ set $print3d   23:🎲
 set $games     24:🎮
 set $vm        25:🖥️
 set $mail      26:📬
+set $personal  27:👤
 
 set $windows   31:⊞
 set $gimp      32:🎨
@@ -158,6 +159,7 @@ bindsym $mod+Control+G workspace $games
 bindsym $mod+Control+D workspace $print3d
 bindsym $mod+Control+M workspace $vm
 bindsym $mod+Control+T workspace $mail
+bindsym $mod+Control+P workspace $personal
 
 # switch between the current and the previously focused one
 bindsym $mod+Tab workspace back_and_forth
@@ -181,6 +183,7 @@ bindsym $mod+Shift+G   move container to workspace $games
 bindsym $mod+Shift+D   move container to workspace $print3d
 bindsym $mod+Shift+M   move container to workspace $vm
 bindsym $mod+Shift+T   move container to workspace $mail
+bindsym $mod+Shift+P   move container to workspace $personal
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -258,8 +261,8 @@ bindsym XF86AudioNext              exec --no-startup-id playerctl next
 # Other binds
 bindsym Print                      exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshots/screenshot_$(date +'%F_%H-%M-%S').png"
 bindsym Shift+Print                exec --no-startup-id /usr/bin/xfce4-screenshooter
-bindsym $mod+p                     exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshots/screenshot_$(date +'%F_%H-%M-%S').png"
-bindsym $mod+Shift+P               exec --no-startup-id /usr/bin/xfce4-screenshooter
+bindsym $mod+backslash             exec --no-startup-id /usr/bin/xfce4-screenshooter -f -s "screenshots/screenshot_$(date +'%F_%H-%M-%S').png"
+bindsym $mod+Shift+backslash       exec --no-startup-id /usr/bin/xfce4-screenshooter
 
 bindsym $mod+Control+F1            exec ~/.local/bin/automatic home
 
@@ -283,7 +286,7 @@ assign [instance="Chromium"] $www
 assign [class="obsidian"] $obsidian
 assign [instance="Ulti(M|m)aker-Cura"] $print3d
 assign [class="PrusaSlicer"] $print3d
-assign [class="Creality Print"] $print3d
+assign [class="Creality"] $print3d
 assign [class="OrcaSlicer"] $print3d
 assign [class="FreeCAD"] $print3d
 assign [class="(S|s)team*"] $games
@@ -424,6 +427,8 @@ for_window [instance="play.geforcenow.com"] floating disable, border none
 for_window [instance="crx_.*"] floating disable, border none
 for_window [instance="chat.chatbotapp.ai"] move to scratchpad, border none, resize set width 1536 px height 1152 px
 for_window [class="MPlayer"] floating enable, border none
+for_window [class="Hamster"] floating enable, border none
+for_window [class="Signal"] floating enable, border none
 
 # Start some util apps
 exec --no-startup-id /usr/bin/solaar --window=hide
