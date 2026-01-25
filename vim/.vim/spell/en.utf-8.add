@@ -15,7 +15,10 @@ Beattie
 blkcipher
 bsd
 buildd
+bzip2
 CFLAGS
+Chrisa
+chrisa
 compat
 COMPILERFLAGS
 conf
@@ -111,6 +114,8 @@ murray
 mysql
 natty
 NVD
+Oikonomou
+oikonomou
 opendmarc
 OpenStack
 pfsmorigo
@@ -136,7 +141,9 @@ smtp
 snapd
 src
 struct
+sysinit
 systemd
+sysuser
 TBD
 tivo
 tmp
@@ -149,6 +156,7 @@ ubuntu3
 ubuntu4
 ubuntu5
 UCT
+uct
 UINT64
 unix
 upnphttp
@@ -159,8 +167,10 @@ USN
 usn
 usr
 ussuri
+ust
 uuid
 Vcs
+WantedBy
 webencodings
 wildcard
 xenial
