@@ -4,12 +4,12 @@ set $resize_value 5
 
 set $file_mgr    20:📂
 set $www         21:🌎
-set $obsidian    22:📝
-set $print3d     23:🎲
-set $games       24:🎮
-set $vm          25:🖥️
-set $mail        26:📬
-set $personal    27:👤
+set $personal    22:👤
+set $obsidian    23:📝
+set $print3d     24:🎲
+set $games       25:🎮
+set $vm          26:🖥️
+set $mail        27:📬
 set $sh3d        28:🏠
 set $antigravity 29:👾
 set $windows     31:⊞

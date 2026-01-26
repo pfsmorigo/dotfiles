@@ -15,7 +15,7 @@
 	;show = less -N -
 
 [diff]
-	context = 10
+	;context = 10
 
 [alias]
 	st = status

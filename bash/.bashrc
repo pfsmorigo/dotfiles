@@ -123,6 +123,8 @@ fi
 
 alias ip="ip -color=auto"
 
+alias steam="/usr/games/steam -forcedesktopscaling 2.0"
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -139,6 +141,7 @@ echo $PATH | grep -q $HOME/.local/bin || export PATH=~/.local/bin:$PATH
 export PROMPT_DIRTRIM=2
 export GDK_USE_XFT=1
 export QT_XFT=true
+export JAVA_TOOL_OPTIONS="-Dsun.java2d.uiScale=2 -Dcom.eteks.sweethome3d.resolutionScale=1.5"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.xrender=true"
 
 export EDITOR="/usr/bin/vim"
@@ -182,3 +185,5 @@ for FILE in $(find ~/.config/bash/ -type f,l) ~/.bash_ubuntusec; do test -f $FIL
 
 # Save aliases in .bash_aliases so fish can import it later
 alias > ~/.bash_aliases
+
+test -f ~/.bash_ubuntusec && . ~/.bash_ubuntusec
