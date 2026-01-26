@@ -2,22 +2,23 @@ set $mod Mod4
 set $alt Mod1
 set $resize_value 5
 
-set $file_mgr  20:📂
-set $www       21:🌎
-set $obsidian  22:📝
-set $print3d   23:🎲
-set $games     24:🎮
-set $vm        25:🖥️
-set $mail      26:📬
-set $personal  27:👤
-set $sh3d      28:🏠
-set $windows   31:⊞
-set $gimp      32:🎨
-set $dev       33:💻
-set $dia       34:dia
-set $zoom      35:zoom
-set $webapp    36:🛠️
-set $resolve   37:resolve
+set $file_mgr    20:📂
+set $www         21:🌎
+set $obsidian    22:📝
+set $print3d     23:🎲
+set $games       24:🎮
+set $vm          25:🖥️
+set $mail        26:📬
+set $personal    27:👤
+set $sh3d        28:🏠
+set $antigravity 29:👾
+set $windows     31:⊞
+set $gimp        32:🎨
+set $dev         33:💻
+set $dia         34:dia
+set $zoom        35:zoom
+set $webapp      36:🛠️
+set $resolve     37:resolve
 
 # class                      border  bground text    indic.  child_border
 set $colors_focused          #EA7317 #E95420 #FFFFFF #E95420 #E95420  # theme yaru orange
@@ -156,11 +157,15 @@ bindsym $mod+Control+B exec /usr/bin/blueman-manager
 bindsym $mod+Control+W exec ~/scripts/all/i3switch $www      xdg-open https://www.google.com
 bindsym $mod+Control+E exec ~/scripts/all/i3switch $file_mgr xdg-open $HOME
 bindsym $mod+Control+O exec ~/scripts/all/i3switch $obsidian obsidian
+#bindsym $mod+Control+W exec ~/scripts/all/i3switch $www      /usr/bin/google-chrome
+#bindsym $mod+Control+E exec ~/scripts/all/i3switch $file_mgr /usr/bin/nautilus
+#bindsym $mod+Control+O exec ~/scripts/all/i3switch $obsidian /usr/bin/obsidian
 bindsym $mod+Control+G workspace $games
 bindsym $mod+Control+D workspace $print3d
 bindsym $mod+Control+M workspace $vm
 bindsym $mod+Control+T workspace $mail
 bindsym $mod+Control+P workspace $personal
+bindsym $mod+Control+A workspace $antigravity
 
 # switch between the current and the previously focused one
 bindsym $mod+Tab workspace back_and_forth
@@ -185,6 +190,7 @@ bindsym $mod+Shift+D   move container to workspace $print3d
 bindsym $mod+Shift+M   move container to workspace $vm
 bindsym $mod+Shift+T   move container to workspace $mail
 bindsym $mod+Shift+P   move container to workspace $personal
+bindsym $mod+Shift+A   move container to workspace $antigravity
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -315,11 +321,10 @@ assign [title="^Windows.* on QEMU/KVM$"] $windows
 assign [class="resolve"] $resolve
 assign [class="org.gnome.Nautilus"] $file_mgr
 assign [class="Virt-manager"] $vm
+assign [class="Antigravity"] $antigravity
 
 for_window [window_role="bubble"] floating enable, border none
-
 for_window [class="UltiMaker-Cura" title="Preferences"] floating enable, border normal
-
 for_window [class="(G|g)oogle-chrome"] border none
 for_window [class="Chromium"] border none
 for_window [class="Chromium" window_role="pop-up"] floating enable, border none

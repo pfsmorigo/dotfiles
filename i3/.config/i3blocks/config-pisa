@@ -15,6 +15,7 @@ markup=pango
 
 #[foxbit.py]
 #interval=15
+
 [dollar]
 interval=120
 
