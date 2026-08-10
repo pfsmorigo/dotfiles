@@ -16,12 +16,12 @@ markup=pango
 #[foxbit.py]
 #interval=15
 
-[dollar]
-interval=120
-
 [capslock]
 interval=once
 signal=11
+
+[dollar]
+interval=120
 
 [virsh]
 interval=30
@@ -61,7 +61,18 @@ separator=false
 interval=30
 
 [disk]
+label=L
 instance=/
+interval=30
+
+[disk]
+label=S
+instance=/storage
+interval=30
+
+[disk]
+label=W
+instance=/windows
 interval=30
 
 [temperature]
@@ -82,10 +93,6 @@ separator=false
 [stopwatch_countdown]
 interval=1
 instance=paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
-
-[countdown_days 2024-10-18]
-label=Sprint
-interval=5
 
 separator_block_width=5
 separator=false

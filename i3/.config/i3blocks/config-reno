@@ -13,6 +13,9 @@ signal=11
 [arecord]
 interval=3
 
+[openrouter]
+interval=30
+
 [virsh]
 interval=30
 

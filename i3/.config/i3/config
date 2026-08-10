@@ -449,6 +449,7 @@ exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/xfce4-clipman
 exec --no-startup-id /usr/bin/xfce4-screensaver
 exec --no-startup-id /usr/bin/barrier
+exec --no-startup-id /usr/bin/opendeck --hide
 exec --no-startup-id /usr/bin/xhost +local:
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
 exec --no-startup-id $HOME/.local/bin/wallpaper
