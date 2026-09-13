@@ -1,0 +1,34 @@
+widgets:
+  - widget: finance
+    from: USD
+    to: BRL
+
+  - widget: finance
+    from: EUR
+    to: BRL
+
+  - widget: finance
+    from: BTC
+    to: BRL
+
+  - widget: finance
+    from: CHF
+    to: BRL
+
+  - widget: finance
+    index: 5
+    symbol: GOOG
+
+  - widget: finance
+    symbol: AAPL
+
+  - widget: finance
+    symbol: MSFT
+
+  - widget: finance
+    stock: PETR4
+
+
+  - widget: finance
+    index: 10
+    symbol: "^GSPC"  # S&P 500

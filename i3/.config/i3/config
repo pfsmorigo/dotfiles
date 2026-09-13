@@ -406,7 +406,6 @@ for_window [class="Ledger Live"] floating enable
 for_window [class="Usb-creator-gtk"] floating enable
 for_window [class="Imager"] floating enable
 for_window [class="Thunar"] border none
-for_window [class="streamdeck"] floating enable
 for_window [class="Hugin"] floating enable
 for_window [class="org.remmina.Remmina"] floating enable
 for_window [class="Solaar"] floating enable
@@ -437,7 +436,6 @@ for_window [class="MPlayer"] floating enable, border none
 for_window [class="Hamster"] floating enable, border none
 for_window [class="Signal"] floating enable, border none
 for_window [class="Creality Print" title="^$"] floating enable, border none
-for_window [class="Opendeck"] floating enable, border 1pixel
 for_window [class="YouTube Music Desktop App"] floating enable
 
 # Start some util apps
@@ -449,7 +447,6 @@ exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/xfce4-clipman
 exec --no-startup-id /usr/bin/xfce4-screensaver
 exec --no-startup-id /usr/bin/barrier
-exec --no-startup-id /usr/bin/opendeck --hide
 exec --no-startup-id /usr/bin/xhost +local:
 exec --no-startup-id /usr/bin/urxvtd -q -f -o
 exec --no-startup-id $HOME/.local/bin/wallpaper

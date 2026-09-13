@@ -1,0 +1,35 @@
+widgets:
+  - widget: custom
+    unicode: 🔆
+    background-color: "#000"
+    label: Off
+    press:
+      device: sleep
+
+  - widget: custom
+    unicode: 🔆
+    background-color: "#222"
+    label: 25%
+    press:
+      device: brightness=25
+
+  - widget: custom
+    unicode: 🔆
+    background-color: "#444"
+    label: 50%
+    press:
+      device: brightness=50
+
+  - widget: custom
+    unicode: 🔆
+    background-color: "#666"
+    label: 75%
+    press:
+      device: brightness=75
+
+  - widget: custom
+    unicode: 🔆
+    background-color: "#888"
+    label: 100%
+    press:
+      device: brightness=100

@@ -1,0 +1,33 @@
+widgets:
+  - widget: custom
+    unicode: "⚙"
+
+  - widget: custom
+    unicode: "⏾"
+
+  - widget: custom
+    unicode: "⚫"
+
+  - widget: custom
+    unicode: "⚠"
+
+  - widget: custom
+    unicode: "🔌"
+
+  - widget: custom
+    unicode: "⏼"
+
+  - widget: custom
+    unicode: "◷"
+
+  - widget: custom
+    unicode: "…"
+
+  - widget: custom
+    unicode: "💤"
+
+  - widget: custom
+    unicode: "⏻"
+
+  - widget: custom
+    unicode: "📴"

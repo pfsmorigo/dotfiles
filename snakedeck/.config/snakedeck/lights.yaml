@@ -1,0 +1,37 @@
+widgets:
+  - widget: homeassistant
+    alias: Main
+    press:
+      service: switch.toggle
+      entity_id: switch.downstairs_office_switch_top
+
+  - widget: homeassistant
+    alias: Secondary
+    press:
+      service: switch.toggle
+      entity_id: switch.downstairs_office_switch_middle
+
+  - widget: homeassistant
+    alias: Desk
+    press:
+      service: switch.toggle
+      entity_id: switch.downstairs_office_switch_bottom
+
+  - widget: homeassistant
+    index: 5
+    alias: Bedroom Main
+    press:
+      service: switch.toggle
+      entity_id: switch.bedroom_door_switch_top
+
+  - widget: homeassistant
+    alias: Bedroom Corridor
+    press:
+      service: switch.toggle
+      entity_id: switch.bedroom_door_switch_middle
+
+  - widget: homeassistant
+    alias: Bedroom Lamp
+    press:
+      service: switch.toggle
+      entity_id: switch.bedroom_door_switch_bottom
