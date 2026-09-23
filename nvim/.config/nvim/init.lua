@@ -68,18 +68,6 @@ function _G.ToggleInvisible()
   end
 end
 
--- Open URL under cursor (xdg-open)
-function _G.HandleURL()
-  local line = vim.api.nvim_get_current_line()
-  local uri = line:match("[a-z]+://[^ >,;]*")
-  if uri and uri ~= "" then
-    vim.fn.jobstart({ "xdg-open", uri }, { detach = true })
-    print("Opened: " .. uri)
-  else
-    print("No URI found in line.")
-  end
-end
-
 -- Dictionary word info lookup (F6)
 function _G.ShowInfo()
   local word = vim.fn.expand("<cword>")
@@ -125,7 +113,6 @@ map("n", "<F5>", "<cmd>make<CR><CR>", { desc = "Run make" })
 map("n", "<F6>", "<cmd>lua ShowInfo()<CR>", { desc = "Dictionary word info" })
 map("n", "<F7>", "<cmd>lua ToggleInvisible()<CR>", { desc = "Toggle whitespace" })
 
-map("n", "<leader>u", "<cmd>lua HandleURL()<CR>", { desc = "Open link in browser" })
 map("n", "<leader>t", ":tabe " .. vim.env.todotxt_todo_path .. "<CR>", { desc = "Open Todo.txt" })
 map("n", "<leader>T", ":tabe " .. vim.env.todotxt_done_path .. "<CR>", { desc = "Open Done.txt" })
 map("n", "<leader>l", "<cmd>tabe ~/money/ledger/inbox.ledger<CR>", { desc = "Open Ledger" })
@@ -322,7 +309,11 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
+      local ok, configs = pcall(require, "nvim-treesitter.configs")
+      if not ok then
+        return
+      end
+      configs.setup({
         ensure_installed = { "c", "lua", "vim", "python", "bash", "json", "toml", "yaml", "fish", "terraform" },
         highlight = { enable = true },
       })
@@ -336,7 +327,6 @@ require("lazy").setup({
   -- Editing Helpers
   { "numToStr/Comment.nvim", opts = {} }, -- Modern replacement for nerdcommenter
   { "AndrewRadev/linediff.vim" },
-  { "tyru/open-browser.vim" },
   { "chrisbra/csv.vim" },
 
   -- Task, Notes & Bookkeeping
