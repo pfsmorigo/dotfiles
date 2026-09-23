@@ -39,6 +39,7 @@
 	ignored = ls-files --others -i --exclude-standard
 	start = !git init && git add . && git commit -m "baseline"
 	zero = !git clean -fffdX && git co .
+	changelog = !git log --oneline --pretty=format:%s $(git describe --tags --abbrev=0)..HEAD
 	b = branch -avv
 	r = remote -v
 	edit = "!vim $(git ls-files -m) $(git diff --name-only base) -p"

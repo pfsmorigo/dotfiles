@@ -185,5 +185,3 @@ for FILE in $(find ~/.config/bash/ -type f,l) ~/.bash_ubuntusec; do test -f $FIL
 
 # Save aliases in .bash_aliases so fish can import it later
 alias > ~/.bash_aliases
-
-test -f ~/.bash_ubuntusec && . ~/.bash_ubuntusec

@@ -6,6 +6,9 @@ separator=true
 separator_block_width=30
 command=$HOME/scripts/i3blocks/$BLOCK_NAME
 
+[quotes]
+interval=once
+
 [capslock]
 interval=once
 signal=11

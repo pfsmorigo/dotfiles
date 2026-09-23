@@ -1,7 +1,8 @@
 global:
   font: Ubuntu
-  turn_on: 06:00
-  turn_off: 22:00
+  sleep: ["22:00", "08:00"]
+  host:
+    - 10.3.0.0/16
 
   homeassistant:
     url: https://home.smow.io
@@ -20,33 +21,77 @@ global:
   creality:
     host: k1max.lan
 
+  adsb:
+    url: http://pfsmorigo-station-2.l.adsb.im:8080/
+    alert:
+      - type: airport
+        match: equals
+        value:
+          - SJK
+      - type: altitude
+        match: below
+        value: 1000
+      - type: aircraft_type
+        match: equals
+        value:
+          - A124 # Antonov An-124 Ruslan
+          - A337 # Airbus A330-700L BelugaXL
+          - A388 # Airbus A380-800
+          - A3ST # Airbus A300-600ST Beluga
+          - AN12 # Antonov An-12
+          - AN26 # Antonov An-26
+          - AN32 # Antonov An-32
+          - B742 # Boeing 747-200
+          - B744 # Boeing 747-400
+          - B748 # Boeing 747-8
+          - B74S # Boeing 747SP
+          - BLCF # Boeing 747-400LCF Dreamlifter
+
 widgets:
   - widget: system_metrics
+    label: Pisa
 
   - widget: glances
-    label: truenas
     url: http://truenas.smow.io:30015/
-
-  - widget: glances
-    url: http://reno.lan:30015/
+    label: TrueNAS
 
   - widget: nvidia
 
   - widget: system_metrics
-    mode: net_rx
+    mode: net
     interface: enp4s0
-    unit: MB/s
-    show_unit: false
-    press:
-      deck: unicodes.yaml
 
-  - widget: system_metrics
-    mode: net_tx
-    interface: enp4s0
-    unit: MB/s
-    show_unit: false
+  - multiple:
+    - widget: finance
+      pair: USD-BRL
+    - widget: finance
+      pair: BTC-BRL
+    hold:
+      deck: finance.yaml
+    rotate: 3
+
+  - widget: pomodoro
+
+  - widget: creality
+    label: 3D Printer
 
   - widget: openrouter
+
+  - widget: adsb
+    label: Flights
+
+  - widget: weather
+
+  - widget: homeassistant
+    alias: Lights
+    press:
+      service: switch.toggle
+      entity_id: switch.downstairs_office_switch_top
+    hold:
+      service: switch.toggle
+      entity_id: switch.downstairs_office_switch_middle
+    long_hold:
+      deck: lights.yaml
 
   - multiple:
     - widget: homeassistant
@@ -65,31 +110,10 @@ widgets:
     hold:
       deck: power.yaml
 
-  - multiple:
-    - widget: finance
-      pair: USD-BRL
-    - widget: finance
-      pair: BTC-BRL
-    hold:
-      deck: finance.yaml
-
-  - widget: homeassistant
-    alias: Lights
-    press:
-      service: switch.toggle
-      entity_id: switch.downstairs_office_switch_top
-    hold:
-      service: switch.toggle
-      entity_id: switch.downstairs_office_switch_middle
-    long_hold:
-      deck: lights.yaml
-
-  - widget: creality
-    label: 3D Printer
-
-  - widget: pomodoro
 
   - widget: zigbee2mqtt
+
+  - widget: homeassistant
 
   - widget: healthchecks
     press:
