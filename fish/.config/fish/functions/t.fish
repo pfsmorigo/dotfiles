@@ -21,7 +21,6 @@ function t --description "Smart tmux session manager"
     else
         # If any tmux sessions exist, launch directly into choose-tree
         if tmux has-session 2>/dev/null
-            tmux new-session -d 2>/dev/null
             tmux attach-session \; choose-tree -s
         else
             # No sessions exist; create a fresh default session
