@@ -41,7 +41,8 @@
 #system-info #clock,
 #system-info #pulseaudio,
 #system-info #network,
-#system-info #load {
+#system-info #load,
+#system-info #tray {
   background-color: #444;
   border-radius: 10px;
   border-width: 3px;
