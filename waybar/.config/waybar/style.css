@@ -4,8 +4,8 @@
   font-weight: bold;
 }
 
-#waybar {
-  background: transparent;
+window#waybar {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
   border: none;
   box-shadow: none;
 }
