@@ -1,25 +1,25 @@
-global:
+globals:
   font: Ubuntu
   sleep: ["22:00", "08:00"]
-  host:
+  bind:
     - 10.3.0.0/16
 
   homeassistant:
     url: https://home.smow.io
-    api_key: $(pass homeassistant/api)
+    token: $(pass homeassistant/api)
 
   healthchecks:
     url: https://hc.smow.io
-    api_key: $(pass healthchecks/api)
+    token: $(pass healthchecks/api)
 
   openrouter:
-    api_key: $(pass openrouter/api)
+    token: $(pass openrouter/api)
 
   zigbee2mqtt:
-    broker: http://home.smow.io:8099/
+    url: http://home.smow.io:8099
 
   creality:
-    host: k1max.lan
+    url: http://k1max.lan
 
   adsb:
     url: http://pfsmorigo-station-2.l.adsb.im:8080/
@@ -47,43 +47,44 @@ global:
           - B74S # Boeing 747SP
           - BLCF # Boeing 747-400LCF Dreamlifter
 
-widgets:
-  - widget: system_metrics
-    label: Pisa
+deck:
+  - card: system_metrics
+    title: Pisa
 
-  - widget: glances
+  - card: glances
     url: http://truenas.smow.io:30015/
-    label: TrueNAS
+    title: TrueNAS
 
-  - widget: nvidia
+  - card: nvidia
 
-  - widget: system_metrics
+  - card: system_metrics
     mode: net
     interface: enp4s0
 
-  - multiple:
-    - widget: finance
-      pair: USD-BRL
-    - widget: finance
-      pair: BTC-BRL
+  - card: multi
+    multi:
+    - card: finance
+      symbol: USD-BRL
+    - card: finance
+      symbol: BTC-BRL
     hold:
       deck: finance.yaml
     rotate: 3
 
-  - widget: pomodoro
+  - card: pomodoro
 
-  - widget: creality
-    label: 3D Printer
+  - card: creality
+    title: 3D Printer
 
-  - widget: openrouter
+  - card: openrouter
 
-  - widget: adsb
-    label: Flights
+  - card: adsb
+    title: Flights
 
-  - widget: weather
+  - card: weather
 
-  - widget: homeassistant
-    alias: Lights
+  - card: homeassistant
+    title: Lights
     press:
       service: switch.toggle
       entity_id: switch.downstairs_office_switch_top
@@ -93,15 +94,16 @@ widgets:
     long_hold:
       deck: lights.yaml
 
-  - multiple:
-    - widget: homeassistant
-      alias: Power
+  - card: multi
+    multi:
+    - card: homeassistant
+      title: Power
       entity_id: sensor.shelly_pro_total_active_power
       mode: graph
       max: 1200
       alert_above: 900
-    - widget: homeassistant
-      alias: Power
+    - card: homeassistant
+      title: Power
       entity_id: sensor.shelly_pro_total_apparent_power
       mode: graph
       max: 1600
@@ -110,13 +112,46 @@ widgets:
     hold:
       deck: power.yaml
 
+  - card: zigbee2mqtt
 
-  - widget: zigbee2mqtt
+  - card: homeassistant
 
-  - widget: homeassistant
-
-  - widget: healthchecks
+  - card: healthchecks
     press:
       deck: healthchecks://
     hold:
-      deck: config.yaml
+      deck:
+      - card: custom
+        unicode: 🔆
+        fill_color: "#000"
+        title: Off
+        press:
+          device: sleep
+    
+      - card: custom
+        unicode: 🔆
+        fill_color: "#222"
+        title: 25%
+        press:
+          device: brightness=25
+    
+      - card: custom
+        unicode: 🔆
+        fill_color: "#444"
+        title: 50%
+        press:
+          device: brightness=50
+    
+      - card: custom
+        unicode: 🔆
+        fill_color: "#666"
+        title: 75%
+        press:
+          device: brightness=75
+    
+      - card: custom
+        unicode: 🔆
+        fill_color: "#888"
+        title: 100%
+        press:
+          device: brightness=100
