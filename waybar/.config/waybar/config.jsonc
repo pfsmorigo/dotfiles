@@ -16,30 +16,29 @@
 			"load",
 			"network",
 			"pulseaudio",
-			"clock",
-			"tray"
+			"tray",
+			"clock"
 		]
     },
 	"hyprland/window": {
 		"max-length": 50
 	},
 	"network": {
-		"interface": "enp4s0",
-		"format": "{ifname}",
-		"format-wifi": "{essid} ({signalStrength}%) ",
-		"format-ethernet": "{ifname} ",
-		"format-disconnected": "", //An empty format will hide the module.
+		"interval": 1,
+		"format": "{ipaddr} {bandwidthDownBytes}",
+		"format-wifi": " {ipaddr} {bandwidthDownBytes}",
+		"format-ethernet": " {ipaddr} {bandwidthDownBytes}",
 		"format-disconnected": "",
-		"tooltip-format": "{ifname}",
-		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format": "{ifname} ({ipaddr}) via {gwaddr}",
+		"tooltip-format-wifi": "{ifname} ({ipaddr}) ({essid} {signalStrength}%) via {gwaddr}\n⇣ {bandwidthDownBytes} ⇡ {bandwidthUpBytes}",
+		"tooltip-format-ethernet": "{ifname} ({ipaddr}) via {gwaddr}\n⇣ {bandwidthDownBytes} ⇡ {bandwidthUpBytes}",
 		"tooltip-format-disconnected": "Disconnected",
 		"max-length": 50
 	},
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
-		"format": "{volume}% {icon}",
-		"format-bluetooth": "{volume}% {icon}",
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}% ",
 		"format-bluetooth-muted": "{icon} {format_source}",
 		"format-muted": "{format_source}",
 		"format-source": "",
@@ -64,7 +63,7 @@
 		"format-icons": ["", "", "", "", ""]
 	},
 	"clock": {
-		"format": "{:%H:%M}",
+		"format": "{:%d/%m %H:%M}",
 		"format-alt": "{:%A, %B %d, %Y (%R)}",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 		"calendar": {

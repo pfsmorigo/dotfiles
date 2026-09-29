@@ -13,19 +13,18 @@ set -gx VISUAL nvim
 set -gx PAGER less
 
 # XDG Adjustments
-set -gx XDG_DATA_HOME "$HOME/.local/share"
-set -gx ANSIBLE_CONFIG "$HOME/.config/ansible.cfg"
-set -gx GNUPGHOME "$HOME/.config/gnupg"
+set -gx ANSIBLE_CONFIG     "$HOME/.config/ansible.cfg"
+set -gx GIMP2_DIRECTORY    "$HOME/.local/share/gimp"
+set -gx GNUPGHOME          "$HOME/.config/gnupg"
+set -gx GRAMPSHOME         "$HOME/.config"
+set -gx LESSHISTFILE       "$HOME/.cache/less"
+set -gx MPLAYER_HOME       "$HOME/.config/mplayer"
+set -gx NOTMUCH_CONFIG     "$HOME/.config/notmuch/default"
 set -gx PASSWORD_STORE_DIR "$HOME/.config/password-store"
-set -gx SCREENRC "$HOME/.config/screenrc"
-
-#export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
-#export GRAMPSHOME="$HOME/.config"
-#export LESSHISTFILE="$HOME/.cache/less"
-#export MPLAYER_HOME="$HOME/.config/mplayer"
-#export WEECHAT_HOME="$HOME/.config/weechat"
-#export WINEPREFIX="$HOME/.local/share/wine"
-#export NOTMUCH_CONFIG="$HOME/.config/notmuch/default"
+set -gx SCREENRC           "$HOME/.config/screenrc"
+set -gx WEECHAT_HOME       "$HOME/.config/weechat"
+set -gx WINEPREFIX         "$HOME/.local/share/wine"
+set -gx XDG_DATA_HOME      "$HOME/.local/share"
 
 # Init tools that modify PATH/env
 #if command -v zoxide >/dev/null
