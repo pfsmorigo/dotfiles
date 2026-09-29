@@ -11,7 +11,7 @@ window#waybar {
 }
 
 #workspaces, #window, #system-info {
-/*  background: linear-gradient(180deg, #505050, #5F5F5F); */
+  background: linear-gradient(180deg, #505050, #5F5F5F);
   padding: 3px;
   margin: 0px;
   border-radius: 10px;
@@ -55,7 +55,6 @@ window#waybar {
 #system-info #temperature,
 #system-info #tray {
   background: linear-gradient(180deg, #4F4F4F, #404040);
-  padding: 3px;
   border-radius: 10px;
   border-width: 3px;
   padding: 0px 10px;
