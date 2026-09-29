@@ -269,12 +269,23 @@ vim.opt.rtp:prepend(lazypath)
 -- =============================================================================
 require("lazy").setup({
   -- UI / Theme
-  { "morhetz/gruvbox", lazy = false, priority = 1000, config = function() vim.cmd("colorscheme gruvbox") end },
+  {
+    "navarasu/onedark.nvim",
+    priority = 1000,
+    opts = {
+      style = "dark", -- Options: 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'
+      transparent = true, -- Enable transparent background
+    },
+    config = function(_, opts)
+      require("onedark").setup(opts)
+      require("onedark").load()
+    end,
+  },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-      options = { theme = "wombat" },
+      options = { theme = "onedark" },
       tabline = {
         lualine_a = { { "buffers", mode = 2 } },
         lualine_z = { "tabs" },
@@ -307,6 +318,7 @@ require("lazy").setup({
   -- Treesitter (Replaces json, toml, ansible, fish syntax plugins)
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
     config = function()
       local ok, configs = pcall(require, "nvim-treesitter.configs")
@@ -387,4 +399,10 @@ require("lazy").setup({
   { "hashivim/vim-terraform" },
   { "puremourning/vimspector" },
   { "andreshazard/vim-logreview" },
+}, {
+  performance = {
+    rtp = {
+      reset = false,
+    },
+  },
 })

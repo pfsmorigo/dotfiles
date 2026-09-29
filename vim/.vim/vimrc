@@ -31,6 +31,8 @@ let $todotxt_todo_path = $HOME. '/todo.txt/todo.txt'
 let $todotxt_done_path = $HOME. '/todo.txt/done.txt'
 
 if &t_Co == 256
+	hi Normal      ctermbg=NONE guibg=NONE
+	hi NonText     ctermbg=NONE guibg=NONE
 	hi CursorLine  ctermbg=235  ctermfg=NONE     cterm=NONE
 	hi LineNr      ctermbg=NONE ctermfg=DarkGrey cterm=NONE    term=bold
 	hi diffAdded   ctermbg=NONE ctermfg=blue     cterm=NONE
