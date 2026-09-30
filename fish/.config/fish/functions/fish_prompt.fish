@@ -1183,9 +1183,9 @@ function __bobthefish_prompt_tmux -S -d 'Display the tmux session name'
     [ "$theme_display_tmux" = no -o -z "$TMUX" ]
     and return
 
-    set -l format '#S'
+    set -l format '#{?session_grouped,#{session_group},#S}'
     [ "$theme_display_tmux_verbose" = yes ]
-    and set format '#S:#W'
+    and set format '#{?session_grouped,#{session_group},#S}:#W'
 
     set -l session (tmux display-message -p "$format" 2>/dev/null)
     [ -z "$session" ]
