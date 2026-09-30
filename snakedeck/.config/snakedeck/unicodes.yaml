@@ -1,33 +1,33 @@
-widgets:
-  - widget: custom
+deck:
+  - card: custom
     unicode: "⚙"
 
-  - widget: custom
+  - card: custom
     unicode: "⏾"
 
-  - widget: custom
+  - card: custom
     unicode: "⚫"
 
-  - widget: custom
+  - card: custom
     unicode: "⚠"
 
-  - widget: custom
+  - card: custom
     unicode: "🔌"
 
-  - widget: custom
+  - card: custom
     unicode: "⏼"
 
-  - widget: custom
+  - card: custom
     unicode: "◷"
 
-  - widget: custom
+  - card: custom
     unicode: "…"
 
-  - widget: custom
+  - card: custom
     unicode: "💤"
 
-  - widget: custom
+  - card: custom
     unicode: "⏻"
 
-  - widget: custom
+  - card: custom
     unicode: "📴"

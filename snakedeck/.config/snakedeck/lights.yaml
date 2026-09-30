@@ -1,37 +1,40 @@
-widgets:
-  - widget: homeassistant
-    alias: Main
+deck:
+  - card: homeassistant
     press:
-      service: switch.toggle
-      entity_id: switch.downstairs_office_switch_top
+      entity_id: light.downstairs_office_main_light
 
-  - widget: homeassistant
-    alias: Secondary
+  - card: homeassistant
     press:
-      service: switch.toggle
-      entity_id: switch.downstairs_office_switch_middle
+      entity_id: light.downstairs_office_secondary_light
 
-  - widget: homeassistant
-    alias: Desk
+  - card: homeassistant
     press:
-      service: switch.toggle
-      entity_id: switch.downstairs_office_switch_bottom
+      entity_id: light.downstairs_office_desk_light
 
-  - widget: homeassistant
+
+  - card: homeassistant
     index: 5
-    alias: Bedroom Main
     press:
-      service: switch.toggle
-      entity_id: switch.bedroom_door_switch_top
+      entity_id: light.bedroom_main_light
 
-  - widget: homeassistant
-    alias: Bedroom Corridor
+  - card: homeassistant
     press:
-      service: switch.toggle
-      entity_id: switch.bedroom_door_switch_middle
+      entity_id: light.bedroom_corridor_light
 
-  - widget: homeassistant
-    alias: Bedroom Lamp
+  - card: homeassistant
     press:
-      service: switch.toggle
-      entity_id: switch.bedroom_door_switch_bottom
+      entity_id: light.bedroom_lamp_light
+
+
+  - card: homeassistant
+    index: 10
+    press:
+      entity_id: light.tv_room_main_light
+
+  - card: homeassistant
+    press:
+      entity_id: light.tv_room_side_light
+
+  - card: homeassistant
+    press:
+      entity_id: light.tv_room_back_light

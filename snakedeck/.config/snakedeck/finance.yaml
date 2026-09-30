@@ -1,34 +1,29 @@
-widgets:
-  - widget: finance
-    from: USD
-    to: BRL
+deck:
+  - card: finance
+    symbol: "USD/BRL"
 
-  - widget: finance
-    from: EUR
-    to: BRL
+  - card: finance
+    symbol: "EUR/BRL"
 
-  - widget: finance
-    from: BTC
-    to: BRL
+  - card: finance
+    symbol: "BTC/BRL"
 
-  - widget: finance
-    from: CHF
-    to: BRL
+  - card: finance
+    symbol: "CHF/BRL"
 
-  - widget: finance
+  - card: finance
     index: 5
     symbol: GOOG
 
-  - widget: finance
+  - card: finance
     symbol: AAPL
 
-  - widget: finance
+  - card: finance
     symbol: MSFT
 
-  - widget: finance
-    stock: PETR4
+  - card: finance
+    symbol: PETR4
 
-
-  - widget: finance
+  - card: finance
     index: 10
     symbol: "^GSPC"  # S&P 500
