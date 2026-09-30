@@ -37,7 +37,7 @@
 		"max-length": 50
 	},
 	"pulseaudio": {
-		// "scroll-step": 1, // %, can be a float
+		"scroll-step": 5, // %, can be a float
 		"format": "{icon} {volume}%",
 		"format-bluetooth": "{icon} {volume}% ",
 		"format-bluetooth-muted": "{icon} {format_source}",
