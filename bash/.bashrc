@@ -147,6 +147,7 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun
 export EDITOR="/usr/bin/vim"
 export TERMINAL="$HOME/.local/bin/smowterm"
 export BROWSER="$HOME/.local/bin/openurl"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 export GPG_TTY=$(tty)
 

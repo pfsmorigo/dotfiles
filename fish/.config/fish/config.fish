@@ -11,6 +11,7 @@ fish_add_path /usr/local/go/bin
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx PAGER less
+set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # XDG Adjustments
 set -gx ANSIBLE_CONFIG     "$HOME/.config/ansible.cfg"
@@ -62,7 +63,8 @@ if status is-interactive
 	set -g theme_display_jobs_verbose yes
 	set -g theme_display_screen yes
 	set -g theme_display_screen_verbose yes
-	set -g theme_display_tmux yes
+	set -g theme_display_tmux no
+	set -g theme_display_virtualenv yes
 
 	# Tells GPG which terminal to use for passphrase prompts
 	set -gx GPG_TTY (tty)

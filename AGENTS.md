@@ -93,3 +93,9 @@ Never commit:
 
 - When adding, renaming, or removing a package, always update [README.md](README.md) to reflect the new module in the catalog.
 - If introducing local override mechanisms, document them under the **Customization & Host-Specific Overrides** section in [README.md](README.md).
+
+## Conventions & Coding Guidelines
+
+- **Always Update Documentation**: `README.md` must always be updated whenever features, configuration options, defaults, or behaviors are added or modified.
+- **Commit Message File**: Keep `commit_message.txt` updated in the workspace root formatted for `git commit -F commit_message.txt`. Never overwrite or discard existing uncommitted notes; accumulate new changes and adjust existing ones. In commit messages, directly describe what changed rather than referencing task files or checklists (e.g., do not say "fixes from todo.md", "todo.txt", or "todo items"). The user deletes `commit_message.txt` after committing.
+- **Git Operations**: Do not stage (`git add`) or commit (`git commit`) files.

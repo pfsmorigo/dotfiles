@@ -8,7 +8,7 @@
 		"hyprland/window"
 	],
 	"modules-right": [
-        "group/system-info"
+		"group/system-info"
 	],
 	"group/system-info": {
 		"orientation": "horizontal", // Options: "horizontal", "vertical", "orthogonal", "inherit"

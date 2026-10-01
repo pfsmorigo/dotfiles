@@ -1,4 +1,5 @@
 *.swp
+commit_message.txt
 fish/.config/fish/fish_variables
 fish/.config/fish/fishd.*
 git/.config/git/cookies

@@ -1,6 +1,6 @@
 * {
   font-family: "Ubuntu Sans";
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -14,7 +14,7 @@ window#waybar {
   background: linear-gradient(180deg, #505050, #5F5F5F);
   padding: 3px;
   margin: 0px;
-  border-radius: 10px;
+  border-radius: 12px;
   border-width: 0px;
 }
 
@@ -22,47 +22,43 @@ window#waybar {
   background: transparent;
 }
 
-#workspaces button.active {
-  background-color: #61afef;
-  color: #ffffff;
-}
-
-#workspaces button.urgent {
-  background-color: #e06c75;
-  color: #ffffff;
-}
-
-#workspaces button.urgent:hover {
-  background-color: #be5046;
-  color: #ffffff;
-}
-
-/* Inactive workspace buttons */
-#workspaces button {
-  background-color: #444;
+/* For every element inside a block */
+#workspaces button,
+#system-info .module {
+  background: linear-gradient(180deg, #4F4F4F, #404040);
   margin: 0px 3px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  border-width: 0px;
+}
+
+#window {
+  padding: 5px 20px;
 }
 
 #workspaces button:hover,
-#window:hover {
-  background-color: #FFF;
+#window:hover,
+#system-info .module:hover {
+  background: gray;
 }
 
-#system-info #clock,
-#system-info #pulseaudio,
-#system-info #network,
-#system-info #load,
-#system-info #temperature,
-#system-info #tray {
-  background: linear-gradient(180deg, #4F4F4F, #404040);
-  border-radius: 10px;
-  border-width: 3px;
-  padding: 0px 10px;
-  margin: 3px 3px;
+#workspaces button.active {
+  background: #61AFEF;
+  color: white;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5);
 }
 
+#workspaces button.urgent,
 #system-info #temperature.critical {
-  background: linear-gradient(180deg, #e06c75, #be5046);
-  color: #ffffff;
+  background: #E06C75;
+  background: linear-gradient(180deg, #E06C75, #BE5046);
+  color: white;
 }
 
+#workspaces button.urgent:hover {
+  background: #BE5046;
+  color: white;
+}
+
+  /* Horizontal, vertical, blur, spread, color */
+  /* box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5); */
