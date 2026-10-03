@@ -1,54 +1,63 @@
 configuration {
-	font: "Ubuntu 16";
+	font: "Ubuntu Sans 14";
 	columns: 1;
 	ssh-command: "smowterm {host}";
 	sidebar-mode: true;
 }
 
 * {
-    background:                  #272727;
-    background-color:            @background;
-    foreground:                  #FFF;
-    highlight:                   #BBF;
-    scrollbar:                   #0F0;
+    /* Theme colors (matching Hyprland / OneDark palette) */
+    background:                  #1e222ae6; /* ~90% opacity */
+    background-color:            transparent;
+    foreground:                  #abb2bf;
+    highlight:                   bold #33ccff;
 
-    border-color:                #E95420;
-    separatorcolor:              @border-color;
-    scrollbar-handle:            @border-color;
+    /* Hyprland cyan accent */
+    border-color:                #33ccffee;
+    separatorcolor:              rgba(89, 89, 89, 0.40);
+    scrollbar-handle:            #33ccff;
 
-    normal-background:           @background;
-    normal-foreground:           @foreground;
-    alternate-normal-background: #222222;
-    alternate-normal-foreground: @foreground;
-    selected-normal-background:  @border-color;
-    selected-normal-foreground:  #ffffff;
+    /* Normal entries */
+    normal-background:           transparent;
+    normal-foreground:           #abb2bf;
+    alternate-normal-background: transparent;
+    alternate-normal-foreground: #abb2bf;
 
-    active-background:           #d79921;
-    active-foreground:           @background;
-    alternate-active-background: @active-background;
-    alternate-active-foreground: @active-foreground;
-    selected-active-background:  #fabd2f;
-    selected-active-foreground:  @active-foreground;
+    /* Selected entries */
+    selected-normal-background:  #33ccffee;
+    selected-normal-foreground:  #1e222a;
 
-    urgent-background:           #cc241d;
-    urgent-foreground:           @background;
-    alternate-urgent-background: @urgent-background;
-    alternate-urgent-foreground: @urgent-foreground;
-    selected-urgent-background:  #fb4934;
-    selected-urgent-foreground:  @urgent-foreground;
+    /* Active entries */
+    active-background:           rgba(0, 255, 153, 0.20);
+    active-foreground:           #00ff99;
+    alternate-active-background: transparent;
+    alternate-active-foreground: #00ff99;
+    selected-active-background:  #00ff99ee;
+    selected-active-foreground:  #1e222a;
+
+    /* Urgent entries */
+    urgent-background:           rgba(224, 108, 117, 0.25);
+    urgent-foreground:           #e06c75;
+    alternate-urgent-background: transparent;
+    alternate-urgent-foreground: #e06c75;
+    selected-urgent-background:  #e06c75;
+    selected-urgent-foreground:  #ffffff;
 }
 
 window {
-	width:            800px;
-	height:           800px;
+    transparency:     "real";
+    width:            750px;
+    height:           650px;
     background-color: @background;
-    border:           2;
-    padding:          2;
+    border:           3px;
+    border-radius:    10px;
+    padding:          10px;
 }
 
 mainbox {
+    background-color: transparent;
     border:  0;
-    padding: 20;
+    padding: 10px;
 }
 
 message {
@@ -63,16 +72,19 @@ textbox {
 }
 
 listview {
-    border:       2px solid 0 0;
-    padding:      2px 0 0;
+    background-color: transparent;
+    border:       1px solid 0 0;
+    padding:      8px 0 0;
     border-color: @separatorcolor;
     spacing:      5px;
-    scrollbar:    @scrollbar;
+    scrollbar:    true;
 }
 
 element {
-    border:  0;
-    padding: 10px;
+    background-color: transparent;
+    border:        0;
+    border-radius: 8px;
+    padding:       8px 12px;
 }
 
 element.normal.normal {
@@ -121,6 +133,7 @@ element.alternate.active {
 }
 
 scrollbar {
+    background-color: transparent;
     width:        4px;
     border:       0;
     handle-color: @scrollbar-handle;
@@ -129,35 +142,40 @@ scrollbar {
 }
 
 mode-switcher {
-    border:       2px 0 0;
+    border:       1px 0 0;
     border-color: @separatorcolor;
 }
 
 inputbar {
-    spacing:    0;
-    text-color: @normal-foreground;
-    padding:    10px;
-    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+    background-color: rgba(40, 44, 52, 0.50);
+    spacing:       0;
+    text-color:    #ffffff;
+    padding:       10px 14px;
+    border-radius: 8px;
+    children:      [ prompt, textbox-prompt-sep, entry, case-indicator ];
 }
 
 case-indicator, entry, prompt, button {
+    background-color: transparent;
     spacing:    0;
-    text-color: @normal-foreground;
+    text-color: #ffffff;
 }
 
 button.selected {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
+    border-radius:    6px;
 }
 
 textbox-prompt-sep {
+    background-color: transparent;
     expand:     false;
     str:        ":";
-    text-color: @normal-foreground;
-    margin:     0 0.3em 0 0;
+    text-color: @border-color;
+    margin:     0 0.4em 0 0;
 }
 
 element-text, element-icon {
-    background-color: inherit;
+    background-color: transparent;
     text-color:       inherit;
 }
