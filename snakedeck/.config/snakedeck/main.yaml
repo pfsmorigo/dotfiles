@@ -6,14 +6,14 @@ globals:
 
   homeassistant:
     url: https://home.smow.io
-    token: $(pass homeassistant/api)
+    token: pass:homeassistant/api
 
   healthchecks:
     url: https://hc.smow.io
-    token: $(pass healthchecks/api)
+    token: pass:healthchecks/api
 
   openrouter:
-    token: $(pass openrouter/api)
+    token: pass:openrouter/api
 
   zigbee2mqtt:
     url: http://home.smow.io:8099
@@ -49,17 +49,16 @@ globals:
 
 deck:
   - card: system_metrics
-    title: Pisa
-
-  - card: glances
-    url: http://truenas.smow.io:30015/
-    title: TrueNAS
-
-  - card: nvidia
 
   - card: system_metrics
     mode: net
     interface: enp4s0
+
+  - card: nvidia
+
+  - card: glances
+    url: http://truenas.smow.io:30015/
+    title: TrueNAS
 
   - card: multi
     multi:
@@ -74,7 +73,6 @@ deck:
   - card: pomodoro
 
   - card: creality
-    title: 3D Printer
 
   - card: openrouter
 
