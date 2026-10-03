@@ -83,7 +83,7 @@ stow nvim      # Modern Neovim (lazy.nvim, Lua)
 stow vim       # Classic Vim (vim-plug, templates, custom syntax)
 
 # Wayland Desktop
-stow hypr      # Hyprland compositor
+stow hyprland  # Hyprland compositor
 stow waybar    # Waybar status bar
 stow rofi      # App launcher & menus
 
@@ -149,7 +149,7 @@ Some packages target system-wide paths (`/etc/` or `/usr/share/`) and include Ma
 
 | Package | Description | Target Paths |
 | :--- | :--- | :--- |
-| **`hypr`** | [Hyprland](https://hyprland.org/) dynamic tiling Wayland compositor setup with window rules, multi-monitor configuration, and keybindings. | `~/.config/hypr/hyprland.conf` |
+| **`hyprland`** | [Hyprland](https://hyprland.org/) dynamic tiling Wayland compositor setup with window rules, multi-monitor configuration, keybindings, and dynamic border/gap toggle script (`Super + B`). | `~/.config/hypr/hyprland.conf`, `~/.config/hypr/scripts/` |
 | **`waybar`** | Custom Wayland status bar featuring workspaces, CPU load, network status, Bluetooth/PulseAudio audio controls, and system tray. | `~/.config/waybar/config.jsonc` |
 | **`i3`** | [i3-gaps/i3wm](https://i3wm.org/) tiling window manager configuration with emoji workspace identifiers, Yaru orange/purple accents, and hostname-tailored `i3blocks` status bars (`reno`, `oslo`, `pisa`, `rome`). | `~/.config/i3/`, `~/.config/i3blocks/` |
 | **`rofi`** | Application launcher, window switcher, and SSH target launcher. | `~/.config/rofi/config.rasi` |
