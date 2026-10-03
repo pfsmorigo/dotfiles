@@ -104,7 +104,9 @@
 			"spotify": false
 		},
 		"orders": {
-			"wechat": 99
+			"steam": 1,
+			"Steam": 1,
+			"nm-applet": 99
 		}
 	}
 }
