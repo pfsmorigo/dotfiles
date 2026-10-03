@@ -1,13 +1,14 @@
 configuration {
-	font: "Ubuntu Sans 14";
+	font: "Ubuntu 12";
 	columns: 1;
-	ssh-command: "smowterm {host}";
+	terminal: "kitty";
+	ssh-command: "kitty -e ssh {host}";
 	sidebar-mode: true;
 }
 
 * {
     /* Theme colors (matching Hyprland / OneDark palette) */
-    background:                  #1e222ae6; /* ~90% opacity */
+    background:                  #1e222abb; /* ~90% opacity */
     background-color:            transparent;
     foreground:                  #abb2bf;
     highlight:                   bold #33ccff;
