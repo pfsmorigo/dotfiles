@@ -1,0 +1,16 @@
+# Snake Deck Configuration
+deck:
+  - card: time
+
+  - card: recent_window
+
+  - card: media_player
+
+  - card: exit
+
+  - card: back
+
+  - card: custom
+    title: Downloads
+    mode: graph
+    command: ls -la ~/Downloads | wc -l
