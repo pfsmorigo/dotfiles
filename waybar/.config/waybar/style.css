@@ -41,6 +41,11 @@ window#waybar {
   padding: 5px 12px;
 }
 
+#custom-notification.notification,
+#custom-notification.dnd-notification {
+  color: #E06C75;
+}
+
 #workspaces button:hover,
 #window:hover,
 #system-info .module:hover {
