@@ -17,6 +17,7 @@
 			"temperature",
 			"network",
 			"pulseaudio",
+			"custom/notification",
 			"tray",
 			"clock"
 		]
@@ -94,6 +95,26 @@
 			"on-scroll-up": "shift_up",
 			"on-scroll-down": "shift_down"
 		}
+	},
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "<span vertical-align='top' size='xx-small'>●</span>",
+			"none": "",
+			"dnd-notification": "<span vertical-align='top' size='xx-small'>●</span>",
+			"dnd-none": "",
+			"inhibited-notification": "<span vertical-align='top' size='xx-small'>●</span>",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "<span vertical-align='top' size='xx-small'>●</span>",
+			"dnd-inhibited-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -dfb",
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
 	},
 	"tray": {
 		"icon-size": 16,

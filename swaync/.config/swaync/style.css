@@ -1,0 +1,159 @@
+* {
+  font-family: "Ubuntu Sans", sans-serif;
+  font-size: 13px;
+}
+
+/* Control Center Panel */
+.control-center {
+  background: rgba(35, 35, 35, 0.95);
+  border-radius: 14px;
+  border: 1px solid rgba(95, 95, 95, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  padding: 14px;
+  color: #ECEFF4;
+}
+
+/* Control Center Title Widget */
+.widget-title {
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.widget-title > button {
+  background: linear-gradient(180deg, #4F4F4F, #404040);
+  color: #ECEFF4;
+  border: none;
+  border-radius: 10px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.widget-title > button:hover {
+  background: #61AFEF;
+  color: #FFFFFF;
+}
+
+/* Do Not Disturb Widget */
+.widget-dnd {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background: rgba(60, 60, 60, 0.6);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.widget-dnd > switch {
+  border-radius: 12px;
+  border: none;
+  background: #4F4F4F;
+}
+
+.widget-dnd > switch:checked {
+  background: #61AFEF;
+}
+
+.widget-dnd > switch slider {
+  background: #FFFFFF;
+  border-radius: 12px;
+}
+
+/* MPRIS Media Player Widget */
+.widget-mpris {
+  background: rgba(60, 60, 60, 0.6);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+.widget-mpris-player {
+  padding: 4px;
+}
+
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 13px;
+  color: #FFFFFF;
+}
+
+.widget-mpris-subtitle {
+  font-size: 12px;
+  color: #ABB2BF;
+}
+
+/* Floating Notification Popups & Notification Center List */
+.notification-row {
+  outline: none;
+  margin: 6px 0px;
+}
+
+.notification {
+  background: linear-gradient(180deg, #4F4F4F, #404040);
+  border-radius: 12px;
+  border: 1px solid rgba(120, 120, 120, 0.3);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  padding: 10px 14px;
+  color: #ECEFF4;
+}
+
+.notification.critical {
+  border: 1px solid #E06C75;
+  background: linear-gradient(180deg, #5A3538, #40282A);
+}
+
+.notification.low {
+  border: 1px solid rgba(80, 80, 80, 0.4);
+}
+
+.notification-content {
+  margin: 2px;
+}
+
+.summary {
+  font-size: 13px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.body {
+  font-size: 12px;
+  color: #DCDFE4;
+}
+
+.time {
+  font-size: 11px;
+  color: #98C379;
+  margin-right: 8px;
+}
+
+/* Close Button */
+.close-button {
+  background: transparent;
+  color: #ABB2BF;
+  border: none;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.close-button:hover {
+  background: #E06C75;
+  color: #FFFFFF;
+}
+
+/* Action Buttons inside Notifications */
+.notification-action {
+  background: linear-gradient(180deg, #5A5A5A, #484848);
+  border: none;
+  border-radius: 8px;
+  color: #ECEFF4;
+  margin: 4px;
+  padding: 4px 10px;
+  font-weight: bold;
+}
+
+.notification-action:hover {
+  background: #61AFEF;
+  color: #FFFFFF;
+}

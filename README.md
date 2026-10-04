@@ -85,6 +85,7 @@ stow vim       # Classic Vim (vim-plug, templates, custom syntax)
 # Wayland Desktop
 stow hyprland  # Hyprland compositor
 stow waybar    # Waybar status bar
+stow swaync    # SwayNotificationCenter notification daemon & control center
 stow rofi      # App launcher & menus
 
 # X11 Desktop (Alternative)
@@ -151,6 +152,7 @@ Some packages target system-wide paths (`/etc/` or `/usr/share/`) and include Ma
 | :--- | :--- | :--- |
 | **`hyprland`** | [Hyprland](https://hyprland.org/) dynamic tiling Wayland compositor setup with window rules, multi-monitor configuration, keybindings, dynamic border/gap toggle script (`Super + B`), and persistent floating rule generator script (`Super + Alt + V`, `Super + Alt + Shift + V`). | `~/.config/hypr/hyprland.conf`, `~/.config/hypr/rules-floating.conf`, `~/.config/hypr/scripts/` |
 | **`waybar`** | Custom Wayland status bar featuring workspaces, CPU load, network status, Bluetooth/PulseAudio audio controls, and system tray. | `~/.config/waybar/config.jsonc` |
+| **`swaync`** | [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter) notification daemon and interactive slide-out control center widget with MPRIS player, DND toggle, and Waybar integration. | `~/.config/swaync/config.json`, `~/.config/swaync/style.css` |
 | **`i3`** | [i3-gaps/i3wm](https://i3wm.org/) tiling window manager configuration with emoji workspace identifiers, Yaru orange/purple accents, and hostname-tailored `i3blocks` status bars (`reno`, `oslo`, `pisa`, `rome`). | `~/.config/i3/`, `~/.config/i3blocks/` |
 | **`rofi`** | Application launcher, window switcher, and SSH target launcher. | `~/.config/rofi/config.rasi` |
 | **`kitty`** | GPU-accelerated terminal emulator configuration with custom fonts, keybindings, and scrollback settings. | `~/.config/kitty/kitty.conf` |

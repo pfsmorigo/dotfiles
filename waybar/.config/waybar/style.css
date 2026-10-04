@@ -36,6 +36,11 @@ window#waybar {
   padding: 5px 20px;
 }
 
+#custom-notification {
+  font-size: 13px;
+  padding: 5px 12px;
+}
+
 #workspaces button:hover,
 #window:hover,
 #system-info .module:hover {
