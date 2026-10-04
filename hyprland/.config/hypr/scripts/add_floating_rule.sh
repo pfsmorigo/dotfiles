@@ -50,10 +50,10 @@ fi
 
 # Escape regex characters in class name (e.g. dots in org.gnome.Calculator)
 ESCAPED_CLASS=$(printf '%s\n' "$CLASS" | sed 's/[.[\*^$()+?{|]/\\&/g')
-RULE="windowrulev2 = float, class:^(${ESCAPED_CLASS})$"
+RULE="windowrule = float on, match:class ^(${ESCAPED_CLASS})$"
 
-# Check if the rule is already in the file
-if grep -Fxq "$RULE" "$RULES_FILE" 2>/dev/null; then
+# Check if the rule is already in the file (matching new or legacy format)
+if grep -Eq "(match:class[[:space:]]+|class:)\^\(${ESCAPED_CLASS}\)\$" "$RULES_FILE" 2>/dev/null; then
     command -v notify-send >/dev/null 2>&1 && notify-send "Hyprland" "Rule already exists for: $CLASS"
     if [ -n "$ADDRESS" ]; then
         hyprctl dispatch setfloating "address:${ADDRESS}" >/dev/null 2>&1
@@ -67,7 +67,7 @@ if [ -n "$ADDRESS" ]; then
 fi
 
 # 2. Register rule in running Hyprland instance dynamically
-hyprctl keyword windowrulev2 "float, class:^(${ESCAPED_CLASS})$" >/dev/null 2>&1
+hyprctl keyword windowrule "float on, match:class ^(${ESCAPED_CLASS})$" >/dev/null 2>&1
 
 # 3. Append to persistent rules file
 echo "$RULE" >> "$RULES_FILE"

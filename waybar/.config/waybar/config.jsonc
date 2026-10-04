@@ -127,6 +127,8 @@
 		"orders": {
 			"steam": 1,
 			"Steam": 1,
+			"solar": 97,
+			"deskflow": 98,
 			"nm-applet": 99
 		}
 	}

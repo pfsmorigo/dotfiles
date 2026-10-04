@@ -14,7 +14,7 @@ window#waybar {
   background: linear-gradient(180deg, #505050, #5F5F5F);
   padding: 3px;
   margin: 0px;
-  border-radius: 12px;
+  border-radius: 10px;
   border-width: 0px;
 }
 
@@ -27,8 +27,8 @@ window#waybar {
 #system-info .module {
   background: linear-gradient(180deg, #4F4F4F, #404040);
   margin: 0px 3px;
-  padding: 5px 10px;
-  border-radius: 12px;
+  padding: 0px 5px;
+  border-radius: 10px;
   border-width: 0px;
 }
 
