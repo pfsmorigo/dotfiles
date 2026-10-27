@@ -155,7 +155,7 @@ Some packages target system-wide paths (`/etc/` or `/usr/share/`) and include Ma
 | **`swaync`** | [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter) notification daemon and interactive slide-out control center widget with MPRIS player, DND toggle, and Waybar integration. | `~/.config/swaync/config.json`, `~/.config/swaync/style.css` |
 | **`i3`** | [i3-gaps/i3wm](https://i3wm.org/) tiling window manager configuration with emoji workspace identifiers, Yaru orange/purple accents, and hostname-tailored `i3blocks` status bars (`reno`, `oslo`, `pisa`, `rome`). | `~/.config/i3/`, `~/.config/i3blocks/` |
 | **`rofi`** | Application launcher, window switcher, and SSH target launcher. | `~/.config/rofi/config.rasi` |
-| **`kitty`** | GPU-accelerated terminal emulator configuration with custom fonts, keybindings, and scrollback settings. | `~/.config/kitty/kitty.conf` |
+| **`kitty`** | GPU-accelerated terminal emulator configuration with custom fonts, keybindings, scrollback settings, and direct tmux shell execution. | `~/.config/kitty/kitty.conf` |
 | **`gtk`** | GTK 2.0, 3.0, and 4.0 dark theme configurations (`Adwaita-dark`), Vi key themes, and widget styling. | `~/.config/gtk-3.0/`, `~/.config/gtk-4.0/`, `~/.gtkrc-2.0` |
 | **`x11`** | X11 resources configuration (`.Xresources`) and custom Compose key combinations (`.XCompose`). | `~/.Xresources`, `~/.XCompose` |
 | **`xdg`** | Standard XDG user directory mappings and locales. | `~/.config/user-dirs.*` |

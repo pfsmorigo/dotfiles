@@ -2,6 +2,7 @@ font: Ubuntu
 sleep: ["22:00", "08:00"]
 bind:
   - 10.3.0.0/16
+  - 10.7.0.0/16
 
 homeassistant:
   url: https://home.smow.io
