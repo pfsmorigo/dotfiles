@@ -168,7 +168,7 @@ Some packages target system-wide paths (`/etc/` or `/usr/share/`) and include Ma
 | :--- | :--- | :--- |
 | **`fish`** | Primary interactive shell environment powered by [Fisher](https://github.com/jorgebucaran/fisher), the `bobthefish` prompt theme, git helper aliases, and kitty image protocol integration (`icat`). | `~/.config/fish/` |
 | **`bash`** | Interactive and fallback shell with strict XDG Base Directory variable exports, SSH agent socket discovery, quilt aliases, and automatic alias synchronization to `~/.bash_aliases`. | `~/.bashrc`, `~/.bash_profile`, `~/.inputrc` |
-| **`tmux`** | Terminal multiplexer configuration supporting true-color (24-bit), Powerline symbols, and status bar styling. | `~/.config/tmux/tmux.conf` |
+| **`tmux`** | Terminal multiplexer configuration supporting true-color (24-bit), Powerline symbols, status bar styling, direct window/console switching via `Alt+<0-9>`, and Vim-style navigation (`Alt+h`/`Alt+l`). | `~/.config/tmux/tmux.conf` |
 | **`screen`** | GNU Screen multiplexer configuration. | `~/.config/screenrc` |
 | **`ranger`** | Console file manager keybindings and previews. | `~/.config/ranger/rc.conf` |
 | **`tig`** | Text-mode interface for Git. | `~/.tigrc` |
