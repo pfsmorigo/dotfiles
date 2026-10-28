@@ -34,3 +34,10 @@ deck:
 
   - card: exit
     title: Navigation Exit to Root
+
+  - card: notifications
+    title: Notification Center
+
+  - card: updates
+    title: System Package Updates
+

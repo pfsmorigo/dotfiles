@@ -177,7 +177,7 @@ Some packages target system-wide paths (`/etc/` or `/usr/share/`) and include Ma
 
 | Package | Description | Target Paths |
 | :--- | :--- | :--- |
-| **`nvim`** | Modern [Neovim](https://neovim.io/) configuration in Lua using [lazy.nvim](https://github.com/folke/lazy.nvim). Configured with Gruvbox, Treesitter, Telescope, Lualine, Gitsigns, Vimwiki (Obsidian vault integration), Ledger, and Vimspector debugging. | `~/.config/nvim/init.lua` |
+| **`nvim`** | Modern [Neovim](https://neovim.io/) configuration in Lua using [lazy.nvim](https://github.com/folke/lazy.nvim). Configured with OneDark, Treesitter, Telescope, Lualine, Gitsigns, Vimwiki (Obsidian vault integration), Ledger, and Vimspector debugging. | `~/.config/nvim/init.lua` |
 | **`vim`** | Classic Vim setup featuring [vim-plug](https://github.com/junegunn/vim-plug), code skeleton templates (`skeleton.c`, `skeleton.py`, `skeleton.scad`), spell dictionaries, and specialized syntax files (AppArmor, CVEs, Jinja, Nginx). | `~/.vim/`, `~/.vimrc` |
 | **`git`** | Git configuration with curated shortcuts (`st`, `ci`, `br`, `co`, `lg`, `lola`, `vanish`), whitespace normalization, and Launchpad SSH rewrite rules. | `~/.config/git/config`, `~/.config/git/ignore` |
 | **`gdb`** | Custom GDB initialization and Python debugging scripts for cryptographic algorithms (Go crypto, AES, ChaCha, Elliptic curves, OpenSSL EVP) and PowerPC architectures. | `~/.gdbinit`, `~/.config/gdb/` |

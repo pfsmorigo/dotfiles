@@ -39,7 +39,7 @@ opt.incsearch = true
 
 -- Encoding & Clipboard
 opt.encoding = "utf-8"
-opt.clipboard = "unnamedplus" -- Replaces custom xclip visual mapping
+opt.clipboard = "" -- Keep yanks and deletes internal to Neovim
 
 -- Spell & Error formatting
 opt.errorformat:append("remote: %f:%l:%c:%m")
@@ -120,6 +120,12 @@ map("n", "<leader>l", "<cmd>tabe ~/money/ledger/inbox.ledger<CR>", { desc = "Ope
 -- Tag jump splits
 map("n", "<C-\\>", "<cmd>tab split | exec 'tag ' . expand('<cword>')<CR>")
 map("n", "<A-]>", "<cmd>vsp | exec 'tag ' . expand('<cword>')<CR>")
+
+-- Clipboard (explicit sync to system clipboard)
+map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+map("n", "<leader>Y", '"+Y', { desc = "Yank line to system clipboard" })
+map("v", "<C-c>", '"+y', { desc = "Copy selection to clipboard" })
+map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
 
 -- =============================================================================
 -- 4. Autocommands & Filetype Configurations
