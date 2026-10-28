@@ -9,8 +9,9 @@ fish_add_path /usr/local/go/bin
 
 # Environment Variables
 set -gx EDITOR nvim
-set -gx VISUAL nvim
 set -gx PAGER less
+set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+set -gx VISUAL nvim
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # XDG Adjustments

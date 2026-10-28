@@ -14,3 +14,23 @@ deck:
     title: Downloads
     mode: graph
     command: ls -la ~/Downloads | wc -l
+
+  - card: time
+    title: Time & Clock
+
+  - card: custom
+    title: Custom Button & Graph
+
+  - card: recent_window
+    title: Active Window Switcher
+
+  - card: command
+    title: Shell Command Output
+    command: ls -la ~/Downloads | wc -l
+    interval: '10'
+
+  - card: back
+    title: Navigation Back Button
+
+  - card: exit
+    title: Navigation Exit to Root
