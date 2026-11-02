@@ -1,0 +1,234 @@
+#!/usr/bin/env bash
+#
+# logitech-flow-kvm-service
+# Wrapper script to run logitech-flow-kvm under systemd or directly from CLI.
+# Automatically deploys a Python virtual environment and installs logitech-flow-kvm
+# if not already present.
+
+set -euo pipefail
+
+# Configuration and state paths
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/logitech-flow-kvm"
+VENV_DIR="${LOGITECH_FLOW_KVM_VENV:-${XDG_DATA_HOME:-$HOME/.local/share}/logitech-flow-kvm/venv}"
+
+# Detect hostnames for per-host configuration lookup
+HOSTNAME_SHORT="$(hostname -s 2>/dev/null || hostname 2>/dev/null || echo "")"
+HOSTNAME_FULL="$(hostname 2>/dev/null || echo "")"
+
+# Resolve configuration file with per-host and local fallbacks:
+# 1. Explicit environment variable: $LOGITECH_FLOW_KVM_CONFIG
+# 2. Local config file or symlink: ~/.config/logitech-flow-kvm/config
+# 3. Short hostname config: ~/.config/logitech-flow-kvm/config-<short_hostname> (e.g. config-pisa)
+# 4. Full hostname config: ~/.config/logitech-flow-kvm/config-<full_hostname> (e.g. config-pisa.lan)
+CONFIG_FILE=""
+if [ -n "${LOGITECH_FLOW_KVM_CONFIG:-}" ] && [ -f "$LOGITECH_FLOW_KVM_CONFIG" ]; then
+    CONFIG_FILE="$LOGITECH_FLOW_KVM_CONFIG"
+elif [ -f "$CONFIG_DIR/config" ]; then
+    CONFIG_FILE="$CONFIG_DIR/config"
+elif [ -n "$HOSTNAME_SHORT" ] && [ -f "$CONFIG_DIR/config-$HOSTNAME_SHORT" ]; then
+    CONFIG_FILE="$CONFIG_DIR/config-$HOSTNAME_SHORT"
+elif [ -n "$HOSTNAME_FULL" ] && [ -f "$CONFIG_DIR/config-$HOSTNAME_FULL" ]; then
+    CONFIG_FILE="$CONFIG_DIR/config-$HOSTNAME_FULL"
+else
+    CONFIG_FILE="$CONFIG_DIR/config"
+fi
+
+# Source user configuration if present
+if [ -f "$CONFIG_FILE" ]; then
+    # shellcheck disable=SC1090
+    . "$CONFIG_FILE"
+fi
+
+# Fallback DISPLAY for X11 clipboard synchronization if unset
+if [ -z "${DISPLAY:-}" ] && [ -z "${WAYLAND_DISPLAY:-}" ]; then
+    export DISPLAY=":0"
+fi
+
+# Locate Python 3 interpreter
+find_python() {
+    if command -v python3 >/dev/null 2>&1; then
+        echo "python3"
+    elif command -v python >/dev/null 2>&1; then
+        echo "python"
+    else
+        echo "Error: Python 3 not found in PATH." >&2
+        return 1
+    fi
+}
+
+# Deploy virtual environment if not present
+deploy_venv() {
+    local python_bin
+    python_bin=$(find_python)
+
+    echo "==> Deploying virtual environment at '$VENV_DIR'..."
+    mkdir -p "$(dirname "$VENV_DIR")"
+
+    if ! "$python_bin" -m venv --clear "$VENV_DIR" 2>/dev/null; then
+        if command -v virtualenv >/dev/null 2>&1; then
+            echo "==> Falling back to 'virtualenv' command..."
+            if ! virtualenv --clear -p "$python_bin" "$VENV_DIR"; then
+                rm -rf "$VENV_DIR"
+                echo "Error: Failed to create virtual environment with 'virtualenv'." >&2
+                exit 1
+            fi
+        else
+            rm -rf "$VENV_DIR"
+            echo "Error: Failed to create virtual environment using '$python_bin -m venv'." >&2
+            echo "Please ensure 'python3-venv' (e.g. sudo apt install python3-venv) or 'virtualenv' is installed on your system." >&2
+            exit 1
+        fi
+    fi
+
+    # Ensure pip is installed
+    if [ ! -x "$VENV_DIR/bin/pip" ]; then
+        echo "==> Bootstrapping pip in virtual environment..."
+        if ! "$VENV_DIR/bin/python" -m ensurepip --upgrade 2>/dev/null; then
+            echo "Warning: ensurepip failed. Please ensure pip is installed." >&2
+        fi
+    fi
+}
+
+# Install logitech-flow-kvm in the virtualenv if missing
+install_service() {
+    if [ ! -x "$VENV_DIR/bin/pip" ]; then
+        echo "Error: pip binary not found in '$VENV_DIR/bin/pip'." >&2
+        exit 1
+    fi
+
+    echo "==> Installing logitech-flow-kvm into virtual environment..."
+    "$VENV_DIR/bin/pip" install --upgrade pip
+    "$VENV_DIR/bin/pip" install logitech-flow-kvm
+}
+
+# Auto-detect connected Logitech keyboard (Leader) and mouse (Follower)
+auto_detect_devices() {
+    "$VENV_DIR/bin/python" - "$VENV_DIR/bin/logitech-flow-kvm" << 'EOF'
+import sys, subprocess, re
+
+binary = sys.argv[1]
+try:
+    res = subprocess.run([binary, "list-devices"], capture_output=True, text=True, check=True)
+    out = res.stdout
+except Exception as e:
+    sys.stderr.write(f"Error querying devices via '{binary} list-devices': {e}\n")
+    sys.exit(1)
+
+keyboards = []
+mice = []
+other = []
+
+for line in out.splitlines():
+    parts = [p.strip() for p in re.split(r'[│|┃\t]', line) if p.strip()]
+    if len(parts) >= 3 and re.fullmatch(r'[0-9a-fA-F]{8}', parts[0]):
+        dev_id = parts[0].upper()
+        prod = parts[1]
+        name = parts[2]
+        low = name.lower()
+        if any(k in low for k in ['key', 'keyboard', 'craft', 'k380', 'k780', 'k850', 'ergo k']):
+            keyboards.append((dev_id, name))
+        elif any(m in low for m in ['mouse', 'master', 'anywhere', 'triathlon', 'lift', 'trackball', 'm720', 'm590', 'g502', 'g903']):
+            mice.append((dev_id, name))
+        else:
+            other.append((dev_id, name))
+
+if not keyboards:
+    sys.stderr.write("Error: No Logitech keyboard detected via 'list-devices'.\n")
+    sys.stderr.write("Please ensure your USB receiver is plugged in and MX Keys is awake.\n")
+    sys.exit(1)
+
+leader_id, leader_name = keyboards[0]
+followers = [m[0] for m in mice] + [o[0] for o in other] + [k[0] for k in keyboards[1:]]
+
+# Print space-separated device IDs with leader first
+print(f"{leader_id} {' '.join(followers)}".strip())
+EOF
+}
+
+# Auto-configure and write discovered device IDs to config
+auto_config_save() {
+    echo "==> Scanning for connected Logitech devices..."
+    local detected
+    if ! detected=$(auto_detect_devices); then
+        exit 1
+    fi
+
+    echo "==> Detected devices (Leader + Followers): $detected"
+
+    local target_file="${CONFIG_FILE:-}"
+    if [ -z "$target_file" ] || [ ! -f "$target_file" ]; then
+        target_file="$CONFIG_DIR/config-$HOSTNAME_SHORT"
+    fi
+
+    if [ -f "$target_file" ]; then
+        if grep -q -E '<[A-Za-z0-9_]+>|auto-devices' "$target_file"; then
+            sed -i -E "s/<[A-Za-z0-9_]+>(\s*<[A-Za-z0-9_]+>)*|auto-devices/$detected/g" "$target_file"
+        else
+            sed -i -E "s/^(LOGITECH_FLOW_KVM_ARGS=\"flow-server[^0-9]*[0-9]+).*/\1 $detected\"/" "$target_file"
+        fi
+        echo "==> Updated configuration in '$target_file'."
+    else
+        mkdir -p "$CONFIG_DIR"
+        cat > "$target_file" << EOF
+# Logitech Flow KVM configuration for $HOSTNAME_SHORT
+LOGITECH_FLOW_KVM_ARGS="flow-server --hostname ${HOSTNAME_FULL:-localhost} 1 $detected"
+EOF
+        echo "==> Created '$target_file' with discovered devices."
+    fi
+}
+
+# Ensure virtualenv and logitech-flow-kvm are deployed
+if [ ! -x "$VENV_DIR/bin/python" ] || [ ! -x "$VENV_DIR/bin/pip" ]; then
+    deploy_venv
+fi
+
+if [ ! -x "$VENV_DIR/bin/logitech-flow-kvm" ]; then
+    install_service
+fi
+
+# Handle installation-only flag
+if [ "${1:-}" = "--install-only" ] || [ "${1:-}" = "--deploy-only" ]; then
+    echo "Virtual environment ready at: $VENV_DIR"
+    echo "Binary location: $VENV_DIR/bin/logitech-flow-kvm"
+    exit 0
+fi
+
+# Handle auto-config command
+if [ "${1:-}" = "auto-config" ] || [ "${1:-}" = "--auto-config" ]; then
+    auto_config_save
+    exit 0
+fi
+
+# Determine arguments to execute
+if [ $# -gt 0 ]; then
+    exec "$VENV_DIR/bin/logitech-flow-kvm" "$@"
+elif [ -n "${LOGITECH_FLOW_KVM_ARGS:-}" ]; then
+    RESOLVED_ARGS="$LOGITECH_FLOW_KVM_ARGS"
+    # Auto-resolve placeholder serials or 'auto-devices' keyword on the fly
+    if echo "$RESOLVED_ARGS" | grep -q -E '<[A-Za-z0-9_]+>|auto-devices'; then
+        echo "==> Auto-resolving Logitech device serial numbers for flow-server..."
+        if DETECTED_DEVICES=$(auto_detect_devices); then
+            echo "==> Auto-detected devices: $DETECTED_DEVICES"
+            RESOLVED_ARGS=$(echo "$RESOLVED_ARGS" | sed -E "s/<[A-Za-z0-9_]+>(\s*<[A-Za-z0-9_]+>)*|auto-devices/$DETECTED_DEVICES/")
+        else
+            exit 1
+        fi
+    fi
+    # shellcheck disable=SC2086
+    exec "$VENV_DIR/bin/logitech-flow-kvm" $RESOLVED_ARGS
+elif [ -n "${ARGS:-}" ]; then
+    # shellcheck disable=SC2086
+    exec "$VENV_DIR/bin/logitech-flow-kvm" $ARGS
+else
+    echo "Error: No arguments provided for logitech-flow-kvm." >&2
+    echo "" >&2
+    echo "Please configure arguments in: $CONFIG_FILE" >&2
+    echo "Example for host server:" >&2
+    echo "  LOGITECH_FLOW_KVM_ARGS=\"flow-server 1 auto-devices\"" >&2
+    echo "" >&2
+    echo "Example for host client:" >&2
+    echo "  LOGITECH_FLOW_KVM_ARGS=\"flow-client 2 <server_ip>\"" >&2
+    echo "" >&2
+    echo "Or run 'logitech-flow-kvm auto-config' to auto-detect and save your devices." >&2
+    exit 1
+fi

@@ -1,10 +1,6 @@
 deck:
   - card: system_metrics
 
-  - card: system_metrics
-    mode: net
-    interface: enp4s0
-
   - card: nvidia
 
   - card: glances
@@ -20,6 +16,8 @@ deck:
     hold:
       deck: finance.yaml
     rotate: 3
+
+  - card: media_player
 
   - card: pomodoro
 

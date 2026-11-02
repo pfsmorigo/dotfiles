@@ -95,6 +95,7 @@ stow gtk       # GTK 2/3 settings
 
 # Productivity & Hardware
 stow snakedeck # Stream Deck configuration
+stow logitech-flow-kvm # Logitech Flow KVM service & runner
 stow taskwarrior
 stow enchant   # Custom dictionaries
 ```
@@ -209,6 +210,7 @@ Some packages target system-wide paths (`/etc/` or `/usr/share/`) and include Ma
 | **`offlineimap`** | Systemd user service for background IMAP synchronization. | `~/.config/systemd/user/offlineimap.service` |
 | **`secure-tunner`** | Parameterized systemd user service for persistent SSH tunnels (`secure-tunnel@.service`). | `~/.config/systemd/user/secure-tunnel@.service` |
 | **`deckmaster`** | Systemd user service and path units for Stream Deck daemons. | `~/.config/systemd/user/streamdeck.*` |
+| **`logitech-flow-kvm`** | Systemd user service and runner script for [logitech-flow-kvm](https://github.com/coddingtonbear/logitech-flow-kvm) with automatic virtualenv deployment. | `~/.config/systemd/user/logitech-flow-kvm.service`, `~/.local/bin/logitech-flow-kvm-service`, `~/.config/logitech-flow-kvm/` |
 | **`firewalld`** | Custom firewalld XML service definitions (Mosh, Minecraft, Leapcast, Garry's Mod) with Makefile. | `/etc/firewalld/services/` |
 | **`NetworkManager`** | NetworkManager dispatcher scripts with Makefile installer. | `/etc/NetworkManager/dispatcher.d/` |
 | **`lsyncd`** | Live syncing daemon configuration for virtual machine storage. | `lsyncd/sid-vms.conf` |
@@ -237,6 +239,19 @@ Some packages target system-wide paths (`/etc/` or `/usr/share/`) and include Ma
       test -f "$FILE" && source "$FILE"
   done
   ```
+
+- **Logitech Flow KVM Configuration (Per-Host & Roles)**:
+  `logitech-flow-kvm` supports having both server and client configurations tracked in the same repository:
+  - **Per-Host Auto-Discovery** (recommended, matching `i3blocks` convention): Name your configuration files `config-<hostname>` under `logitech-flow-kvm/.config/logitech-flow-kvm/` (e.g. `config-pisa` for server, `config-reno` for client). The runner script and systemd unit auto-detect `$(hostname -s)` / `%H` and source the appropriate file on each machine.
+  - **Automatic Device Discovery**: Use `auto-devices` in `LOGITECH_FLOW_KVM_ARGS` (or run `logitech-flow-kvm auto-config`) to automatically scan paired devices and assign your keyboard as leader and mouse as follower without manual hex serial lookups.
+  - **Local Override (`config`)**: An untracked `~/.config/logitech-flow-kvm/config` file or symlink takes precedence over per-host files if present. Sourced from `config.example`.
+- **Hyprland Display Scaling (Laptops vs. HiDPI Desktops)**:
+  `hyprland/.config/hypr/hyprland.conf` configures 1x scale for built-in laptop displays (`eDP-1`) and a 2x scale fallback for external or desktop 4K monitors:
+  ```ini
+  monitor = eDP-1, preferred, auto, 1
+  monitor = , preferred, auto, 2
+  ```
+  Run `hyprctl monitors` on your notebook to confirm the internal panel connector name (e.g., `eDP-1`), or adjust the scale to `1.25` / `1.5` for higher-resolution laptop screens.
 
 ---
 

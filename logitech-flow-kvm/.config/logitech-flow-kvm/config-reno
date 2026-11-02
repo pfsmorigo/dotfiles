@@ -1,0 +1,6 @@
+# Logitech Flow KVM configuration for reno (Client / Follower)
+#
+# Slot 2 on MX Keys & MX Master connects to reno.lan.
+# Connects to pisa.lan to track leader switching and synchronize clipboard.
+
+LOGITECH_FLOW_KVM_ARGS="flow-client 2 pisa.lan"
