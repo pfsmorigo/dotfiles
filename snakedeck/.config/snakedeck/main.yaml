@@ -23,10 +23,10 @@ deck:
 
   - card: creality
 
-  - card: openrouter
-
   - card: adsb
     title: Flights
+
+  - card: openrouter
 
   - card: weather
 

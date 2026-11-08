@@ -1,9 +1,0 @@
-# Logitech Flow KVM configuration for pisa (Server / Leader)
-#
-# Slot 1 on MX Keys & MX Master connects to pisa.lan.
-# MX Keys is the leader device, and MX Master is the follower device.
-#
-# You can leave 'auto-devices' to dynamically auto-detect your keyboard and mouse,
-# or run 'logitech-flow-kvm auto-config' to detect and persist exact serial numbers.
-
-LOGITECH_FLOW_KVM_ARGS="flow-server --hostname pisa.lan 1 auto-devices"
