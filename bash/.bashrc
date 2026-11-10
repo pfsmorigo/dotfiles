@@ -121,8 +121,6 @@ if [ -e /usr/bin/bluetoothctl ]; then
 	alias connect_sony="bluetoothctl connect $(bluetoothctl devices | grep 'WH-1000XM4' | cut -d' ' -f2)"
 fi
 
-alias ip="ip -color=auto"
-
 alias steam="/usr/games/steam -forcedesktopscaling 2.0"
 
 # enable programmable completion features (you don't need to enable
@@ -146,7 +144,7 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun
 
 export EDITOR="/usr/bin/vim"
 export TERMINAL="$HOME/.local/bin/smowterm"
-export BROWSER="$HOME/.local/bin/openurl"
+#export BROWSER="$HOME/.local/bin/openurl"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 export GPG_TTY=$(tty)

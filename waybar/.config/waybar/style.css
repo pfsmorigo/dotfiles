@@ -5,31 +5,27 @@
 }
 
 window#waybar {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0) 100%);
   border: none;
   box-shadow: none;
 }
 
 #workspaces, #window, #system-info {
-  background: linear-gradient(180deg, #505050, #5F5F5F);
-  padding: 3px;
+  padding: 0px 3px;
   margin: 0px;
   border-radius: 10px;
   border-width: 0px;
 }
 
-#window {
-  background: transparent;
-}
-
 /* For every element inside a block */
 #workspaces button,
 #system-info .module {
-  background: linear-gradient(180deg, #4F4F4F, #404040);
+  background: linear-gradient(180deg, #5F5F5F, #505050);
   margin: 0px 3px;
-  padding: 0px 5px;
-  border-radius: 10px;
+  padding: 2px 7px;
+  border-radius: 8px;
   border-width: 0px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 #window {
@@ -55,14 +51,27 @@ window#waybar {
 #workspaces button.active {
   background: #61AFEF;
   color: white;
-  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5);
 }
 
 #workspaces button.urgent,
-#system-info #temperature.critical {
+#system-info #temperature.critical,
+#system-info #battery.warning {
   background: #E06C75;
   background: linear-gradient(180deg, #E06C75, #BE5046);
   color: white;
+}
+
+#system-info #battery.critical {
+  background: #E5484D;
+  background: linear-gradient(180deg, #E5484D, #A0302F);
+  color: white;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.5;
+  }
 }
 
 #workspaces button.urgent:hover {
@@ -70,5 +79,5 @@ window#waybar {
   color: white;
 }
 
-  /* Horizontal, vertical, blur, spread, color */
-  /* box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5); */
+/* Horizontal, vertical, blur, spread, color */
+/* box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.5); */

@@ -2,10 +2,10 @@
 	"layer": "top",
 	"modules-left": [
 		"hyprland/workspaces",
-		"hyprland/submap"
+		"hyprland/submap",
+		"hyprland/window"
 	],
 	"modules-center": [
-		"hyprland/window"
 	],
 	"modules-right": [
 		"group/system-info"
@@ -14,23 +14,21 @@
 		"orientation": "horizontal", // Options: "horizontal", "vertical", "orthogonal", "inherit"
 		"modules": [
 			"load",
-			"temperature",
 			"network",
+			"temperature",
+			"battery",
 			"pulseaudio",
 			"custom/notification",
 			"tray",
 			"clock"
 		]
     },
-	"hyprland/window": {
-		"max-length": 50
-	},
 	"network": {
 		"interval": 1,
 		"format": "{ipaddr} {bandwidthDownBytes}",
 		"format-wifi": " {ipaddr} {bandwidthDownBytes}",
-		"format-ethernet": " {ipaddr} {bandwidthDownBytes}",
-		"format-disconnected": "",
+		"format-ethernet": " {ipaddr} {bandwidthDownBytes}",
+		"format-disconnected": "",
 		"tooltip-format": "{ifname} ({ipaddr}) via {gwaddr}",
 		"tooltip-format-wifi": "{ifname} ({ipaddr}) ({essid} {signalStrength}%) via {gwaddr}\n⇣ {bandwidthDownBytes} ⇡ {bandwidthUpBytes}",
 		"tooltip-format-ethernet": "{ifname} ({ipaddr}) via {gwaddr}\n⇣ {bandwidthDownBytes} ⇡ {bandwidthUpBytes}",
@@ -70,11 +68,28 @@
 		"format-icons": ["", "", "", "", ""]
 	},
 	"battery": {
-		"format": "{capacity}% {icon}",
-		"format-icons": ["", "", "", "", ""]
+		"interval": 5,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": "{icon} {capacity}%",
+		"format-plugged": "{icon} {capacity}%",
+		"format-icons": {
+			// FontAwesome: empty, quarter, half, three-quarters, full
+			"discharging": ["", "", "", "", ""],
+			// bolt (charging), plug (plugged/full/unknown)
+			"charging": [""],
+			"plugged": [""],
+			"full": [""],
+			"unknown": [""]
+		},
+		"format-time": "{H}h {M}m",
+		"tooltip-format": "{capacity}% ({time})"
 	},
 	"clock": {
-		"format": "{:%d/%m %H:%M}",
+		"format": "{:%H:%M}",
 		"format-alt": "{:%A, %B %d, %Y %R}",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 		"calendar": {
